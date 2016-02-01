@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15DB91BE8815F2343888191D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E71BE28FA894E653C4B22576 /* libPods.a */; };
 		DB4951FF1C5FBB4700745228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4951FE1C5FBB4700745228 /* main.m */; };
 		DB4952021C5FBB4700745228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4952011C5FBB4700745228 /* AppDelegate.m */; };
 		DB4952051C5FBB4700745228 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4952041C5FBB4700745228 /* ViewController.m */; };
@@ -14,9 +15,12 @@
 		DB49520B1C5FBB4700745228 /* SixHands.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB4952091C5FBB4700745228 /* SixHands.xcdatamodeld */; };
 		DB49520D1C5FBB4700745228 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB49520C1C5FBB4700745228 /* Assets.xcassets */; };
 		DB4952101C5FBB4700745228 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB49520E1C5FBB4700745228 /* LaunchScreen.storyboard */; };
+		DBC8064A1C5FBC9A00E84FC2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DBC806491C5FBC9A00E84FC2 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11A7A4175B5D4E47AB7DC9DD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2CA40AE8DF16200438B272FC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DB4951FA1C5FBB4700745228 /* SixHands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SixHands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4951FE1C5FBB4700745228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DB4952001C5FBB4700745228 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,6 +32,8 @@
 		DB49520C1C5FBB4700745228 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB49520F1C5FBB4700745228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB4952111C5FBB4700745228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBC806491C5FBC9A00E84FC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		E71BE28FA894E653C4B22576 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15DB91BE8815F2343888191D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EF6F808A59671677D06E0CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				11A7A4175B5D4E47AB7DC9DD /* Pods.debug.xcconfig */,
+				2CA40AE8DF16200438B272FC /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6F1686D7F7928841B9689BC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E71BE28FA894E653C4B22576 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DB4951F11C5FBB4700745228 = {
 			isa = PBXGroup;
 			children = (
 				DB4951FC1C5FBB4700745228 /* SixHands */,
 				DB4951FB1C5FBB4700745228 /* Products */,
+				1EF6F808A59671677D06E0CF /* Pods */,
+				6F1686D7F7928841B9689BC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +94,7 @@
 				DB49520C1C5FBB4700745228 /* Assets.xcassets */,
 				DB49520E1C5FBB4700745228 /* LaunchScreen.storyboard */,
 				DB4952111C5FBB4700745228 /* Info.plist */,
+				DBC806491C5FBC9A00E84FC2 /* Podfile */,
 				DB4952091C5FBB4700745228 /* SixHands.xcdatamodeld */,
 				DB4951FD1C5FBB4700745228 /* Supporting Files */,
 			);
@@ -89,9 +116,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB4952141C5FBB4700745228 /* Build configuration list for PBXNativeTarget "SixHands" */;
 			buildPhases = (
+				880D56543FD552E4444A3D02 /* Check Pods Manifest.lock */,
 				DB4951F61C5FBB4700745228 /* Sources */,
 				DB4951F71C5FBB4700745228 /* Frameworks */,
 				DB4951F81C5FBB4700745228 /* Resources */,
+				1EF89E69CBE6CBE255104376 /* Embed Pods Frameworks */,
+				CB271259695ED3D9AFB4EF91 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -113,6 +143,7 @@
 				TargetAttributes = {
 					DB4951F91C5FBB4700745228 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 9W968RZS7A;
 					};
 				};
 			};
@@ -141,11 +172,60 @@
 			files = (
 				DB4952101C5FBB4700745228 /* LaunchScreen.storyboard in Resources */,
 				DB49520D1C5FBB4700745228 /* Assets.xcassets in Resources */,
+				DBC8064A1C5FBC9A00E84FC2 /* Podfile in Resources */,
 				DB4952081C5FBB4700745228 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1EF89E69CBE6CBE255104376 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		880D56543FD552E4444A3D02 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CB271259695ED3D9AFB4EF91 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DB4951F61C5FBB4700745228 /* Sources */ = {
@@ -265,9 +345,12 @@
 		};
 		DB4952151C5FBB4700745228 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11A7A4175B5D4E47AB7DC9DD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SixHands/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,9 +359,12 @@
 		};
 		DB4952161C5FBB4700745228 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CA40AE8DF16200438B272FC /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SixHands/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -304,6 +390,7 @@
 				DB4952161C5FBB4700745228 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
