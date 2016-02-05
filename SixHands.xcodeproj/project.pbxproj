@@ -8,9 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		15DB91BE8815F2343888191D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E71BE28FA894E653C4B22576 /* libPods.a */; };
+		3ACF4BEC1C624DF70045D992 /* FlatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACF4BEB1C624DF70045D992 /* FlatViewController.m */; };
+		3ADF01571C6125F300890117 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF01561C6125F300890117 /* LoginViewController.m */; };
+		3ADF015A1C61260200890117 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF01591C61260200890117 /* MapViewController.m */; };
+		3ADF015D1C61261200890117 /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF015C1C61261200890117 /* FavViewController.m */; };
+		3ADF01601C61261F00890117 /* MessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF015F1C61261F00890117 /* MessViewController.m */; };
+		3ADF01631C61264900890117 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF01621C61264900890117 /* ProfileViewController.m */; };
+		3ADF01651C61273100890117 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF01641C61273100890117 /* MapKit.framework */; };
+		3ADF01671C61278D00890117 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF01661C61278D00890117 /* CoreLocation.framework */; };
+		3ADF016A1C6128CF00890117 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF01691C6128CF00890117 /* SWRevealViewController.m */; };
+		3ADF016D1C6128E000890117 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF016C1C6128E000890117 /* FilterViewController.m */; };
+		3ADF017F1C61392A00890117 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017C1C61392A00890117 /* FBSDKCoreKit.framework */; };
+		3ADF01801C61392A00890117 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017D1C61392A00890117 /* FBSDKLoginKit.framework */; };
+		3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */; };
 		DB4951FF1C5FBB4700745228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4951FE1C5FBB4700745228 /* main.m */; };
 		DB4952021C5FBB4700745228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4952011C5FBB4700745228 /* AppDelegate.m */; };
-		DB4952051C5FBB4700745228 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4952041C5FBB4700745228 /* ViewController.m */; };
 		DB4952081C5FBB4700745228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4952061C5FBB4700745228 /* Main.storyboard */; };
 		DB49520B1C5FBB4700745228 /* SixHands.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB4952091C5FBB4700745228 /* SixHands.xcdatamodeld */; };
 		DB49520D1C5FBB4700745228 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB49520C1C5FBB4700745228 /* Assets.xcassets */; };
@@ -21,18 +33,37 @@
 /* Begin PBXFileReference section */
 		11A7A4175B5D4E47AB7DC9DD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2CA40AE8DF16200438B272FC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3ACF4BEA1C624DF70045D992 /* FlatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatViewController.h; sourceTree = "<group>"; };
+		3ACF4BEB1C624DF70045D992 /* FlatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatViewController.m; sourceTree = "<group>"; };
+		3ADF01551C6125F300890117 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3ADF01561C6125F300890117 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3ADF01581C61260200890117 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		3ADF01591C61260200890117 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		3ADF015B1C61261200890117 /* FavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavViewController.h; sourceTree = "<group>"; };
+		3ADF015C1C61261200890117 /* FavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavViewController.m; sourceTree = "<group>"; };
+		3ADF015E1C61261F00890117 /* MessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessViewController.h; sourceTree = "<group>"; };
+		3ADF015F1C61261F00890117 /* MessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessViewController.m; sourceTree = "<group>"; };
+		3ADF01611C61264900890117 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		3ADF01621C61264900890117 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		3ADF01641C61273100890117 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3ADF01661C61278D00890117 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3ADF01681C6128CF00890117 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
+		3ADF01691C6128CF00890117 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
+		3ADF016B1C6128E000890117 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		3ADF016C1C6128E000890117 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		3ADF017C1C61392A00890117 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = SixHands/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		3ADF017D1C61392A00890117 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = SixHands/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = SixHands/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		DB4951FA1C5FBB4700745228 /* SixHands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SixHands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4951FE1C5FBB4700745228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DB4952001C5FBB4700745228 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DB4952011C5FBB4700745228 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DB4952031C5FBB4700745228 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DB4952041C5FBB4700745228 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DB4952071C5FBB4700745228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB49520A1C5FBB4700745228 /* SixHands.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SixHands.xcdatamodel; sourceTree = "<group>"; };
 		DB49520C1C5FBB4700745228 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB49520F1C5FBB4700745228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB4952111C5FBB4700745228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBC806491C5FBC9A00E84FC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		DBC806491C5FBC9A00E84FC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E71BE28FA894E653C4B22576 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -41,6 +72,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADF017F1C61392A00890117 /* FBSDKCoreKit.framework in Frameworks */,
+				3ADF01801C61392A00890117 /* FBSDKLoginKit.framework in Frameworks */,
+				3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */,
+				3ADF01671C61278D00890117 /* CoreLocation.framework in Frameworks */,
+				3ADF01651C61273100890117 /* MapKit.framework in Frameworks */,
 				15DB91BE8815F2343888191D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,9 +93,40 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3ADF016E1C6129D100890117 /* Menu Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3ADF01681C6128CF00890117 /* SWRevealViewController.h */,
+				3ADF01691C6128CF00890117 /* SWRevealViewController.m */,
+				3ADF016B1C6128E000890117 /* FilterViewController.h */,
+				3ADF016C1C6128E000890117 /* FilterViewController.m */,
+			);
+			name = "Menu Controllers";
+			sourceTree = "<group>";
+		};
+		3ADF016F1C6129DB00890117 /* TabBar Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3ADF01581C61260200890117 /* MapViewController.h */,
+				3ADF01591C61260200890117 /* MapViewController.m */,
+				3ADF015B1C61261200890117 /* FavViewController.h */,
+				3ADF015C1C61261200890117 /* FavViewController.m */,
+				3ADF015E1C61261F00890117 /* MessViewController.h */,
+				3ADF015F1C61261F00890117 /* MessViewController.m */,
+				3ADF01611C61264900890117 /* ProfileViewController.h */,
+				3ADF01621C61264900890117 /* ProfileViewController.m */,
+			);
+			name = "TabBar Controllers";
+			sourceTree = "<group>";
+		};
 		6F1686D7F7928841B9689BC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3ADF017C1C61392A00890117 /* FBSDKCoreKit.framework */,
+				3ADF017D1C61392A00890117 /* FBSDKLoginKit.framework */,
+				3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */,
+				3ADF01661C61278D00890117 /* CoreLocation.framework */,
+				3ADF01641C61273100890117 /* MapKit.framework */,
 				E71BE28FA894E653C4B22576 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -88,8 +155,12 @@
 			children = (
 				DB4952001C5FBB4700745228 /* AppDelegate.h */,
 				DB4952011C5FBB4700745228 /* AppDelegate.m */,
-				DB4952031C5FBB4700745228 /* ViewController.h */,
-				DB4952041C5FBB4700745228 /* ViewController.m */,
+				3ADF01551C6125F300890117 /* LoginViewController.h */,
+				3ADF01561C6125F300890117 /* LoginViewController.m */,
+				3ACF4BEA1C624DF70045D992 /* FlatViewController.h */,
+				3ACF4BEB1C624DF70045D992 /* FlatViewController.m */,
+				3ADF016F1C6129DB00890117 /* TabBar Controllers */,
+				3ADF016E1C6129D100890117 /* Menu Controllers */,
 				DB4952061C5FBB4700745228 /* Main.storyboard */,
 				DB49520C1C5FBB4700745228 /* Assets.xcassets */,
 				DB49520E1C5FBB4700745228 /* LaunchScreen.storyboard */,
@@ -232,10 +303,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB4952051C5FBB4700745228 /* ViewController.m in Sources */,
+				3ADF01631C61264900890117 /* ProfileViewController.m in Sources */,
 				DB4952021C5FBB4700745228 /* AppDelegate.m in Sources */,
 				DB4951FF1C5FBB4700745228 /* main.m in Sources */,
+				3ADF015A1C61260200890117 /* MapViewController.m in Sources */,
 				DB49520B1C5FBB4700745228 /* SixHands.xcdatamodeld in Sources */,
+				3ACF4BEC1C624DF70045D992 /* FlatViewController.m in Sources */,
+				3ADF01571C6125F300890117 /* LoginViewController.m in Sources */,
+				3ADF016A1C6128CF00890117 /* SWRevealViewController.m in Sources */,
+				3ADF01601C61261F00890117 /* MessViewController.m in Sources */,
+				3ADF016D1C6128E000890117 /* FilterViewController.m in Sources */,
+				3ADF015D1C61261200890117 /* FavViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +427,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SixHands",
+				);
 				INFOPLIST_FILE = SixHands/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -363,6 +446,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SixHands",
+				);
 				INFOPLIST_FILE = SixHands/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
