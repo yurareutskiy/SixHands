@@ -10,5 +10,10 @@
 
 @interface LoginViewController : UIViewController
 - (IBAction)skipButton:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIButton *facebookButton;
+@property (strong, nonatomic) IBOutlet UIButton *vkButton;
+- (IBAction)facebookButtonAction:(UIButton *)sender;
+- (IBAction)vkButtonAction:(UIButton *)sender;
+
 
 @end

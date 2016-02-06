@@ -16,12 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.vkButton.layer.cornerRadius = 7.f;
+    self.facebookButton.layer.cornerRadius = 7.f;
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 /*
@@ -37,5 +43,10 @@
 - (IBAction)skipButton:(UIButton *)sender {
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
     [self presentViewController:vc animated:true completion:nil];
+}
+- (IBAction)facebookButtonAction:(UIButton *)sender {
+}
+
+- (IBAction)vkButtonAction:(UIButton *)sender {
 }
 @end
