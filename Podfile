@@ -1,5 +1,6 @@
 # source 'https://github.com/CocoaPods/Specs.git'
 # Uncomment this line to define a global platform for your project
+use_frameworks!
 platform :ios, '8.0'
 
 
@@ -9,4 +10,4 @@ pod 'GoogleMaps'
 pod 'NSHash', :git => "https://github.com/jerolimov/NSHash", :tag => "1.1.0"
 pod 'RKDropdownAlert'
 pod 'SCLAlertView-Objective-C'
-
+pod 'TTRangeSlider'
