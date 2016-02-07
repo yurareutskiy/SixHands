@@ -20,6 +20,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    self.navigationItem.title = @"Список";
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:122.0/255.0 green:91.0/255.0 blue:250.0/255.0 alpha:1.0]];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -28,9 +31,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+- (ListTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
+    ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
+    
+    cell.name.titleLabel.numberOfLines = 2;
+    cell.name.titleLabel.minimumScaleFactor = 6.f;
+    cell.name.titleLabel.adjustsFontSizeToFitWidth = YES;
+    
+    cell.address.numberOfLines = 1;
+    [cell.address setMinimumScaleFactor: 10.f];
+    cell.address.adjustsFontSizeToFitWidth = YES;
+    
+    cell.hands.layer.cornerRadius = 15.f;
+    cell.hands.layer.borderColor = [UIColor grayColor].CGColor;
+    cell.hands.layer.borderWidth = 0.5f;
+    
     return cell;
 }
 

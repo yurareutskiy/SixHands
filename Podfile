@@ -10,4 +10,3 @@ pod 'NSHash', :git => "https://github.com/jerolimov/NSHash", :tag => "1.1.0"
 pod 'RKDropdownAlert'
 pod 'SCLAlertView-Objective-C'
 
-

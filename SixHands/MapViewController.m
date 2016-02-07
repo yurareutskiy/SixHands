@@ -28,6 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[UITabBar appearance] setTintColor:[UIColor redColor]];
+    [[UITabBar appearance] setBarTintColor:[UIColor yellowColor]];
+    
     mapZoom = 15;
     upDown = false;
     
@@ -91,48 +94,25 @@
     
     [clusterManager_ addItem:spot3];
     
-    self.navigationItem.title = @"Аренда";
-    
     [self setNeedsStatusBarAppearanceUpdate];
     [self preferredStatusBarStyle];
-    [self configureMenu];
     
     [clusterManager_ cluster];
     [clusterManager_ setDelegate:self];
     
+    self.navigationItem.title = @"Карта";
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:122.0/255.0 green:91.0/255.0 blue:250.0/255.0 alpha:1.0]];
+    
     // Do any additional setup after loading the view.
-}
-
-- (void)configureMenu {
-    
-    self.reveal = self.revealViewController;
-    
-    if (!self.reveal) {
-        return;
-    }
-    
-    // Add gesture recognizer
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
-    // Set menu button
-    self.menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter"]
-                                                       style:UIBarButtonItemStyleDone
-                                                      target:self.revealViewController
-                                                      action:@selector(rightRevealToggle:)];
-    
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.layer.shadowColor = [[UIColor grayColor] CGColor];
-    self.navigationController.navigationBar.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    self.navigationController.navigationBar.layer.shadowRadius = 1.0f;
-    self.navigationController.navigationBar.layer.shadowOpacity = 0.5f;
-    
-    self.navigationItem.rightBarButtonItem = self.menuButton;
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 /*

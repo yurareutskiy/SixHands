@@ -20,12 +20,20 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    self.navigationItem.title = @"Избранное";
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:122.0/255.0 green:91.0/255.0 blue:250.0/255.0 alpha:1.0]];
+    
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 /*
@@ -47,6 +55,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"favCell"];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"toFlat" sender:self];
 }
 
 @end

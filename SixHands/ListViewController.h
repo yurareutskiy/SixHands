@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModelViewController.h"
+#import "ListTableViewCell.h"
 
-@interface ListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface ListViewController : ModelViewController<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

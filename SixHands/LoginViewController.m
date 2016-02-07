@@ -41,8 +41,9 @@
 */
 
 - (IBAction)skipButton:(UIButton *)sender {
-    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
-    [self presentViewController:vc animated:true completion:nil];
+//    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
+//    [self presentViewController:vc animated:true completion:nil];
+    [self performSegueWithIdentifier:@"nextButton" sender:self];
 }
 - (IBAction)facebookButtonAction:(UIButton *)sender {
 }

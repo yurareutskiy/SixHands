@@ -14,9 +14,10 @@
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
 #import "GDefaultClusterRenderer.h"
 #import "Spot.h"
+#import "ModelViewController.h"
 @import GoogleMaps;
 
-@interface MapViewController : UIViewController<CLLocationManagerDelegate, GMSMapViewDelegate>
+@interface MapViewController : ModelViewController<CLLocationManagerDelegate, GMSMapViewDelegate>
 - (IBAction)plusButton:(UIButton *)sender;
 - (IBAction)minusButton:(UIButton *)sender;
 
