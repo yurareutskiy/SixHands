@@ -28,9 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[UITabBar appearance] setTintColor:[UIColor redColor]];
-    [[UITabBar appearance] setBarTintColor:[UIColor yellowColor]];
-    
     mapZoom = 15;
     upDown = false;
     
@@ -101,7 +98,9 @@
     [clusterManager_ setDelegate:self];
     
     self.navigationItem.title = @"Карта";
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:122.0/255.0 green:91.0/255.0 blue:250.0/255.0 alpha:1.0]];
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0]];
+    
+    [self configureMenu];
     
     // Do any additional setup after loading the view.
 }
@@ -113,6 +112,27 @@
 
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+- (void)configureMenu {
+    
+    self.reveal = self.revealViewController;
+    
+    if (!self.reveal) {
+        return;
+    }
+    
+    // Add gesture recognizer
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    // Set menu button
+    self.menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter"]
+                                                       style:UIBarButtonItemStyleDone
+                                                      target:self.revealViewController
+                                                      action:@selector(rightRevealToggle:)];
+    
+    self.navigationItem.rightBarButtonItem = self.menuButton;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 }
 
 /*

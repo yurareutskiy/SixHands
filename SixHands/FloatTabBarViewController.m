@@ -20,11 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.tintItemColor == nil) {
-        self.tintItemColor = [UIColor colorWithRed:112.f/255.f green:85.f/255.f blue:249.f/255.f alpha:1.f];
+        self.tintItemColor = [UIColor colorWithRed:79.f/255.f green:238.f/255.f blue:197.f/255.f alpha:1.f];
     }
     
     if (self.backgroundColor == nil) {
-        self.backgroundColor = [UIColor colorWithRed:255.f green:255.f blue:255.f alpha:1];
+        self.backgroundColor = [UIColor colorWithRed:57.f/255.f green:70.f/255.f blue:76.f/255.f alpha:1];
     }
     [self initConfigure];
     [self addRailView];
@@ -46,7 +46,7 @@
         self.railLineHeight = 3.f;
     }
     self.railView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.railLineHeight)];
-    self.railView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+    self.railView.backgroundColor = [UIColor colorWithRed:57.f green:70.f blue:76.f alpha:0.5];
 //    self.railView.alpha = 1;
     [self.tabBar addSubview:self.railView];
 }
