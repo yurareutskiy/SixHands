@@ -42,7 +42,6 @@
 		3ADF01631C61264900890117 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF01621C61264900890117 /* ProfileViewController.m */; };
 		3ADF01651C61273100890117 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF01641C61273100890117 /* MapKit.framework */; };
 		3ADF01671C61278D00890117 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF01661C61278D00890117 /* CoreLocation.framework */; };
-		3ADF016A1C6128CF00890117 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF01691C6128CF00890117 /* SWRevealViewController.m */; };
 		3ADF016D1C6128E000890117 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF016C1C6128E000890117 /* FilterViewController.m */; };
 		3ADF017F1C61392A00890117 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017C1C61392A00890117 /* FBSDKCoreKit.framework */; };
 		3ADF01801C61392A00890117 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017D1C61392A00890117 /* FBSDKLoginKit.framework */; };
@@ -55,6 +54,8 @@
 		DB49520B1C5FBB4700745228 /* SixHands.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB4952091C5FBB4700745228 /* SixHands.xcdatamodeld */; };
 		DB49520D1C5FBB4700745228 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB49520C1C5FBB4700745228 /* Assets.xcassets */; };
 		DB4952101C5FBB4700745228 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB49520E1C5FBB4700745228 /* LaunchScreen.storyboard */; };
+		DB6DED5F1C675F2600A263B5 /* FloatTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6DED5E1C675F2600A263B5 /* FloatTabBarViewController.m */; };
+		DB6DED621C675FD000A263B5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6DED611C675FD000A263B5 /* SWRevealViewController.m */; };
 		DBC8064A1C5FBC9A00E84FC2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DBC806491C5FBC9A00E84FC2 /* Podfile */; };
 /* End PBXBuildFile section */
 
@@ -128,8 +129,6 @@
 		3ADF01621C61264900890117 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		3ADF01641C61273100890117 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3ADF01661C61278D00890117 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		3ADF01681C6128CF00890117 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
-		3ADF01691C6128CF00890117 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
 		3ADF016B1C6128E000890117 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		3ADF016C1C6128E000890117 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		3ADF017C1C61392A00890117 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = SixHands/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -147,6 +146,10 @@
 		DB49520C1C5FBB4700745228 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB49520F1C5FBB4700745228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB4952111C5FBB4700745228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB6DED5D1C675F2600A263B5 /* FloatTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatTabBarViewController.h; sourceTree = "<group>"; };
+		DB6DED5E1C675F2600A263B5 /* FloatTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatTabBarViewController.m; sourceTree = "<group>"; };
+		DB6DED601C675FD000A263B5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		DB6DED611C675FD000A263B5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		DBC806491C5FBC9A00E84FC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
@@ -246,8 +249,8 @@
 		3ADF016E1C6129D100890117 /* Menu Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3ADF01681C6128CF00890117 /* SWRevealViewController.h */,
-				3ADF01691C6128CF00890117 /* SWRevealViewController.m */,
+				DB6DED601C675FD000A263B5 /* SWRevealViewController.h */,
+				DB6DED611C675FD000A263B5 /* SWRevealViewController.m */,
 				3ADF016B1C6128E000890117 /* FilterViewController.h */,
 				3ADF016C1C6128E000890117 /* FilterViewController.m */,
 			);
@@ -267,6 +270,8 @@
 				3ADF01621C61264900890117 /* ProfileViewController.m */,
 				3AF845DF1C65E48200F1707C /* ListViewController.h */,
 				3AF845E01C65E48200F1707C /* ListViewController.m */,
+				DB6DED5D1C675F2600A263B5 /* FloatTabBarViewController.h */,
+				DB6DED5E1C675F2600A263B5 /* FloatTabBarViewController.m */,
 			);
 			name = "TabBar Controllers";
 			sourceTree = "<group>";
@@ -492,13 +497,14 @@
 				3A3F9F6C1C661FA500E5E8AC /* NonHierarchicalDistanceBasedAlgorithm.m in Sources */,
 				DB4951FF1C5FBB4700745228 /* main.m in Sources */,
 				3A8A7EBB1C66A836005946C0 /* SHSPhoneTextField.m in Sources */,
+				DB6DED621C675FD000A263B5 /* SWRevealViewController.m in Sources */,
+				DB6DED5F1C675F2600A263B5 /* FloatTabBarViewController.m in Sources */,
 				3ADF015A1C61260200890117 /* MapViewController.m in Sources */,
 				DB49520B1C5FBB4700745228 /* SixHands.xcdatamodeld in Sources */,
 				3ACF4BEC1C624DF70045D992 /* FlatViewController.m in Sources */,
 				3ADF01571C6125F300890117 /* LoginViewController.m in Sources */,
 				3A3F9F6D1C661FA500E5E8AC /* GClusterManager.m in Sources */,
 				3A3F9F7D1C661FC700E5E8AC /* GQTPointQuadTreeChild.m in Sources */,
-				3ADF016A1C6128CF00890117 /* SWRevealViewController.m in Sources */,
 				3ADF01601C61261F00890117 /* MessViewController.m in Sources */,
 				3A3F9F861C66A69700E5E8AC /* PhoneViewController.m in Sources */,
 				3ADF016D1C6128E000890117 /* FilterViewController.m in Sources */,
