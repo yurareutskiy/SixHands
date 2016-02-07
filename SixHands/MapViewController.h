@@ -10,15 +10,15 @@
 #import <CoreLocation/CoreLocation.h>
 #import "FilterViewController.h"
 #import "SWRevealViewController.h"
+#import "GClusterManager.h"
+#import "NonHierarchicalDistanceBasedAlgorithm.h"
+#import "GDefaultClusterRenderer.h"
+#import "Spot.h"
+#import "ModelViewController.h"
 @import GoogleMaps;
 
-@interface MapViewController : UIViewController<CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, GMSMapViewDelegate>
+@interface MapViewController : ModelViewController<CLLocationManagerDelegate, GMSMapViewDelegate>
 - (IBAction)plusButton:(UIButton *)sender;
 - (IBAction)minusButton:(UIButton *)sender;
-- (IBAction)upDownButton:(UIButton *)sender;
-
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UIButton *upDownButton;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *upDownTop;
 
 @end

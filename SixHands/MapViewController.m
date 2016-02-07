@@ -20,12 +20,16 @@
     CLLocationManager *locationManager;
     GMSMapView *mapView;
     GMSCameraPosition *camera;
+    GClusterManager *clusterManager_;
     float mapZoom;
     BOOL upDown;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[UITabBar appearance] setTintColor:[UIColor redColor]];
+    [[UITabBar appearance] setBarTintColor:[UIColor yellowColor]];
     
     mapZoom = 15;
     upDown = false;
@@ -48,54 +52,67 @@
     [self.view insertSubview:mapView atIndex:0];
     mapView.delegate = self;
     
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(56.064049, 36.788179);
-    marker.title = @"First pin";
-    marker.snippet = @"Just to check";
-    marker.map = mapView;
+    clusterManager_ = [GClusterManager managerWithMapView:mapView
+                                                algorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] init]
+                                                 renderer:[[GDefaultClusterRenderer alloc] initWithMapView:mapView]];
     
-    self.navigationItem.title = @"Аренда";
+    [mapView setDelegate:clusterManager_];
+    
+    GMSMarker *marker1 = [[GMSMarker alloc] init];
+    marker1.position = CLLocationCoordinate2DMake(56.065000, 36.780000);
+    marker1.title = @"First pin";
+    marker1.snippet = @"Just to check";
+    //marker1.map = mapView;
+    
+    Spot* spot1 = [[Spot alloc] init];
+    spot1.location = marker1.position;
+    spot1.marker = marker1;
+    
+    [clusterManager_ addItem:spot1];
+    
+    GMSMarker *marker2 = [[GMSMarker alloc] init];
+    marker2.position = CLLocationCoordinate2DMake(56.064000, 36.787000);
+    marker2.title = @"First pin";
+    marker2.snippet = @"Just to check";
+    //marker2.map = mapView;
+    
+    Spot* spot2 = [[Spot alloc] init];
+    spot2.location = marker2.position;
+    spot2.marker = marker2;
+    
+    [clusterManager_ addItem:spot2];
+    
+    GMSMarker *marker3 = [[GMSMarker alloc] init];
+    marker3.position = CLLocationCoordinate2DMake(56.066000, 36.789000);
+    marker3.title = @"First pin";
+    marker3.snippet = @"Just to check";
+    //marker3.map = mapView;
+    
+    Spot* spot3 = [[Spot alloc] init];
+    spot3.location = marker3.position;
+    spot3.marker = marker3;
+    
+    [clusterManager_ addItem:spot3];
     
     [self setNeedsStatusBarAppearanceUpdate];
     [self preferredStatusBarStyle];
-    [self configureMenu];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    [clusterManager_ cluster];
+    [clusterManager_ setDelegate:self];
+    
+    self.navigationItem.title = @"Карта";
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:122.0/255.0 green:91.0/255.0 blue:250.0/255.0 alpha:1.0]];
     
     // Do any additional setup after loading the view.
-}
-
-- (void)configureMenu {
-    
-    self.reveal = self.revealViewController;
-    
-    if (!self.reveal) {
-        return;
-    }
-    
-    // Add gesture recognizer
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
-    // Set menu button
-    self.menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter"]
-                                                       style:UIBarButtonItemStyleDone
-                                                      target:self.revealViewController
-                                                      action:@selector(rightRevealToggle:)];
-    
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.layer.shadowColor = [[UIColor grayColor] CGColor];
-    self.navigationController.navigationBar.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    self.navigationController.navigationBar.layer.shadowRadius = 1.0f;
-    self.navigationController.navigationBar.layer.shadowOpacity = 0.5f;
-    
-    self.navigationItem.rightBarButtonItem = self.menuButton;
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 /*
@@ -122,65 +139,6 @@
     mapZoom = camera.zoom;
     mapZoom -= 1;
     [mapView animateToZoom:mapZoom];
-}
-
-- (IBAction)upDownButton:(UIButton *)sender {
-    if (!upDown) {
-        
-        [UIView animateWithDuration:0.3 animations:^{
-            
-            self.upDownTop.constant -= 300.0;
-            
-            self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y - 300.0, self.tableView.frame.size.width, self.tableView.frame.size.height + 300.0);
-            self.tableView.rowHeight = 200.0;
-            [self.tableView reloadData];
-            self.upDownButton.frame = CGRectMake(self.upDownButton.frame.origin.x, self.upDownButton.frame.origin.y - 300.0, self.upDownButton.frame.size.width, self.upDownButton.frame.size.height);
-            
-        } completion:^ (BOOL finished){
-            upDown = true;
-        }];
-        
-    } else {
-        
-        [UIView animateWithDuration:0.3 animations:^{
-            
-            self.tableView.rowHeight = 90.0;
-            [self.tableView reloadData];
-            self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y + 300.0, self.tableView.frame.size.width, self.tableView.frame.size.height - 300.0);
-            self.upDownButton.frame = CGRectMake(self.upDownButton.frame.origin.x, self.upDownButton.frame.origin.y + 300.0, self.upDownButton.frame.size.width, self.upDownButton.frame.size.height);
-            
-            
-        } completion:^(BOOL finished){
-            self.upDownTop.constant += 300.0;
-            upDown = false;
-        }];
-    }
-}
-
-#pragma mark - Настройки таблицы
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 15;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"flatCell"];
-    return cell;
-}
-
-#pragma mark - Найстройки карты
-
--(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
-    NSLog(@"MARKER..... %@",marker);
-    self.tableView.hidden = NO;
-    self.upDownButton.hidden = NO;
-    return NO;
-}
-
-- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-    NSLog(@"COORDINATE..... %f, %f",coordinate.latitude, coordinate.longitude);
-    self.tableView.hidden = YES;
-    self.upDownButton.hidden = YES;
 }
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModelViewController.h"
 
-@interface MessViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface MessViewController : ModelViewController<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

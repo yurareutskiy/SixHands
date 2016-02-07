@@ -12,7 +12,9 @@
 
 @end
 
-@implementation FilterViewController
+@implementation FilterViewController {
+    UITapGestureRecognizer *singleFingerTap;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,13 +29,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    UITapGestureRecognizer *singleFingerTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self.revealViewController
-                                            action:@selector(rightRevealToggle:)];
+-(void)viewDidAppear:(BOOL)animated {
     
-    [self.view addGestureRecognizer:singleFingerTap];
+    singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self.revealViewController
+                                            action:@selector(revealToggle:)];
+    //    [self.view addGestureRecognizer:singleFingerTap];
+    
     [self.revealViewController.frontViewController.view addGestureRecognizer:singleFingerTap];
+    
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [self.revealViewController.frontViewController.view removeGestureRecognizer:singleFingerTap];
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(revealToggle:)];
+    swipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.revealViewController.frontViewController.view addGestureRecognizer:swipe];
 }
 
 /*

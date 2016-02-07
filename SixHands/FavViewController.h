@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModelViewController.h"
 
-@interface FavViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface FavViewController : ModelViewController<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
