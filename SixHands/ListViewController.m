@@ -38,18 +38,7 @@
 - (ListTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
-    
-    cell.name.titleLabel.numberOfLines = 2;
-    cell.name.titleLabel.minimumScaleFactor = 6.f;
-    cell.name.titleLabel.adjustsFontSizeToFitWidth = YES;
-    
-    cell.address.numberOfLines = 1;
-    [cell.address setMinimumScaleFactor: 10.f];
-    cell.address.adjustsFontSizeToFitWidth = YES;
-    
-    cell.hands.layer.cornerRadius = 15.f;
-    cell.hands.layer.borderColor = [UIColor grayColor].CGColor;
-    cell.hands.layer.borderWidth = 0.5f;
+
     
     return cell;
 }
