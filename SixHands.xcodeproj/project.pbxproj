@@ -64,6 +64,22 @@
 		DB49520B1C5FBB4700745228 /* SixHands.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB4952091C5FBB4700745228 /* SixHands.xcdatamodeld */; };
 		DB49520D1C5FBB4700745228 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB49520C1C5FBB4700745228 /* Assets.xcassets */; };
 		DB4952101C5FBB4700745228 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB49520E1C5FBB4700745228 /* LaunchScreen.storyboard */; };
+		DB4E28031C68B83600303437 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4E28021C68B83600303437 /* ChatTableViewCell.m */; };
+		DB4E28131C68CF7300303437 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28041C68CF7300303437 /* Lato-Black.ttf */; };
+		DB4E28141C68CF7300303437 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28051C68CF7300303437 /* Lato-BlackItalic.ttf */; };
+		DB4E28151C68CF7300303437 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28061C68CF7300303437 /* Lato-Bold.ttf */; };
+		DB4E28161C68CF7300303437 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28071C68CF7300303437 /* Lato-BoldItalic.ttf */; };
+		DB4E28171C68CF7300303437 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28081C68CF7300303437 /* Lato-Hairline.ttf */; };
+		DB4E28181C68CF7300303437 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28091C68CF7300303437 /* Lato-HairlineItalic.ttf */; };
+		DB4E28191C68CF7300303437 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E280A1C68CF7300303437 /* Lato-Heavy.ttf */; };
+		DB4E281A1C68CF7300303437 /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E280B1C68CF7300303437 /* Lato-HeavyItalic.ttf */; };
+		DB4E281B1C68CF7300303437 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E280C1C68CF7300303437 /* Lato-Italic.ttf */; };
+		DB4E281C1C68CF7300303437 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E280D1C68CF7300303437 /* Lato-Light.ttf */; };
+		DB4E281D1C68CF7300303437 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E280E1C68CF7300303437 /* Lato-LightItalic.ttf */; };
+		DB4E281E1C68CF7300303437 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E280F1C68CF7300303437 /* Lato-Medium.ttf */; };
+		DB4E281F1C68CF7300303437 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28101C68CF7300303437 /* Lato-MediumItalic.ttf */; };
+		DB4E28201C68CF7300303437 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28111C68CF7300303437 /* Lato-Regular.ttf */; };
+		DB4E28211C68CF7300303437 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28121C68CF7300303437 /* Lato-Semibold.ttf */; };
 		DB6DED5F1C675F2600A263B5 /* FloatTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6DED5E1C675F2600A263B5 /* FloatTabBarViewController.m */; };
 		DB6DED621C675FD000A263B5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6DED611C675FD000A263B5 /* SWRevealViewController.m */; };
 		DBC8064A1C5FBC9A00E84FC2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DBC806491C5FBC9A00E84FC2 /* Podfile */; };
@@ -176,6 +192,23 @@
 		DB49520C1C5FBB4700745228 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB49520F1C5FBB4700745228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB4952111C5FBB4700745228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB4E28011C68B83600303437 /* ChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
+		DB4E28021C68B83600303437 /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
+		DB4E28041C68CF7300303437 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "Lato/Lato-Black.ttf"; sourceTree = "<group>"; };
+		DB4E28051C68CF7300303437 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "Lato/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		DB4E28061C68CF7300303437 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "Lato/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		DB4E28071C68CF7300303437 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BoldItalic.ttf"; path = "Lato/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		DB4E28081C68CF7300303437 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Hairline.ttf"; path = "Lato/Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		DB4E28091C68CF7300303437 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-HairlineItalic.ttf"; path = "Lato/Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		DB4E280A1C68CF7300303437 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Heavy.ttf"; path = "Lato/Lato-Heavy.ttf"; sourceTree = "<group>"; };
+		DB4E280B1C68CF7300303437 /* Lato-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-HeavyItalic.ttf"; path = "Lato/Lato-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		DB4E280C1C68CF7300303437 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Italic.ttf"; path = "Lato/Lato-Italic.ttf"; sourceTree = "<group>"; };
+		DB4E280D1C68CF7300303437 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Light.ttf"; path = "Lato/Lato-Light.ttf"; sourceTree = "<group>"; };
+		DB4E280E1C68CF7300303437 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-LightItalic.ttf"; path = "Lato/Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		DB4E280F1C68CF7300303437 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Medium.ttf"; path = "Lato/Lato-Medium.ttf"; sourceTree = "<group>"; };
+		DB4E28101C68CF7300303437 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-MediumItalic.ttf"; path = "Lato/Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
+		DB4E28111C68CF7300303437 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "Lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		DB4E28121C68CF7300303437 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Semibold.ttf"; path = "Lato/Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		DB6DED5D1C675F2600A263B5 /* FloatTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatTabBarViewController.h; sourceTree = "<group>"; };
 		DB6DED5E1C675F2600A263B5 /* FloatTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatTabBarViewController.m; sourceTree = "<group>"; };
 		DB6DED601C675FD000A263B5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -294,6 +327,21 @@
 			isa = PBXGroup;
 			children = (
 				3A93F33C1C6557B400E6B900 /* GothamProBlack.ttf */,
+				DB4E28041C68CF7300303437 /* Lato-Black.ttf */,
+				DB4E28051C68CF7300303437 /* Lato-BlackItalic.ttf */,
+				DB4E28061C68CF7300303437 /* Lato-Bold.ttf */,
+				DB4E28071C68CF7300303437 /* Lato-BoldItalic.ttf */,
+				DB4E28081C68CF7300303437 /* Lato-Hairline.ttf */,
+				DB4E28091C68CF7300303437 /* Lato-HairlineItalic.ttf */,
+				DB4E280A1C68CF7300303437 /* Lato-Heavy.ttf */,
+				DB4E280B1C68CF7300303437 /* Lato-HeavyItalic.ttf */,
+				DB4E280C1C68CF7300303437 /* Lato-Italic.ttf */,
+				DB4E280D1C68CF7300303437 /* Lato-Light.ttf */,
+				DB4E280E1C68CF7300303437 /* Lato-LightItalic.ttf */,
+				DB4E280F1C68CF7300303437 /* Lato-Medium.ttf */,
+				DB4E28101C68CF7300303437 /* Lato-MediumItalic.ttf */,
+				DB4E28111C68CF7300303437 /* Lato-Regular.ttf */,
+				DB4E28121C68CF7300303437 /* Lato-Semibold.ttf */,
 				3A93F33D1C6557B400E6B900 /* GothamProBlackItalic.ttf */,
 				3A93F33E1C6557B400E6B900 /* GothamProBold.ttf */,
 				3A93F33F1C6557B400E6B900 /* GothamProBoldItalic.ttf */,
@@ -382,6 +430,9 @@
 				3ACF4BEB1C624DF70045D992 /* FlatViewController.m */,
 				3A3F9F811C66559F00E5E8AC /* ModelViewController.h */,
 				3A3F9F821C66559F00E5E8AC /* ModelViewController.m */,
+<<<<<<< HEAD
+				DB4E28001C68B7B700303437 /* Cells */,
+=======
 				3A8A7EBC1C6747AF005946C0 /* ListTableViewCell.h */,
 				3A8A7EBD1C6747AF005946C0 /* ListTableViewCell.m */,
 				3A4BD5BD1C68CD4300936862 /* User.h */,
@@ -389,6 +440,7 @@
 				3A4BD5DB1C68DD1F00936862 /* CoreData */,
 				3A4BD5BA1C68CBDD00936862 /* DataManager.h */,
 				3A4BD5BB1C68CBDD00936862 /* DataManager.m */,
+>>>>>>> ui-by-anton
 				3A8A7E9B1C66A803005946C0 /* SHSPhone */,
 				3A3F9F3F1C661F3100E5E8AC /* Group of pins */,
 				3ADF016F1C6129DB00890117 /* TabBar Controllers */,
@@ -411,6 +463,17 @@
 				DB4951FE1C5FBB4700745228 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DB4E28001C68B7B700303437 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3A8A7EBC1C6747AF005946C0 /* ListTableViewCell.h */,
+				3A8A7EBD1C6747AF005946C0 /* ListTableViewCell.m */,
+				DB4E28011C68B83600303437 /* ChatTableViewCell.h */,
+				DB4E28021C68B83600303437 /* ChatTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,19 +537,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB4E28191C68CF7300303437 /* Lato-Heavy.ttf in Resources */,
+				DB4E281E1C68CF7300303437 /* Lato-Medium.ttf in Resources */,
+				DB4E28141C68CF7300303437 /* Lato-BlackItalic.ttf in Resources */,
+				DB4E28171C68CF7300303437 /* Lato-Hairline.ttf in Resources */,
+				DB4E28181C68CF7300303437 /* Lato-HairlineItalic.ttf in Resources */,
 				3A93F3461C655A9200E6B900 /* GothamProBlack.ttf in Resources */,
 				3A93F3471C655A9200E6B900 /* GothamProBlackItalic.ttf in Resources */,
+				DB4E281B1C68CF7300303437 /* Lato-Italic.ttf in Resources */,
+				DB4E28161C68CF7300303437 /* Lato-BoldItalic.ttf in Resources */,
+				DB4E28211C68CF7300303437 /* Lato-Semibold.ttf in Resources */,
 				3A93F3481C655A9200E6B900 /* GothamProBold.ttf in Resources */,
 				3A93F3491C655A9200E6B900 /* GothamProBoldItalic.ttf in Resources */,
+				DB4E28201C68CF7300303437 /* Lato-Regular.ttf in Resources */,
 				3A93F34A1C655A9200E6B900 /* GothamProItalic.ttf in Resources */,
 				3A93F34B1C655A9200E6B900 /* GothamProLight.ttf in Resources */,
 				3A93F34C1C655A9200E6B900 /* GothamProLightItalic.ttf in Resources */,
 				3A93F34D1C655A9200E6B900 /* GothamProMedium.ttf in Resources */,
 				3A93F34E1C655A9200E6B900 /* GothamProMediumItalic.ttf in Resources */,
+				DB4E281C1C68CF7300303437 /* Lato-Light.ttf in Resources */,
+				DB4E281D1C68CF7300303437 /* Lato-LightItalic.ttf in Resources */,
+				DB4E281F1C68CF7300303437 /* Lato-MediumItalic.ttf in Resources */,
 				3A93F34F1C655A9200E6B900 /* GothamProRegular.ttf in Resources */,
+				DB4E28151C68CF7300303437 /* Lato-Bold.ttf in Resources */,
+				DB4E281A1C68CF7300303437 /* Lato-HeavyItalic.ttf in Resources */,
 				DB4952101C5FBB4700745228 /* LaunchScreen.storyboard in Resources */,
 				DB49520D1C5FBB4700745228 /* Assets.xcassets in Resources */,
 				DBC8064A1C5FBC9A00E84FC2 /* Podfile in Resources */,
+				DB4E28131C68CF7300303437 /* Lato-Black.ttf in Resources */,
 				DB4952081C5FBB4700745228 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,6 +646,7 @@
 				DB4951FF1C5FBB4700745228 /* main.m in Sources */,
 				3A8A7EBB1C66A836005946C0 /* SHSPhoneTextField.m in Sources */,
 				DB6DED621C675FD000A263B5 /* SWRevealViewController.m in Sources */,
+				DB4E28031C68B83600303437 /* ChatTableViewCell.m in Sources */,
 				DB6DED5F1C675F2600A263B5 /* FloatTabBarViewController.m in Sources */,
 				3ADF015A1C61260200890117 /* MapViewController.m in Sources */,
 				DB49520B1C5FBB4700745228 /* SixHands.xcdatamodeld in Sources */,
