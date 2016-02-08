@@ -35,9 +35,7 @@
 - (void)initConfigure {
     
     self.tabBar.barTintColor = self.backgroundColor;
-    
     [[UITabBar appearance] setTintColor:self.tintItemColor];
-
 }
 
 - (void)addRailView {
