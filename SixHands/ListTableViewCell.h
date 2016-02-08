@@ -16,5 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *avatar1;
 @property (strong, nonatomic) IBOutlet UIImageView *avatar2;
 @property (strong, nonatomic) IBOutlet UIImageView *avatar3;
+@property (weak, nonatomic) IBOutlet UILabel *moreFriendsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *price;
 
 @end

@@ -13,9 +13,9 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    self.hands.layer.cornerRadius = 15.f;
-    self.hands.layer.borderColor = [UIColor grayColor].CGColor;
-    self.hands.layer.borderWidth = 0.5f;
+    self.moreFriendsLabel.layer.cornerRadius = 10.5f;
+    self.moreFriendsLabel.layer.borderColor = [UIColor colorWithRed:79.f/255.f green:238.f/255.f blue:197.f/255.f alpha:1.f].CGColor;
+    self.moreFriendsLabel.layer.borderWidth = 1.f;
     
     self.avatar1.layer.cornerRadius = self.avatar1.frame.size.width / 2.0;
     self.avatar2.layer.cornerRadius = self.avatar2.frame.size.width / 2.0;

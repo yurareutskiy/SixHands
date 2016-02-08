@@ -68,27 +68,9 @@
     return UIStatusBarStyleLightContent;
 }
 
-- (ListTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
 
-    
-    return cell;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+#pragma mark - Actions 
 
 - (IBAction)buttonNew:(UIButton *)sender {
 
@@ -122,4 +104,37 @@
     [self.viewNew setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
     [self.buttonNew setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
+
+
+#pragma mark - UITableViewDelegate
+
+- (ListTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
+    cell.price.text = [self formattedStringWithPrice:cell.price.text];
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (NSString*)formattedStringWithPrice:(NSString*)price {
+    
+    NSInteger lenghtString = [price length];
+    NSMutableString *resultString = [NSMutableString stringWithString:@""];
+    NSInteger counter = lenghtString;
+    for (int i = 0; i < lenghtString; i++) {
+        char ch = [price characterAtIndex:i];
+        if (counter % 3 == 0 && lenghtString != counter) {
+            [resultString appendString:@" "];
+        }
+        [resultString appendString:[NSString stringWithFormat:@"%c", ch]];
+        counter--;
+    }
+    [resultString appendString:@" ₽"];
+    return resultString;
+}
+
 @end

@@ -10,5 +10,8 @@
 
 @interface ChatTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
+@property (weak, nonatomic) IBOutlet UIImageView *flatImage;
+@property (weak, nonatomic) IBOutlet UILabel *titleLable;
+@property (weak, nonatomic) IBOutlet UILabel *contentTextLabel;
 
 @end
