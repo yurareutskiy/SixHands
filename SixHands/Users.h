@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 // Insert code here to declare functionality of your managed object subclass
 
++ (instancetype)initUserWithFirstName:(NSString*)firstName LastName:(NSString*)lastName userID:(NSNumber*)id Email:(NSString*)email Phone:(NSString*)phone PhotoURL:(NSString*)photoURL Token:(NSString*)token socType:(NSString*)socType socID:(NSNumber*)socID;
+
 @end
 
 NS_ASSUME_NONNULL_END

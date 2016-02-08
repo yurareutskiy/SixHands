@@ -22,13 +22,45 @@
     
     self.code.delegate = self;
     self.notCode.delegate = self;
+    self.phoneField.delegate = self;
     
     _plsCode.hidden = YES;
     _notCode.hidden = YES;
     _code.hidden = YES;
-    _doneButton.hidden = YES;
+    
+    self.phoneField.keyboardType = UIKeyboardTypeDefault;
+    self.phoneField.returnKeyType = UIReturnKeyNext;
+    self.phoneField.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    self.code.keyboardType = UIKeyboardTypeDefault;
+    self.code.returnKeyType = UIReturnKeyDone;
+    self.code.autocorrectionType = UITextAutocorrectionTypeNo;
     
     // Do any additional setup after loading the view.
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField.tag == 1) {
+
+        _view1.hidden = YES;
+        _plsInput.hidden = YES;
+        _phoneField.hidden = YES;
+    
+        _plsCode.hidden = NO;
+        _notCode.hidden = NO;
+        _code.hidden = NO;
+        
+        [self.phoneField resignFirstResponder];
+    }
+    if (textField.tag == 0) {
+        
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
+        [self presentViewController:vc animated:true completion:nil];
+        
+        [self.code resignFirstResponder];
+        
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,24 +145,7 @@
     [self.code resignFirstResponder];
 }
 
-- (IBAction)nextButton:(UIButton *)sender {
-    _view1.hidden = YES;
-    _view2.hidden = YES;
-    _nextButton.hidden = YES;
-    _plsInput.hidden = YES;
-    _phoneField.hidden = YES;
-    
-    _plsCode.hidden = NO;
-    _notCode.hidden = NO;
-    _code.hidden = NO;
-    _doneButton.hidden = NO;
-}
-
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
-}
-- (IBAction)doneButton:(UIButton *)sender {
-    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
-    [self presentViewController:vc animated:true completion:nil];
 }
 @end
