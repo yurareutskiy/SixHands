@@ -110,7 +110,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated {
     [self.revealViewController.frontViewController.view removeGestureRecognizer:singleFingerTap];
-    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(revealToggle:)];
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(revealToggle:)];
     swipe.direction = UISwipeGestureRecognizerDirectionRight;
     [self.revealViewController.frontViewController.view addGestureRecognizer:swipe];
 }
