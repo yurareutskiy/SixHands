@@ -26,6 +26,14 @@
     if (self.backgroundColor == nil) {
         self.backgroundColor = [UIColor colorWithRed:57.f/255.f green:70.f/255.f blue:76.f/255.f alpha:1];
     }
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }
+                                             forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{
+                                                        NSForegroundColorAttributeName : [UIColor colorWithRed:79.f/255.f green:238.f/255.f blue:197.f/255.f alpha:1.f]} forState:UIControlStateSelected];
+    
+    [self.tabBarController setSelectedIndex:1];
+    
     [self initConfigure];
     [self addRailView];
     [self configureItemLine];
@@ -64,6 +72,7 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     NSLog(@"%@", item.title);
+    item.selectedImage = [item.selectedImage imageWithRenderingMode:UIImageRenderingModeAutomatic];
     float destinationX = 0;
     for (int i = 0; i < [self.tabBar.items count]; i++) {
         UITabBarItem *tabBarItem = self.tabBar.items[i];

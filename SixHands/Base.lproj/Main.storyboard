@@ -1735,21 +1735,21 @@
                             <mask key="constraints">
                                 <exclude reference="0jF-yF-Iby"/>
                                 <exclude reference="leW-IC-LBq"/>
+                                <exclude reference="Mqd-s7-C0p"/>
                                 <exclude reference="839-Rs-Cdt"/>
                                 <exclude reference="N2A-x5-gNP"/>
                                 <exclude reference="Pc2-T2-vTE"/>
                                 <exclude reference="mDG-QD-cAb"/>
-                                <exclude reference="Mqd-s7-C0p"/>
-                                <exclude reference="tCV-HH-vt9"/>
+                                <exclude reference="FhG-nr-udk"/>
                                 <exclude reference="FFP-ib-zyG"/>
                                 <exclude reference="IE0-bR-mGe"/>
                                 <exclude reference="e7I-LT-M5O"/>
                                 <exclude reference="jBk-8K-fpc"/>
+                                <exclude reference="tCV-HH-vt9"/>
                                 <exclude reference="lDN-M9-bBK"/>
                                 <exclude reference="10L-Jc-3L2"/>
-                                <exclude reference="FhG-nr-udk"/>
-                                <exclude reference="Lx8-mo-0XO"/>
                                 <exclude reference="OvY-ml-Ai7"/>
+                                <exclude reference="Lx8-mo-0XO"/>
                                 <exclude reference="SH1-MC-vOt"/>
                                 <exclude reference="j5m-2t-h9g"/>
                                 <exclude reference="FsQ-A1-ajz"/>
@@ -1790,7 +1790,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="fill" id="m5I-9l-avo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.37254901959999998" green="0.52156862749999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.22352941176470587" green="0.27450980392156865" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1834,7 +1834,7 @@
         <scene sceneID="cgY-Uo-LLL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bDK-dd-25I" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Избранное" image="like" id="qe9-YP-ebQ"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Избранное" image="like" id="qe9-YP-ebQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B4y-Zx-eiK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1907,7 +1907,7 @@
         <scene sceneID="yZV-CM-d9H">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TKX-eV-RTh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Список" image="list" id="1Xk-Sr-9n0"/>
+                    <tabBarItem key="tabBarItem" title="Список" image="list" selectedImage="listGreen" id="1Xk-Sr-9n0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZvV-8J-jEs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1942,6 +1942,7 @@
         <image name="fullStar" width="25" height="25"/>
         <image name="like" width="21" height="21"/>
         <image name="list" width="21" height="21"/>
+        <image name="listGreen" width="21" height="21"/>
         <image name="logo" width="39" height="56"/>
         <image name="map" width="21" height="21"/>
         <image name="metroWhite" width="32" height="32"/>
