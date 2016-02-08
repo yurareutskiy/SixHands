@@ -26,13 +26,15 @@
             <string>GothamPro-Light</string>
             <string>GothamPro-Light</string>
             <string>GothamPro-Light</string>
-            <string>GothamPro-Light</string>
-            <string>GothamPro-Light</string>
         </mutableArray>
         <mutableArray key="Lato-Light.ttf">
             <string>Lato-Light</string>
+            <string>Lato-Light</string>
+            <string>Lato-Light</string>
+            <string>Lato-Light</string>
         </mutableArray>
         <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
@@ -556,9 +558,9 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Юра Реутский. В мокапе есть чат. Там он по размерам и элементам норм отрисован был. Надо только раши цвета поставить" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImQ-0F-sr1">
-                                                    <rect key="frame" x="131" y="45" width="415" height="29"/>
-                                                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Юра Реутский. В мокапе есть чат. Там он по размерам и элементам норм отрисован был. Надо только раши цвета поставить" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImQ-0F-sr1">
+                                                    <rect key="frame" x="131" y="44" width="415" height="33.5"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1088,61 +1090,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V0n-IB-EYG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V0n-IB-EYG">
                                 <rect key="frame" x="0.0" y="54" width="600" height="497"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCell" id="8He-Aa-AhO" customClass="ListTableViewCell">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="140"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8He-Aa-AhO" id="1Kf-vk-U1C">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="139.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="111.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flat" translatesAutoresizingMaskIntoConstraints="NO" id="hEx-o0-xAb">
-                                                    <rect key="frame" x="7" y="15" width="100" height="111"/>
+                                                    <rect key="frame" x="7" y="6" width="100" height="100"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="hEx-o0-xAb" secondAttribute="height" multiplier="100:111" id="8kQ-1F-sGj"/>
+                                                        <constraint firstAttribute="width" secondItem="hEx-o0-xAb" secondAttribute="height" multiplier="100:111" constant="9.9099099099099135" id="8kQ-1F-sGj"/>
                                                         <constraint firstAttribute="width" constant="100" id="VwW-tK-vYp"/>
+                                                        <constraint firstAttribute="height" constant="100" id="bbo-l5-rJ6"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="8kQ-1F-sGj"/>
+                                                        </mask>
+                                                    </variation>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar1" translatesAutoresizingMaskIntoConstraints="NO" id="6Vj-zJ-rfF">
-                                                    <rect key="frame" x="118" y="105" width="21" height="21"/>
+                                                    <rect key="frame" x="115" y="85" width="21" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="21" id="GSY-E5-JYg"/>
                                                         <constraint firstAttribute="height" constant="21" id="rQ3-IX-MOI"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Город Москва, улица Ибрагимова, 2" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7s0-SM-cMP">
-                                                    <rect key="frame" x="115" y="15" width="472" height="36"/>
-                                                    <fontDescription key="fontDescription" name="GothamPro-Light" family="Gotham Pro" pointSize="17"/>
+                                                    <rect key="frame" x="115" y="6" width="472" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Продан Станислав" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="2Z8-bz-CIb">
-                                                    <rect key="frame" x="115" y="51" width="377" height="20"/>
+                                                    <rect key="frame" x="115" y="31" width="377" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="377" id="4NH-NE-hQ2"/>
                                                         <constraint firstAttribute="height" constant="20" id="8eg-YY-D9H"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="GothamPro-Light" family="Gotham Pro" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar2" translatesAutoresizingMaskIntoConstraints="NO" id="Q3v-ZH-TL7">
-                                                    <rect key="frame" x="144" y="105" width="21" height="21"/>
+                                                    <rect key="frame" x="141" y="85" width="21" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="21" id="l0c-Re-CiG"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar3" translatesAutoresizingMaskIntoConstraints="NO" id="Uer-9S-86o">
-                                                    <rect key="frame" x="170" y="105" width="21" height="21"/>
+                                                    <rect key="frame" x="167" y="85" width="21" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="21" id="Mj0-7O-d4Q"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+4" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Wd-lr-q1t">
-                                                    <rect key="frame" x="196" y="105" width="21" height="21"/>
+                                                    <rect key="frame" x="193" y="85" width="21" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="21" id="1Uf-A7-RW5"/>
                                                     </constraints>
@@ -1151,12 +1159,24 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1500000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hom-Rg-nWf">
-                                                    <rect key="frame" x="486" y="105" width="101" height="21"/>
+                                                    <rect key="frame" x="486" y="85" width="101" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="101" id="tge-ck-QTz"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Семеновская" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iud-4P-Igl">
+                                                    <rect key="frame" x="125" y="56" width="122" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10 мин." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmT-hJ-GKg">
+                                                    <rect key="frame" x="255" y="56" width="68" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1165,7 +1185,7 @@
                                                 <constraint firstItem="Uer-9S-86o" firstAttribute="bottom" secondItem="3Wd-lr-q1t" secondAttribute="bottom" id="9ob-i5-twh"/>
                                                 <constraint firstItem="Q3v-ZH-TL7" firstAttribute="top" secondItem="6Vj-zJ-rfF" secondAttribute="top" id="BYI-eE-Xfk"/>
                                                 <constraint firstItem="Hom-Rg-nWf" firstAttribute="bottom" secondItem="3Wd-lr-q1t" secondAttribute="bottom" id="FfI-mD-ZgQ"/>
-                                                <constraint firstItem="6Vj-zJ-rfF" firstAttribute="leading" secondItem="hEx-o0-xAb" secondAttribute="trailing" constant="11" id="Gze-3t-7S0"/>
+                                                <constraint firstItem="6Vj-zJ-rfF" firstAttribute="leading" secondItem="hEx-o0-xAb" secondAttribute="trailing" constant="5" id="Gze-3t-7S0"/>
                                                 <constraint firstItem="7s0-SM-cMP" firstAttribute="leading" secondItem="hEx-o0-xAb" secondAttribute="trailing" constant="8" symbolic="YES" id="IUa-dW-Db8"/>
                                                 <constraint firstItem="7s0-SM-cMP" firstAttribute="trailing" secondItem="Hom-Rg-nWf" secondAttribute="trailing" id="Jhg-Z7-SSR"/>
                                                 <constraint firstItem="Uer-9S-86o" firstAttribute="top" secondItem="3Wd-lr-q1t" secondAttribute="top" id="M0f-Yc-0gS"/>
@@ -1179,12 +1199,21 @@
                                                 <constraint firstItem="Uer-9S-86o" firstAttribute="leading" secondItem="Q3v-ZH-TL7" secondAttribute="trailing" constant="5" id="dYS-9z-eGV"/>
                                                 <constraint firstItem="Q3v-ZH-TL7" firstAttribute="leading" secondItem="6Vj-zJ-rfF" secondAttribute="trailing" constant="5" id="gYb-KD-MtV"/>
                                                 <constraint firstItem="Q3v-ZH-TL7" firstAttribute="bottom" secondItem="6Vj-zJ-rfF" secondAttribute="bottom" id="hgQ-3g-Cyh"/>
+                                                <constraint firstItem="6Vj-zJ-rfF" firstAttribute="leading" secondItem="7s0-SM-cMP" secondAttribute="leading" id="kg4-ab-Egg"/>
                                                 <constraint firstItem="hEx-o0-xAb" firstAttribute="leading" secondItem="1Kf-vk-U1C" secondAttribute="leadingMargin" constant="-1" id="kxq-li-3Hy"/>
                                                 <constraint firstItem="2Z8-bz-CIb" firstAttribute="top" secondItem="7s0-SM-cMP" secondAttribute="bottom" id="m5o-8l-nAx"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="hEx-o0-xAb" secondAttribute="bottom" constant="5.5" id="tm6-8x-tHA"/>
-                                                <constraint firstItem="hEx-o0-xAb" firstAttribute="top" secondItem="1Kf-vk-U1C" secondAttribute="topMargin" constant="7" id="ty9-Dm-yE0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hEx-o0-xAb" secondAttribute="bottom" constant="6" id="tm6-8x-tHA"/>
+                                                <constraint firstItem="hEx-o0-xAb" firstAttribute="top" secondItem="1Kf-vk-U1C" secondAttribute="topMargin" constant="6" id="ty9-Dm-yE0"/>
                                                 <constraint firstItem="Q3v-ZH-TL7" firstAttribute="bottom" secondItem="Uer-9S-86o" secondAttribute="bottom" id="uZk-cp-xq9"/>
+                                                <constraint firstItem="hEx-o0-xAb" firstAttribute="centerY" secondItem="1Kf-vk-U1C" secondAttribute="centerY" id="vSp-pK-27p"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="tm6-8x-tHA"/>
+                                                    <exclude reference="ty9-Dm-yE0"/>
+                                                    <exclude reference="Gze-3t-7S0"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="address" destination="7s0-SM-cMP" id="08z-8E-Wc3"/>
