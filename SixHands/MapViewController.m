@@ -118,9 +118,9 @@
     
     self.reveal = self.revealViewController;
     
-    if (!self.reveal) {
+   if (!self.reveal) {
         return;
-    }
+    } 
     
     // Add gesture recognizer
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];

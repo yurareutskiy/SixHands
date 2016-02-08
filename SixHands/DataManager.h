@@ -7,7 +7,6 @@
 //
 
 #import <CoreData/CoreData.h>
-#import "User.h"
 
 @interface DataManager : NSFetchedResultsController
 

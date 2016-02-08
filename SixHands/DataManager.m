@@ -36,9 +36,9 @@
     
     [ud setObject:result[@"token"] forKey:@"token"];
     
-    User *user = [User initUserWithFirstName:result[@"user"][@"first_name"] LastName:result[@"user"][@"last_name"] userID:result[@"user"][@"id"] Email:result[@"user"][@"email"] Phone:result[@"user"][@"phone"] PhotoURL:result[@"user"][@"user_photo_url"]];
-    NSData *userData = [NSKeyedArchiver archivedDataWithRootObject:user];
-    [ud setObject:userData forKey:@"user"];
+//    User *user = [User initUserWithFirstName:result[@"user"][@"first_name"] LastName:result[@"user"][@"last_name"] userID:result[@"user"][@"id"] Email:result[@"user"][@"email"] Phone:result[@"user"][@"phone"] PhotoURL:result[@"user"][@"user_photo_url"]];
+//    NSData *userData = [NSKeyedArchiver archivedDataWithRootObject:user];
+//    [ud setObject:userData forKey:@"user"];
 }
 
 @end
