@@ -10,5 +10,10 @@
 #import "ModelViewController.h"
 
 @interface ProfileViewController : ModelViewController
+@property (weak, nonatomic) IBOutlet UIImageView *userPhoto;
+@property (weak, nonatomic) IBOutlet UIImageView *backPhoto;
+@property (weak, nonatomic) IBOutlet UILabel *userNameTitle;
+@property (weak, nonatomic) IBOutlet UILabel *userLocationTitle;
+@property (weak, nonatomic) IBOutlet UIButton *connectButtonAction;
 
 @end

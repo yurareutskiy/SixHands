@@ -17,8 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.phoneField.formatter setDefaultOutputPattern:@"# (###) ###-##-##"];
-    self.phoneField.formatter.prefix = @"+";
+    [self.phoneField.formatter setDefaultOutputPattern:@"(###) ###-##-##"];
+    self.phoneField.formatter.prefix = @"+7 ";
     
     self.code.delegate = self;
     self.notCode.delegate = self;
@@ -28,15 +28,45 @@
     _notCode.hidden = YES;
     _code.hidden = YES;
     
-    self.phoneField.keyboardType = UIKeyboardTypeDefault;
+    self.phoneField.keyboardType = UIKeyboardTypePhonePad;
     self.phoneField.returnKeyType = UIReturnKeyNext;
     self.phoneField.autocorrectionType = UITextAutocorrectionTypeNo;
     
-    self.code.keyboardType = UIKeyboardTypeDefault;
+    self.code.keyboardType = UIKeyboardTypePhonePad;
     self.code.returnKeyType = UIReturnKeyDone;
     self.code.autocorrectionType = UITextAutocorrectionTypeNo;
     
+    UIBarButtonItem *barButtonPhone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(sendSMS)];
+    UIToolbar *toolbarPhone = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    toolbarPhone.items = [NSArray arrayWithObject:barButtonPhone];
+    self.phoneField.inputAccessoryView = toolbarPhone;
+    
+//    UIBarButtonItem *barButtonCode = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(checkCode)];
+//    UIToolbar *toolbarCode = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+//    toolbarCode.items = [NSArray arrayWithObject:barButtonCode];
+//    self.code.inputAccessoryView = toolbarCode;
     // Do any additional setup after loading the view.
+}
+
+- (void)sendSMS {
+    if ([self.phoneField.text length] == 18) {
+        [self.code becomeFirstResponder];
+        self.view1.hidden = YES;
+        self.plsInput.hidden = YES;
+        self.phoneField.hidden = YES;
+        
+        self.code.hidden = NO;
+        self.backButton.hidden = NO;
+        self.notCode.hidden = NO;
+        self.plsCode.hidden = NO;
+    }
+}
+
+- (void)checkCode {
+    if ([self.code.text length] == 7) {
+        NSString *code = [self.code.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -79,6 +109,15 @@
 */
 
 - (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if (textField.tag == 0 && range.location == 5) {
+        textField.text = [NSString stringWithFormat:@"%@ %@", textField.text, string];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [textField resignFirstResponder];
+            [self checkCode];
+        });
+        return NO;
+    }
     
     NSString *code = [self formatCode:_code.text];
     int length1 = [self getLength:code];
@@ -147,5 +186,21 @@
 
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+- (IBAction)backButtonAction:(UIButton *)sender {
+    if ([self.code.text length] == 0) {
+        [self.code resignFirstResponder];
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
+        [self presentViewController:vc animated:true completion:nil];
+    }
+    [self.phoneField becomeFirstResponder];
+    self.view1.hidden = NO;
+    self.plsInput.hidden = NO;
+    self.phoneField.hidden = NO;
+    
+    self.code.hidden = YES;
+    self.backButton.hidden = YES;
+    self.notCode.hidden = YES;
+    self.plsCode.hidden = YES;
 }
 @end

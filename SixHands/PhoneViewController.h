@@ -18,5 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *plsCode;
 @property (strong, nonatomic) IBOutlet UITextField *notCode;
 @property (strong, nonatomic) IBOutlet UITextField *code;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+- (IBAction)backButtonAction:(UIButton *)sender;
 
 @end

@@ -144,11 +144,11 @@
 - (IBAction)view2:(UIButton *)sender {
     if (!view2b) {
         view2b = YES;
-        [self.view2 setImage:[UIImage imageNamed:@"metro"] forState:UIControlStateNormal];
+        [self.view2 setImage:[UIImage imageNamed:@"subway1-4"] forState:UIControlStateNormal];
         [self.view2 setBackgroundColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0]];
     } else {
         view2b = NO;
-        [self.view2 setImage:[UIImage imageNamed:@"metroWhite"] forState:UIControlStateNormal];
+        [self.view2 setImage:[UIImage imageNamed:@"subway1-3"] forState:UIControlStateNormal];
         [self.view2 setBackgroundColor:[UIColor clearColor]];
     }
 }
@@ -168,11 +168,11 @@
 - (IBAction)view4:(UIButton *)sender {
     if (!view4b) {
         view4b = YES;
-        [self.view4 setImage:[UIImage imageNamed:@"friends"] forState:UIControlStateNormal];
+        [self.view4 setImage:[UIImage imageNamed:@"group4-6"] forState:UIControlStateNormal];
         [self.view4 setBackgroundColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0]];
     } else {
         view4b = NO;
-        [self.view4 setImage:[UIImage imageNamed:@"friendsWhite"] forState:UIControlStateNormal];
+        [self.view4 setImage:[UIImage imageNamed:@"group4-5"] forState:UIControlStateNormal];
         [self.view4 setBackgroundColor:[UIColor clearColor]];
     }
 }

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModelViewController.h"
 
-@interface FlatViewController : UIViewController
+@interface FlatViewController : ModelViewController
+
+
 
 @end

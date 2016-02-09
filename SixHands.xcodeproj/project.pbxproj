@@ -82,6 +82,7 @@
 		DB4E28211C68CF7300303437 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28121C68CF7300303437 /* Lato-Semibold.ttf */; };
 		DB6DED5F1C675F2600A263B5 /* FloatTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6DED5E1C675F2600A263B5 /* FloatTabBarViewController.m */; };
 		DB6DED621C675FD000A263B5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6DED611C675FD000A263B5 /* SWRevealViewController.m */; };
+		DB95483D1C6957F1007F79D2 /* SubwayView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB95483C1C6957F1007F79D2 /* SubwayView.m */; };
 		DBC8064A1C5FBC9A00E84FC2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DBC806491C5FBC9A00E84FC2 /* Podfile */; };
 /* End PBXBuildFile section */
 
@@ -213,6 +214,8 @@
 		DB6DED5E1C675F2600A263B5 /* FloatTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatTabBarViewController.m; sourceTree = "<group>"; };
 		DB6DED601C675FD000A263B5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DB6DED611C675FD000A263B5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		DB95483B1C6957F1007F79D2 /* SubwayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubwayView.h; sourceTree = "<group>"; };
+		DB95483C1C6957F1007F79D2 /* SubwayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubwayView.m; sourceTree = "<group>"; };
 		DBC806491C5FBC9A00E84FC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
@@ -400,6 +403,8 @@
 			isa = PBXGroup;
 			children = (
 				DB4E28001C68B7B700303437 /* Cells */,
+				DB95483B1C6957F1007F79D2 /* SubwayView.h */,
+				DB95483C1C6957F1007F79D2 /* SubwayView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -414,6 +419,8 @@
 				DB3ED3CB1C68E41A00576E62 /* Messages */,
 				DB3ED3CA1C68E3CC00576E62 /* Flat */,
 				3ADF016E1C6129D100890117 /* Menu */,
+				3ADF015B1C61261200890117 /* FavViewController.h */,
+				3ADF015C1C61261200890117 /* FavViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -432,8 +439,6 @@
 		DB3ED3CA1C68E3CC00576E62 /* Flat */ = {
 			isa = PBXGroup;
 			children = (
-				3ADF015B1C61261200890117 /* FavViewController.h */,
-				3ADF015C1C61261200890117 /* FavViewController.m */,
 				3ADF01581C61260200890117 /* MapViewController.h */,
 				3ADF01591C61260200890117 /* MapViewController.m */,
 				3AF845DF1C65E48200F1707C /* ListViewController.h */,
@@ -698,6 +703,7 @@
 				3A4BD5D61C68DCC900936862 /* Filter.m in Sources */,
 				3ADF01571C6125F300890117 /* LoginViewController.m in Sources */,
 				3A4BD5D31C68DCC900936862 /* Flats+CoreDataProperties.m in Sources */,
+				DB95483D1C6957F1007F79D2 /* SubwayView.m in Sources */,
 				3A3F9F6D1C661FA500E5E8AC /* GClusterManager.m in Sources */,
 				3A3F9F7D1C661FC700E5E8AC /* GQTPointQuadTreeChild.m in Sources */,
 				3ADF01601C61261F00890117 /* MessViewController.m in Sources */,

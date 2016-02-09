@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SubwayView.h"
 
 @interface ListTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *name;
@@ -18,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *avatar3;
 @property (weak, nonatomic) IBOutlet UILabel *moreFriendsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *price;
+@property (weak, nonatomic) IBOutlet SubwayView *subway;
 
 @end

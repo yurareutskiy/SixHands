@@ -14,6 +14,8 @@
 
 @implementation FavViewController
 
+#pragma mark - Init configure
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -24,7 +26,7 @@
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0]];
     
-    // Do any additional setup after loading the view.
+    [self customNavBar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,21 +34,27 @@
     // Dispose of any resources that can be recreated.
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+
+- (void)customNavBar {
+    UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithImage:nil
+                                                                     style:UIBarButtonItemStyleDone
+                                                                    target:self
+                                                                    action:@selector(addFlat:)];
+    settingsItem.image = [self imageWithImage:[UIImage imageNamed:@"add139"] scaledToSize:CGSizeMake(20, 20)];
+    
+    self.navigationItem.rightBarButtonItem = settingsItem;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+
+#pragma mark - Actions
+- (void)addFlat:(id)sender {
+    NSLog(@"Added");
 }
-*/
 
-#pragma mark - Настройки таблицы
+
+#pragma mark - UITableViewDelegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 15;
@@ -60,5 +68,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"toFlat" sender:self];
 }
+
+#pragma mark - Supporting methods
+
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 
 @end
