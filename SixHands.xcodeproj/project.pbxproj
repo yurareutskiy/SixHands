@@ -55,7 +55,10 @@
 		3ADF01801C61392A00890117 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017D1C61392A00890117 /* FBSDKLoginKit.framework */; };
 		3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */; };
 		3AF845E11C65E48200F1707C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF845E01C65E48200F1707C /* ListViewController.m */; };
-		C39991C35028AC3FD441E0F3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9883EBD3BD32DD3CEAE47696 /* Pods.framework */; };
+		A2567A257419FE9008F6F5F1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 640F28F77E2DA92AEE6DC49F /* libPods.a */; };
+		DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */; };
+		DB2D45611C6B848000151B2F /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D45601C6B848000151B2F /* InfoTableViewCell.m */; };
+		DB2D45641C6B8AFF00151B2F /* DescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D45631C6B8AFF00151B2F /* DescriptionTableViewCell.m */; };
 		DB3ED3CF1C68E7AA00576E62 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3ED3CE1C68E7AA00576E62 /* ChatViewController.m */; };
 		DB4951FF1C5FBB4700745228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4951FE1C5FBB4700745228 /* main.m */; };
 		DB4952021C5FBB4700745228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4952011C5FBB4700745228 /* AppDelegate.m */; };
@@ -179,7 +182,13 @@
 		3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = SixHands/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		3AF845DF1C65E48200F1707C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		3AF845E01C65E48200F1707C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		9883EBD3BD32DD3CEAE47696 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		640F28F77E2DA92AEE6DC49F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB2D455C1C6B679F00151B2F /* GeneralDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralDescriptionTableViewCell.h; sourceTree = "<group>"; };
+		DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralDescriptionTableViewCell.m; sourceTree = "<group>"; };
+		DB2D455F1C6B848000151B2F /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
+		DB2D45601C6B848000151B2F /* InfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewCell.m; sourceTree = "<group>"; };
+		DB2D45621C6B8AFF00151B2F /* DescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionTableViewCell.h; sourceTree = "<group>"; };
+		DB2D45631C6B8AFF00151B2F /* DescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionTableViewCell.m; sourceTree = "<group>"; };
 		DB3ED3CD1C68E7AA00576E62 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		DB3ED3CE1C68E7AA00576E62 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		DB4951FA1C5FBB4700745228 /* SixHands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SixHands.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,7 +238,7 @@
 				3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */,
 				3ADF01671C61278D00890117 /* CoreLocation.framework in Frameworks */,
 				3ADF01651C61273100890117 /* MapKit.framework in Frameworks */,
-				C39991C35028AC3FD441E0F3 /* Pods.framework in Frameworks */,
+				A2567A257419FE9008F6F5F1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +387,7 @@
 				3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */,
 				3ADF01661C61278D00890117 /* CoreLocation.framework */,
 				3ADF01641C61273100890117 /* MapKit.framework */,
-				9883EBD3BD32DD3CEAE47696 /* Pods.framework */,
+				640F28F77E2DA92AEE6DC49F /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -514,12 +523,18 @@
 		DB4E28001C68B7B700303437 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DB2D455C1C6B679F00151B2F /* GeneralDescriptionTableViewCell.h */,
+				DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */,
 				3A8A7EBC1C6747AF005946C0 /* ListTableViewCell.h */,
 				3A8A7EBD1C6747AF005946C0 /* ListTableViewCell.m */,
+				DB2D455F1C6B848000151B2F /* InfoTableViewCell.h */,
+				DB2D45601C6B848000151B2F /* InfoTableViewCell.m */,
+				DB2D45621C6B8AFF00151B2F /* DescriptionTableViewCell.h */,
+				DB2D45631C6B8AFF00151B2F /* DescriptionTableViewCell.m */,
 				DB4E28011C68B83600303437 /* ChatTableViewCell.h */,
 				DB4E28021C68B83600303437 /* ChatTableViewCell.m */,
-				DB95483E1C6AA7D3007F79D2 /* ScrollFlatTableViewCell.h */,
 				DB95483F1C6AA7D3007F79D2 /* ScrollFlatTableViewCell.m */,
+				DB95483E1C6AA7D3007F79D2 /* ScrollFlatTableViewCell.h */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -673,8 +688,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A4BD5D41C68DCC900936862 /* Flats.m in Sources */,
+				DB2D45611C6B848000151B2F /* InfoTableViewCell.m in Sources */,
 				3A8A7EB71C66A836005946C0 /* SHSFlagAccessoryView.m in Sources */,
 				3A3F9F7C1C661FC700E5E8AC /* GQTPointQuadTree.m in Sources */,
+				DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */,
 				3A8A7EBE1C6747AF005946C0 /* ListTableViewCell.m in Sources */,
 				3A8A7EBA1C66A836005946C0 /* SHSPhoneNumberFormatter+UserConfig.m in Sources */,
 				3A3F9F711C661FB200E5E8AC /* GDefaultClusterRenderer.m in Sources */,
@@ -684,6 +701,7 @@
 				3A3F9F6B1C661FA500E5E8AC /* GStaticCluster.m in Sources */,
 				3ADF01631C61264900890117 /* ProfileViewController.m in Sources */,
 				DB4952021C5FBB4700745228 /* AppDelegate.m in Sources */,
+				DB2D45641C6B8AFF00151B2F /* DescriptionTableViewCell.m in Sources */,
 				3A8A7EB91C66A836005946C0 /* SHSPhoneNumberFormatter.m in Sources */,
 				3AF845E11C65E48200F1707C /* ListViewController.m in Sources */,
 				3A4BD5D71C68DCC900936862 /* Messages+CoreDataProperties.m in Sources */,

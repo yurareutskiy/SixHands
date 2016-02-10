@@ -18,7 +18,15 @@
     [super viewDidLoad];
     self.vkButton.layer.cornerRadius = 7.f;
     self.facebookButton.layer.cornerRadius = 7.f;
-    // Do any additional setup after loading the view.
+    self.vkButton.layer.borderWidth = 1.f;
+    self.facebookButton.layer.borderWidth = 1.f;
+    self.vkButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.facebookButton.layer.borderColor = [UIColor whiteColor].CGColor;
+//    self.facebookButton.imageView.image = [self imageWithImage:self.facebookButton.imageView.image scaledToSize:CGSizeMake(60, 60)];
+//    
+    CGRect rect = self.view.frame;
+    self.backView.frame = rect;
+
 }
 
 - (void)didReceiveMemoryWarning {
