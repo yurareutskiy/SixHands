@@ -30,7 +30,7 @@
     self.dotLine = [[UIView alloc] initWithFrame:CGRectMake(0, middleY - (self.diametr / 2), self.diametr, self.diametr)];
     self.dotLine.layer.cornerRadius = self.diametr / 2;
     self.dotLine.layer.borderColor = [UIColor blackColor].CGColor;
-    self.dotLine.layer.borderWidth = 1;
+//    self.dotLine.layer.borderWidth = 1;
     self.dotLine.backgroundColor = [UIColor redColor];
     [self addSubview:self.dotLine];
 }

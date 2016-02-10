@@ -7,6 +7,7 @@
 //
 
 #import "ListViewController.h"
+#import "FlatViewController.h"
 
 @interface ListViewController ()
 
@@ -112,7 +113,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"toFlat" sender:self];
+    FlatViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FlatVC"];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+//    [self performSegueWithIdentifier:@"toFlat" sender:self];
     
 }
 

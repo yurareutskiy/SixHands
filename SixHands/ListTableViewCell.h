@@ -20,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *moreFriendsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet SubwayView *subway;
+@property (weak, nonatomic) IBOutlet UIButton *favButton;
+- (IBAction)favoritesAction:(UIButton *)sender;
 
 @end

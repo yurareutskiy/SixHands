@@ -63,7 +63,7 @@
 - (void)configureItemLine {
 
     self.widthItem = self.view.frame.size.width / [self.tabBar.items count];
-    self.itemLine = [[UIView alloc] initWithFrame:CGRectMake(5, 0, self.widthItem - 10, self.railLineHeight)];
+    self.itemLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.widthItem, self.railLineHeight)];
     self.itemLine.backgroundColor = self.tintItemColor;
     [self.railView addSubview:self.itemLine];
 }
@@ -84,7 +84,7 @@
             break;
         }
     }
-    CGRect newRect = CGRectMake(destinationX + 5, 0, self.widthItem - 10, self.railLineHeight);
+    CGRect newRect = CGRectMake(destinationX, 0, self.widthItem, self.railLineHeight);
     [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.itemLine.frame = newRect;
     } completion:nil];

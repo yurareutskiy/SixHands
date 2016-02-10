@@ -25,6 +25,10 @@
     [self.avatar2.layer setMasksToBounds:YES];
     [self.avatar3.layer setMasksToBounds:YES];
     
+//    [self.favButton setImage:[UIImage imageNamed:@"fav_enable"] forState:UIControlStateNormal];
+//    [self.favButton setImage:[UIImage imageNamed:@"fav_disble"] forState:UIControlStateSelected];
+    
+    [self.favButton setAlpha:0.5];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -33,4 +37,15 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)favoritesAction:(UIButton *)sender {
+    if (sender.isSelected == 0) {
+        [self.favButton setImage:[UIImage imageNamed:@"fav_enable"] forState:UIControlStateNormal];
+        sender.selected = 1;
+        sender.alpha = 1;
+    } else {
+        [self.favButton setImage:[UIImage imageNamed:@"fav_disable"] forState:UIControlStateNormal];
+        sender.selected = 0;
+        sender.alpha = 0.5;
+    }
+}
 @end

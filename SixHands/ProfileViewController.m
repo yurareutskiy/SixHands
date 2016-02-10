@@ -59,10 +59,11 @@
     self.navigationItem.title = @"Профиль";
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0]];
-    self.backPhoto.image = [[UIImage imageNamed:@"avatar2"] imageWithGaussianBlur];
+//    self.backPhoto.image = [[UIImage imageNamed:@"avatar2"] imageWithGaussianBlur];
+    self.backPhoto.backgroundColor = [UIColor colorWithRed:221.f/255.f green:222.f/255.f blue:226.f/255.f alpha:1.f];
     self.userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width / 2;
     self.userPhoto.layer.borderWidth = 2.f;
-    self.userPhoto.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.userPhoto.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.userPhoto.layer.masksToBounds = YES;
     
     [self customNavBar];
@@ -71,7 +72,7 @@
 }
 
 - (void)customNavBar {
-    UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"gear39-2"]
+    UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithImage:[self imageWithImage:[UIImage imageNamed:@"tool"] scaledToSize:CGSizeMake(20, 20)]
                                                                      style:UIBarButtonItemStyleDone
                                                                     target:self
                                                                     action:@selector(settingsMenu:)];

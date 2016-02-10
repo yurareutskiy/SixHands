@@ -20,5 +20,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *code;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 - (IBAction)backButtonAction:(UIButton *)sender;
+@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *codeLabels;
 
 @end

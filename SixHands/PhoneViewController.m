@@ -12,7 +12,9 @@
 
 @end
 
-@implementation PhoneViewController
+@implementation PhoneViewController {
+    NSString *codeText;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,6 +26,25 @@
     self.notCode.delegate = self;
     self.phoneField.delegate = self;
     
+    for (UITextField *codeItem in self.codeLabels) {
+        codeItem.delegate = self;
+        codeItem.keyboardType = UIKeyboardTypePhonePad;
+        codeItem.returnKeyType = UIReturnKeyDone;
+        codeItem.autocorrectionType = UITextAutocorrectionTypeNo;
+        
+        if (codeItem.tag == 104) {
+            
+
+
+        }
+
+
+    }
+    
+    UIBarButtonItem *barButtonCode = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(checkCode)];
+    UIToolbar *toolbarCode = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    toolbarCode.items = [NSArray arrayWithObject:barButtonCode];
+    
     _plsCode.hidden = YES;
     _notCode.hidden = YES;
     _code.hidden = YES;
@@ -32,30 +53,32 @@
     self.phoneField.returnKeyType = UIReturnKeyNext;
     self.phoneField.autocorrectionType = UITextAutocorrectionTypeNo;
     
-    self.code.keyboardType = UIKeyboardTypePhonePad;
-    self.code.returnKeyType = UIReturnKeyDone;
-    self.code.autocorrectionType = UITextAutocorrectionTypeNo;
     
     UIBarButtonItem *barButtonPhone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(sendSMS)];
     UIToolbar *toolbarPhone = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     toolbarPhone.items = [NSArray arrayWithObject:barButtonPhone];
     self.phoneField.inputAccessoryView = toolbarPhone;
     
-//    UIBarButtonItem *barButtonCode = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(checkCode)];
-//    UIToolbar *toolbarCode = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-//    toolbarCode.items = [NSArray arrayWithObject:barButtonCode];
-//    self.code.inputAccessoryView = toolbarCode;
+//    self.code.keyboardType = UIKeyboardTypePhonePad;
+//    self.code.returnKeyType = UIReturnKeyDone;
+//    self.code.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    
     // Do any additional setup after loading the view.
 }
 
 - (void)sendSMS {
     if ([self.phoneField.text length] == 18) {
-        [self.code becomeFirstResponder];
+        for (UITextField *codeItem in self.codeLabels) {
+            codeItem.hidden = NO;
+            if (codeItem.tag == 101) {
+                [codeItem becomeFirstResponder];
+            }
+        }
         self.view1.hidden = YES;
         self.plsInput.hidden = YES;
         self.phoneField.hidden = YES;
         
-        self.code.hidden = NO;
         self.backButton.hidden = NO;
         self.notCode.hidden = NO;
         self.plsCode.hidden = NO;
@@ -63,9 +86,10 @@
 }
 
 - (void)checkCode {
-    if ([self.code.text length] == 7) {
-        NSString *code = [self.code.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-
+    NSLog(@"%@", codeText);
+    if ([codeText isEqualToString:@"1234"]) {
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
+        [self presentViewController:vc animated:true completion:nil];
     }
 }
 
@@ -109,6 +133,24 @@
 */
 
 - (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if ([self.codeLabels containsObject:textField]) {
+        textField.text = string;
+        NSMutableDictionary *codeTagDictionary = [[NSMutableDictionary alloc] init];
+        for (UITextField *codeItem in self.codeLabels) {
+            [codeTagDictionary setObject:codeItem forKey:[NSString stringWithFormat:@"%d", codeItem.tag]];
+        }
+        if (textField.tag == 104) {
+            codeText = [NSString stringWithFormat:@"%@%@%@%@", ((UITextField*)codeTagDictionary[@"101"]).text, ((UITextField*)codeTagDictionary[@"102"]).text, ((UITextField*)codeTagDictionary[@"103"]).text, string];
+            [self.view endEditing:YES];
+            [self checkCode];
+        } else {
+            int destinationTag = textField.tag + 1;
+            UITextField *destinationField = codeTagDictionary[[NSString stringWithFormat:@"%d", destinationTag]];
+            [destinationField becomeFirstResponder];
+        }
+        return NO;
+    }
     
     if (textField.tag == 0 && range.location == 5) {
         textField.text = [NSString stringWithFormat:@"%@ %@", textField.text, string];
