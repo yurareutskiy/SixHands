@@ -94,6 +94,9 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    
+    
     if (textField.tag == 1) {
 
         _view1.hidden = YES;
@@ -133,8 +136,19 @@
 */
 
 - (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
+    NSLog(@"string - %@", string);
+    if (range.length == 1 && textField.tag > 100) {
+        textField.text = @"";
+        for (UITextField *tf in self.codeLabels) {
+            if (tf.tag == (textField.tag - 1)) {
+                [tf becomeFirstResponder];
+                return NO;
+            }
+        }
+        return NO;
+    }
     if ([self.codeLabels containsObject:textField]) {
+        
         textField.text = string;
         NSMutableDictionary *codeTagDictionary = [[NSMutableDictionary alloc] init];
         for (UITextField *codeItem in self.codeLabels) {
@@ -222,19 +236,20 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.phoneField resignFirstResponder];
-    [self.code resignFirstResponder];
+//    [self.phoneField resignFirstResponder];
+//    [self.code resignFirstResponder];
+    [self.view endEditing:YES];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
 - (IBAction)backButtonAction:(UIButton *)sender {
-    if ([self.code.text length] == 0) {
-        [self.code resignFirstResponder];
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
-        [self presentViewController:vc animated:true completion:nil];
-    }
+//    if ([self.code.text length] == 0) {
+//        [self.code resignFirstResponder];
+//        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
+//        [self presentViewController:vc animated:true completion:nil];
+//    }
     [self.phoneField becomeFirstResponder];
     self.view1.hidden = NO;
     self.plsInput.hidden = NO;
@@ -244,5 +259,9 @@
     self.backButton.hidden = YES;
     self.notCode.hidden = YES;
     self.plsCode.hidden = YES;
+    for (UITextField *tf in self.codeLabels) {
+        tf.text = @"";
+        tf.hidden = YES;
+    }
 }
 @end

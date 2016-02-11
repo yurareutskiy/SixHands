@@ -50,7 +50,7 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     // Set menu button
-    self.menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter"]
+    self.menuButton = [[UIBarButtonItem alloc] initWithImage:[self imageWithImage:[UIImage imageNamed:@"filter"] scaledToSize:CGSizeMake(20, 20)]
                                                        style:UIBarButtonItemStyleDone
                                                       target:self.revealViewController
                                                       action:@selector(rightRevealToggle:)];
