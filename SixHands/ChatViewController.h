@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ModelViewController.h"
-
-@interface ChatViewController : ModelViewController
+#import <JSQMessagesViewController/JSQMessagesViewController.h>
+#import <JSQMessages.h>
+@interface ChatViewController : JSQMessagesViewController <JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout>
 
 @end

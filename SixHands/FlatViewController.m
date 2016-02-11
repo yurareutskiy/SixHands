@@ -132,4 +132,7 @@
 
 
 
+- (IBAction)makeChatAction:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"makeChat" sender:self];
+}
 @end

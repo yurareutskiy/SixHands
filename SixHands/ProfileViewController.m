@@ -7,6 +7,8 @@
 //
 
 #import "ProfileViewController.h"
+#import "ListTableViewCell.h"
+#import "SettingsViewController.h"
 
 @interface UIImage (ImageBlur)
 - (UIImage *)imageWithGaussianBlur;
@@ -56,11 +58,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.table.delegate = self;
+    self.table.dataSource = self;
+    
     self.navigationItem.title = @"Профиль";
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0]];
 //    self.backPhoto.image = [[UIImage imageNamed:@"avatar2"] imageWithGaussianBlur];
-    self.backPhoto.backgroundColor = [UIColor colorWithRed:221.f/255.f green:222.f/255.f blue:226.f/255.f alpha:1.f];
+//    self.backPhoto.backgroundColor = [UIColor colorWithRed:221.f/255.f green:222.f/255.f blue:226.f/255.f alpha:1.f];
     self.userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width / 2;
     self.userPhoto.layer.borderWidth = 2.f;
     self.userPhoto.layer.borderColor = [UIColor darkGrayColor].CGColor;
@@ -84,7 +89,34 @@
 #pragma mark - Actions
 
 - (void)settingsMenu:(id)sender {
+    SettingsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsVC"];
+    CGRect rectMenu = CGRectMake(self.view.frame.size.width, 0, 280, self.view.frame.size.height);
+    vc.view.frame = rectMenu;
+    [self.tabBarController.view addSubview:vc.view];
+    self.view.userInteractionEnabled = NO;
+    [UIView animateWithDuration:0.4 animations:^{
+        CGRect newRect = CGRectMake(self.view.frame.size.width - 280, 0, 280, self.view.frame.size.height);
+        vc.view.frame = newRect;
+        
+    }];
     
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(hideSettings:)];
+    swipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.tabBarController.view addGestureRecognizer:swipe];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+//    [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    
+
+}
+
+- (void)hideSettings:(id)sender {
+    UIView *vc = [self.tabBarController.view.subviews lastObject];
+    self.view.userInteractionEnabled = YES;
+    [UIView animateWithDuration:0.4 animations:^{
+        CGRect newRect = CGRectMake(self.view.frame.size.width, 0, 280, self.view.frame.size.height);
+        vc.frame = newRect;
+        
+    }];
 }
 
 
@@ -97,15 +129,38 @@
     return UIStatusBarStyleLightContent;
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Actions
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)vkButtonAction:(UIButton *)sender {
 }
-*/
+
+- (IBAction)facebookButtonAction:(UIButton *)sender {
+}
+
+- (IBAction)rentButtonAction:(UIButton *)sender {
+}
+
+#pragma mark - UITavleViewDataSource 
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"listCell" forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[ListTableViewCell alloc] init];
+    }
+    cell.favButton.selected = YES;
+    cell.favButton.alpha = 1;
+    cell.favButton.userInteractionEnabled = NO;
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 
 @end
 

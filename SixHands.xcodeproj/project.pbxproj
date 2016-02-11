@@ -86,6 +86,7 @@
 		DB6DED621C675FD000A263B5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6DED611C675FD000A263B5 /* SWRevealViewController.m */; };
 		DB95483D1C6957F1007F79D2 /* SubwayView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB95483C1C6957F1007F79D2 /* SubwayView.m */; };
 		DB9548401C6AA7D3007F79D2 /* ScrollFlatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB95483F1C6AA7D3007F79D2 /* ScrollFlatTableViewCell.m */; };
+		DB9FE4A31C6C1ACF00DD27F5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB9FE4A21C6C1ACF00DD27F5 /* SettingsViewController.m */; };
 		DBC8064A1C5FBC9A00E84FC2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DBC806491C5FBC9A00E84FC2 /* Podfile */; };
 /* End PBXBuildFile section */
 
@@ -225,6 +226,8 @@
 		DB95483C1C6957F1007F79D2 /* SubwayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubwayView.m; sourceTree = "<group>"; };
 		DB95483E1C6AA7D3007F79D2 /* ScrollFlatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollFlatTableViewCell.h; sourceTree = "<group>"; };
 		DB95483F1C6AA7D3007F79D2 /* ScrollFlatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollFlatTableViewCell.m; sourceTree = "<group>"; };
+		DB9FE4A11C6C1ACF00DD27F5 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		DB9FE4A21C6C1ACF00DD27F5 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		DBC806491C5FBC9A00E84FC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
@@ -370,6 +373,8 @@
 		3ADF016E1C6129D100890117 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				DB9FE4A11C6C1ACF00DD27F5 /* SettingsViewController.h */,
+				DB9FE4A21C6C1ACF00DD27F5 /* SettingsViewController.m */,
 				DB6DED601C675FD000A263B5 /* SWRevealViewController.h */,
 				DB6DED611C675FD000A263B5 /* SWRevealViewController.m */,
 				3ADF016B1C6128E000890117 /* FilterViewController.h */,
@@ -698,6 +703,7 @@
 				3A3F9F741C661FBD00E5E8AC /* SphericalMercatorProjection.m in Sources */,
 				3A8A7EB81C66A836005946C0 /* SHSPhoneLogic.m in Sources */,
 				3A3F9F6A1C661FA500E5E8AC /* GQuadItem.m in Sources */,
+				DB9FE4A31C6C1ACF00DD27F5 /* SettingsViewController.m in Sources */,
 				3A3F9F6B1C661FA500E5E8AC /* GStaticCluster.m in Sources */,
 				3ADF01631C61264900890117 /* ProfileViewController.m in Sources */,
 				DB4952021C5FBB4700745228 /* AppDelegate.m in Sources */,

@@ -39,7 +39,7 @@
     float xPoint = self.offsetDot + self.diametr;
     CGRect rectLabel = CGRectMake(xPoint, middleY - (self.diametr / 2) - 2, self.frame.size.width - xPoint - 5, self.diametr + 3);
     self.subwayTitle = [[UILabel alloc] initWithFrame:rectLabel];
-    self.subwayTitle.text = (self.subwayName ? self.subwayName : @"Крапоткинская");
+    self.subwayTitle.text = (self.subwayName ? self.subwayName : @"Кропоткинская");
     self.subwayTitle.font = [UIFont fontWithName:@"Lato-Light" size:14];
     self.subwayTitle.adjustsFontSizeToFitWidth = YES;
     self.subwayTitle.minimumScaleFactor = 0.3;

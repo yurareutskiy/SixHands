@@ -29,7 +29,9 @@
 //    [self.favButton setImage:[UIImage imageNamed:@"fav_disble"] forState:UIControlStateSelected];
     
     [self.favButton setAlpha:0.5];
+    [self.favStarImage setAlpha:0.5];
 }
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -40,10 +42,14 @@
 - (IBAction)favoritesAction:(UIButton *)sender {
     if (sender.isSelected == 0) {
         [self.favButton setImage:[UIImage imageNamed:@"fav_enable"] forState:UIControlStateNormal];
+        [self.favStarImage setImage:[UIImage imageNamed:@"star_fill"]];
+        self.favStarImage.alpha = 1;
         sender.selected = 1;
         sender.alpha = 1;
     } else {
         [self.favButton setImage:[UIImage imageNamed:@"fav_disable"] forState:UIControlStateNormal];
+        [self.favStarImage setImage:[UIImage imageNamed:@"star_out"]];
+        self.favStarImage.alpha = 0.5;
         sender.selected = 0;
         sender.alpha = 0.5;
     }
