@@ -39,6 +39,7 @@
     // Configure the view for the selected state
 }
 
+
 - (IBAction)favoritesAction:(UIButton *)sender {
     if (sender.isSelected == 0) {
         [self.favButton setImage:[UIImage imageNamed:@"fav_enable"] forState:UIControlStateNormal];
@@ -53,5 +54,25 @@
         sender.selected = 0;
         sender.alpha = 0.5;
     }
+}
+
+- (NSString*)formattedStringWithPrice:(NSString*)price {
+    if ([[price substringFromIndex:[price length] - 1] isEqualToString:@"₽"]) {
+        return price;
+    }
+    self.price.text = @"";
+    NSInteger lenghtString = [price length];
+    NSMutableString *resultString = [NSMutableString stringWithString:@""];
+    NSInteger counter = lenghtString;
+    for (int i = 0; i < lenghtString; i++) {
+        char ch = [price characterAtIndex:i];
+        if (counter % 3 == 0 && lenghtString != counter) {
+            [resultString appendString:@" "];
+        }
+        [resultString appendString:[NSString stringWithFormat:@"%c", ch]];
+        counter--;
+    }
+    [resultString appendString:@" ₽"];
+    return resultString;
 }
 @end

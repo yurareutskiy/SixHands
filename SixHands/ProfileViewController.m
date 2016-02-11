@@ -117,6 +117,8 @@
         vc.frame = newRect;
         
     }];
+    [vc removeFromSuperview];
+    [self.tabBarController.view removeGestureRecognizer:[self.tabBarController.view.gestureRecognizers firstObject]];
 }
 
 

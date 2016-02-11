@@ -123,7 +123,8 @@
 - (ListTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
-    cell.price.text = [self formattedStringWithPrice:cell.price.text];
+//    cell.price.text = @"";
+    cell.price.text = [cell formattedStringWithPrice:cell.price.text];
     
     return cell;
 }
@@ -132,21 +133,6 @@
     return 10;
 }
 
-- (NSString*)formattedStringWithPrice:(NSString*)price {
-    
-    NSInteger lenghtString = [price length];
-    NSMutableString *resultString = [NSMutableString stringWithString:@""];
-    NSInteger counter = lenghtString;
-    for (int i = 0; i < lenghtString; i++) {
-        char ch = [price characterAtIndex:i];
-        if (counter % 3 == 0 && lenghtString != counter) {
-            [resultString appendString:@" "];
-        }
-        [resultString appendString:[NSString stringWithFormat:@"%c", ch]];
-        counter--;
-    }
-    [resultString appendString:@" ₽"];
-    return resultString;
-}
+
 
 @end
