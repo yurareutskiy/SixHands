@@ -23,7 +23,8 @@
     self.vkButton.layer.borderColor = [UIColor whiteColor].CGColor;
     self.facebookButton.layer.borderColor = [UIColor whiteColor].CGColor;
 //    self.facebookButton.imageView.image = [self imageWithImage:self.facebookButton.imageView.image scaledToSize:CGSizeMake(60, 60)];
-//    
+//
+    
     CGRect rect = self.view.frame;
     self.backView.frame = rect;
 
@@ -57,5 +58,13 @@
 }
 
 - (IBAction)vkButtonAction:(UIButton *)sender {
+}
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 @end
