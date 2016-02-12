@@ -94,6 +94,7 @@
     vc.view.frame = rectMenu;
     [self.tabBarController.view addSubview:vc.view];
     self.view.userInteractionEnabled = NO;
+
     [UIView animateWithDuration:0.4 animations:^{
         CGRect newRect = CGRectMake(self.view.frame.size.width - 280, 0, 280, self.view.frame.size.height);
         vc.view.frame = newRect;

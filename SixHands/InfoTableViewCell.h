@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionTextLabel;
 
+
+- (void)setDescriptionText:(NSString*)text;
 @end

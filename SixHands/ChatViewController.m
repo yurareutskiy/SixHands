@@ -21,6 +21,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIFont *navBarFont = [UIFont fontWithName:@"Lato-Light" size:15];
+    self.navigationController.navigationBar.titleTextAttributes =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                                                     NSFontAttributeName:navBarFont};
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    item.width = 100;
+    self.navigationItem.rightBarButtonItems = @[item];
     // Do any additional setup after loading the view.
     self.senderDisplayName = @"user1";
     self.senderId = @"1";
@@ -29,11 +36,11 @@
     status.backgroundColor = [UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0];
     [self.view addSubview:status];
 
-    self.collectionView.backgroundColor = [UIColor colorWithRed:220.0/255.0 green:221.0/255.0 blue:225.0/255.0 alpha:1.0];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
 //    self.collectionView.
     
-    incomingBubbleImage = [[JSQMessagesBubbleImage alloc] initWithMessageBubbleImage:[UIImage imageNamed:@"profileAv"] highlightedImage:[UIImage imageNamed:@"profileAv"]];
-    outcomingBubbleImage = [[JSQMessagesBubbleImage alloc] initWithMessageBubbleImage:[UIImage imageNamed:@"second_square"] highlightedImage:[UIImage imageNamed:@"second_square"]];
+    incomingBubbleImage = [[JSQMessagesBubbleImage alloc] initWithMessageBubbleImage:[UIImage imageNamed:@"light_grey_messages"] highlightedImage:[UIImage imageNamed:@"light_grey_messages"]];
+    outcomingBubbleImage = [[JSQMessagesBubbleImage alloc] initWithMessageBubbleImage:[UIImage imageNamed:@"dark_grey_messages"] highlightedImage:[UIImage imageNamed:@"dark_grey_messages"]];
 
     messages = [[NSMutableArray alloc] init];
 
@@ -94,7 +101,8 @@
     JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
     cell.avatarContainerView.layer.cornerRadius = cell.avatarContainerView.frame.size.height / 2;
     cell.avatarContainerView.layer.masksToBounds = YES;
-    
+    cell.textView.textColor = [UIColor blackColor];
+    cell.textView.font = [UIFont fontWithName:@"Lato-Regular" size:16];
     cell.messageBubbleContainerView.layer.cornerRadius = 5;
     cell.messageBubbleContainerView.layer.masksToBounds = YES;
 //    cell.

@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIView *capView;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 
+@property (strong, nonatomic) NSString *address;
+
 - (IBAction)makeChatAction:(UIButton *)sender;
 
 
