@@ -88,7 +88,8 @@
     [self.room.layer setBorderWidth: .5f];
     [self.room.layer setCornerRadius:7.f];
     
-    self.revealViewController.rightViewRevealWidth = self.view.frame.size.width - 70.0;
+//    self.revealViewController.rightViewRevealWidth = self.view.frame.size.width - 70.0;
+    self.revealViewController.rightViewRevealWidth = 280.f;
     
     // Do any additional setup after loading the view.
 }
