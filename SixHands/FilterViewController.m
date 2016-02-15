@@ -31,6 +31,8 @@
     [super viewDidLoad];
     
     self.revealViewController.delegate = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     view1b = NO;
     view2b = NO;
@@ -88,7 +90,8 @@
     [self.room.layer setBorderWidth: .5f];
     [self.room.layer setCornerRadius:7.f];
     
-    self.revealViewController.rightViewRevealWidth = self.view.frame.size.width - 70.0;
+//    self.revealViewController.rightViewRevealWidth = self.view.frame.size.width - 70.0;
+    self.revealViewController.rightViewRevealWidth = 280.f;
     
     // Do any additional setup after loading the view.
 }
@@ -100,8 +103,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     
-    singleFingerTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self.revealViewController
+    singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self.revealViewController
                                             action:@selector(revealToggle:)];
     //    [self.view addGestureRecognizer:singleFingerTap];
     
@@ -144,11 +146,11 @@
 - (IBAction)view2:(UIButton *)sender {
     if (!view2b) {
         view2b = YES;
-        [self.view2 setImage:[UIImage imageNamed:@"metro"] forState:UIControlStateNormal];
+        [self.view2 setImage:[UIImage imageNamed:@"subway1-4"] forState:UIControlStateNormal];
         [self.view2 setBackgroundColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0]];
     } else {
         view2b = NO;
-        [self.view2 setImage:[UIImage imageNamed:@"metroWhite"] forState:UIControlStateNormal];
+        [self.view2 setImage:[UIImage imageNamed:@"subway1-3"] forState:UIControlStateNormal];
         [self.view2 setBackgroundColor:[UIColor clearColor]];
     }
 }
@@ -168,11 +170,11 @@
 - (IBAction)view4:(UIButton *)sender {
     if (!view4b) {
         view4b = YES;
-        [self.view4 setImage:[UIImage imageNamed:@"friends"] forState:UIControlStateNormal];
+        [self.view4 setImage:[UIImage imageNamed:@"group4-6"] forState:UIControlStateNormal];
         [self.view4 setBackgroundColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0]];
     } else {
         view4b = NO;
-        [self.view4 setImage:[UIImage imageNamed:@"friendsWhite"] forState:UIControlStateNormal];
+        [self.view4 setImage:[UIImage imageNamed:@"group4-5"] forState:UIControlStateNormal];
         [self.view4 setBackgroundColor:[UIColor clearColor]];
     }
 }
@@ -290,4 +292,22 @@
 
 - (IBAction)params:(UIButton *)sender {
 }
+
+#pragma mark - UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"filterCell"]; // Вставить название для ячейки!
+    return cell;
+}
+
 @end

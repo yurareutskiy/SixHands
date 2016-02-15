@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModelViewController.h"
 
 @interface LoginViewController : UIViewController
 - (IBAction)skipButton:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *facebookButton;
 @property (strong, nonatomic) IBOutlet UIButton *vkButton;
+@property (weak, nonatomic) IBOutlet UIView *backView;
 - (IBAction)facebookButtonAction:(UIButton *)sender;
 - (IBAction)vkButtonAction:(UIButton *)sender;
 

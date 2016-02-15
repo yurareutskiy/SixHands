@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModelViewController.h"
 
-@interface FlatViewController : UIViewController
+@interface FlatViewController : ModelViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIButton *cofirmButton;
+@property (weak, nonatomic) IBOutlet UIView *capView;
+@property (weak, nonatomic) IBOutlet UITableView *table;
+
+@property (strong, nonatomic) NSString *address;
+
+- (IBAction)makeChatAction:(UIButton *)sender;
+
 
 @end

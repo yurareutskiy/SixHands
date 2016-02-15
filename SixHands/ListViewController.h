@@ -22,6 +22,8 @@
 @property (strong, nonatomic) IBOutlet UIView *viewPopular;
 @property (strong, nonatomic) IBOutlet UIView *viewFav;
 
+
+
 - (IBAction)buttonNew:(UIButton *)sender;
 - (IBAction)popularButton:(UIButton *)sender;
 - (IBAction)favButton:(UIButton *)sender;

@@ -10,7 +10,7 @@
 #import "SWRevealViewController.h"
 #import "TTRangeSlider.h"
 
-@interface FilterViewController : UIViewController<SWRevealViewControllerDelegate, UIGestureRecognizerDelegate>
+@interface FilterViewController : UIViewController<SWRevealViewControllerDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *view1;
 @property (strong, nonatomic) IBOutlet UIButton *view2;
 @property (strong, nonatomic) IBOutlet UIButton *view3;
@@ -38,5 +38,6 @@
 - (IBAction)type:(UIButton *)sender;
 - (IBAction)params:(UIButton *)sender;
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

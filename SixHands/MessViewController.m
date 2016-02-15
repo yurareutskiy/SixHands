@@ -7,6 +7,7 @@
 //
 
 #import "MessViewController.h"
+#import "ChatViewController.h"
 
 @interface MessViewController ()
 
@@ -46,7 +47,12 @@
 }
 */
 
-#pragma mark - Настройки таблицы
+#pragma mark - UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"toChat" sender:self];
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
@@ -55,6 +61,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"messCell"];
     return cell;
+}
+
+#pragma mark - Segue
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toChat"]) {
+        ChatViewController *vc = segue.destinationViewController;
+        vc.title = @"";
+    }
 }
 
 @end

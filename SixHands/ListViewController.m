@@ -7,6 +7,7 @@
 //
 
 #import "ListViewController.h"
+#import "FlatViewController.h"
 
 @interface ListViewController ()
 
@@ -34,6 +35,10 @@
     
     [self configureMenu];
     
+    UISwipeGestureRecognizer *filterSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(rightRevealToggle:)];
+    filterSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:filterSwipe];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -49,7 +54,7 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     // Set menu button
-    self.menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter"]
+    self.menuButton = [[UIBarButtonItem alloc] initWithImage:[self imageWithImage:[UIImage imageNamed:@"filter"] scaledToSize:CGSizeMake(20, 20)]
                                                        style:UIBarButtonItemStyleDone
                                                       target:self.revealViewController
                                                       action:@selector(rightRevealToggle:)];
@@ -68,27 +73,9 @@
     return UIStatusBarStyleLightContent;
 }
 
-- (ListTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
 
-    
-    return cell;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+#pragma mark - Actions 
 
 - (IBAction)buttonNew:(UIButton *)sender {
 
@@ -122,4 +109,34 @@
     [self.viewNew setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
     [self.buttonNew setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
+
+
+#pragma mark - UITableViewDelegate
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    FlatViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FlatVC"];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+//    [self performSegueWithIdentifier:@"toFlat" sender:self];
+    
+}
+
+- (ListTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
+//    cell.price.text = @"";
+    cell.price.text = [cell formattedStringWithPrice:cell.price.text];
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+
+
 @end

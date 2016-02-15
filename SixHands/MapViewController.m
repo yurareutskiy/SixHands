@@ -83,6 +83,7 @@
     marker3.position = CLLocationCoordinate2DMake(56.066000, 36.789000);
     marker3.title = @"First pin";
     marker3.snippet = @"Just to check";
+    
     //marker3.map = mapView;
     
     Spot* spot3 = [[Spot alloc] init];
@@ -103,6 +104,12 @@
     [self configureMenu];
     
     // Do any additional setup after loading the view.
+}
+
+-(UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 150)];
+    customView.backgroundColor = [UIColor redColor];
+    return customView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,7 +133,7 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     // Set menu button
-    self.menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter"]
+    self.menuButton = [[UIBarButtonItem alloc] initWithImage:[self imageWithImage:[UIImage imageNamed:@"filter"] scaledToSize:CGSizeMake(20, 20)]
                                                        style:UIBarButtonItemStyleDone
                                                       target:self.revealViewController
                                                       action:@selector(rightRevealToggle:)];

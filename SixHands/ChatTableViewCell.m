@@ -14,6 +14,9 @@
     // Initialization code
     self.userImage.layer.cornerRadius = self.userImage.frame.size.height / 2;
     self.userImage.layer.masksToBounds = YES;
+    
+//    self.flatImage.layer.cornerRadius = self.flatImage.frame.size.height / 2;
+    self.flatImage.layer.masksToBounds = YES;
 }
 
 

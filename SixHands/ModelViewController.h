@@ -12,4 +12,6 @@
 
 @interface ModelViewController : UIViewController
 
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
+
 @end
