@@ -59,7 +59,7 @@
 }
 
 - (float)labelHehghtForText:(NSString*)text {
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 20, 0)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 40, 0)];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:6];
@@ -78,9 +78,9 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 200.f;
+        return 250.f;
     } else if (indexPath.row == 1) {
-        return 183;
+        return 200;
     } else if (indexPath.row == descriptionRow) {
         return [self labelHehghtForText:descriptionText];
     }
@@ -120,8 +120,10 @@
 //        ((InfoTableViewCell*)cell).descriptionTextLabel.text = descriptionText;
         [(InfoTableViewCell*)cell setDescriptionText:descriptionText];
         ((InfoTableViewCell*)cell).valueLabel.hidden = YES;
+        ((InfoTableViewCell*)cell).nameLabel.text = @"Описание";
         ((InfoTableViewCell*)cell).descriptionTextLabel.hidden = NO;
         NSLog(@"%f, %f", ((InfoTableViewCell*)cell).descriptionTextLabel.frame.origin.x, ((InfoTableViewCell*)cell).descriptionTextLabel.frame.origin.y);
+        ((InfoTableViewCell*)cell).backgroundColor = [UIColor whiteColor];
 
     } else {
         NSString *CellIdentifier = @"InfoCell";

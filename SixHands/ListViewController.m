@@ -35,6 +35,10 @@
     
     [self configureMenu];
     
+    UISwipeGestureRecognizer *filterSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(rightRevealToggle:)];
+    filterSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:filterSwipe];
+    
     // Do any additional setup after loading the view.
 }
 

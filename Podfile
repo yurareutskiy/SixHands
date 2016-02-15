@@ -12,3 +12,6 @@ pod 'SCLAlertView-Objective-C'
 pod 'TTRangeSlider'
 pod 'JSQMessagesViewController'
 pod 'GoogleMaps'
+
+
+pod 'TEQuickPageViewController', '~> 2.1'

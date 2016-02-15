@@ -101,8 +101,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     
-    singleFingerTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self.revealViewController
+    singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self.revealViewController
                                             action:@selector(revealToggle:)];
     //    [self.view addGestureRecognizer:singleFingerTap];
     
