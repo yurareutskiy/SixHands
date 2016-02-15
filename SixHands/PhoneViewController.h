@@ -18,11 +18,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *plsCode;
 @property (strong, nonatomic) IBOutlet UITextField *notCode;
 @property (strong, nonatomic) IBOutlet UITextField *code;
-<<<<<<< HEAD
-=======
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 - (IBAction)backButtonAction:(UIButton *)sender;
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *codeLabels;
->>>>>>> master
 
 @end

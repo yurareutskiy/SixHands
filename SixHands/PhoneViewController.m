@@ -25,8 +25,6 @@
     self.code.delegate = self;
     self.notCode.delegate = self;
     self.phoneField.delegate = self;
-<<<<<<< HEAD
-=======
     
     for (UITextField *codeItem in self.codeLabels) {
         codeItem.delegate = self;
@@ -46,21 +44,11 @@
     UIBarButtonItem *barButtonCode = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(checkCode)];
     UIToolbar *toolbarCode = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     toolbarCode.items = [NSArray arrayWithObject:barButtonCode];
->>>>>>> master
     
     _plsCode.hidden = YES;
     _notCode.hidden = YES;
     _code.hidden = YES;
     
-<<<<<<< HEAD
-    self.phoneField.keyboardType = UIKeyboardTypeDefault;
-    self.phoneField.returnKeyType = UIReturnKeyNext;
-    self.phoneField.autocorrectionType = UITextAutocorrectionTypeNo;
-    
-    self.code.keyboardType = UIKeyboardTypeDefault;
-    self.code.returnKeyType = UIReturnKeyDone;
-    self.code.autocorrectionType = UITextAutocorrectionTypeNo;
-=======
     self.phoneField.keyboardType = UIKeyboardTypePhonePad;
     self.phoneField.returnKeyType = UIReturnKeyNext;
     self.phoneField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -75,14 +63,9 @@
 //    self.code.returnKeyType = UIReturnKeyDone;
 //    self.code.autocorrectionType = UITextAutocorrectionTypeNo;
     
->>>>>>> master
-    
     // Do any additional setup after loading the view.
 }
 
-<<<<<<< HEAD
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-=======
 - (void)sendSMS {
     if ([self.phoneField.text length] == 18) {
         for (UITextField *codeItem in self.codeLabels) {
@@ -110,10 +93,7 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    
-    
->>>>>>> master
+
     if (textField.tag == 1) {
 
         _view1.hidden = YES;
@@ -253,21 +233,17 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-<<<<<<< HEAD
-    [self.phoneField resignFirstResponder];
-    [self.code resignFirstResponder];
-=======
+
 //    [self.phoneField resignFirstResponder];
 //    [self.code resignFirstResponder];
     [self.view endEditing:YES];
->>>>>>> master
+
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
-<<<<<<< HEAD
-=======
+
 - (IBAction)backButtonAction:(UIButton *)sender {
 //    if ([self.code.text length] == 0) {
 //        [self.code resignFirstResponder];
@@ -288,5 +264,5 @@
         tf.hidden = YES;
     }
 }
->>>>>>> master
+
 @end

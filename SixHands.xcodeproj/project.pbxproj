@@ -934,10 +934,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
-=======
 				SKIP_INSTALL = NO;
->>>>>>> master
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -959,10 +956,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
-=======
 				SKIP_INSTALL = NO;
->>>>>>> master
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
