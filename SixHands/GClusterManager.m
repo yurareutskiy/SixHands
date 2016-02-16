@@ -95,7 +95,7 @@
         return [self.delegate mapView:mapView didTapMarker:marker];
     }
     
-    return true;
+    return NO;
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
