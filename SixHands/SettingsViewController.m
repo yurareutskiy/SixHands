@@ -23,9 +23,11 @@
 
     [self addExitButton];
     NSLog(@"%f", self.exitButton.frame.origin.y);
+    
+    
+    
     // Do any additional setup after loading the view.
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -35,6 +37,7 @@
 - (void)addExitButton {
     CGRect rect = self.exitButton.frame;
     float screenHeight = self.view.frame.size.height;
+    
 //    float screenWidth = self.view.frame.size.width;
 //    CGRect newRect = CGRectMake(screenWidth - 17.5, screenHeight - 45, 80, 35);
 //    CGRect newRect = CGRectMake(0, 0, 80, 35);
@@ -42,9 +45,12 @@
 //    button.titleLabel.text = @"Выход";
 //    button.titleLabel.textColor = [UIColor colorWithRed:69.f/255.f green:210.f/255.f blue:157.f/255.f alpha:1.f];
 //    [self.view addSubview:button];
+    
     float buttonHeight = rect.size.height;
     rect.origin.y = screenHeight - buttonHeight - 10;
     self.exitButton.frame = rect;
+    
+    self.bottomConst.constant = 50.0;
 }
 
 /*
