@@ -31,6 +31,8 @@
     [super viewDidLoad];
     
     self.revealViewController.delegate = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     view1b = NO;
     view2b = NO;
@@ -290,4 +292,22 @@
 
 - (IBAction)params:(UIButton *)sender {
 }
+
+#pragma mark - UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"filterCell"]; // Вставить название для ячейки!
+    return cell;
+}
+
 @end
