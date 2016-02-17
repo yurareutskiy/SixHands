@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183ED8A34B0EB79C5AA55BD9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C517E0479DCF7F8FD2B4C360 /* Pods.framework */; };
 		3A3F9F6A1C661FA500E5E8AC /* GQuadItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F9F611C661FA500E5E8AC /* GQuadItem.m */; };
 		3A3F9F6B1C661FA500E5E8AC /* GStaticCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F9F631C661FA500E5E8AC /* GStaticCluster.m */; };
 		3A3F9F6C1C661FA500E5E8AC /* NonHierarchicalDistanceBasedAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F9F651C661FA500E5E8AC /* NonHierarchicalDistanceBasedAlgorithm.m */; };
@@ -55,7 +56,6 @@
 		3ADF01801C61392A00890117 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017D1C61392A00890117 /* FBSDKLoginKit.framework */; };
 		3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */; };
 		3AF845E11C65E48200F1707C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF845E01C65E48200F1707C /* ListViewController.m */; };
-		A2567A257419FE9008F6F5F1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 640F28F77E2DA92AEE6DC49F /* libPods.a */; };
 		DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */; };
 		DB2D45611C6B848000151B2F /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D45601C6B848000151B2F /* InfoTableViewCell.m */; };
 		DB2D45641C6B8AFF00151B2F /* DescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D45631C6B8AFF00151B2F /* DescriptionTableViewCell.m */; };
@@ -193,7 +193,7 @@
 		3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = SixHands/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		3AF845DF1C65E48200F1707C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		3AF845E01C65E48200F1707C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		640F28F77E2DA92AEE6DC49F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C517E0479DCF7F8FD2B4C360 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2D455C1C6B679F00151B2F /* GeneralDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralDescriptionTableViewCell.h; sourceTree = "<group>"; };
 		DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralDescriptionTableViewCell.m; sourceTree = "<group>"; };
 		DB2D455F1C6B848000151B2F /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 				3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */,
 				3ADF01671C61278D00890117 /* CoreLocation.framework in Frameworks */,
 				3ADF01651C61273100890117 /* MapKit.framework in Frameworks */,
-				A2567A257419FE9008F6F5F1 /* libPods.a in Frameworks */,
+				183ED8A34B0EB79C5AA55BD9 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +423,7 @@
 				3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */,
 				3ADF01661C61278D00890117 /* CoreLocation.framework */,
 				3ADF01641C61273100890117 /* MapKit.framework */,
-				640F28F77E2DA92AEE6DC49F /* libPods.a */,
+				C517E0479DCF7F8FD2B4C360 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

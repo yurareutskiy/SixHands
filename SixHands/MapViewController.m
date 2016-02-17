@@ -59,7 +59,8 @@
     marker1.position = CLLocationCoordinate2DMake(56.065000, 36.780000);
     marker1.title = @"First pin";
     marker1.snippet = @"Just to check";
-    //marker1.map = mapView;
+    marker1.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+    // marker1.map = mapView;
     
     Spot* spot1 = [[Spot alloc] init];
     spot1.location = marker1.position;
@@ -71,6 +72,7 @@
     marker2.position = CLLocationCoordinate2DMake(56.064000, 36.787000);
     marker2.title = @"First pin";
     marker2.snippet = @"Just to check";
+    marker2.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
     //marker2.map = mapView;
     
     Spot* spot2 = [[Spot alloc] init];
@@ -83,6 +85,7 @@
     marker3.position = CLLocationCoordinate2DMake(56.066000, 36.789000);
     marker3.title = @"First pin";
     marker3.snippet = @"Just to check";
+    marker3.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
     
     //marker3.map = mapView;
     
@@ -108,10 +111,16 @@
     // Do any additional setup after loading the view.
 }
 
--(UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
-    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 150)];
-    customView.backgroundColor = [UIColor redColor];
-    return customView;
+- (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
+    UIView *view =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
+    [view setBackgroundColor:[UIColor greenColor]];
+    return view;
+}
+
+-(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
+    NSLog(@"%@", marker);
+    
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning {

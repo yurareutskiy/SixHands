@@ -33,6 +33,9 @@
     self.revealViewController.delegate = self;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.scrollView.delegate = self;
+    
+    self.tableView.rowHeight = 44.0;
     
     view1b = NO;
     view2b = NO;
@@ -108,6 +111,11 @@
     //    [self.view addGestureRecognizer:singleFingerTap];
     
     [self.revealViewController.frontViewController.view addGestureRecognizer:singleFingerTap];
+    
+    self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.rowHeight * 10);
+    self.scrollView.contentSize = CGSizeMake(self.contentView.frame.size.width, 558.0 + self.tableView.rowHeight * 10); //self.tableView.frame.size.height);
+    NSLog(@"%f", self.tableView.rowHeight);
+    NSLog(@"%f", self.scrollView.contentSize.height);
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
@@ -308,6 +316,26 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"filterCell"]; // Вставить название для ячейки!
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
+-(void)viewDidLayoutSubviews {
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 @end

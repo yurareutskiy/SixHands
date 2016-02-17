@@ -63,7 +63,6 @@
 //    self.code.returnKeyType = UIReturnKeyDone;
 //    self.code.autocorrectionType = UITextAutocorrectionTypeNo;
     
-    
     // Do any additional setup after loading the view.
 }
 
@@ -94,9 +93,7 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    
-    
+
     if (textField.tag == 1) {
 
         _view1.hidden = YES;
@@ -236,14 +233,17 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+
 //    [self.phoneField resignFirstResponder];
 //    [self.code resignFirstResponder];
     [self.view endEditing:YES];
+
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
+
 - (IBAction)backButtonAction:(UIButton *)sender {
 //    if ([self.code.text length] == 0) {
 //        [self.code resignFirstResponder];
@@ -264,4 +264,5 @@
         tf.hidden = YES;
     }
 }
+
 @end

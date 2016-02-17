@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *exitButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *applyButton;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *bottomConst;
 
 - (void)addExitButton;
 @end
