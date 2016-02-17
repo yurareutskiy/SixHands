@@ -141,6 +141,7 @@
 }
 
 - (IBAction)rentButtonAction:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"Post" sender:self];
 }
 
 #pragma mark - UITavleViewDataSource 
