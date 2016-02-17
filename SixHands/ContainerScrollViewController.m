@@ -29,7 +29,32 @@
     [super viewDidLoad];
     [self addButton];
     currentController = 0;
-    self.starusBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white_nav_square"]];
+    self.starusBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
+    self.bar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
+    [self.bar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.bar.shadowImage = [UIImage new];
+    self.bar.translucent = YES;
+    [self.bar setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0]];
+
+    [self configureCircles];
+    self.backButton.image = nil;
+
+}
+
+- (void)configureCircles {
+    self.indicatorContainer.backgroundColor = [UIColor clearColor];
+    for (UIView *circle in self.circles) {
+        circle.backgroundColor = [UIColor clearColor];
+        circle.layer.borderWidth = 2;
+        if (circle.tag == 100) {
+            circle.layer.borderColor = [UIColor colorWithRed:79.f/255.f green:238.f/255.f blue:197.f/255.f alpha:1.f].CGColor;
+        } else {
+            circle.layer.borderColor = [UIColor lightGrayColor].CGColor;
+
+        }
+        circle.layer.cornerRadius = circle.frame.size.height / 2;
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -69,17 +94,25 @@
     if (currentController == 2) {
         return;
     } else if (currentController == 0) {
-        self.backButton.hidden = NO;
+
     } else if (currentController == 1) {
         [bottomButton setTitle:@"Закончить" forState:UIControlStateNormal];
     }
-    currentController++;
-    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.counterLabel.text = [NSString stringWithFormat:@"ШАГ %d ИЗ 3", currentController + 1];
-            self.backButton.alpha = 1;
-            self.scroll.contentOffset = CGPointMake(currentController * self.view.frame.size.width, 0);
-    } completion:nil];
 
+    CGRect rect = ((UIView*)self.lines[currentController]).frame;
+    rect.size.width = 25;
+    currentController++;
+    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        ((UIView*)self.lines[currentController - 1]).frame = rect;
+        self.counterLabel.text = [NSString stringWithFormat:@"ШАГ %d ИЗ 3", currentController + 1];
+//            self.backButton.alpha = 1;
+                self.backButton.image = [UIImage imageNamed:@"left"];
+            self.scroll.contentOffset = CGPointMake(currentController * self.view.frame.size.width, 0);
+    } completion:^(BOOL finished){
+        if (finished) {
+            ((UIView*)self.circles[currentController]).layer.borderColor = [UIColor colorWithRed:79.f/255.f green:238.f/255.f blue:197.f/255.f alpha:1.f].CGColor;
+        }
+    }];
 }
 
 
@@ -97,18 +130,30 @@
 - (IBAction)backButtonAction:(UIButton *)sender {
     currentController--;
     if (currentController == 0) {
-        self.backButton.hidden = YES;
-        [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.backButton.alpha = 0;
+//        self.backButton.hidden = YES;
+        self.backButton.image = nil;
+        ((UIView*)self.circles[currentController + 1]).layer.borderColor = [UIColor lightGrayColor].CGColor;
+        CGRect rect = ((UIView*)self.lines[currentController]).frame;
+        rect.size.width = 0;
+        [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                    ((UIView*)self.lines[currentController]).frame = rect;
             self.scroll.contentOffset = CGPointMake(currentController * self.view.frame.size.width, 0);
         } completion:nil];
     } else if (currentController == 1) {
+        ((UIView*)self.circles[currentController + 1]).layer.borderColor = [UIColor lightGrayColor].CGColor;
         [bottomButton setTitle:@"Далее" forState:UIControlStateNormal];
-        [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        CGRect rect = ((UIView*)self.lines[currentController]).frame;
+        rect.size.width = 0;
+
+        [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                    ((UIView*)self.lines[currentController]).frame = rect;
             self.scroll.contentOffset = CGPointMake(currentController * self.view.frame.size.width, 0);
         } completion:nil];
     }
     self.counterLabel.text = [NSString stringWithFormat:@"ШАГ %d ИЗ 3", currentController + 1];
+}
+- (IBAction)closeAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
 
