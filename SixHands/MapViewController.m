@@ -89,6 +89,8 @@
     Spot* spot3 = [[Spot alloc] init];
     spot3.location = marker3.position;
     spot3.marker = marker3;
+    spot3
+    .marker.tappable = YES;
     
     [clusterManager_ addItem:spot3];
     

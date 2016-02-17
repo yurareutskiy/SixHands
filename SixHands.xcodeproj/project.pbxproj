@@ -92,6 +92,11 @@
 		DB9548401C6AA7D3007F79D2 /* ScrollFlatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB95483F1C6AA7D3007F79D2 /* ScrollFlatTableViewCell.m */; };
 		DB9FE4A31C6C1ACF00DD27F5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB9FE4A21C6C1ACF00DD27F5 /* SettingsViewController.m */; };
 		DB9FE4A61C6F616B00DD27F5 /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB9FE4A51C6F616B00DD27F5 /* TempViewController.m */; };
+		DBBE4DAB1C74DC0A002BB273 /* MLPAutoCompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBE4D9F1C74DC0A002BB273 /* MLPAutoCompleteTextField.m */; };
+		DBBE4DAC1C74DC0A002BB273 /* NSString+Levenshtein.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBE4DA41C74DC0A002BB273 /* NSString+Levenshtein.m */; };
+		DBBE4DAD1C74DC0A002BB273 /* MVPlaceSearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBE4DA61C74DC0A002BB273 /* MVPlaceSearchTextField.m */; };
+		DBBE4DAE1C74DC0A002BB273 /* PlaceDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBE4DA81C74DC0A002BB273 /* PlaceDetail.m */; };
+		DBBE4DAF1C74DC0A002BB273 /* PlaceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBE4DAA1C74DC0A002BB273 /* PlaceObject.m */; };
 		DBC8064A1C5FBC9A00E84FC2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DBC806491C5FBC9A00E84FC2 /* Podfile */; };
 /* End PBXBuildFile section */
 
@@ -243,6 +248,19 @@
 		DB9FE4A21C6C1ACF00DD27F5 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		DB9FE4A41C6F616B00DD27F5 /* TempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempViewController.h; sourceTree = "<group>"; };
 		DB9FE4A51C6F616B00DD27F5 /* TempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempViewController.m; sourceTree = "<group>"; };
+		DBBE4D9E1C74DC0A002BB273 /* MLPAutoCompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextField.h; sourceTree = "<group>"; };
+		DBBE4D9F1C74DC0A002BB273 /* MLPAutoCompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPAutoCompleteTextField.m; sourceTree = "<group>"; };
+		DBBE4DA01C74DC0A002BB273 /* MLPAutoCompleteTextFieldDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDataSource.h; sourceTree = "<group>"; };
+		DBBE4DA11C74DC0A002BB273 /* MLPAutoCompleteTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDelegate.h; sourceTree = "<group>"; };
+		DBBE4DA21C74DC0A002BB273 /* MLPAutoCompletionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompletionObject.h; sourceTree = "<group>"; };
+		DBBE4DA31C74DC0A002BB273 /* NSString+Levenshtein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Levenshtein.h"; sourceTree = "<group>"; };
+		DBBE4DA41C74DC0A002BB273 /* NSString+Levenshtein.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Levenshtein.m"; sourceTree = "<group>"; };
+		DBBE4DA51C74DC0A002BB273 /* MVPlaceSearchTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVPlaceSearchTextField.h; sourceTree = "<group>"; };
+		DBBE4DA61C74DC0A002BB273 /* MVPlaceSearchTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVPlaceSearchTextField.m; sourceTree = "<group>"; };
+		DBBE4DA71C74DC0A002BB273 /* PlaceDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetail.h; sourceTree = "<group>"; };
+		DBBE4DA81C74DC0A002BB273 /* PlaceDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetail.m; sourceTree = "<group>"; };
+		DBBE4DA91C74DC0A002BB273 /* PlaceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceObject.h; sourceTree = "<group>"; };
+		DBBE4DAA1C74DC0A002BB273 /* PlaceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceObject.m; sourceTree = "<group>"; };
 		DBC806491C5FBC9A00E84FC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
@@ -413,15 +431,6 @@
 		DB3ED3C41C68E33900576E62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3A3F9F811C66559F00E5E8AC /* ModelViewController.h */,
-				3A3F9F821C66559F00E5E8AC /* ModelViewController.m */,
-				DB4952001C5FBB4700745228 /* AppDelegate.h */,
-				DB4952011C5FBB4700745228 /* AppDelegate.m */,
-				3A4BD5BA1C68CBDD00936862 /* DataManager.h */,
-				3A4BD5BB1C68CBDD00936862 /* DataManager.m */,
-				3A8A7E9B1C66A803005946C0 /* SHSPhone */,
-				3A3F9F3F1C661F3100E5E8AC /* Group of pins */,
-				3A4BD5DB1C68DD1F00936862 /* CoreData */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -429,7 +438,6 @@
 		DB3ED3C61C68E34C00576E62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DB4E28001C68B7B700303437 /* Cells */,
 				DB95483B1C6957F1007F79D2 /* SubwayView.h */,
 				DB95483C1C6957F1007F79D2 /* SubwayView.m */,
 			);
@@ -446,7 +454,6 @@
 				DB3ED3C91C68E3A500576E62 /* Start */,
 				DB3ED3CB1C68E41A00576E62 /* Messages */,
 				DB3ED3CA1C68E3CC00576E62 /* Flat */,
-				3ADF016E1C6129D100890117 /* Menu */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -454,10 +461,6 @@
 		DB3ED3C91C68E3A500576E62 /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				3ADF01551C6125F300890117 /* LoginViewController.h */,
-				3ADF01561C6125F300890117 /* LoginViewController.m */,
-				3A3F9F841C66A69700E5E8AC /* PhoneViewController.h */,
-				3A3F9F851C66A69700E5E8AC /* PhoneViewController.m */,
 			);
 			name = Start;
 			sourceTree = "<group>";
@@ -469,8 +472,6 @@
 				3ADF01591C61260200890117 /* MapViewController.m */,
 				3AF845DF1C65E48200F1707C /* ListViewController.h */,
 				3AF845E01C65E48200F1707C /* ListViewController.m */,
-				3ACF4BEA1C624DF70045D992 /* FlatViewController.h */,
-				3ACF4BEB1C624DF70045D992 /* FlatViewController.m */,
 			);
 			name = Flat;
 			sourceTree = "<group>";
@@ -537,8 +538,7 @@
 				3A4BD5BB1C68CBDD00936862 /* DataManager.m */,
 				3A8A7E9B1C66A803005946C0 /* SHSPhone */,
 				3A3F9F3F1C661F3100E5E8AC /* Group of pins */,
-				3ADF016F1C6129DB00890117 /* TabBar Controllers */,
-				3ADF016E1C6129D100890117 /* Menu Controllers */,
+				3ADF016E1C6129D100890117 /* Menu */,
 				DB4952061C5FBB4700745228 /* Main.storyboard */,
 				DB49520C1C5FBB4700745228 /* Assets.xcassets */,
 				DB49520E1C5FBB4700745228 /* LaunchScreen.storyboard */,
@@ -567,8 +567,6 @@
 			children = (
 				DB2D455C1C6B679F00151B2F /* GeneralDescriptionTableViewCell.h */,
 				DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */,
-				3A8A7EBC1C6747AF005946C0 /* ListTableViewCell.h */,
-				3A8A7EBD1C6747AF005946C0 /* ListTableViewCell.m */,
 				DB2D455F1C6B848000151B2F /* InfoTableViewCell.h */,
 				DB2D45601C6B848000151B2F /* InfoTableViewCell.m */,
 				DB2D45621C6B8AFF00151B2F /* DescriptionTableViewCell.h */,
@@ -584,6 +582,7 @@
 		DB608E291C6F7F3B007D33CB /* Scroll */ = {
 			isa = PBXGroup;
 			children = (
+				DBBE4D9C1C74DC0A002BB273 /* MVPlaceSearchTextField */,
 				DB608E1D1C6F7D4C007D33CB /* ContainerScrollViewController.h */,
 				DB608E1E1C6F7D4C007D33CB /* ContainerScrollViewController.m */,
 				DB608E201C6F7EB8007D33CB /* FirstScrollViewController.h */,
@@ -603,6 +602,34 @@
 				DB9FE4A21C6C1ACF00DD27F5 /* SettingsViewController.m */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		DBBE4D9C1C74DC0A002BB273 /* MVPlaceSearchTextField */ = {
+			isa = PBXGroup;
+			children = (
+				DBBE4D9D1C74DC0A002BB273 /* MLPAutoCompleteTextField */,
+				DBBE4DA51C74DC0A002BB273 /* MVPlaceSearchTextField.h */,
+				DBBE4DA61C74DC0A002BB273 /* MVPlaceSearchTextField.m */,
+				DBBE4DA71C74DC0A002BB273 /* PlaceDetail.h */,
+				DBBE4DA81C74DC0A002BB273 /* PlaceDetail.m */,
+				DBBE4DA91C74DC0A002BB273 /* PlaceObject.h */,
+				DBBE4DAA1C74DC0A002BB273 /* PlaceObject.m */,
+			);
+			path = MVPlaceSearchTextField;
+			sourceTree = "<group>";
+		};
+		DBBE4D9D1C74DC0A002BB273 /* MLPAutoCompleteTextField */ = {
+			isa = PBXGroup;
+			children = (
+				DBBE4D9E1C74DC0A002BB273 /* MLPAutoCompleteTextField.h */,
+				DBBE4D9F1C74DC0A002BB273 /* MLPAutoCompleteTextField.m */,
+				DBBE4DA01C74DC0A002BB273 /* MLPAutoCompleteTextFieldDataSource.h */,
+				DBBE4DA11C74DC0A002BB273 /* MLPAutoCompleteTextFieldDelegate.h */,
+				DBBE4DA21C74DC0A002BB273 /* MLPAutoCompletionObject.h */,
+				DBBE4DA31C74DC0A002BB273 /* NSString+Levenshtein.h */,
+				DBBE4DA41C74DC0A002BB273 /* NSString+Levenshtein.m */,
+			);
+			path = MLPAutoCompleteTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -755,13 +782,17 @@
 			files = (
 				3A4BD5D41C68DCC900936862 /* Flats.m in Sources */,
 				DB2D45611C6B848000151B2F /* InfoTableViewCell.m in Sources */,
+				DBBE4DAD1C74DC0A002BB273 /* MVPlaceSearchTextField.m in Sources */,
 				3A8A7EB71C66A836005946C0 /* SHSFlagAccessoryView.m in Sources */,
 				DB608E221C6F7EB8007D33CB /* FirstScrollViewController.m in Sources */,
 				3A3F9F7C1C661FC700E5E8AC /* GQTPointQuadTree.m in Sources */,
+				DBBE4DAE1C74DC0A002BB273 /* PlaceDetail.m in Sources */,
 				DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */,
 				3A8A7EBE1C6747AF005946C0 /* ListTableViewCell.m in Sources */,
 				3A8A7EBA1C66A836005946C0 /* SHSPhoneNumberFormatter+UserConfig.m in Sources */,
 				3A3F9F711C661FB200E5E8AC /* GDefaultClusterRenderer.m in Sources */,
+				DBBE4DAB1C74DC0A002BB273 /* MLPAutoCompleteTextField.m in Sources */,
+				DBBE4DAF1C74DC0A002BB273 /* PlaceObject.m in Sources */,
 				3A3F9F741C661FBD00E5E8AC /* SphericalMercatorProjection.m in Sources */,
 				3A8A7EB81C66A836005946C0 /* SHSPhoneLogic.m in Sources */,
 				3A3F9F6A1C661FA500E5E8AC /* GQuadItem.m in Sources */,
@@ -774,6 +805,7 @@
 				3AF845E11C65E48200F1707C /* ListViewController.m in Sources */,
 				3A4BD5D71C68DCC900936862 /* Messages+CoreDataProperties.m in Sources */,
 				3A3F9F801C6621E300E5E8AC /* Spot.m in Sources */,
+				DBBE4DAC1C74DC0A002BB273 /* NSString+Levenshtein.m in Sources */,
 				DB608E281C6F7ED4007D33CB /* ThirdScrollViewController.m in Sources */,
 				DB608E251C6F7EC7007D33CB /* SecondScrollViewController.m in Sources */,
 				DB3ED3CF1C68E7AA00576E62 /* ChatViewController.m in Sources */,

@@ -60,6 +60,7 @@
     
     self.table.delegate = self;
     self.table.dataSource = self;
+    self.table.userInteractionEnabled = NO;
     
     self.navigationItem.title = @"Профиль";
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];

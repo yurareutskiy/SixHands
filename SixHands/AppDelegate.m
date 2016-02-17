@@ -19,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [GMSServices provideAPIKey:@"AIzaSyABBeQssUkuLNHrERtlqKPgwOrw3Cq5ULs"];
+    [GMSServices provideAPIKey:@"AIzaSyAI_v_cGpJyhH_h8Qrxi9VzFZpNN_nNn-c"];
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
