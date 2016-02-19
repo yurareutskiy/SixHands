@@ -7,15 +7,26 @@
 //
 
 #import "ThirdScrollViewController.h"
+#import "PhotoCollectionViewCell.h"
+#import "AddPhotoCollectionViewCell.h"
 
 @interface ThirdScrollViewController ()
 
 @end
 
-@implementation ThirdScrollViewController
+@implementation ThirdScrollViewController {
+    NSInteger numberOfRows;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
+    numberOfRows = 30;
     // Do any additional setup after loading the view.
 }
 
@@ -24,14 +35,36 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)hideKeyboard {
+    [self.view endEditing:YES];
 }
-*/
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return numberOfRows;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger last = numberOfRows - 1;
+    if (indexPath.row == last) {
+        AddPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"addPhoto" forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[AddPhotoCollectionViewCell alloc] init];
+        }
+        return cell;
+        
+    } else {
+        PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"photo" forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[PhotoCollectionViewCell alloc] init];
+        }
+        cell.image.layer.cornerRadius = 10.f;
+        cell.image.layer.masksToBounds = YES;
+        return cell;
+    }
+}
+
+
 
 @end

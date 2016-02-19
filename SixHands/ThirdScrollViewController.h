@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ThirdScrollViewController : UIViewController
+@interface ThirdScrollViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

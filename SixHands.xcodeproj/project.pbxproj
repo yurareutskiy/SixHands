@@ -56,6 +56,8 @@
 		3ADF01801C61392A00890117 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017D1C61392A00890117 /* FBSDKLoginKit.framework */; };
 		3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */; };
 		3AF845E11C65E48200F1707C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF845E01C65E48200F1707C /* ListViewController.m */; };
+		DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */; };
+		DB2179E01C753790001BF4C1 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DF1C753790001BF4C1 /* PhotoCollectionViewCell.m */; };
 		DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */; };
 		DB2D45611C6B848000151B2F /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D45601C6B848000151B2F /* InfoTableViewCell.m */; };
 		DB2D45641C6B8AFF00151B2F /* DescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D45631C6B8AFF00151B2F /* DescriptionTableViewCell.m */; };
@@ -82,6 +84,7 @@
 		DB4E281F1C68CF7300303437 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28101C68CF7300303437 /* Lato-MediumItalic.ttf */; };
 		DB4E28201C68CF7300303437 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28111C68CF7300303437 /* Lato-Regular.ttf */; };
 		DB4E28211C68CF7300303437 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4E28121C68CF7300303437 /* Lato-Semibold.ttf */; };
+		DB524A351C75FA59002AE766 /* AddPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB524A341C75FA59002AE766 /* AddPhotoCollectionViewCell.m */; };
 		DB608E1F1C6F7D4C007D33CB /* ContainerScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB608E1E1C6F7D4C007D33CB /* ContainerScrollViewController.m */; };
 		DB608E221C6F7EB8007D33CB /* FirstScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB608E211C6F7EB8007D33CB /* FirstScrollViewController.m */; };
 		DB608E251C6F7EC7007D33CB /* SecondScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB608E241C6F7EC7007D33CB /* SecondScrollViewController.m */; };
@@ -194,6 +197,10 @@
 		3AF845DF1C65E48200F1707C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		3AF845E01C65E48200F1707C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		C517E0479DCF7F8FD2B4C360 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB2179DB1C7532AA001BF4C1 /* ParameterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterTableViewCell.h; sourceTree = "<group>"; };
+		DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterTableViewCell.m; sourceTree = "<group>"; };
+		DB2179DE1C753790001BF4C1 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		DB2179DF1C753790001BF4C1 /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		DB2D455C1C6B679F00151B2F /* GeneralDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralDescriptionTableViewCell.h; sourceTree = "<group>"; };
 		DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralDescriptionTableViewCell.m; sourceTree = "<group>"; };
 		DB2D455F1C6B848000151B2F /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
@@ -228,6 +235,8 @@
 		DB4E28101C68CF7300303437 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-MediumItalic.ttf"; path = "Lato/Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
 		DB4E28111C68CF7300303437 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "Lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		DB4E28121C68CF7300303437 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Semibold.ttf"; path = "Lato/Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		DB524A331C75FA59002AE766 /* AddPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		DB524A341C75FA59002AE766 /* AddPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		DB608E1D1C6F7D4C007D33CB /* ContainerScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerScrollViewController.h; sourceTree = "<group>"; };
 		DB608E1E1C6F7D4C007D33CB /* ContainerScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerScrollViewController.m; sourceTree = "<group>"; };
 		DB608E201C6F7EB8007D33CB /* FirstScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstScrollViewController.h; sourceTree = "<group>"; };
@@ -565,6 +574,10 @@
 		DB4E28001C68B7B700303437 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DB2179DE1C753790001BF4C1 /* PhotoCollectionViewCell.h */,
+				DB2179DF1C753790001BF4C1 /* PhotoCollectionViewCell.m */,
+				DB524A331C75FA59002AE766 /* AddPhotoCollectionViewCell.h */,
+				DB524A341C75FA59002AE766 /* AddPhotoCollectionViewCell.m */,
 				DB2D455C1C6B679F00151B2F /* GeneralDescriptionTableViewCell.h */,
 				DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */,
 				DB2D455F1C6B848000151B2F /* InfoTableViewCell.h */,
@@ -575,6 +588,8 @@
 				DB4E28021C68B83600303437 /* ChatTableViewCell.m */,
 				DB95483F1C6AA7D3007F79D2 /* ScrollFlatTableViewCell.m */,
 				DB95483E1C6AA7D3007F79D2 /* ScrollFlatTableViewCell.h */,
+				DB2179DB1C7532AA001BF4C1 /* ParameterTableViewCell.h */,
+				DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -785,6 +800,7 @@
 				DBBE4DAD1C74DC0A002BB273 /* MVPlaceSearchTextField.m in Sources */,
 				3A8A7EB71C66A836005946C0 /* SHSFlagAccessoryView.m in Sources */,
 				DB608E221C6F7EB8007D33CB /* FirstScrollViewController.m in Sources */,
+				DB2179E01C753790001BF4C1 /* PhotoCollectionViewCell.m in Sources */,
 				3A3F9F7C1C661FC700E5E8AC /* GQTPointQuadTree.m in Sources */,
 				DBBE4DAE1C74DC0A002BB273 /* PlaceDetail.m in Sources */,
 				DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */,
@@ -799,6 +815,7 @@
 				DB9FE4A31C6C1ACF00DD27F5 /* SettingsViewController.m in Sources */,
 				3A3F9F6B1C661FA500E5E8AC /* GStaticCluster.m in Sources */,
 				3ADF01631C61264900890117 /* ProfileViewController.m in Sources */,
+				DB524A351C75FA59002AE766 /* AddPhotoCollectionViewCell.m in Sources */,
 				DB4952021C5FBB4700745228 /* AppDelegate.m in Sources */,
 				DB2D45641C6B8AFF00151B2F /* DescriptionTableViewCell.m in Sources */,
 				3A8A7EB91C66A836005946C0 /* SHSPhoneNumberFormatter.m in Sources */,
@@ -812,6 +829,7 @@
 				3A4BD5D81C68DCC900936862 /* Messages.m in Sources */,
 				3A3F9F6C1C661FA500E5E8AC /* NonHierarchicalDistanceBasedAlgorithm.m in Sources */,
 				DB4951FF1C5FBB4700745228 /* main.m in Sources */,
+				DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */,
 				3A8A7EBB1C66A836005946C0 /* SHSPhoneTextField.m in Sources */,
 				DB6DED621C675FD000A263B5 /* SWRevealViewController.m in Sources */,
 				DB4E28031C68B83600303437 /* ChatTableViewCell.m in Sources */,

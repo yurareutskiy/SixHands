@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASValueTrackingSlider.h"
 
-@interface SecondScrollViewController : UIViewController
+@interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *roomAmountButtons;
+- (IBAction)roomNumberAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UILabel *sliderLabel;
+@property (weak, nonatomic) IBOutlet UITableView *table;
+
+- (IBAction)sliderChangeValue:(UISlider *)sender;
 
 @end

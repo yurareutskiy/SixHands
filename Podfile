@@ -15,3 +15,4 @@ pod 'GoogleMaps'
 
 
 pod 'TEQuickPageViewController', '~> 2.1'
+pod 'ASValueTrackingSlider'
