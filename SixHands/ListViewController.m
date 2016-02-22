@@ -14,15 +14,23 @@
 @property (strong, nonatomic) FilterViewController *menu;
 @property (strong, nonatomic) UIBarButtonItem *menuButton;
 @property (strong, nonatomic) SWRevealViewController *reveal;
+@property (strong, nonatomic) NSArray *source;
 
 @end
 
 @implementation ListViewController {
 
+    NSArray *newArray;
+    NSArray *popularArray;
+    NSArray *favoritesArray;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self test];
+    self.source = newArray;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -41,6 +49,13 @@
     
     // Do any additional setup after loading the view.
 }
+
+- (void)test {
+    newArray = @[@"", @"", @"", @"", @"", @"", @"", @"", @""];
+    popularArray = @[@"", @"", @""];
+    favoritesArray = @[@"", @"", @"", @""];
+}
+
 
 - (void)configureMenu {
     
@@ -86,6 +101,9 @@
         [self.popularButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.viewFav setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
         [self.favButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    self.source = newArray;
+    [self.tableView reloadData];
 }
 
 - (IBAction)popularButton:(UIButton *)sender {
@@ -97,6 +115,9 @@
     [self.buttonNew setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.viewFav setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
     [self.favButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    self.source = popularArray;
+    [self.tableView reloadData];
 }
 
 - (IBAction)favButton:(UIButton *)sender {
@@ -108,6 +129,9 @@
     [self.popularButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.viewNew setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
     [self.buttonNew setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    self.source = favoritesArray;
+    [self.tableView reloadData];
 }
 
 
@@ -134,7 +158,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [self.source count];
 }
 
 

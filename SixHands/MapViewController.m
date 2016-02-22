@@ -37,10 +37,12 @@
     [locationManager requestWhenInUseAuthorization];
     [locationManager startUpdatingLocation];
     
-    camera = [GMSCameraPosition
-                                 cameraWithLatitude:locationManager.location.coordinate.latitude
-                                 longitude:locationManager.location.coordinate.longitude
-                                 zoom:mapZoom];
+    // for debugging
+    CLLocationCoordinate2D point = CLLocationCoordinate2DMake(56.065000, 36.780000);
+    
+    
+//    camera = [GMSCameraPosition cameraWithLatitude:locationManager.location.coordinate.latitude longitude:locationManager.location.coordinate.longitude zoom:mapZoom];
+        camera = [GMSCameraPosition cameraWithLatitude:point.latitude longitude:point.longitude zoom:mapZoom];
     
     mapView = [GMSMapView mapWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height) camera:camera];
     mapView.myLocationEnabled = YES;
@@ -61,6 +63,7 @@
     marker1.snippet = @"Just to check";
     marker1.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
     // marker1.map = mapView;
+    marker1.icon = [UIImage imageNamed:@"pin"];
     
     Spot* spot1 = [[Spot alloc] init];
     spot1.location = marker1.position;
@@ -92,8 +95,7 @@
     Spot* spot3 = [[Spot alloc] init];
     spot3.location = marker3.position;
     spot3.marker = marker3;
-    spot3
-    .marker.tappable = YES;
+    spot3.marker.tappable = YES;
     
     [clusterManager_ addItem:spot3];
     
@@ -112,14 +114,24 @@
 }
 
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
-    UIView *view =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
-    [view setBackgroundColor:[UIColor greenColor]];
-    return view;
+    UIViewController *viweVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MapView"];
+    viweVC.view.frame = CGRectMake(0, 0, 250, 120);
+    UIView *view = viweVC.view;
+    view.layer.borderWidth = 1;
+    UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 130)];
+    [container addSubview:view];
+    UIView *emptyView = [[UIView alloc] initWithFrame:CGRectMake(0, 120, 250, 10)];
+    emptyView.backgroundColor = [UIColor clearColor];
+    [container addSubview:emptyView];
+//    [view setBackgroundColor:[UIColor greenColor]];
+    [mapView moveCamera:[GMSCameraUpdate scrollByX:0 Y:-30]];
+    return container;
 }
+
 
 -(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
     NSLog(@"%@", marker);
-    
+//    [mapView moveCamera:[GMSCameraUpdate scrollByX:0 Y:-30]];
     return NO;
 }
 
@@ -168,15 +180,15 @@
 #pragma mark - Настройки кнопок
 
 - (IBAction)plusButton:(UIButton *)sender {
-    mapZoom = camera.zoom;
-    mapZoom += 1;
-    [mapView animateToZoom:mapZoom];
+    float zoom = camera.zoom;
+    zoom += 1;
+    [mapView animateToZoom:zoom];
 }
 
 - (IBAction)minusButton:(UIButton *)sender {
-    mapZoom = camera.zoom;
-    mapZoom -= 1;
-    [mapView animateToZoom:mapZoom];
+    float zoom = camera.zoom;
+    zoom -= 1;
+    [mapView animateToZoom:zoom];
 }
 
 @end
