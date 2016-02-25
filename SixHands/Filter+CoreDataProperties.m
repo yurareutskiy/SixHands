@@ -2,7 +2,7 @@
 //  Filter+CoreDataProperties.m
 //  SixHands
 //
-//  Created by Anton Scherbakov on 08/02/16.
+//  Created by Reutskiy Jury on 2/23/16.
 //  Copyright © 2016 Styleru. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,6 +14,6 @@
 @implementation Filter (CoreDataProperties)
 
 @dynamic params;
-@dynamic filter;
+@dynamic name;
 
 @end

@@ -49,6 +49,8 @@
 
 @interface ProfileViewController ()
 
+@property (strong, nonatomic) SettingsViewController *vc;
+
 @end
 
 @implementation ProfileViewController
@@ -90,15 +92,19 @@
 #pragma mark - Actions
 
 - (void)settingsMenu:(id)sender {
-    SettingsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsVC"];
-    CGRect rectMenu = CGRectMake(self.view.frame.size.width, 0, 280, self.view.frame.size.height);
-    vc.view.frame = rectMenu;
-    [self.tabBarController.view addSubview:vc.view];
-    self.view.userInteractionEnabled = NO;
+    if (!self.vc) {
+        self.vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsVC"];
+    }
 
+//    CGRect rectMenu = CGRectMake(self.view.frame.size.width, 0, 280, self.view.frame.size.height);
+    CGRect rectMenu = CGRectMake(self.view.frame.size.width, 0, 280, self.view.frame.size.height);
+    self.vc.view.frame = rectMenu;
+    [self.tabBarController.view addSubview:self.vc.view];
+    self.view.userInteractionEnabled = NO;
+    NSLog(@"vie - %@", NSStringFromCGRect(self.tabBarController.view.frame));
     [UIView animateWithDuration:0.4 animations:^{
         CGRect newRect = CGRectMake(self.view.frame.size.width - 280, 0, 280, self.view.frame.size.height);
-        vc.view.frame = newRect;
+        self.vc.view.frame = newRect;
         
     }];
     
@@ -112,14 +118,13 @@
 }
 
 - (void)hideSettings:(id)sender {
-    UIView *vc = [self.tabBarController.view.subviews lastObject];
+//    UIView *vc = [self.tabBarController.view.subviews lastObject];
     self.view.userInteractionEnabled = YES;
     [UIView animateWithDuration:0.4 animations:^{
         CGRect newRect = CGRectMake(self.view.frame.size.width, 0, 280, self.view.frame.size.height);
-        vc.frame = newRect;
+        self.vc.view.frame = newRect;
         
     }];
-    [vc removeFromSuperview];
     [self.tabBarController.view removeGestureRecognizer:[self.tabBarController.view.gestureRecognizers firstObject]];
 }
 
@@ -136,9 +141,23 @@
 #pragma mark - Actions
 
 - (IBAction)vkButtonAction:(UIButton *)sender {
+    if (self.vkButton.isSelected) {
+        self.vkButton.selected = NO;
+        self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"light_gray"]];
+    } else {
+        self.vkButton.selected = YES;
+        self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
+    }
 }
 
 - (IBAction)facebookButtonAction:(UIButton *)sender {
+    if (self.facebookButton.isSelected) {
+        self.facebookButton.selected = NO;
+        self.facebookButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"light_gray"]];
+    } else {
+        self.facebookButton.selected = YES;
+        self.facebookButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
+    }
 }
 
 - (IBAction)rentButtonAction:(UIButton *)sender {

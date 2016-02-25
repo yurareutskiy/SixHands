@@ -16,4 +16,6 @@
 
 @property (nonatomic, strong) GMSMarker *marker;
 
++(instancetype)initWithLoction:(CLLocationCoordinate2D)location;
+
 @end

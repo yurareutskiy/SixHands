@@ -14,4 +14,10 @@
     return self.location;
 }
 
+
++(instancetype)initWithLoction:(CLLocationCoordinate2D)location {
+    Spot *spot = [[Spot alloc] init];
+    spot.location = location;
+    return spot;
+}
 @end

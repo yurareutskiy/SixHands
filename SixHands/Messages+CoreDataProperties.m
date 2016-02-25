@@ -2,7 +2,7 @@
 //  Messages+CoreDataProperties.m
 //  SixHands
 //
-//  Created by Anton Scherbakov on 08/02/16.
+//  Created by Reutskiy Jury on 2/23/16.
 //  Copyright © 2016 Styleru. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,11 +13,11 @@
 
 @implementation Messages (CoreDataProperties)
 
-@dynamic id;
-@dynamic id_sender;
-@dynamic id_conversation;
 @dynamic date;
-@dynamic text;
+@dynamic id;
+@dynamic id_conversation;
 @dynamic id_receiver;
+@dynamic id_sender;
+@dynamic text;
 
 @end

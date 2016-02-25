@@ -2,14 +2,12 @@
 //  Filter.h
 //  SixHands
 //
-//  Created by Anton Scherbakov on 08/02/16.
+//  Created by Reutskiy Jury on 2/23/16.
 //  Copyright © 2016 Styleru. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
-@class Flats;
 
 NS_ASSUME_NONNULL_BEGIN
 

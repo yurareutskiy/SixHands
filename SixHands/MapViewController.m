@@ -13,6 +13,9 @@
 @property (strong, nonatomic) FilterViewController *menu;
 @property (strong, nonatomic) UIBarButtonItem *menuButton;
 @property (strong, nonatomic) SWRevealViewController *reveal;
+@property (strong, nonatomic) GMSMarker *selectedMarker;
+@property (strong, nonatomic) NSArray *markersArray;
+@property (strong, nonatomic) NSArray *markersCoordinates;
 
 @end
 
@@ -38,7 +41,7 @@
     [locationManager startUpdatingLocation];
     
     // for debugging
-    CLLocationCoordinate2D point = CLLocationCoordinate2DMake(56.065000, 36.780000);
+    CLLocationCoordinate2D point = CLLocationCoordinate2DMake(55.711331, 37.475160);
     
     
 //    camera = [GMSCameraPosition cameraWithLatitude:locationManager.location.coordinate.latitude longitude:locationManager.location.coordinate.longitude zoom:mapZoom];
@@ -47,6 +50,7 @@
     mapView = [GMSMapView mapWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height) camera:camera];
     mapView.myLocationEnabled = YES;
     mapView.settings.myLocationButton = YES;
+    mapView.selectedMarker.icon = [UIImage imageNamed:@"active"];
     [mapView setMinZoom:6 maxZoom:90];
     [self.view insertSubview:mapView atIndex:0];
     mapView.delegate = self;
@@ -57,47 +61,62 @@
     
     [mapView setDelegate:clusterManager_];
     
-    GMSMarker *marker1 = [[GMSMarker alloc] init];
-    marker1.position = CLLocationCoordinate2DMake(56.065000, 36.780000);
-    marker1.title = @"First pin";
-    marker1.snippet = @"Just to check";
-    marker1.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
-    // marker1.map = mapView;
-    marker1.icon = [UIImage imageNamed:@"pin"];
+    self.markersCoordinates = @[[Spot initWithLoction:CLLocationCoordinate2DMake(55.711331, 37.470100)], [Spot initWithLoction:CLLocationCoordinate2DMake(55.711301, 37.475162)], [Spot initWithLoction:CLLocationCoordinate2DMake(55.712301, 37.475149)]];
     
-    Spot* spot1 = [[Spot alloc] init];
-    spot1.location = marker1.position;
-    spot1.marker = marker1;
+    for (Spot *spot in self.markersCoordinates) {
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.title = @"First pin";
+        marker.snippet = @"Just to check";
+        marker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+        // marker1.map = mapView;
+        marker.icon = [UIImage imageNamed:@"pin"];
+        marker.position = spot.location;
+        spot.marker = marker;
+        [clusterManager_ addItem:spot];
+
+    }
     
-    [clusterManager_ addItem:spot1];
-    
-    GMSMarker *marker2 = [[GMSMarker alloc] init];
-    marker2.position = CLLocationCoordinate2DMake(56.064000, 36.787000);
-    marker2.title = @"First pin";
-    marker2.snippet = @"Just to check";
-    marker2.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
-    //marker2.map = mapView;
-    
-    Spot* spot2 = [[Spot alloc] init];
-    spot2.location = marker2.position;
-    spot2.marker = marker2;
-    
-    [clusterManager_ addItem:spot2];
-    
-    GMSMarker *marker3 = [[GMSMarker alloc] init];
-    marker3.position = CLLocationCoordinate2DMake(56.066000, 36.789000);
-    marker3.title = @"First pin";
-    marker3.snippet = @"Just to check";
-    marker3.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
-    
-    //marker3.map = mapView;
-    
-    Spot* spot3 = [[Spot alloc] init];
-    spot3.location = marker3.position;
-    spot3.marker = marker3;
-    spot3.marker.tappable = YES;
-    
-    [clusterManager_ addItem:spot3];
+//    GMSMarker *marker1 = [[GMSMarker alloc] init];
+//    marker1.position = CLLocationCoordinate2DMake(56.065000, 36.780000);
+//    marker1.title = @"First pin";
+//    marker1.snippet = @"Just to check";
+//    marker1.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+//    // marker1.map = mapView;
+//    marker1.icon = [UIImage imageNamed:@"pin"];
+//    
+//    Spot* spot1 = [[Spot alloc] init];
+//    spot1.location = marker1.position;
+//    spot1.marker = marker1;
+//    
+//    [clusterManager_ addItem:spot1];
+//    
+//    GMSMarker *marker2 = [[GMSMarker alloc] init];
+//    marker2.position = CLLocationCoordinate2DMake(56.064000, 36.787000);
+//    marker2.title = @"First pin";
+//    marker2.snippet = @"Just to check";
+//    marker2.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+//    //marker2.map = mapView;
+//    
+//    Spot* spot2 = [[Spot alloc] init];
+//    spot2.location = marker2.position;
+//    spot2.marker = marker2;
+//    
+//    [clusterManager_ addItem:spot2];
+//    
+//    GMSMarker *marker3 = [[GMSMarker alloc] init];
+//    marker3.position = CLLocationCoordinate2DMake(56.066000, 36.789000);
+//    marker3.title = @"First pin";
+//    marker3.snippet = @"Just to check";
+//    marker3.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+//    
+//    //marker3.map = mapView;
+//    
+//    Spot* spot3 = [[Spot alloc] init];
+//    spot3.location = marker3.position;
+//    spot3.marker = marker3;
+//    spot3.marker.tappable = YES;
+//    
+//    [clusterManager_ addItem:spot3];
     
     [self setNeedsStatusBarAppearanceUpdate];
     [self preferredStatusBarStyle];
@@ -117,7 +136,9 @@
     UIViewController *viweVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MapView"];
     viweVC.view.frame = CGRectMake(0, 0, 250, 120);
     UIView *view = viweVC.view;
-    view.layer.borderWidth = 1;
+    view.layer.borderWidth = 0.5;
+    view.layer.borderColor = [UIColor grayColor].CGColor;
+
     UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 130)];
     [container addSubview:view];
     UIView *emptyView = [[UIView alloc] initWithFrame:CGRectMake(0, 120, 250, 10)];
@@ -131,6 +152,13 @@
 
 -(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
     NSLog(@"%@", marker);
+    
+    if (self.selectedMarker) {
+        self.selectedMarker.icon = [UIImage imageNamed:@"pin"];
+    }
+    marker.icon = [UIImage imageNamed:@"active"];
+    self.selectedMarker = marker;
+    
 //    [mapView moveCamera:[GMSCameraUpdate scrollByX:0 Y:-30]];
     return NO;
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15B42" minimumToolsVersion="Automatic">
     <entity name="Filter" representedClassName="Filter" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="params" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <relationship name="filter" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Flats" syncable="YES"/>
     </entity>
     <entity name="Flats" representedClassName="Flats" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -40,8 +40,8 @@
     </entity>
     <elements>
         <element name="Flats" positionX="-243" positionY="-234" width="128" height="240"/>
-        <element name="Filter" positionX="-72" positionY="-55" width="128" height="73"/>
-        <element name="Users" positionX="-243" positionY="27" width="128" height="180"/>
         <element name="Messages" positionX="-72" positionY="-234" width="128" height="133"/>
+        <element name="Users" positionX="-243" positionY="27" width="128" height="180"/>
+        <element name="Filter" positionX="79" positionY="-72" width="128" height="73"/>
     </elements>
 </model>

@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet SubwayView *subway;
 @property (weak, nonatomic) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIImageView *favStarImage;
+@property (weak, nonatomic) IBOutlet UILabel *zeroFriends;
 
 - (IBAction)favoritesAction:(UIButton *)sender;
 - (NSString*)formattedStringWithPrice:(NSString*)price;
