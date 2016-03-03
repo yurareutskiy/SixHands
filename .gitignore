@@ -10,16 +10,16 @@ DerivedData
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-SixHands.xcworkspace/xcuserdata/
-SixHands.xcworkspace/xcuserdata/yurka.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-SixHands.xcodeproj/xcuserdata/yurka.xcuserdatad/xcschemes/xcschememanagement.plist
+#SixHands.xcworkspace/xcuserdata/
+#SixHands.xcworkspace/xcuserdata/yurka.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+#SixHands.xcodeproj/xcuserdata/yurka.xcuserdatad/xcschemes/xcschememanagement.plist
 
 *.xccheckout
 *.moved-aside
 *.xcuserstate
 *.xcscmblueprint
 *.xcworkspace
-#!default.xcworkspace
+!default.xcworkspace
 
 *.hmap
 *.ipa

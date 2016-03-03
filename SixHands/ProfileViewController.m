@@ -50,6 +50,7 @@
 @interface ProfileViewController ()
 
 @property (strong, nonatomic) SettingsViewController *vc;
+@property (strong, nonatomic) UIView *blackoutView;
 
 @end
 
@@ -95,24 +96,38 @@
     if (!self.vc) {
         self.vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsVC"];
     }
+    
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(hideSettings:)];
+    swipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.vc.view addGestureRecognizer:swipe];
+    self.vc.view.hidden = NO;
+    
+    if (!self.blackoutView) {
 
-//    CGRect rectMenu = CGRectMake(self.view.frame.size.width, 0, 280, self.view.frame.size.height);
+        
+        self.blackoutView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        self.blackoutView.backgroundColor = [UIColor blackColor];
+        self.blackoutView.alpha = 0;
+        [self.tabBarController.view addSubview:self.blackoutView];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideSettings:)];
+        [self.blackoutView addGestureRecognizer:tap];
+    }
+    
+    self.blackoutView.hidden = NO;
     CGRect rectMenu = CGRectMake(self.view.frame.size.width, 0, 280, self.view.frame.size.height);
     self.vc.view.frame = rectMenu;
     [self.tabBarController.view addSubview:self.vc.view];
     self.view.userInteractionEnabled = NO;
-    NSLog(@"vie - %@", NSStringFromCGRect(self.tabBarController.view.frame));
+    
     [UIView animateWithDuration:0.4 animations:^{
         CGRect newRect = CGRectMake(self.view.frame.size.width - 280, 0, 280, self.view.frame.size.height);
         self.vc.view.frame = newRect;
-        
+        self.blackoutView.alpha = 0.5;
     }];
-    
-    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(hideSettings:)];
-    swipe.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.tabBarController.view addGestureRecognizer:swipe];
+
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 //    [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+
     
 
 }
@@ -120,12 +135,17 @@
 - (void)hideSettings:(id)sender {
 //    UIView *vc = [self.tabBarController.view.subviews lastObject];
     self.view.userInteractionEnabled = YES;
+
     [UIView animateWithDuration:0.4 animations:^{
         CGRect newRect = CGRectMake(self.view.frame.size.width, 0, 280, self.view.frame.size.height);
         self.vc.view.frame = newRect;
-        
+        self.blackoutView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.blackoutView.hidden = YES;
+        [self.tabBarController.view removeGestureRecognizer:[self.tabBarController.view.gestureRecognizers firstObject]];
+        self.vc.view.hidden = YES;
+
     }];
-    [self.tabBarController.view removeGestureRecognizer:[self.tabBarController.view.gestureRecognizers firstObject]];
 }
 
 

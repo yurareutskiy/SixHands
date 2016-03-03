@@ -44,6 +44,7 @@
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     GMSAutocompleteViewController *acController = [[GMSAutocompleteViewController alloc] init];
     acController.delegate = self;
+    acController.navigationController.navigationBar.tintColor = [UIColor blackColor];
     [self presentViewController:acController animated:YES completion:nil];
 }
 
