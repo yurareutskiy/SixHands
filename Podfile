@@ -12,7 +12,8 @@ pod 'SCLAlertView-Objective-C'
 pod 'TTRangeSlider'
 pod 'JSQMessagesViewController'
 pod 'GoogleMaps'
-
-
+pod 'MessageDisplayKit'
 pod 'TEQuickPageViewController', '~> 2.1'
 pod 'ASValueTrackingSlider'
+pod 'AVOSCloud', '3.1.4'
+pod 'AVOSCloudIM', '3.1.4'

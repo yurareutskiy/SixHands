@@ -48,6 +48,8 @@
 		3ADF01801C61392A00890117 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017D1C61392A00890117 /* FBSDKLoginKit.framework */; };
 		3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */; };
 		3AF845E11C65E48200F1707C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF845E01C65E48200F1707C /* ListViewController.m */; };
+		B1A8E0661C9704B5008F4701 /* LeanMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */; };
+		B1A8E0691C971376008F4701 /* NSUserDefaults+DemoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E0681C971376008F4701 /* NSUserDefaults+DemoSettings.m */; };
 		DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */; };
 		DB2179E01C753790001BF4C1 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DF1C753790001BF4C1 /* PhotoCollectionViewCell.m */; };
 		DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */; };
@@ -186,6 +188,10 @@
 		3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = SixHands/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		3AF845DF1C65E48200F1707C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		3AF845E01C65E48200F1707C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		B1A8E0641C9704B5008F4701 /* LeanMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeanMessageManager.h; sourceTree = "<group>"; };
+		B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeanMessageManager.m; sourceTree = "<group>"; };
+		B1A8E0671C971376008F4701 /* NSUserDefaults+DemoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+DemoSettings.h"; sourceTree = "<group>"; };
+		B1A8E0681C971376008F4701 /* NSUserDefaults+DemoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+DemoSettings.m"; sourceTree = "<group>"; };
 		C517E0479DCF7F8FD2B4C360 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2179DB1C7532AA001BF4C1 /* ParameterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterTableViewCell.h; sourceTree = "<group>"; };
 		DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterTableViewCell.m; sourceTree = "<group>"; };
@@ -521,6 +527,10 @@
 		DB3ED3CB1C68E41A00576E62 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				B1A8E0671C971376008F4701 /* NSUserDefaults+DemoSettings.h */,
+				B1A8E0681C971376008F4701 /* NSUserDefaults+DemoSettings.m */,
+				B1A8E0641C9704B5008F4701 /* LeanMessageManager.h */,
+				B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */,
 				3ADF015E1C61261F00890117 /* MessViewController.h */,
 				3ADF015F1C61261F00890117 /* MessViewController.m */,
 				DB3ED3CD1C68E7AA00576E62 /* ChatViewController.h */,
@@ -858,6 +868,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2D45611C6B848000151B2F /* InfoTableViewCell.m in Sources */,
+				B1A8E0691C971376008F4701 /* NSUserDefaults+DemoSettings.m in Sources */,
 				DBBE4DAD1C74DC0A002BB273 /* MVPlaceSearchTextField.m in Sources */,
 				3A8A7EB71C66A836005946C0 /* SHSFlagAccessoryView.m in Sources */,
 				DB608E221C6F7EB8007D33CB /* FirstScrollViewController.m in Sources */,
@@ -866,6 +877,7 @@
 				DB745A241C7C55D500082134 /* Server.m in Sources */,
 				3A3F9F7C1C661FC700E5E8AC /* GQTPointQuadTree.m in Sources */,
 				DBBE4DAE1C74DC0A002BB273 /* PlaceDetail.m in Sources */,
+				B1A8E0661C9704B5008F4701 /* LeanMessageManager.m in Sources */,
 				DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */,
 				3A8A7EBE1C6747AF005946C0 /* ListTableViewCell.m in Sources */,
 				DB745A3C1C7C5B6B00082134 /* Messages.m in Sources */,
@@ -1048,6 +1060,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Pods/LeanCloud",
 				);
 				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
@@ -1071,6 +1084,10 @@
 				INFOPLIST_FILE = SixHands/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/LeanCloud",
+				);
 				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";

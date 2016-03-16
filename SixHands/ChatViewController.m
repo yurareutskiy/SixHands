@@ -7,10 +7,15 @@
 //
 
 #import "ChatViewController.h"
-
+#import "MessageDisplayKit/XHPhotographyHelper.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "MessageDisplayKit/XHDisplayMediaViewController.h"
 
 @interface ChatViewController ()
-
+@property (nonatomic,strong) XHPhotographyHelper *photographyHelper;
+@property (nonatomic, strong) NSMutableArray *displayMessages;
+@property (strong, nonatomic) JSQMessagesBubbleImage *outgoingBubbleImageData;
+@property (strong, nonatomic) JSQMessagesBubbleImage *incomingBubbleImageData;
 @end
 
 @implementation ChatViewController {
@@ -21,7 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.senderId = [[LeanMessageManager manager] selfClientID];
+    self.senderDisplayName = [self displayNameByClientId:self.senderId];
     UIFont *navBarFont = [UIFont fontWithName:@"Lato-Regular" size:15];
     self.navigationController.navigationBar.titleTextAttributes =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
                                                                      NSFontAttributeName:navBarFont};
@@ -87,7 +93,6 @@
 - (NSString *)senderId {
     return @"1";
 }
-
 
 
 
@@ -192,4 +197,186 @@
     return textHeight + 5;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    
+    if( [self.inputToolbar.contentView.textView isFirstResponder] )
+    {
+        [self.inputToolbar.contentView.textView resignFirstResponder];
+    } 
+}
+
+- (void)didPressAccessoryButton:(UIButton *)sender;
+{
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Добавление медиа-файлов"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Закрыть"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:@"Фото", @"Местоположение", @"Видео", nil];
+    
+    [sheet showFromToolbar:self.inputToolbar];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == actionSheet.cancelButtonIndex) {
+        return;
+    }
+    WEAKSELF
+    void (^PickerMediaBlock)(UIImage *image, NSDictionary *editingInfo) = ^(UIImage *image, NSDictionary *editingInfo) {
+        if (image) {
+            [weakSelf didSendMessageWithPhoto:image];
+        } else {
+            if (!editingInfo)
+                return ;
+            NSString *mediaType = [editingInfo objectForKey: UIImagePickerControllerMediaType];
+            NSString *videoPath;
+            NSURL *videoUrl;
+            if (CFStringCompare ((__bridge CFStringRef) mediaType, kUTTypeMovie, 0) == kCFCompareEqualTo) {
+                videoUrl = (NSURL*)[editingInfo objectForKey:UIImagePickerControllerMediaURL];
+                videoPath = [videoUrl path];
+                [weakSelf didSendMessageWithVideoPath:videoPath];
+            } else {
+                [weakSelf didSendMessageWithPhoto:[editingInfo valueForKey:UIImagePickerControllerOriginalImage]];
+            }
+        }
+    };
+    
+    switch (buttonIndex) {
+        case 0:
+            [self.photographyHelper showOnPickerViewControllerSourceType:UIImagePickerControllerSourceTypePhotoLibrary onViewController:self compled:PickerMediaBlock];
+            break;
+        case 1:{
+            [self didSendMessageWithLatitude:0 longitude:0];
+        }break;
+            
+        case 2:
+            [self.photographyHelper showOnPickerViewControllerSourceType:UIImagePickerControllerSourceTypeCamera onViewController:self compled:PickerMediaBlock];
+            break;
+    }
+    
+}
+
+-(NSString*)fetchDataOfMessageFile:(AVFile*)file fileName:(NSString*)fileName error:(NSError**)error{
+    NSString* path=[[NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:fileName];
+    NSData* data=[file getData:error];
+    if(*error==nil){
+        [data writeToFile:path atomically:YES];
+    }
+    return path;
+}
+
+-(JSQMessage*)displayMessageByAVIMTypedMessage:(AVIMTypedMessage*)typedMessage{
+    AVIMMessageMediaType msgType = typedMessage.mediaType;
+    JSQMessage *message;
+    NSDate* timestamp=[NSDate dateWithTimeIntervalSince1970:typedMessage.sendTimestamp/1000];
+    NSString *senderId=typedMessage.clientId;
+    NSString *senderDisplayName=[self displayNameByClientId:senderId];
+    BOOL outgoing=[self.senderId isEqualToString:typedMessage.clientId];
+    switch (msgType) {
+        case kAVIMMessageMediaTypeText: {
+            AVIMTextMessage *receiveTextMessage = (AVIMTextMessage *)typedMessage;
+            message=[[JSQMessage alloc] initWithSenderId:typedMessage.clientId senderDisplayName:senderDisplayName date:timestamp text:receiveTextMessage.text];
+            break;
+        }
+        case kAVIMMessageMediaTypeImage: {
+            AVIMImageMessage *imageMessage = (AVIMImageMessage *)typedMessage;
+            NSError *error;
+            NSData *data=[imageMessage.file getData:&error];
+            UIImage *image=[UIImage imageWithData:data];
+            JSQPhotoMediaItem *photoItem=[[JSQPhotoMediaItem alloc] initWithImage:image];
+            photoItem.appliesMediaViewMaskAsOutgoing=outgoing;
+            message=[[JSQMessage alloc] initWithSenderId:senderId senderDisplayName:senderDisplayName date:timestamp media:photoItem];
+            break;
+        }
+        case kAVIMMessageMediaTypeVideo:{
+            AVIMVideoMessage* receiveVideoMessage=(AVIMVideoMessage*)typedMessage;
+            NSString* format=receiveVideoMessage.format;
+            NSError* error;
+            NSString* path=[self fetchDataOfMessageFile:typedMessage.file fileName:[NSString stringWithFormat:@"%@.%@",typedMessage.messageId,format] error:&error];
+            NSURL *videoURL = [NSURL fileURLWithPath:path];
+            JSQVideoMediaItem *videoItem = [[JSQVideoMediaItem alloc] initWithFileURL:videoURL isReadyToPlay:YES];
+            videoItem.appliesMediaViewMaskAsOutgoing=outgoing;
+            message = [[JSQMessage alloc] initWithSenderId:senderId senderDisplayName:senderDisplayName date:timestamp media:videoItem];
+            break;
+        }
+        case kAVIMMessageMediaTypeLocation:{
+            WEAKSELF
+            AVIMLocationMessage *locationMessage=(AVIMLocationMessage*)typedMessage;
+            CLLocation *location = [[CLLocation alloc] initWithLatitude:locationMessage.location.latitude longitude:locationMessage.location.longitude];
+            JSQLocationMediaItem *locationItem = [[JSQLocationMediaItem alloc] init];
+            [locationItem setLocation:location withCompletionHandler:^{
+                [weakSelf.collectionView reloadData];
+            }];
+            locationItem.appliesMediaViewMaskAsOutgoing=outgoing;
+            message=[[JSQMessage alloc] initWithSenderId:senderId senderDisplayName:senderDisplayName date:timestamp media:locationItem];
+        }
+        default:
+            break;
+    }
+    return message;
+}
+
+-(BOOL)filterError:(NSError*)error{
+    if(error){
+        UIAlertView *alertView=[[UIAlertView alloc]
+                                initWithTitle:nil message:error.description delegate:nil
+                                cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alertView show];
+        return NO;
+    }
+    return YES;
+}
+
+-(void)addMessage:(AVIMTypedMessage*)message completion:(dispatch_block_t)completion{
+    WEAKSELF
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        JSQMessage *displayMessage=[self displayMessageByAVIMTypedMessage:message];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.displayMessages addObject:displayMessage];
+            completion();
+        });
+    });
+}
+
+-(XHPhotographyHelper*)photographyHelper{
+    if(_photographyHelper==nil){
+        _photographyHelper=[[XHPhotographyHelper alloc] init];
+    }
+    return _photographyHelper;
+}
+
+-(void)sendMessage:(AVIMTypedMessage*)message{
+    WEAKSELF
+    [self.conversation sendMessage:message callback:^(BOOL succeeded, NSError *error) {
+        [JSQSystemSoundPlayer jsq_playMessageSentSound];
+        if([ weakSelf filterError:error]){
+            [ weakSelf addMessage:message completion:^{
+                [weakSelf finishSendingMessageAnimated:YES];
+            }];
+        }
+    }];
+}
+-(void)didSendMessageWithPhoto:(UIImage*)photo{
+    NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"tmp.jpg"];
+    NSData* photoData=UIImageJPEGRepresentation(photo,1.0);
+    [photoData writeToFile:filePath atomically:YES];
+    AVIMImageMessage *message = [AVIMImageMessage messageWithText:nil attachedFilePath:filePath attributes:nil];
+    [self sendMessage:message];
+}
+
+-(void)didSendMessageWithVideoPath:(NSString*)path{
+    AVIMVideoMessage* message=[AVIMVideoMessage messageWithText:nil attachedFilePath:path attributes:nil];
+    [self sendMessage:message];
+}
+
+-(void)didSendMessageWithLatitude:(long)latitude longitude:(long)longitude{
+    AVIMLocationMessage *message=[AVIMLocationMessage messageWithText:@"北京" latitude:39.f longitude:116.f attributes:nil];
+    [self sendMessage:message];
+}
+
+- (NSString*)displayNameByClientId:(NSString*)clientId{
+    return clientId;
+}
 @end

@@ -208,15 +208,13 @@
 #pragma mark - Настройки кнопок
 
 - (IBAction)plusButton:(UIButton *)sender {
-    float zoom = camera.zoom;
-    zoom += 1;
-    [mapView animateToZoom:zoom];
+    GMSCameraUpdate* zoomCamera = [GMSCameraUpdate zoomIn];
+    [mapView animateWithCameraUpdate:zoomCamera];
 }
 
 - (IBAction)minusButton:(UIButton *)sender {
-    float zoom = camera.zoom;
-    zoom -= 1;
-    [mapView animateToZoom:zoom];
+    GMSCameraUpdate* unzoomCamera = [GMSCameraUpdate zoomOut];
+    [mapView animateWithCameraUpdate:unzoomCamera];
 }
 
 @end
