@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		183ED8A34B0EB79C5AA55BD9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C517E0479DCF7F8FD2B4C360 /* Pods.framework */; };
 		3A3F9F6A1C661FA500E5E8AC /* GQuadItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F9F611C661FA500E5E8AC /* GQuadItem.m */; };
 		3A3F9F6B1C661FA500E5E8AC /* GStaticCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F9F631C661FA500E5E8AC /* GStaticCluster.m */; };
 		3A3F9F6C1C661FA500E5E8AC /* NonHierarchicalDistanceBasedAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F9F651C661FA500E5E8AC /* NonHierarchicalDistanceBasedAlgorithm.m */; };
@@ -112,8 +111,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		11A7A4175B5D4E47AB7DC9DD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		2CA40AE8DF16200438B272FC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		29D53727ADBD09A596AC7823 /* Pods-SixHands.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SixHands.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SixHands/Pods-SixHands.debug.xcconfig"; sourceTree = "<group>"; };
 		3A3F9F5F1C661FA500E5E8AC /* GClusterAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GClusterAlgorithm.h; sourceTree = "<group>"; };
 		3A3F9F601C661FA500E5E8AC /* GQuadItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQuadItem.h; sourceTree = "<group>"; };
 		3A3F9F611C661FA500E5E8AC /* GQuadItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQuadItem.m; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 		3A8A7EB61C66A836005946C0 /* SHSPhoneTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSPhoneTextField.m; sourceTree = "<group>"; };
 		3A8A7EBC1C6747AF005946C0 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
 		3A8A7EBD1C6747AF005946C0 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
-		3A8A7EBF1C6777FD005946C0 /* libTTRangeSlider.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTTRangeSlider.a; path = "Pods/../build/Debug-iphoneos/libTTRangeSlider.a"; sourceTree = "<group>"; };
 		3A93F33C1C6557B400E6B900 /* GothamProBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamProBlack.ttf; sourceTree = "<group>"; };
 		3A93F33D1C6557B400E6B900 /* GothamProBlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamProBlackItalic.ttf; sourceTree = "<group>"; };
 		3A93F33E1C6557B400E6B900 /* GothamProBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamProBold.ttf; sourceTree = "<group>"; };
@@ -188,11 +185,11 @@
 		3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = SixHands/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		3AF845DF1C65E48200F1707C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		3AF845E01C65E48200F1707C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		5952F655C28E0C314BEA4D7E /* Pods-SixHands.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SixHands.release.xcconfig"; path = "Pods/Target Support Files/Pods-SixHands/Pods-SixHands.release.xcconfig"; sourceTree = "<group>"; };
 		B1A8E0641C9704B5008F4701 /* LeanMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeanMessageManager.h; sourceTree = "<group>"; };
 		B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeanMessageManager.m; sourceTree = "<group>"; };
 		B1A8E0671C971376008F4701 /* NSUserDefaults+DemoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+DemoSettings.h"; sourceTree = "<group>"; };
 		B1A8E0681C971376008F4701 /* NSUserDefaults+DemoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+DemoSettings.m"; sourceTree = "<group>"; };
-		C517E0479DCF7F8FD2B4C360 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2179DB1C7532AA001BF4C1 /* ParameterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterTableViewCell.h; sourceTree = "<group>"; };
 		DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterTableViewCell.m; sourceTree = "<group>"; };
 		DB2179DE1C753790001BF4C1 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -307,7 +304,6 @@
 				3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */,
 				3ADF01671C61278D00890117 /* CoreLocation.framework in Frameworks */,
 				3ADF01651C61273100890117 /* MapKit.framework in Frameworks */,
-				183ED8A34B0EB79C5AA55BD9 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,8 +313,8 @@
 		1EF6F808A59671677D06E0CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				11A7A4175B5D4E47AB7DC9DD /* Pods.debug.xcconfig */,
-				2CA40AE8DF16200438B272FC /* Pods.release.xcconfig */,
+				29D53727ADBD09A596AC7823 /* Pods-SixHands.debug.xcconfig */,
+				5952F655C28E0C314BEA4D7E /* Pods-SixHands.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -452,13 +448,11 @@
 		6F1686D7F7928841B9689BC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A8A7EBF1C6777FD005946C0 /* libTTRangeSlider.a */,
 				3ADF017C1C61392A00890117 /* FBSDKCoreKit.framework */,
 				3ADF017D1C61392A00890117 /* FBSDKLoginKit.framework */,
 				3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */,
 				3ADF01661C61278D00890117 /* CoreLocation.framework */,
 				3ADF01641C61273100890117 /* MapKit.framework */,
-				C517E0479DCF7F8FD2B4C360 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -726,12 +720,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB4952141C5FBB4700745228 /* Build configuration list for PBXNativeTarget "SixHands" */;
 			buildPhases = (
-				880D56543FD552E4444A3D02 /* Check Pods Manifest.lock */,
+				880D56543FD552E4444A3D02 /* 📦 Check Pods Manifest.lock */,
 				DB4951F61C5FBB4700745228 /* Sources */,
 				DB4951F71C5FBB4700745228 /* Frameworks */,
 				DB4951F81C5FBB4700745228 /* Resources */,
-				1EF89E69CBE6CBE255104376 /* Embed Pods Frameworks */,
-				CB271259695ED3D9AFB4EF91 /* Copy Pods Resources */,
+				1EF89E69CBE6CBE255104376 /* 📦 Embed Pods Frameworks */,
+				CB271259695ED3D9AFB4EF91 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -815,29 +809,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1EF89E69CBE6CBE255104376 /* Embed Pods Frameworks */ = {
+		1EF89E69CBE6CBE255104376 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SixHands/Pods-SixHands-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		880D56543FD552E4444A3D02 /* Check Pods Manifest.lock */ = {
+		880D56543FD552E4444A3D02 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -845,19 +839,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		CB271259695ED3D9AFB4EF91 /* Copy Pods Resources */ = {
+		CB271259695ED3D9AFB4EF91 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SixHands/Pods-SixHands-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1045,7 +1039,7 @@
 		};
 		DB4952151C5FBB4700745228 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11A7A4175B5D4E47AB7DC9DD /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 29D53727ADBD09A596AC7823 /* Pods-SixHands.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1057,11 +1051,7 @@
 				INFOPLIST_FILE = SixHands/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Pods/LeanCloud",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1072,7 +1062,7 @@
 		};
 		DB4952161C5FBB4700745228 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CA40AE8DF16200438B272FC /* Pods.release.xcconfig */;
+			baseConfigurationReference = 5952F655C28E0C314BEA4D7E /* Pods-SixHands.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1084,10 +1074,7 @@
 				INFOPLIST_FILE = SixHands/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/LeanCloud",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
