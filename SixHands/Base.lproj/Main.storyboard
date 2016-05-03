@@ -3716,59 +3716,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="GZv-Oy-HjJ" kind="relationship" relationship="rootViewController" id="MJ5-CV-YmG"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oxk-er-S8I"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWf-C0-P2h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-964" y="276"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="80P-xL-fa1">
-            <objects>
-                <viewController id="GZv-Oy-HjJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tOz-nM-KQ1"/>
-                        <viewControllerLayoutGuide type="bottom" id="RGX-O6-Lgn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="clN-m7-xPu">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efe-cc-1cZ">
-                                <rect key="frame" x="186" y="431" width="228" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Зарегестироваться">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="tjB-bb-zyf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcM-51-C7x">
-                                <rect key="frame" x="264" y="359" width="72" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Войти">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ddq-c2-r9c" kind="show" id="rsy-Es-deK"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.36078431372549019" green="0.36470588235294116" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Efe-cc-1cZ" firstAttribute="top" secondItem="HcM-51-C7x" secondAttribute="bottom" constant="30" id="3sN-BD-i6p"/>
-                            <constraint firstItem="RGX-O6-Lgn" firstAttribute="top" secondItem="Efe-cc-1cZ" secondAttribute="bottom" constant="127" id="s0i-Tl-MxY"/>
-                            <constraint firstItem="Efe-cc-1cZ" firstAttribute="centerX" secondItem="clN-m7-xPu" secondAttribute="centerX" id="sZG-73-7vO"/>
-                            <constraint firstItem="HcM-51-C7x" firstAttribute="centerX" secondItem="clN-m7-xPu" secondAttribute="centerX" id="xih-bn-KD5"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="sk1-JH-cnK"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c2q-ZN-c2Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-228" y="331"/>
+            <point key="canvasLocation" x="-218" y="356"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ndM-N2-4lt">

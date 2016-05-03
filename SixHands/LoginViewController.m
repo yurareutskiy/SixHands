@@ -8,6 +8,8 @@
 
 #import "LoginViewController.h"
 #import "VKSdk.h"
+#import "ServerRequest.h"
+#import "Server.h"
 
 static NSArray *SCOPE = nil;
 
@@ -26,17 +28,16 @@ static NSArray *SCOPE = nil;
     self.facebookButton.layer.borderWidth = 1.f;
     self.vkButton.layer.borderColor = [UIColor whiteColor].CGColor;
     self.facebookButton.layer.borderColor = [UIColor whiteColor].CGColor;
-//    self.facebookButton.imageView.image = [self imageWithImage:self.facebookButton.imageView.image scaledToSize:CGSizeMake(60, 60)];
     SCOPE = @[VK_PER_FRIENDS, VK_PER_PHOTOS, VK_PER_NOHTTPS, VK_PER_EMAIL];
     [super viewDidLoad];
     [[VKSdk initializeWithAppId:@"5446345"] registerDelegate:self ];
     [[VKSdk instance] setUiDelegate:self];
     [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) {
         if (state == VKAuthorizationAuthorized) {
-            NSLog(@"%@",[[VKSdk accessToken] email]);
             [self startWorking];
+            NSLog(@"%@",[[[VKSdk accessToken] localUser] photo_200]);
         } else if (error) {
-            [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+//            [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
         }
     }];
 //
@@ -67,6 +68,7 @@ static NSArray *SCOPE = nil;
 }
 
 - (IBAction)vkButtonAction:(UIButton *)sender {
+    
     [VKSdk authorize:SCOPE];
 }
 
@@ -78,14 +80,36 @@ static NSArray *SCOPE = nil;
 - (void)vkSdkTokenHasExpired:(VKAccessToken *)expiredToken {
     [self authorize:nil];
 }
+
 -(void) vkSdkDidReceiveNewToken:(VKAccessToken*) newToken{
     NSLog(@"%@",newToken);
 }
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
     if (result.token) {
+        NSDictionary *parameters = [[NSDictionary alloc] init];
+        parameters = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId]};
+        NSLog(@"LOG %@ %@",[[VKSdk accessToken] email],[[VKSdk accessToken] userId]);
+        ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"login"];
+        Server *server = [Server new];
+        [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
+            [self startWorking];
+        }  OrFailure:^(NSError *error) {
+             NSDictionary *parametersToSign = [[NSDictionary alloc] init];
+            parametersToSign = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId],@"first_name": [[[VKSdk accessToken] localUser] first_name],@"last_name": [[[VKSdk accessToken] localUser] last_name]};
+            
+            ServerRequest *requestToSign = [ServerRequest initRequest:ServerRequestTypePOST With:parametersToSign To:@"signin"];
+            Server *server = [Server new];
+            [server sentToServer:requestToSign OnSuccess:^(NSDictionary *result) {
+                NSLog(@"NICE SIGN");
+                
+            }  OrFailure:^(NSError *error) {
+                NSLog(@"Bad sign");
+            }];
+
+        }];
         [self startWorking];
     } else if (result.error) {
-        [[[UIAlertView alloc] initWithTitle:nil message:@"Что-то пошло не так,повторите попытку\n%@" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Что-то пошло не так,повторите попытку\n;(" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }
 }
 
@@ -94,7 +118,7 @@ static NSArray *SCOPE = nil;
 }
 
 - (void)vkSdkUserAuthorizationFailed {
-    [[[UIAlertView alloc] initWithTitle:nil message:@"Access denied" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:nil message:@"Что-то пошло не так,повторите попытку\n;(" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

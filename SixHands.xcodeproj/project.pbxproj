@@ -49,6 +49,7 @@
 		3AF845E11C65E48200F1707C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF845E01C65E48200F1707C /* ListViewController.m */; };
 		B1A8E0661C9704B5008F4701 /* LeanMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */; };
 		B1A8E0691C971376008F4701 /* NSUserDefaults+DemoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E0681C971376008F4701 /* NSUserDefaults+DemoSettings.m */; };
+		BBCD4F1372C1ACA706D2C7BF /* Pods_SixHands.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0747240C36934736B59ACC1D /* Pods_SixHands.framework */; };
 		DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */; };
 		DB2179E01C753790001BF4C1 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DF1C753790001BF4C1 /* PhotoCollectionViewCell.m */; };
 		DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */; };
@@ -110,6 +111,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0747240C36934736B59ACC1D /* Pods_SixHands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SixHands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D53727ADBD09A596AC7823 /* Pods-SixHands.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SixHands.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SixHands/Pods-SixHands.debug.xcconfig"; sourceTree = "<group>"; };
 		3A3F9F5F1C661FA500E5E8AC /* GClusterAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GClusterAlgorithm.h; sourceTree = "<group>"; };
 		3A3F9F601C661FA500E5E8AC /* GQuadItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQuadItem.h; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */,
 				3ADF01671C61278D00890117 /* CoreLocation.framework in Frameworks */,
 				3ADF01651C61273100890117 /* MapKit.framework in Frameworks */,
+				BBCD4F1372C1ACA706D2C7BF /* Pods_SixHands.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +451,7 @@
 				3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */,
 				3ADF01661C61278D00890117 /* CoreLocation.framework */,
 				3ADF01641C61273100890117 /* MapKit.framework */,
+				0747240C36934736B59ACC1D /* Pods_SixHands.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
