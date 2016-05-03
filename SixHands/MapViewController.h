@@ -20,5 +20,8 @@
 @interface MapViewController : ModelViewController<CLLocationManagerDelegate, GMSMapViewDelegate>
 - (IBAction)plusButton:(UIButton *)sender;
 - (IBAction)minusButton:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIView *shadowView;
+
+@property (strong, nonatomic) NSString *address;
 
 @end

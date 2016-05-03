@@ -34,8 +34,11 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.scrollView.delegate = self;
-    
+//    [self.scrollView setScrollEnabled:YES];
+//    [self.scrollView setContentSize:CGSizeMake(288.0, 900.0)];
+
     self.tableView.rowHeight = 44.0;
+
     
     view1b = NO;
     view2b = NO;
@@ -94,8 +97,8 @@
     [self.room.layer setCornerRadius:7.f];
     
 //    self.revealViewController.rightViewRevealWidth = self.view.frame.size.width - 70.0;
-    self.revealViewController.rightViewRevealWidth = 280.f;
-    
+    self.revealViewController.rightViewRevealWidth = 288.f;
+//    self.view.frame = CGRectMake(61.0,0.0, self.revealViewController.rightViewRevealWidth, 558.0 + self.tableView.rowHeight * 10);
     // Do any additional setup after loading the view.
 }
 
@@ -111,11 +114,27 @@
     //    [self.view addGestureRecognizer:singleFingerTap];
     
     [self.revealViewController.frontViewController.view addGestureRecognizer:singleFingerTap];
-    
-    self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.rowHeight * 10);
-    self.scrollView.contentSize = CGSizeMake(self.contentView.frame.size.width, 558.0 + self.tableView.rowHeight * 10); //self.tableView.frame.size.height);
-    NSLog(@"%f", self.tableView.rowHeight);
-    NSLog(@"%f", self.scrollView.contentSize.height);
+
+//    
+//    self.view.frame = CGRectMake(61.0,0.0, self.revealViewController.rightViewRevealWidth, 558.0 + self.tableView.rowHeight * 10);
+        self.view.frame = CGRectMake(61.0,0.0, self.revealViewController.rightViewRevealWidth, 900.0);
+//    self.contentView.frame = CGRectMake(self.contentView.frame.origin.x, self.contentView.frame.origin.y, self.revealViewController.rightViewRevealWidth, 558.0 + self.tableView.rowHeight * 10);
+//    self.scrollView.contentSize = CGSizeMake(self.revealViewController.rightViewRevealWidth, 558.0 + self.tableView.rowHeight * 10); //self.tableView.frame.size.height);
+//    self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.rowHeight * 10);
+//    self.scrollView.frame = CGRectMake(self.view.frame.size.width-288.0 ,0.0, self.revealViewController.rightViewRevealWidth, 558.0 + self.tableView.rowHeight * 10);
+    self.scrollView.contentSize = CGSizeMake(self.revealViewController.rightViewRevealWidth, 1300.0); //self.tableView.frame.size.height);
+    self.scrollView.frame = CGRectMake(self.view.frame.size.width-288.0 ,0.0, self.revealViewController.rightViewRevealWidth, 900.0);
+//    CGRect rect = self.scrollView.frame;
+//    rect.origin.y=0.0;
+//    rect.origin.x=55.0;
+//    self.scrollView.frame = rect;
+
+//    NSLog(@"%f", self.tableView.rowHeight);
+//    NSLog(@"%f", self.scrollView.contentSize.height);
+//     NSLog(@"%f", self.scrollView.contentSize.width);
+//     NSLog(@"%f", self.contentView.frame.size.width);
+//     NSLog(@"%f", self.view.frame.size.width);
+//    NSLog(@"%f", self.revealViewController.rightViewRevealWidth);
 }
 
 -(void)viewDidDisappear:(BOOL)animated {

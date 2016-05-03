@@ -20,4 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *othersPeople;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 
+- (IBAction)TaptoFlat:(UITapGestureRecognizer *)sender;
+
 @end
