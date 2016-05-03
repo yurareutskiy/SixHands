@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-//#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "VKSdk.h"
 
 
 @interface AppDelegate ()
@@ -23,11 +23,9 @@
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
-    
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:122.0/255.0 green:91.0/255.0 blue:250.0/255.0 alpha:1.0]];
     
-    // Override point for customization after application launch.
     return YES;
 }
 
@@ -35,10 +33,12 @@
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                          openURL:url
-                                                sourceApplication:sourceApplication
-                                                       annotation:annotation];
+     [VKSdk processOpenURL:url fromApplication:sourceApplication];
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                   openURL:url
+                                         sourceApplication:sourceApplication
+                                                annotation:annotation];
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -116,7 +116,6 @@
     
     return _persistentStoreCoordinator;
 }
-
 
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)

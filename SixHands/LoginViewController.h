@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ModelViewController.h"
+#import "VKSdk.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <VKSdkDelegate>
 - (IBAction)skipButton:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *facebookButton;
 @property (strong, nonatomic) IBOutlet UIButton *vkButton;

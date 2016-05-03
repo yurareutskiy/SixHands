@@ -7,16 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
-NS_ASSUME_NONNULL_BEGIN
+@interface Flats : NSObject
 
-@interface Flats : NSManagedObject
-
-// Insert code here to declare functionality of your managed object subclass
+@property NSString* address;
+@property NSString* ID;
+@property NSString* latitude;
+@property NSString* longitude;
+@property NSString* owner_ID;
+@property NSString* price;
+@property NSString* rooms;
+@property NSString* square;
+@property NSString* storey;
+@property NSString* subway_line;
+@property NSString* subway_name;
+@property NSString* time_to_subway;
+@property NSString* image_url;
+@property NSMutableArray* friends_avatars_urls;
 
 @end
-
-NS_ASSUME_NONNULL_END
-
-#import "Flats+CoreDataProperties.h"

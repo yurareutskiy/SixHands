@@ -90,7 +90,6 @@
 		DB745A2A1C7C55F300082134 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = DB745A291C7C55F300082134 /* Constants.m */; };
 		DB745A3B1C7C5B6B00082134 /* Messages+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB745A2C1C7C5B6B00082134 /* Messages+CoreDataProperties.m */; };
 		DB745A3C1C7C5B6B00082134 /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = DB745A2E1C7C5B6B00082134 /* Messages.m */; };
-		DB745A3D1C7C5B6B00082134 /* Flats+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB745A301C7C5B6B00082134 /* Flats+CoreDataProperties.m */; };
 		DB745A3E1C7C5B6B00082134 /* Flats.m in Sources */ = {isa = PBXBuildFile; fileRef = DB745A321C7C5B6B00082134 /* Flats.m */; };
 		DB745A3F1C7C5B6B00082134 /* Users+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB745A341C7C5B6B00082134 /* Users+CoreDataProperties.m */; };
 		DB745A401C7C5B6B00082134 /* Users.m in Sources */ = {isa = PBXBuildFile; fileRef = DB745A361C7C5B6B00082134 /* Users.m */; };
@@ -255,8 +254,6 @@
 		DB745A2C1C7C5B6B00082134 /* Messages+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Messages+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DB745A2D1C7C5B6B00082134 /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
 		DB745A2E1C7C5B6B00082134 /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Messages.m; sourceTree = "<group>"; };
-		DB745A2F1C7C5B6B00082134 /* Flats+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Flats+CoreDataProperties.h"; sourceTree = "<group>"; };
-		DB745A301C7C5B6B00082134 /* Flats+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Flats+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DB745A311C7C5B6B00082134 /* Flats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flats.h; sourceTree = "<group>"; };
 		DB745A321C7C5B6B00082134 /* Flats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flats.m; sourceTree = "<group>"; };
 		DB745A331C7C5B6B00082134 /* Users+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Users+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -368,8 +365,6 @@
 				DB745A2C1C7C5B6B00082134 /* Messages+CoreDataProperties.m */,
 				DB745A2D1C7C5B6B00082134 /* Messages.h */,
 				DB745A2E1C7C5B6B00082134 /* Messages.m */,
-				DB745A2F1C7C5B6B00082134 /* Flats+CoreDataProperties.h */,
-				DB745A301C7C5B6B00082134 /* Flats+CoreDataProperties.m */,
 				DB745A311C7C5B6B00082134 /* Flats.h */,
 				DB745A321C7C5B6B00082134 /* Flats.m */,
 				DB745A331C7C5B6B00082134 /* Users+CoreDataProperties.h */,
@@ -887,7 +882,6 @@
 				DB9FE4A31C6C1ACF00DD27F5 /* SettingsViewController.m in Sources */,
 				3A3F9F6B1C661FA500E5E8AC /* GStaticCluster.m in Sources */,
 				DB745A2A1C7C55F300082134 /* Constants.m in Sources */,
-				DB745A3D1C7C5B6B00082134 /* Flats+CoreDataProperties.m in Sources */,
 				3ADF01631C61264900890117 /* ProfileViewController.m in Sources */,
 				DB524A351C75FA59002AE766 /* AddPhotoCollectionViewCell.m in Sources */,
 				DB4952021C5FBB4700745228 /* AppDelegate.m in Sources */,
@@ -1043,6 +1037,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1055,6 +1050,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1066,6 +1062,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1078,6 +1075,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

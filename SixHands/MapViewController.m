@@ -39,7 +39,7 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager requestWhenInUseAuthorization];
     [locationManager startUpdatingLocation];
-    
+    NSLog(@"HERE WE ARE");
     // for debugging
     CLLocationCoordinate2D point = CLLocationCoordinate2DMake(55.711331, 37.475160);
     

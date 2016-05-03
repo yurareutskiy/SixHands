@@ -12,8 +12,11 @@
 
 + (instancetype)initWithResponse:(NSDictionary*)response {
     ServerError *error = [[ServerError alloc] init];
-    error.message = response[@"message"];
-    error.serverCode = response[@"code"];
+    if( response[@"message"]  != NULL && response[@"code"]!= NULL)
+    {
+        error.message = response[@"message"];
+        error.serverCode = response[@"code"];
+    }
     return error;
 }
 

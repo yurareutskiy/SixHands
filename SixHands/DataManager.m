@@ -35,7 +35,7 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
     // USER'S TOKEN
-    [ud setObject:result[@"token"] forKey:@"token"];
+//    [ud setObject:result[@"token"] forKey:@"token"];
     
     // USER'S INFO
 //    Users *user = [Users initUserWithFirstName:result[@"user"][@"first_name"] LastName:result[@"user"][@"last_name"] userID:result[@"user"][@"id"] Email:result[@"user"][@"email"] Phone:result[@"user"][@"phone"] PhotoURL:result[@"user"][@"user_photo_url"] Token:result[@"user"][@"token"] socType:result[@"user"][@"socType"] socID:result[@"user"][@"socId"]];
@@ -47,10 +47,12 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
-    if (result[@"flats"] != nil) {
+    if (result != nil) {
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Flats" inManagedObjectContext:context];
-        for (int i = 0; i < [((NSArray*)result[@"flats"]) count]; i++) {
-            NSDictionary *tempDict = result[@"flats"][i];
+      
+            NSDictionary *tempDict = result;
+   
+        
             NSManagedObject *order = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
             
             [order setValue:tempDict[@"address"] forKey:@"address"];
@@ -73,7 +75,7 @@
                 NSLog(@"%@", [error debugDescription]);
             }
 
-        }
+        
     }
     [ud setObject:@"true" forKey:@"isLogin"];
 }

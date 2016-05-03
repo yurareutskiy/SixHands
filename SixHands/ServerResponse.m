@@ -13,7 +13,7 @@
 + (instancetype)parseResponse:(NSDictionary*)response {
 
     ServerResponse *object = [[ServerResponse alloc] init];
-    object.type = [(NSString*)response[@"response"] isEqualToString:@"success"] ? ServerResponseTypeSuccess : ServerResponseTypeError;
+    object.type = [(NSString*)response[@"response"] isEqualToString:@"Success"] ? ServerResponseTypeSuccess : ServerResponseTypeError;
     if (object.type == ServerResponseTypeSuccess) {
         object.body = response[@"body"];
     } else if (object.type == ServerResponseTypeError) {

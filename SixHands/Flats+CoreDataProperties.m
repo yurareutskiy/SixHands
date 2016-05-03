@@ -27,4 +27,9 @@
 @dynamic time_to_underground;
 @dynamic update_date;
 
++ (id)insertNewObjectInContext:(NSManagedObjectContext *)context
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:@"Flats" inManagedObjectContext:context];
+}
+
 @end

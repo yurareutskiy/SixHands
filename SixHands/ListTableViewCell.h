@@ -16,6 +16,10 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *avatar1;
 @property (strong, nonatomic) IBOutlet UIImageView *avatar2;
+@property (weak, nonatomic) IBOutlet UILabel *square;
+@property (weak, nonatomic) IBOutlet UILabel *floor;
+@property (weak, nonatomic) IBOutlet UILabel *rooms;
+@property (weak, nonatomic) IBOutlet UILabel *timeToSub;
 @property (strong, nonatomic) IBOutlet UIImageView *avatar3;
 @property (weak, nonatomic) IBOutlet UILabel *moreFriendsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *price;
