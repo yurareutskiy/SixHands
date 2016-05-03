@@ -380,7 +380,7 @@
                                 <color key="textColor" red="0.80851483585858575" green="0.80851483585858575" blue="0.80851483585858575" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32n-RB-bjv">
+                            <button hidden="YES" opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32n-RB-bjv">
                                 <rect key="frame" x="15" y="13" width="32" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="CbF-WK-P0b"/>
@@ -427,7 +427,7 @@
                                 <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="34"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="nezamknuty1" translatesAutoresizingMaskIntoConstraints="NO" id="rXk-8v-OXR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nezamknuty1" translatesAutoresizingMaskIntoConstraints="NO" id="rXk-8v-OXR">
                                 <rect key="frame" x="240" y="34" width="120" height="123"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="0Yx-XC-45h"/>
@@ -791,11 +791,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nz4-gu-acc">
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nz4-gu-acc">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4h-t6-O1s">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B4h-t6-O1s">
                                 <rect key="frame" x="25" y="79" width="240" height="90"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar2" translatesAutoresizingMaskIntoConstraints="NO" id="H2W-pU-aua">
@@ -1944,6 +1944,9 @@
                                 <state key="normal" title="Выйти">
                                     <color key="titleColor" red="0.27058823529999998" green="0.82352941180000006" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="logoutClick:" destination="kVl-dX-eTA" eventType="touchUpInside" id="W2E-nb-z39"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.3529411764705882" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
@@ -3705,7 +3708,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1Nx-lS-8FT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="LaB-xf-aXR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginPoint" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="LaB-xf-aXR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5fk-UE-m0P">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

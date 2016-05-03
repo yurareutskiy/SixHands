@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "ListTableViewCell.h"
 #import "SettingsViewController.h"
+#import "VKsdk.h"
 
 @interface UIImage (ImageBlur)
 - (UIImage *)imageWithGaussianBlur;
@@ -64,7 +65,7 @@
     self.table.delegate = self;
     self.table.dataSource = self;
     self.table.userInteractionEnabled = NO;
-    
+    self.userNameTitle.text = [NSString stringWithFormat:@"%@ %@",[[[VKSdk accessToken] localUser] first_name],[[[VKSdk accessToken] localUser] last_name]];
     self.navigationItem.title = @"Профиль";
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0]];
