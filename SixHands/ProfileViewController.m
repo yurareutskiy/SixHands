@@ -10,6 +10,7 @@
 #import "ListTableViewCell.h"
 #import "SettingsViewController.h"
 #import "VKsdk.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface UIImage (ImageBlur)
 - (UIImage *)imageWithGaussianBlur;
@@ -67,20 +68,38 @@
     self.table.userInteractionEnabled = NO;
     self.userNameTitle.text = [NSString stringWithFormat:@"%@ %@",[[[VKSdk accessToken] localUser] first_name],[[[VKSdk accessToken] localUser] last_name]];
     self.navigationItem.title = @"Профиль";
+    NSLog(@"TITLE %@", [[[VKSdk accessToken] localUser] home_town]);
     self.userLocationTitle.text = [NSString stringWithFormat:@"%@,%@",[[[[VKSdk accessToken]localUser]country]title],[[[[VKSdk accessToken]localUser]city]title]];
+  
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0]];
-
     NSURL *imageURL = [NSURL URLWithString:[[[VKSdk accessToken] localUser] photo_200]];
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    [manager downloadImageWithURL:[NSURL URLWithString:[[[VKSdk accessToken] localUser] photo_200]]
+                          options:0
+                         progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                             NSLog(@"%ld",(long)receivedSize);
+                         }
+                        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                            if (image) {
+                                NSLog(@"LOADED FROM INTERNET");
+                                [[self userPhoto] setImage:image];
+                                SDImageCache *imageCache = [[SDImageCache alloc] initWithNamespace:@"userPhotos"];
+                                [imageCache storeImage:image forKey:@"profilePhoto" toDisk:YES];
+                                
+                            }
+                            
+                        }];
+
+    SDImageCache *imageCache = [[SDImageCache alloc] initWithNamespace:@"userPhotos"];
+     [imageCache queryDiskCacheForKey:@"profilePhoto" done:^(UIImage *image, SDImageCacheType cacheType){
+         NSLog(@"LOADED FROM CACHE");
+         [[self userPhoto] setImage:image];
+    }];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Update the UI
-            self.userPhoto.image = [UIImage imageWithData:imageData];
-        });
-    });
+//            [[self userPhoto] sd_setImageWithURL:[NSURL URLWithString:[[[VKSdk accessToken] localUser] photo_200]] placeholderImage:[UIImage imageNamed:@"placeholder.jpeg"]];
+
+
     self.userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width / 2;
     self.userPhoto.layer.borderWidth = 2.f;
     self.userPhoto.layer.borderColor = [UIColor darkGrayColor].CGColor;

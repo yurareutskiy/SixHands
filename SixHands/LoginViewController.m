@@ -10,6 +10,7 @@
 #import "VKSdk.h"
 #import "ServerRequest.h"
 #import "Server.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 static NSArray *SCOPE = nil;
 
@@ -28,7 +29,7 @@ static NSArray *SCOPE = nil;
     self.facebookButton.layer.borderWidth = 1.f;
     self.vkButton.layer.borderColor = [UIColor whiteColor].CGColor;
     self.facebookButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    SCOPE = @[VK_PER_FRIENDS, VK_PER_PHOTOS, VK_PER_NOHTTPS, VK_PER_EMAIL];
+    SCOPE = @[VK_PER_FRIENDS, VK_PER_PHOTOS, VK_PER_NOHTTPS, VK_PER_EMAIL,VK_PER_STATS,VK_PER_STATUS];
     [super viewDidLoad];
     [[VKSdk initializeWithAppId:@"5446345"] registerDelegate:self ];
     [[VKSdk instance] setUiDelegate:self];
@@ -86,15 +87,14 @@ static NSArray *SCOPE = nil;
 }
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
     if (result.token) {
-        NSDictionary *parameters = [[NSDictionary alloc] init];
+                NSDictionary *parameters = [[NSDictionary alloc] init];
         parameters = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId]};
-        NSLog(@"LOG %@ %@",[[VKSdk accessToken] email],[[VKSdk accessToken] userId]);
         ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"login"];
         Server *server = [Server new];
         [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
             [self startWorking];
         }  OrFailure:^(NSError *error) {
-             NSDictionary *parametersToSign = [[NSDictionary alloc] init];
+            NSDictionary *parametersToSign = [[NSDictionary alloc] init];
             parametersToSign = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId],@"first_name": [[[VKSdk accessToken] localUser] first_name],@"last_name": [[[VKSdk accessToken] localUser] last_name]};
             
             ServerRequest *requestToSign = [ServerRequest initRequest:ServerRequestTypePOST With:parametersToSign To:@"signin"];
@@ -105,9 +105,9 @@ static NSArray *SCOPE = nil;
             }  OrFailure:^(NSError *error) {
                 NSLog(@"Bad sign");
             }];
-
+            
         }];
-        [self startWorking];
+        
     } else if (result.error) {
         [[[UIAlertView alloc] initWithTitle:nil message:@"Что-то пошло не так,повторите попытку\n;(" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }
