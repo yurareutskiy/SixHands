@@ -65,12 +65,24 @@
 //    self.collectionView.collectionViewLayout.bubbleSizeCalculator = self;
 
     [self addDemoMessages];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
 }
+
+- (void)hideKeyboard {
+    [self.view endEditing:YES];
+}
+
 
 -(void)viewWillAppear:(BOOL)animated {
 //    incomingBubbleImage = [[JSQMessagesBubbleImageFactory alloc] incomingMessagesBubbleImageWithColor:[UIColor blueColor]];
 //    outcomingBubbleImage = [[JSQMessagesBubbleImageFactory alloc] incomingMessagesBubbleImageWithColor:[UIColor lightGrayColor]];
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -216,6 +228,7 @@
                                               otherButtonTitles:@"Фото", @"Местоположение", @"Видео", nil];
     
     [sheet showFromToolbar:self.inputToolbar];
+    [self.view endEditing:YES];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -379,4 +392,7 @@
 - (NSString*)displayNameByClientId:(NSString*)clientId{
     return clientId;
 }
+
+
+
 @end

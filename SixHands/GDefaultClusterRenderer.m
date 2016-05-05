@@ -58,7 +58,7 @@
     
     if (count > 100) [[UIColor orangeColor] setFill];
     else if (count > 10) [[UIColor yellowColor] setFill];
-    else [[UIColor colorWithRed:0.0/255.0 green:100.0/255.0 blue:255.0/255.0 alpha:1] setFill];
+    else [[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:56.0/255.0 alpha:1.0] setFill];
 
     CGContextSetLineWidth(ctx, inset);
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DescriptionTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleText;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @end

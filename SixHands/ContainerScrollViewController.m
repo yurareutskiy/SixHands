@@ -90,6 +90,7 @@
     }
     self.scroll.scrollEnabled = NO;
     self.scroll.pagingEnabled = YES;
+
 }
 
 - (void)nextPage {
@@ -155,6 +156,8 @@
         } completion:nil];
     }
     self.counterLabel.text = [NSString stringWithFormat:@"ШАГ %d ИЗ 3", currentController + 1];
+    [self.view endEditing:YES];
+
 }
 
 -(void)postFlat{

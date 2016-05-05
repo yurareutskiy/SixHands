@@ -7,8 +7,9 @@
 //
 
 #import "MapViewController.h"
+#import "FlatViewController.h"
 
-@interface MapViewController ()
+@interface MapViewController () <SWRevealViewControllerDelegate>
 
 @property (strong, nonatomic) FilterViewController *menu;
 @property (strong, nonatomic) UIBarButtonItem *menuButton;
@@ -16,6 +17,8 @@
 @property (strong, nonatomic) GMSMarker *selectedMarker;
 @property (strong, nonatomic) NSArray *markersArray;
 @property (strong, nonatomic) NSArray *markersCoordinates;
+@property (strong, nonatomic) UIGestureRecognizer *recognozer;
+@property (strong, nonatomic) UITapGestureRecognizer *tapRecognizer;
 
 @end
 
@@ -26,13 +29,20 @@
     GClusterManager *clusterManager_;
     float mapZoom;
     BOOL upDown;
+    BOOL isMenuOpen;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    isMenuOpen = false;
+    self.shadowView.backgroundColor=[UIColor clearColor];
+//    self.shadowView.userInteractionEnabled = NO;
+    self.shadowView.hidden = true;
+
     mapZoom = 15;
     upDown = false;
+    
+    self.reveal.delegate = self;
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
@@ -128,7 +138,7 @@
     [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0]];
     
     [self configureMenu];
-    
+
     // Do any additional setup after loading the view.
 }
 
@@ -146,6 +156,7 @@
     [container addSubview:emptyView];
 //    [view setBackgroundColor:[UIColor greenColor]];
     [mapView moveCamera:[GMSCameraUpdate scrollByX:0 Y:-30]];
+
     return container;
 }
 
@@ -158,9 +169,10 @@
     }
     marker.icon = [UIImage imageNamed:@"active"];
     self.selectedMarker = marker;
-    
+
 //    [mapView moveCamera:[GMSCameraUpdate scrollByX:0 Y:-30]];
     return NO;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -175,23 +187,54 @@
 - (void)configureMenu {
     
     self.reveal = self.revealViewController;
+
     
    if (!self.reveal) {
         return;
     } 
     
     // Add gesture recognizer
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    self.recognozer = self.revealViewController.panGestureRecognizer;
+//    [self.recognozer addTarget:self action:@selector(rightMenu)];
+    self.recognozer.enabled = false;
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightMenu)];
+    [self.shadowView addGestureRecognizer:swipe];
     
     // Set menu button
     self.menuButton = [[UIBarButtonItem alloc] initWithImage:[self imageWithImage:[UIImage imageNamed:@"filter"] scaledToSize:CGSizeMake(20, 20)]
                                                        style:UIBarButtonItemStyleDone
-                                                      target:self.revealViewController
-                                                      action:@selector(rightRevealToggle:)];
+                                                      target:self
+                                                      action:@selector(rightMenu)];
     
     self.navigationItem.rightBarButtonItem = self.menuButton;
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
+    
 }
+
+- (void)rightMenu {
+    [self.revealViewController rightRevealToggle:nil];
+    if (self.tapRecognizer == nil) {
+        self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightMenu)];
+        [self.view addGestureRecognizer:self.tapRecognizer];
+    }
+    if (isMenuOpen) {
+        isMenuOpen = false;
+        self.recognozer.enabled = false;
+        self.shadowView.hidden = true;
+        self.tapRecognizer.enabled = false;
+    } else {
+        self.tapRecognizer.enabled = true;
+        isMenuOpen = true;
+        self.shadowView.hidden = false;
+//        self.shadowView.userInteractionEnabled = YES;
+        self.recognozer.enabled = true;
+        
+    }
+    
+}
+
+
 
 /*
 #pragma mark - Navigation
@@ -207,6 +250,7 @@
 
 #pragma mark - Настройки кнопок
 
+
 - (IBAction)plusButton:(UIButton *)sender {
     GMSCameraUpdate* zoomCamera = [GMSCameraUpdate zoomIn];
     [mapView animateWithCameraUpdate:zoomCamera];
@@ -216,5 +260,28 @@
     GMSCameraUpdate* unzoomCamera = [GMSCameraUpdate zoomOut];
     [mapView animateWithCameraUpdate:unzoomCamera];
 }
+
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker{
+    [self performSegueWithIdentifier:@"showflat" sender:marker.userData];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.identifier isEqualToString:@"showflat"]){
+        FlatViewController *vc=segue.destinationViewController;
+        vc.navigationItem.title = self.address;
+    }
+}
+
+#pragma mark - SWRevealViewControllerDelegate
+- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position {
+    NSLog(@"open");
+}
+
+- (BOOL)revealControllerTapGestureShouldBegin:(SWRevealViewController *)revealController {
+    NSLog(@"TAAAP");
+    return YES;
+}
+
 
 @end

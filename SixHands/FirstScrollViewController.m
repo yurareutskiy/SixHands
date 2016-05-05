@@ -43,8 +43,10 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     GMSAutocompleteViewController *acController = [[GMSAutocompleteViewController alloc] init];
+    
     acController.delegate = self;
-    acController.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    acController.navigationController.navigationBar.backgroundColor = [UIColor redColor];
+//    acController.navigationController.navigationBarHidden = YES;
     [self presentViewController:acController animated:YES completion:nil];
 }
 
@@ -60,6 +62,7 @@
 didAutocompleteWithPlace:(GMSPlace *)place {
     NSLog(@"Place: %@", place);
     self.searchField.text = place.formattedAddress;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /**

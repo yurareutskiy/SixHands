@@ -17,7 +17,7 @@
 
 @property (strong, nonatomic) NSString *address;
 
-- (IBAction)makeChatAction:(UIButton *)sender;
+
 
 
 @end
