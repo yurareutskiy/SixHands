@@ -21,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 - (IBAction)backButtonAction:(id)sender;
+-(void)postFlat;
 @property (weak, nonatomic) IBOutlet UIView *indicatorContainer;
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *circles;
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *lines;

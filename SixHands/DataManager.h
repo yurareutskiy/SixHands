@@ -12,4 +12,11 @@
 
 @interface DataManager : NSFetchedResultsController
 
+- (void) saveDataWithLogin:(NSDictionary*)result;
+- (void)loadDataWithStart:(NSArray*)data From:(NSString*)object;
+- (NSArray*)getDataFromEntity:(NSString*)entityName;
+- (NSArray*)getDataFromEntity:(NSString *)entityName AndRequest:(NSFetchRequest*)fetchRequest;
+
++ (instancetype)sharedManager;
+
 @end

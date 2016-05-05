@@ -10,6 +10,8 @@
 #import "FirstScrollViewController.h"
 #import "SecondScrollViewController.h"
 #import "ThirdScrollViewController.h"
+#import "Server.h"
+#import "ServerRequest.h"
 
 @interface ContainerScrollViewController ()
 
@@ -93,13 +95,15 @@
 
 - (void)nextPage {
     if (currentController == 2) {
+        [self postFlat];
+         [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         return;
     } else if (currentController == 0) {
 
     } else if (currentController == 1) {
         [bottomButton setTitle:@"Закончить" forState:UIControlStateNormal];
     }
-
+    
     CGRect rect = ((UIView*)self.lines[currentController]).frame;
     rect.size.width = 25;
     currentController++;
@@ -154,6 +158,18 @@
     self.counterLabel.text = [NSString stringWithFormat:@"ШАГ %d ИЗ 3", currentController + 1];
     [self.view endEditing:YES];
 
+}
+
+-(void)postFlat{
+    Server *server = [Server new];
+    NSDictionary *parameters = @{@"user_id": @"id_town", @"address": @[@1, @2, @3]};
+    ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"flat"];
+    
+    [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
+        NSLog(@"SUCCES ON POSTING FLAT");
+        ;
+    }  OrFailure:^(NSError *error) {
+    }];
 }
 - (IBAction)closeAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

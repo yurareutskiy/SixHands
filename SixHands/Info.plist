@@ -21,9 +21,13 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>vk5446345</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1661404754110910</string>
+				<string>vk5446345</string>
 			</array>
 		</dict>
 	</array>
@@ -35,6 +39,9 @@
 	<string>Six Hands</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>vk</string>
+		<string>vk-share</string>
+		<string>vkauthorize</string>
 		<string>fbapi</string>
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
@@ -46,6 +53,15 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>6hands.styleru.net</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
 			<key>akamaihd.net</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
@@ -66,6 +82,15 @@
 				<true/>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
+			</dict>
+			<key>vk.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
 			</dict>
 		</dict>
 	</dict>

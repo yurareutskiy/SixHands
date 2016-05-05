@@ -8,9 +8,13 @@
 
 #import "ListViewController.h"
 #import "FlatViewController.h"
+#import "Server.h"
+#import "Flats+CoreDataProperties.h"
+#import "DataManager.h"
 
 @interface ListViewController ()
 
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) FilterViewController *menu;
 @property (strong, nonatomic) UIBarButtonItem *menuButton;
 @property (strong, nonatomic) SWRevealViewController *reveal;
@@ -29,8 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self test];
-    self.source = newArray;
+    [self test:1];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -50,10 +53,55 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)test {
-    newArray = @[@"", @"", @"", @"", @"", @"", @"", @"", @""];
-    popularArray = @[@"", @"", @""];
-    favoritesArray = @[@"", @"", @"", @""];
+
+
+- (void)test:(NSInteger)type {
+    
+    NSMutableArray *arrayToFill = [[NSMutableArray alloc] init];
+    NSDictionary *parameters = [[NSDictionary alloc] init];
+    Server *server = [Server new];
+    switch (type) {
+        case 1:
+        {parameters = @{@"new": @"", @"": @""};}
+            
+            break;
+        case 2:
+        {parameters = @{@"popular": @"", @"": @""};}
+            break;
+        case 3:
+        {parameters = @{@"favorites": @"", @"": @""};}
+            break;
+        default:
+        {parameters = @{@"": @"", @"": @""};}
+            break;
+    }
+
+    ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypeGET With:parameters To:@"flat"];
+    [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
+        NSDictionary *key;
+            for (key in result) {
+            Flats *flatToFill= [Flats new];
+            flatToFill.address = key[@"address"];
+            flatToFill.ID = key[@"id"];
+            flatToFill.latitude = key[@"latitude"];
+            flatToFill.longitude = key[@"longitude"];
+            flatToFill.owner_ID = key[@"owner_ID"];
+            flatToFill.price = key[@"price"];
+            flatToFill.rooms = key[@"rooms"];
+            flatToFill.square = key[@"square"];
+            flatToFill.storey = key[@"storey"];
+            flatToFill.subway_line = key[@"subway_line"];
+            flatToFill.subway_name = key[@"subway_name"];
+            flatToFill.time_to_subway = key[@"time_to_subway"];
+            [arrayToFill addObject:flatToFill];
+          
+        }
+        self.source = arrayToFill;
+        [self.tableView reloadData];
+    }  OrFailure:^(NSError *error) {
+    }];
+
+
 }
 
 
@@ -102,7 +150,7 @@
         [self.viewFav setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
         [self.favButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    self.source = newArray;
+    [self test:1];
     [self.tableView reloadData];
 }
 
@@ -116,7 +164,7 @@
     [self.viewFav setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
     [self.favButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    self.source = popularArray;
+    [self test:2];
     [self.tableView reloadData];
 }
 
@@ -130,7 +178,7 @@
     [self.viewNew setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
     [self.buttonNew setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    self.source = favoritesArray;
+    [self test:3];
     [self.tableView reloadData];
 }
 
@@ -148,10 +196,18 @@
     
 }
 
+
 - (ListTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
-//    cell.price.text = @"";
+    cell.address.text = [[self.source objectAtIndex:indexPath.item] address];
+    
+    cell.price.text = [[self.source objectAtIndex:indexPath.item] price];
+    cell.subway.subwayName = [[self.source objectAtIndex:indexPath.item] subway_name];
+
+    cell.square.text = [[self.source objectAtIndex:indexPath.item] square];
+    cell.rooms.text = [[self.source objectAtIndex:indexPath.item] rooms];
+    cell.timeToSub.text = [[self.source objectAtIndex:indexPath.item] time_to_subway];
     cell.price.text = [cell formattedStringWithPrice:cell.price.text];
     
     return cell;
