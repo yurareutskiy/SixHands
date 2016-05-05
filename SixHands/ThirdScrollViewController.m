@@ -26,6 +26,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.view addGestureRecognizer:tap];
     
+    self.collectionView.frame = CGRectMake(0.0, 240.0, self.view.frame.size.width, self.view.frame.size.height-290);
     numberOfRows = 30;
     // Do any additional setup after loading the view.
 }

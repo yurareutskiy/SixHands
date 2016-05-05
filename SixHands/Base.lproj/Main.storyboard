@@ -1318,7 +1318,7 @@
                                 <rect key="frame" x="0.0" y="284" width="600" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDZ-eM-HmL">
-                                        <rect key="frame" x="10" y="10" width="52.5" height="20.5"/>
+                                        <rect key="frame" x="10" y="10" width="53" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2598,7 +2598,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Введите адрес вашей квартиры" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghe-DF-L8g">
                                 <rect key="frame" x="173" y="267" width="255" height="21"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                 <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2641,7 +2641,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRE-3v-kre">
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRE-3v-kre">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Количество комнат в квартире" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIY-9R-2Vq">
@@ -2814,7 +2814,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RDb-yq-sIL">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RDb-yq-sIL">
                                         <rect key="frame" x="0.0" y="194" width="600" height="342"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="50"/>
@@ -2828,13 +2828,13 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Параметр" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiD-Oh-fMy">
                                                             <rect key="frame" x="8" y="11" width="81" height="21"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ввести значение" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUy-hK-lpK">
                                                             <rect key="frame" x="97" y="7" width="487" height="30"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -2860,13 +2860,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="0aa-Iu-aau" secondAttribute="trailing" id="4dI-WN-QKx"/>
-                                    <constraint firstItem="rmG-3F-Gsk" firstAttribute="centerX" secondItem="fRE-3v-kre" secondAttribute="centerX" id="4kr-NK-yaI"/>
-                                    <constraint firstItem="RDb-yq-sIL" firstAttribute="leading" secondItem="fRE-3v-kre" secondAttribute="leading" id="4lT-jO-qah"/>
                                     <constraint firstItem="0aa-Iu-aau" firstAttribute="top" secondItem="fRE-3v-kre" secondAttribute="top" constant="50" id="4ug-Z1-v1b"/>
                                     <constraint firstItem="0aa-Iu-aau" firstAttribute="leading" secondItem="fRE-3v-kre" secondAttribute="leading" id="5vl-qv-1Ft"/>
-                                    <constraint firstItem="RDb-yq-sIL" firstAttribute="top" secondItem="fRE-3v-kre" secondAttribute="top" constant="194" id="7fd-Zi-Seu"/>
                                     <constraint firstItem="0aa-Iu-aau" firstAttribute="top" secondItem="bIY-9R-2Vq" secondAttribute="bottom" constant="7" id="7hv-V3-ZTr"/>
-                                    <constraint firstItem="RDb-yq-sIL" firstAttribute="centerY" secondItem="fRE-3v-kre" secondAttribute="centerY" constant="97" id="8Ww-MW-icV"/>
                                     <constraint firstItem="bIY-9R-2Vq" firstAttribute="leading" secondItem="fRE-3v-kre" secondAttribute="leading" constant="18" id="CaT-vl-xgg"/>
                                     <constraint firstAttribute="trailing" secondItem="RDb-yq-sIL" secondAttribute="trailing" id="GTn-8C-sll"/>
                                     <constraint firstItem="rmG-3F-Gsk" firstAttribute="leading" secondItem="fRE-3v-kre" secondAttribute="leading" constant="27" id="KFb-iT-fDC"/>
@@ -2875,7 +2871,6 @@
                                     <constraint firstAttribute="trailing" secondItem="0aa-Iu-aau" secondAttribute="trailing" id="S3A-FI-64P"/>
                                     <constraint firstItem="6pR-fu-b9c" firstAttribute="top" secondItem="0aa-Iu-aau" secondAttribute="bottom" constant="14" id="Sjq-aB-N72"/>
                                     <constraint firstAttribute="trailing" secondItem="48t-5Q-Nzl" secondAttribute="trailing" constant="27" id="VGZ-xp-yby"/>
-                                    <constraint firstAttribute="trailing" secondItem="RDb-yq-sIL" secondAttribute="trailing" id="WR2-qe-2oe"/>
                                     <constraint firstItem="48t-5Q-Nzl" firstAttribute="centerY" secondItem="6pR-fu-b9c" secondAttribute="centerY" constant="1" id="Xjf-NO-Jms"/>
                                     <constraint firstAttribute="bottom" secondItem="RDb-yq-sIL" secondAttribute="bottom" constant="50" id="YHq-ea-VDc"/>
                                     <constraint firstItem="0aa-Iu-aau" firstAttribute="centerX" secondItem="fRE-3v-kre" secondAttribute="centerX" id="e5E-ty-RW4"/>
@@ -2884,7 +2879,6 @@
                                     <constraint firstItem="RDb-yq-sIL" firstAttribute="top" secondItem="rmG-3F-Gsk" secondAttribute="bottom" constant="20" id="igG-iu-qEB"/>
                                     <constraint firstItem="0aa-Iu-aau" firstAttribute="leading" secondItem="fRE-3v-kre" secondAttribute="leading" id="j0g-9d-x48"/>
                                     <constraint firstItem="6pR-fu-b9c" firstAttribute="leading" secondItem="bIY-9R-2Vq" secondAttribute="leading" id="l5u-fZ-v8f"/>
-                                    <constraint firstItem="RDb-yq-sIL" firstAttribute="centerX" secondItem="fRE-3v-kre" secondAttribute="centerX" id="liC-K5-MTf"/>
                                     <constraint firstItem="0aa-Iu-aau" firstAttribute="centerX" secondItem="fRE-3v-kre" secondAttribute="centerX" id="m2U-Lk-Xjj"/>
                                     <constraint firstItem="RDb-yq-sIL" firstAttribute="leading" secondItem="fRE-3v-kre" secondAttribute="leading" id="nt9-E5-iQB"/>
                                     <constraint firstAttribute="bottom" secondItem="0aa-Iu-aau" secondAttribute="bottom" constant="446" id="rC4-kR-363"/>
@@ -2921,6 +2915,8 @@
                             </mask>
                         </variation>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="scroll" destination="fRE-3v-kre" id="Y6p-Ek-JeX"/>
                         <outlet property="slider" destination="rmG-3F-Gsk" id="lYl-4V-gAI"/>
@@ -2969,7 +2965,7 @@
                                     <constraint firstAttribute="height" constant="2" id="xv3-j7-YOu"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pUT-6v-umh">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pUT-6v-umh">
                                 <rect key="frame" x="0.0" y="179" width="600" height="371"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uAt-OX-duN">
@@ -3056,15 +3052,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pUT-6v-umh" firstAttribute="top" secondItem="e9e-tM-u8C" secondAttribute="bottom" constant="69" id="AnD-MQ-9vc"/>
-                            <constraint firstItem="pUT-6v-umh" firstAttribute="trailing" secondItem="N3I-Rk-oCO" secondAttribute="trailingMargin" constant="20" id="Cae-Ah-foS"/>
                             <constraint firstItem="e9e-tM-u8C" firstAttribute="centerX" secondItem="N3I-Rk-oCO" secondAttribute="centerX" id="DdW-3X-SMh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e9e-tM-u8C" secondAttribute="trailing" constant="20" id="NFK-gM-Og6"/>
-                            <constraint firstItem="7ts-7Q-dXC" firstAttribute="top" secondItem="pUT-6v-umh" secondAttribute="bottom" constant="50" id="NJX-Uf-zvs"/>
-                            <constraint firstItem="pUT-6v-umh" firstAttribute="leading" secondItem="N3I-Rk-oCO" secondAttribute="leadingMargin" constant="-20" id="UWJ-fe-p0z"/>
-                            <constraint firstItem="pUT-6v-umh" firstAttribute="top" secondItem="yd6-QU-FlF" secondAttribute="bottom" constant="34" id="UvH-ER-90X"/>
                             <constraint firstItem="yd6-QU-FlF" firstAttribute="top" secondItem="e9e-tM-u8C" secondAttribute="bottom" constant="25" id="YTU-XV-2SK"/>
                             <constraint firstItem="ODk-b8-ooD" firstAttribute="top" secondItem="yd6-QU-FlF" secondAttribute="bottom" constant="2" id="aDD-m3-r06"/>
-                            <constraint firstItem="7ts-7Q-dXC" firstAttribute="top" secondItem="pUT-6v-umh" secondAttribute="bottom" constant="50" id="eql-QE-DlJ"/>
                             <constraint firstItem="e9e-tM-u8C" firstAttribute="leading" secondItem="N3I-Rk-oCO" secondAttribute="leadingMargin" constant="20" id="jgY-dI-LUl"/>
                             <constraint firstItem="yd6-QU-FlF" firstAttribute="centerX" secondItem="N3I-Rk-oCO" secondAttribute="centerX" constant="-1" id="lQC-T8-4VJ"/>
                             <constraint firstItem="e9e-tM-u8C" firstAttribute="top" secondItem="otE-EY-kPf" secondAttribute="bottom" constant="70" id="tVU-I7-HAl"/>
@@ -3860,7 +3851,7 @@
         <image name="wifi" width="65" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tth-kF-Olw"/>
+        <segue reference="mcH-Nn-Vmw"/>
         <segue reference="FTi-pA-wKs"/>
     </inferredMetricsTieBreakers>
 </document>

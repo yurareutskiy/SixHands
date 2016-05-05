@@ -21,9 +21,9 @@
     self.view.frame = CGRectMake(0.0,0.0, self.view.frame.size.width, self.view.frame.size.height-50);
     CGRect rect = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64);
     self.scroll.frame = rect;
-//    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width, 1500.0);
-
-//    self.table.scrollEnabled = NO;
+    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width, 986.f);
+    self.scroll.contentInset = UIEdgeInsetsMake(0.0, 0.0, 452.0, 0.0);
+    self.table.scrollEnabled = NO;
 
     
     self.parameters = @[@"  Жилая площадь, м²", @"  Кухня, м²",@"  Высота потолков, м",@"  Этаж",@"  Этажей в доме",@"  Балконов",@"  Лоджий",@"  Раздельных санузлов",@"  Совмещенных санузлов",@"  Вид из окон",@"  Тип ремонта",@"  Тип дома",@"  Название жк",@"  Год постройки",@"  Пассажирских лифтов",@"  Грузовых лифтов",@"  Наличие мусоропровода",@"  Наличие телефона"];
@@ -52,7 +52,7 @@
     NSLog(@"Rect %@", NSStringFromCGRect(tableRect));
     
     self.table.frame = tableRect;
-//    self.table.contentSize = CGSizeMake(self.view.frame.size.width, 792.0);
+
     NSLog(@"Table rect %@", NSStringFromCGRect(self.table.frame));
     NSArray *views = self.view.subviews;
     for (UIView *view in views) {
