@@ -26,7 +26,7 @@
         case ServerRequestTypeGET: {
             [manager GET:url parameters:request.parameters progress:nil success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
                 NSLog(@"Code - %ld", (long)((NSHTTPURLResponse*)task.response).statusCode);
-                NSLog(@"JSON: %@", responseObject);
+//                NSLog(@"JSON: %@", responseObject);
                 ServerResponse *response = [ServerResponse parseResponse:responseObject];
                 if (response.type == ServerResponseTypeSuccess) {
                     if (success) {
@@ -47,7 +47,7 @@
             break;
         case ServerRequestTypePOST: {
             [manager POST:url parameters:request.parameters progress:nil success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
-                NSLog(@"JSON: %@", responseObject);
+//                NSLog(@"JSON: %@", responseObject);
                 ServerResponse *response = [ServerResponse parseResponse:responseObject];
                 if (response.type == ServerResponseTypeSuccess) {
                     if (success) {
@@ -68,7 +68,7 @@
             break;
         case ServerRequestTypePUT: {
             [manager PUT:url parameters:request.parameters success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
-                NSLog(@"JSON: %@", responseObject);
+//                NSLog(@"JSON: %@", responseObject);
                 ServerResponse *response = [ServerResponse parseResponse:responseObject];
                 if (response.type == ServerResponseTypeSuccess) {
                     if (success) {
@@ -89,7 +89,7 @@
             break;
         case ServerRequestTypeDELETE: {
             [manager DELETE:url parameters:request.parameters success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
-                NSLog(@"JSON: %@", responseObject);
+//                NSLog(@"JSON: %@", responseObject);
                 ServerResponse *response = [ServerResponse parseResponse:responseObject];
                 if (response.type == ServerResponseTypeSuccess) {
                     if (success) {

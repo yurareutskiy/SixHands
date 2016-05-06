@@ -62,14 +62,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     self.table.delegate = self;
     self.table.dataSource = self;
     self.table.userInteractionEnabled = NO;
-    self.userNameTitle.text = [NSString stringWithFormat:@"%@ %@",[[[VKSdk accessToken] localUser] first_name],[[[VKSdk accessToken] localUser] last_name]];
+    NSString *firstName = [ud objectForKey:@"first_name"];
+    NSString *lastName = [ud objectForKey:@"last_name"];
+    NSString *countryName = [ud objectForKey:@"countryName"];
+    NSString *cityName = [ud objectForKey:@"cityName"];
+    self.userNameTitle.text = [NSString stringWithFormat:@"%@ %@",firstName,lastName];
     self.navigationItem.title = @"Профиль";
-    NSLog(@"TITLE %@", [[[VKSdk accessToken] localUser] home_town]);
-    self.userLocationTitle.text = [NSString stringWithFormat:@"%@,%@",[[[[VKSdk accessToken]localUser]country]title],[[[[VKSdk accessToken]localUser]city]title]];
+    self.userLocationTitle.text = [NSString stringWithFormat:@"%@,%@",countryName,cityName];
   
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0]];
@@ -82,7 +85,6 @@
                          }
                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                             if (image) {
-                                NSLog(@"LOADED FROM INTERNET");
                                 [[self userPhoto] setImage:image];
                                 SDImageCache *imageCache = [[SDImageCache alloc] initWithNamespace:@"userPhotos"];
                                 [imageCache storeImage:image forKey:@"profilePhoto" toDisk:YES];
@@ -93,7 +95,6 @@
 
     SDImageCache *imageCache = [[SDImageCache alloc] initWithNamespace:@"userPhotos"];
      [imageCache queryDiskCacheForKey:@"profilePhoto" done:^(UIImage *image, SDImageCacheType cacheType){
-         NSLog(@"LOADED FROM CACHE");
          [[self userPhoto] setImage:image];
     }];
     

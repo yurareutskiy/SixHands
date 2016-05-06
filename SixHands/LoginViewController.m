@@ -101,13 +101,26 @@ static NSArray *SCOPE = nil;
             Server *server = [Server new];
             [server sentToServer:requestToSign OnSuccess:^(NSDictionary *result) {
                 NSLog(@"NICE SIGN");
-                
             }  OrFailure:^(NSError *error) {
                 NSLog(@"Bad sign");
             }];
+           
+        }];
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        VKRequest * audioReq = [[VKApi users] get:@{@"fields":@"country,city"}];
+        [audioReq executeWithResultBlock:^(VKResponse * response) {
+            [ud setObject:response.json[0][@"country"][@"title"] forKey:@"countryName"];
+            [ud setObject:response.json[0][@"city"][@"title"] forKey:@"cityName"];
+            
+        } errorBlock:^(NSError *error) {
+            
+            NSLog(@"VK error: %@", error);
             
         }];
-        
+    
+        [ud setObject:@YES forKey:@"isLogined"];
+        [ud setObject:[[[VKSdk accessToken] localUser] first_name] forKey:@"first_name"];
+        [ud setObject:[[[VKSdk accessToken] localUser] last_name] forKey:@"last_name"];
     } else if (result.error) {
         [[[UIAlertView alloc] initWithTitle:nil message:@"Что-то пошло не так,повторите попытку\n;(" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }

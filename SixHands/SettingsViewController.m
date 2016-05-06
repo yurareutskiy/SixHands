@@ -41,6 +41,8 @@
     self.bottomConst.constant = 50.0;
 }
 - (IBAction)logoutClick:(id)sender {
+     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:@NO forKey:@"isLogined"];
     [VKSdk forceLogout];
     UIViewController *toLogin = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginPoint"];
     [self presentViewController:toLogin animated:YES completion:nil];

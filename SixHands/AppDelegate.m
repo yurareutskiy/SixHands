@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "VKSdk.h"
-
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,10 +23,25 @@
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSLog(@"USER DEF%@",[ud objectForKey:@"isLogined"]);
+    if([ud objectForKey:@"isLogined"])
+    {
+        NSLog(@"HERE");
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *viewController = (LoginViewController *) [storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
+//        UIViewController *vc = [[UINavigationController alloc]initWithRootViewController:[[UIViewController alloc] initWithNibName:@"SWRevealViewController" bundle:nil]];
+        self.window.rootViewController = viewController;
+        [self.window makeKeyAndVisible];
+        return YES;
+    }
+    
+    
+    
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0]];
     
-
+    
     
     return YES;
 }
