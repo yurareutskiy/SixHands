@@ -31,7 +31,7 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    
     
     [self test:1];
     
@@ -49,8 +49,7 @@
     UISwipeGestureRecognizer *filterSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(rightRevealToggle:)];
     filterSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:filterSwipe];
-    
-    // Do any additional setup after loading the view.
+    [super viewDidLoad];    // Do any additional setup after loading the view.
 }
 
 
@@ -126,7 +125,9 @@
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
 }
-
+- (void) viewDidAppear:(BOOL)animated{
+    NSLog(@"Appeard");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -192,8 +193,6 @@
     FlatViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FlatVC"];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
-//    [self performSegueWithIdentifier:@"toFlat" sender:self];
-    
 }
 
 
@@ -201,10 +200,13 @@
     
     ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
     cell.address.text = [[self.source objectAtIndex:indexPath.item] address];
-    
+//
     cell.price.text = [[self.source objectAtIndex:indexPath.item] price];
-    cell.subway.subwayName = [[self.source objectAtIndex:indexPath.item] subway_name];
-
+    if ([[self.source objectAtIndex:indexPath.item] subway_name]) {
+        
+    }
+//    cell.subway.subwayName = [[self.source objectAtIndex:indexPath.item] subway_name];
+//
     cell.square.text = [[self.source objectAtIndex:indexPath.item] square];
     cell.rooms.text = [[self.source objectAtIndex:indexPath.item] rooms];
     cell.timeToSub.text = [[self.source objectAtIndex:indexPath.item] time_to_subway];
