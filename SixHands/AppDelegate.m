@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "VKSdk.h"
+
 #import "LoginViewController.h"
 
 @interface AppDelegate ()

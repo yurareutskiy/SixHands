@@ -11,6 +11,9 @@
 #import "ServerRequest.h"
 #import "Server.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 
 static NSArray *SCOPE = nil;
 
@@ -22,6 +25,7 @@ static NSArray *SCOPE = nil;
 @implementation LoginViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.vkButton.layer.cornerRadius = 7.f;
     self.facebookButton.layer.cornerRadius = 7.f;
@@ -65,13 +69,38 @@ static NSArray *SCOPE = nil;
     [self performSegueWithIdentifier:@"nextButton" sender:self];
 }
 - (IBAction)facebookButtonAction:(UIButton *)sender {
-
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile",@"email",@"user_about_me",@"user_location"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             if ([FBSDKAccessToken currentAccessToken]) {
+                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+                  startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                      if (!error) {
+                          NSMutableArray *mutableWords = [[result[@"name"]  componentsSeparatedByString: @" "] mutableCopy];
+                          NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+                          [ud setObject: mutableWords[0] forKey:@"first_name"];
+                          [ud setObject:mutableWords[2] forKey:@"last_name"];
+                          [ud setObject:@YES forKey:@"isLogined"];
+                      }
+                  }];
+             }
+             [self startWorking];
+         }
+     }];
 }
 
 - (IBAction)vkButtonAction:(UIButton *)sender {
     
     [VKSdk authorize:SCOPE];
 }
+
 
 - (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError {
     VKCaptchaViewController *vc = [VKCaptchaViewController captchaControllerWithError:captchaError];
@@ -117,7 +146,7 @@ static NSArray *SCOPE = nil;
             NSLog(@"VK error: %@", error);
             
         }];
-    
+        [ud setObject:@YES forKey:@"isVK"];
         [ud setObject:@YES forKey:@"isLogined"];
         [ud setObject:[[[VKSdk accessToken] localUser] first_name] forKey:@"first_name"];
         [ud setObject:[[[VKSdk accessToken] localUser] last_name] forKey:@"last_name"];

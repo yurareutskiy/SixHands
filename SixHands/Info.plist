@@ -24,19 +24,23 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>vk5446345</string>
+            <array>
+                <string>vk5446345</string>
+                <string>fb269516973394643</string>
+            </array>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>vk5446345</string>
+                <string>fb269516973394643</string>
 			</array>
 		</dict>
 	</array>
+    <key>FacebookAppID</key>
+    <string>269516973394643</string>
+    <key>FacebookDisplayName</key>
+    <string>SixHands</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>FacebookAppID</key>
-	<string>1661404754110910</string>
-	<key>FacebookDisplayName</key>
-	<string>Six Hands</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>vk</string>

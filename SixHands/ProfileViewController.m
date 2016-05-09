@@ -76,8 +76,13 @@
   
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0]];
-    NSURL *imageURL = [NSURL URLWithString:[[[VKSdk accessToken] localUser] photo_200]];
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    if([ud objectForKey:@"isVK"])
+    {
+        self.vkButton.userInteractionEnabled = @NO;
+        self.vkButton.selected = @YES;
+        self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
+    }
     [manager downloadImageWithURL:[NSURL URLWithString:[[[VKSdk accessToken] localUser] photo_200]]
                           options:0
                          progress:^(NSInteger receivedSize, NSInteger expectedSize) {
@@ -97,9 +102,8 @@
      [imageCache queryDiskCacheForKey:@"profilePhoto" done:^(UIImage *image, SDImageCacheType cacheType){
          [[self userPhoto] setImage:image];
     }];
-    
-//            [[self userPhoto] sd_setImageWithURL:[NSURL URLWithString:[[[VKSdk accessToken] localUser] photo_200]] placeholderImage:[UIImage imageNamed:@"placeholder.jpeg"]];
 
+    
 
     self.userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width / 2;
     self.userPhoto.layer.borderWidth = 2.f;
@@ -193,8 +197,8 @@
 
 - (IBAction)vkButtonAction:(UIButton *)sender {
     if (self.vkButton.isSelected) {
-        self.vkButton.selected = NO;
-        self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"light_gray"]];
+//        self.vkButton.selected = NO;
+//        self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"light_gray"]];
     } else {
         self.vkButton.selected = YES;
         self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
