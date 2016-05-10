@@ -80,14 +80,17 @@ static NSArray *SCOPE = nil;
              NSLog(@"Cancelled");
          } else {
              if ([FBSDKAccessToken currentAccessToken]) {
-                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields":@"picture,name"}]
                   startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                       if (!error) {
+                          
                           NSMutableArray *mutableWords = [[result[@"name"]  componentsSeparatedByString: @" "] mutableCopy];
                           NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
                           [ud setObject: mutableWords[0] forKey:@"first_name"];
                           [ud setObject:mutableWords[2] forKey:@"last_name"];
                           [ud setObject:@YES forKey:@"isLogined"];
+                          [ud setObject:@YES forKey:@"isFB"];
+                          [ud setObject:   result[@"picture"][@"data"][@"url"] forKey:@"photo_url"];
                       }
                   }];
              }
@@ -146,6 +149,7 @@ static NSArray *SCOPE = nil;
             NSLog(@"VK error: %@", error);
             
         }];
+        [ud setObject:   [[[VKSdk accessToken] localUser] photo_200] forKey:@"photo_url"];
         [ud setObject:@YES forKey:@"isVK"];
         [ud setObject:@YES forKey:@"isLogined"];
         [ud setObject:[[[VKSdk accessToken] localUser] first_name] forKey:@"first_name"];

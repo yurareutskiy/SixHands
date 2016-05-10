@@ -83,7 +83,15 @@
         self.vkButton.selected = @YES;
         self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
     }
-    [manager downloadImageWithURL:[NSURL URLWithString:[[[VKSdk accessToken] localUser] photo_200]]
+    if([ud objectForKey:@"isFB"])
+    {
+        self.facebookButton.userInteractionEnabled = @NO;
+        self.facebookButton.selected = @YES;
+        self.facebookButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
+    }
+
+    NSString *PhotoURL = [ud objectForKey:@"photo_url"];
+    [manager downloadImageWithURL:[NSURL URLWithString: PhotoURL]
                           options:0
                          progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                              NSLog(@"%ld",(long)receivedSize);
@@ -160,10 +168,7 @@
         self.blackoutView.alpha = 0.5;
     }];
 
-//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-//    [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
 
-    
 
 }
 
@@ -207,8 +212,8 @@
 
 - (IBAction)facebookButtonAction:(UIButton *)sender {
     if (self.facebookButton.isSelected) {
-        self.facebookButton.selected = NO;
-        self.facebookButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"light_gray"]];
+//        self.facebookButton.selected = NO;
+//        self.facebookButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"light_gray"]];
     } else {
         self.facebookButton.selected = YES;
         self.facebookButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
