@@ -151,7 +151,7 @@
         [self.viewFav setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
         [self.favButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    [self test:1];
+    [self test:8];
     [self.tableView reloadData];
 }
 
@@ -165,7 +165,7 @@
     [self.viewFav setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
     [self.favButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    [self test:2];
+    [self test:8];
     [self.tableView reloadData];
 }
 
@@ -179,7 +179,7 @@
     [self.viewNew setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
     [self.buttonNew setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    [self test:3];
+    [self test:8];
     [self.tableView reloadData];
 }
 

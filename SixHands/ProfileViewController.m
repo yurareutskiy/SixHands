@@ -83,13 +83,14 @@
         self.vkButton.selected = @YES;
         self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
     }
+    _userLocationTitle.text = [ud objectForKey:@"location"];
     if([ud objectForKey:@"isFB"])
     {
         self.facebookButton.userInteractionEnabled = @NO;
         self.facebookButton.selected = @YES;
         self.facebookButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
     }
-
+    
     NSString *PhotoURL = [ud objectForKey:@"photo_url"];
     [manager downloadImageWithURL:[NSURL URLWithString: PhotoURL]
                           options:0

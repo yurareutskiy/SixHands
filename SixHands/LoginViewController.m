@@ -80,13 +80,14 @@ static NSArray *SCOPE = nil;
              NSLog(@"Cancelled");
          } else {
              if ([FBSDKAccessToken currentAccessToken]) {
-                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields":@"picture,name"}]
+                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields":@"picture,name,location"}]
                   startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                       if (!error) {
-                          
+                          NSLog(@"result %@",result);
                           NSMutableArray *mutableWords = [[result[@"name"]  componentsSeparatedByString: @" "] mutableCopy];
                           NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
                           [ud setObject: mutableWords[0] forKey:@"first_name"];
+                          [ud setObject: result[@"location"][@"name"] forKey:@"location"];
                           [ud setObject:mutableWords[2] forKey:@"last_name"];
                           [ud setObject:@YES forKey:@"isLogined"];
                           [ud setObject:@YES forKey:@"isFB"];
