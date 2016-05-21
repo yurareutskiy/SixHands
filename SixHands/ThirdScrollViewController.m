@@ -40,10 +40,21 @@
     [self.view endEditing:YES];
 }
 
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:@"flatToPost"];
+    [ud setObject:@"100" forKey:@"price"];
+}
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return numberOfRows;
+}
+-(void) savePrice
+{
+    NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:@"flatToPost"];
+    [ud setObject:_priceTextField.text forKey:@"price"];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

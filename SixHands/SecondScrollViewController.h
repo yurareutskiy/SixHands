@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ASValueTrackingSlider.h"
+#import "Flats.h"
 
 @interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sliderLabel;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 
+-(void)saveParams;
 - (IBAction)sliderChangeValue:(UISlider *)sender;
 
 @end

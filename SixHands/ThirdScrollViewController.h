@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Flats.h"
 
-@interface ThirdScrollViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ThirdScrollViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate,UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) Flats* flatToFill;
 
+-(void)savePrice;
 @end

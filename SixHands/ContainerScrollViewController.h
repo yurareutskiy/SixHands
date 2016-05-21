@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ModelViewController.h"
+#import "Flats.h"
+#import "FirstScrollViewController.h"
+
 
 @interface ContainerScrollViewController : UIViewController
 
@@ -16,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *counterLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 //@property (weak, nonatomic) IBOutlet UIButton *backButton;
-
+@property (strong,nonatomic) Flats* flatToPost;
 //@property (weak, nonatomic) IBOutlet UIView *line1_2;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;

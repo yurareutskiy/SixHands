@@ -14,9 +14,9 @@
 @end
 
 @implementation FirstScrollViewController {
+    
     BOOL isStart;
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     isStart = NO;
@@ -61,6 +61,12 @@
 - (void)viewController:(GMSAutocompleteViewController *)viewController
 didAutocompleteWithPlace:(GMSPlace *)place {
     NSLog(@"Place: %@", place);
+    
+    NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:@"flatToPost"];
+    [ud setObject:[[NSString alloc] initWithFormat:@"%f",place.coordinate.latitude ]forKey:@"latitude"];
+    [ud setObject:place.placeID forKey:@"placeID"];
+    [ud setObject:place.name forKey:@"address"];
+    [ud setObject:[[NSString alloc] initWithFormat:@"%f",place.coordinate.longitude ]forKey:@"longitude"];
     self.searchField.text = place.formattedAddress;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -71,7 +77,7 @@ didAutocompleteWithPlace:(GMSPlace *)place {
  * retrying the operation.
  * <p>
  * Only the following values of |GMSPlacesErrorCode| are retryable:
- * <ul>
+ * <ul>a
  * <li>kGMSPlacesNetworkError
  * <li>kGMSPlacesServerError
  * <li>kGMSPlacesInternalError

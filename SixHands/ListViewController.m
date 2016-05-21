@@ -61,17 +61,17 @@
     Server *server = [Server new];
     switch (type) {
         case 1:
-        {parameters = @{@"new": @"", @"": @""};}
+        {parameters = @{@"target": @"filter", @"sorting": @"new",@"offset":@"100",@"amount":@"100"};}
             
             break;
         case 2:
-        {parameters = @{@"popular": @"", @"": @""};}
+        {parameters = @{@"target": @"filter", @"sorting": @"new",@"offset":@"100",@"amount":@"100"};}
             break;
         case 3:
-        {parameters = @{@"favorites": @"", @"": @""};}
+        {parameters = @{@"target": @"filter", @"sorting": @"new",@"offset":@"100",@"amount":@"100"};}
             break;
         default:
-        {parameters = @{@"": @"", @"": @""};}
+        {parameters = @{@"target": @"filter", @"sorting": @"new",@"offset":@"100",@"amount":@"100"};}
             break;
     }
 
@@ -98,6 +98,7 @@
         self.source = arrayToFill;
         [self.tableView reloadData];
     }  OrFailure:^(NSError *error) {
+        
     }];
 
 

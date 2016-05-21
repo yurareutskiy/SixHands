@@ -12,6 +12,7 @@
 
 + (instancetype)initRequest:(ServerRequestType)type With:(NSDictionary*)parameters To:(NSString*)object {
     ServerRequest *request = [[ServerRequest alloc] init];
+    
     request.type = type;
     request.parameters = parameters;
     request.objectRequest = object;

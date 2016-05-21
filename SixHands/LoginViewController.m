@@ -150,6 +150,7 @@ static NSArray *SCOPE = nil;
             NSLog(@"VK error: %@", error);
             
         }];
+        [ud setObject:[[NSString alloc] initWithFormat:@"%@",[[[VKSdk accessToken] localUser] id]] forKey:@"user_id"];
         [ud setObject:   [[[VKSdk accessToken] localUser] photo_200] forKey:@"photo_url"];
         [ud setObject:@YES forKey:@"isVK"];
         [ud setObject:@YES forKey:@"isLogined"];

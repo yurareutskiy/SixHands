@@ -35,13 +35,17 @@
 //    self.slider.font = [UIFont fontWithName:@"Lato-Regular" size:12];
 //    self.slider.popUpViewArrowLength = 2;
     self.slider.minimumValue = 0;
-    self.slider.maximumValue = 150;
+    self.slider.maximumValue = 300;
     self.sliderLabel.text = @"0 м";
 //    self.slider.
     // Do any additional setup after loading the view.
 
 }
-
+-(void) saveParams
+{
+    NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:@"flatToPost"];
+    [ud setObject: [[NSString alloc] initWithFormat:@"%f",_slider.value]forKey:@"square"];
+}
 -(void)viewWillAppear:(BOOL)animated {
 
 }
