@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIButton *exitButton;
+@property (weak, nonatomic) IBOutlet UIButton *ChangePhoto;
 
 @property (weak, nonatomic) IBOutlet UIButton *applyButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *bottomConst;

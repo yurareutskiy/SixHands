@@ -1944,6 +1944,9 @@
                                 <state key="normal" title="Сменить картинку пользователя">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="ChangePhoto:" destination="kVl-dX-eTA" eventType="touchUpInside" id="As9-gG-smB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fI9-OY-fdc">
                                 <rect key="frame" x="113" y="236" width="55" height="34"/>
@@ -1962,6 +1965,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="280" height="600"/>
                     <connections>
+                        <outlet property="ChangePhoto" destination="brK-9y-RPT" id="Ilf-cu-9nH"/>
                         <outlet property="exitButton" destination="fI9-OY-fdc" id="DQQ-RX-Plz"/>
                     </connections>
                 </viewController>
@@ -3093,16 +3097,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LqV-QS-JRt">
                                 <rect key="frame" x="0.0" y="0.0" width="288" height="900"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhe-D8-hgh">
-                                        <rect key="frame" x="8" y="105" width="125" height="29"/>
-                                        <fontDescription key="fontDescription" name="GothamPro-Light" family="Gotham Pro" pointSize="15"/>
-                                        <state key="normal" title="3-комн. кв.">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="room3:" destination="osh-xp-nOX" eventType="touchUpInside" id="Ikd-x4-5OK"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PdV-RJ-ICU">
                                         <rect key="frame" x="152" y="142" width="125" height="29"/>
                                         <fontDescription key="fontDescription" name="GothamPro-Light" family="Gotham Pro" pointSize="15"/>
@@ -3298,6 +3292,16 @@
                                         </state>
                                         <connections>
                                             <action selector="room:" destination="osh-xp-nOX" eventType="touchUpInside" id="1lE-od-Yz4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhe-D8-hgh">
+                                        <rect key="frame" x="8" y="105" width="125" height="29"/>
+                                        <fontDescription key="fontDescription" name="GothamPro-Light" family="Gotham Pro" pointSize="15"/>
+                                        <state key="normal" title="3-комн. кв.">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="room3:" destination="osh-xp-nOX" eventType="touchUpInside" id="Ikd-x4-5OK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3815,13 +3819,13 @@
         <image name="avatar2" width="175" height="175"/>
         <image name="avatar3" width="175" height="175"/>
         <image name="back_green1" width="600" height="600"/>
-        <image name="beds2" width="42" height="42"/>
+        <image name="beds2" width="21" height="21"/>
         <image name="circle" width="15" height="15"/>
         <image name="clock104" width="32" height="32"/>
         <image name="close" width="17" height="17"/>
         <image name="close-button" width="30" height="30"/>
         <image name="dark_gray" width="56" height="62"/>
-        <image name="dog5" width="65" height="57"/>
+        <image name="dog5" width="21" height="21"/>
         <image name="facebook55" width="21" height="21"/>
         <image name="fav_disable" width="600" height="600"/>
         <image name="fav_enable" width="600" height="600"/>
@@ -3829,7 +3833,7 @@
         <image name="fullFav" width="12" height="12"/>
         <image name="fullStar" width="25" height="25"/>
         <image name="group4-5" width="32" height="32"/>
-        <image name="handshake5" width="42" height="42"/>
+        <image name="handshake5" width="21" height="21"/>
         <image name="house-green" width="21" height="21"/>
         <image name="house-white" width="21" height="21"/>
         <image name="kvartira" width="1280" height="960"/>
@@ -3838,7 +3842,7 @@
         <image name="magnifer" width="21" height="21"/>
         <image name="map" width="21" height="21"/>
         <image name="messages" width="21" height="21"/>
-        <image name="metro" width="42" height="42"/>
+        <image name="metro" width="21" height="21"/>
         <image name="minus" width="24" height="24"/>
         <image name="nezamknuty1" width="1459" height="1631"/>
         <image name="plus" width="16" height="16"/>

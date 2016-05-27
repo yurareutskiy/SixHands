@@ -63,6 +63,7 @@ didAutocompleteWithPlace:(GMSPlace *)place {
     NSLog(@"Place: %@", place);
     self.searchField.text = place.formattedAddress;
     [self dismissViewControllerAnimated:YES completion:nil];
+//    NSLog(@"РАСПОЛОЖЕНИЕnen= %@",self.searchField.text);
 }
 
 /**

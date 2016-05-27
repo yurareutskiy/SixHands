@@ -92,6 +92,8 @@
 }
 
 - (void)nextPage {
+
+    if ([firstVC.searchField.text length] >0){
     if (currentController == 2) {
         return;
     } else if (currentController == 0) {
@@ -99,7 +101,7 @@
     } else if (currentController == 1) {
         [bottomButton setTitle:@"Закончить" forState:UIControlStateNormal];
     }
-
+    
     CGRect rect = ((UIView*)self.lines[currentController]).frame;
     rect.size.width = 25;
     currentController++;
@@ -114,6 +116,14 @@
             ((UIView*)self.circles[currentController]).layer.borderColor = [UIColor colorWithRed:79.f/255.f green:238.f/255.f blue:197.f/255.f alpha:1.f].CGColor;
         }
     }];
+    } else {
+        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                           message:@"Введите адрес."
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+        [theAlert show];
+    }
 }
 
 
