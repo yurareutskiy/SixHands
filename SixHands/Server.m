@@ -16,7 +16,7 @@
 - (void)sentToServer:(ServerRequest*)request OnSuccess:(void(^)(NSDictionary* result))success OrFailure:(void(^)(NSError* error))failure {
 
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     NSLog(@"REQUEST OBJ - %@", request.objectRequest);
     
@@ -26,7 +26,8 @@
         case ServerRequestTypeGET: {
             [manager GET:url parameters:request.parameters progress:nil success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
                 NSLog(@"Code - %ld", (long)((NSHTTPURLResponse*)task.response).statusCode);
-//                NSLog(@"JSON: %@", responseObject);
+                NSLog(@"JSON: %@", responseObject);
+                
                 ServerResponse *response = [ServerResponse parseResponse:responseObject];
                 if (response.type == ServerResponseTypeSuccess) {
                     if (success) {
@@ -47,7 +48,7 @@
             break;
         case ServerRequestTypePOST: {
             [manager POST:url parameters:request.parameters progress:nil success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
-//                NSLog(@"JSON: %@", responseObject);
+                NSLog(@"JSON: %@", responseObject);
                 ServerResponse *response = [ServerResponse parseResponse:responseObject];
                 if (response.type == ServerResponseTypeSuccess) {
                     if (success) {

@@ -61,17 +61,17 @@
     Server *server = [Server new];
     switch (type) {
         case 1:
-        {parameters = @{@"target": @"filter", @"sorting": @"new",@"offset":@"100",@"amount":@"100"};}
+        {parameters = @{@"target": @"filter", @"sorting": @"last",@"offset":@"0",@"amount":@"100"};}
             
             break;
         case 2:
-        {parameters = @{@"target": @"filter", @"sorting": @"new",@"offset":@"100",@"amount":@"100"};}
+        {parameters = @{@"target": @"filter", @"sorting": @"popular",@"offset":@"0",@"amount":@"100"};}
             break;
         case 3:
-        {parameters = @{@"target": @"filter", @"sorting": @"new",@"offset":@"100",@"amount":@"100"};}
+        {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":@"3"};}
             break;
         default:
-        {parameters = @{@"target": @"filter", @"sorting": @"new",@"offset":@"100",@"amount":@"100"};}
+        {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":@"3"};}
             break;
     }
 
@@ -80,12 +80,23 @@
         NSDictionary *key;
             for (key in result) {
             Flats *flatToFill= [Flats new];
-            flatToFill.address = key[@"address"];
+            flatToFill.address = [NSString stringWithFormat:@"%@ %@",key[@"street"],key[@"building"]];
             flatToFill.ID = key[@"id"];
             flatToFill.latitude = key[@"latitude"];
             flatToFill.longitude = key[@"longitude"];
-            flatToFill.owner_ID = key[@"owner_ID"];
-            flatToFill.price = key[@"price"];
+                NSDictionary *params = key[@"parameters"];
+               NSLog(@"PARAM1 - %@",params);
+                NSDictionary *param;
+                
+            if(![param isEqual: @"<null>"])
+            {
+                for(param in params)
+                {
+                    flatToFill.price = param[@"30"];
+                
+                }
+                     NSLog(@"PARAM - %@",params);
+            }
             flatToFill.rooms = key[@"rooms"];
             flatToFill.square = key[@"square"];
             flatToFill.storey = key[@"storey"];
@@ -152,7 +163,7 @@
         [self.viewFav setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
         [self.favButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    [self test:8];
+    [self test:1];
     [self.tableView reloadData];
 }
 
@@ -166,7 +177,7 @@
     [self.viewFav setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
     [self.favButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    [self test:8];
+    [self test:2];
     [self.tableView reloadData];
 }
 
@@ -180,7 +191,7 @@
     [self.viewNew setBackgroundColor:[UIColor colorWithRed:162.0/255.0 green:165.0/255.0 blue:170.0/255.0 alpha:1.0]];
     [self.buttonNew setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    [self test:8];
+    [self test:3];
     [self.tableView reloadData];
 }
 
@@ -200,19 +211,31 @@
 - (ListTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
-    cell.address.text = [[self.source objectAtIndex:indexPath.item] address];
-//
-    cell.price.text = [[self.source objectAtIndex:indexPath.item] price];
-    if ([[self.source objectAtIndex:indexPath.item] subway_name]) {
-        
+    if([[self.source objectAtIndex:indexPath.item] address] != nil)
+    {
+        cell.address.text = [[self.source objectAtIndex:indexPath.item] address];
     }
+    if([[self.source objectAtIndex:indexPath.item] price] != nil)
+    {
+        cell.price.text = [[self.source objectAtIndex:indexPath.item] price];
+    }
+//    if ([[self.source objectAtIndex:indexPath.item] subway_name]) {
+//        
+//    }
 //    cell.subway.subwayName = [[self.source objectAtIndex:indexPath.item] subway_name];
 //
-    cell.square.text = [[self.source objectAtIndex:indexPath.item] square];
-    cell.rooms.text = [[self.source objectAtIndex:indexPath.item] rooms];
-    cell.timeToSub.text = [[self.source objectAtIndex:indexPath.item] time_to_subway];
-    cell.price.text = [cell formattedStringWithPrice:cell.price.text];
-    
+    if([[self.source objectAtIndex:indexPath.item] square] != nil)
+    {
+        cell.square.text = [[NSString alloc] initWithFormat:@"%@ кв. м.",[[self.source objectAtIndex:indexPath.item] square]];
+    }
+    if([[self.source objectAtIndex:indexPath.item] rooms]!=nil)
+    {
+        cell.rooms.text =[[NSString alloc] initWithFormat:@"%@ комн.",[[self.source objectAtIndex:indexPath.item] rooms]] ;
+    }
+    if([[self.source objectAtIndex:indexPath.item] time_to_subway]!=nil)
+    {
+        cell.timeToSub.text = [[self.source objectAtIndex:indexPath.item] time_to_subway];
+    }
     return cell;
 }
 

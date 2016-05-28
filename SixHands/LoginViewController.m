@@ -122,15 +122,15 @@ static NSArray *SCOPE = nil;
     if (result.token) {
                 NSDictionary *parameters = [[NSDictionary alloc] init];
         parameters = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId]};
-        ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"login"];
+        ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"user"];
         Server *server = [Server new];
         [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
             [self startWorking];
         }  OrFailure:^(NSError *error) {
             NSDictionary *parametersToSign = [[NSDictionary alloc] init];
-            parametersToSign = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId],@"first_name": [[[VKSdk accessToken] localUser] first_name],@"last_name": [[[VKSdk accessToken] localUser] last_name]};
+            parametersToSign = @{@"sn_id": [[VKSdk accessToken] userId]};
             
-            ServerRequest *requestToSign = [ServerRequest initRequest:ServerRequestTypePOST With:parametersToSign To:@"signin"];
+            ServerRequest *requestToSign = [ServerRequest initRequest:ServerRequestTypeGET With:parametersToSign To:@"user"];
             Server *server = [Server new];
             [server sentToServer:requestToSign OnSuccess:^(NSDictionary *result) {
                 NSLog(@"NICE SIGN");
