@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "ListTableViewCell.h"
 #import "SettingsViewController.h"
+#import "User.h"
 
 @interface UIImage (ImageBlur)
 - (UIImage *)imageWithGaussianBlur;
@@ -74,6 +75,11 @@
     self.userPhoto.layer.borderWidth = 2.f;
     self.userPhoto.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.userPhoto.layer.masksToBounds = YES;
+    NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"avatar"];
+    if (imageData != nil) {
+        UIImage *avatar = [UIImage imageWithData:imageData];
+        [self.userPhoto setImage:avatar];
+    }
     
     [self customNavBar];
     
@@ -92,9 +98,16 @@
 
 #pragma mark - Actions
 
+-(void)closeSettings:(UIViewController *)close{
+    [self hideSettings:close];
+}
+-(void)changingPhoto:(UIImage *)image{
+    [self.userPhoto setImage:image];
+}
 - (void)settingsMenu:(id)sender {
     if (!self.vc) {
         self.vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsVC"];
+        self.vc.delegate = self;
     }
     
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(hideSettings:)];

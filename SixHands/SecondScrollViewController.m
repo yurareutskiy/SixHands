@@ -116,6 +116,8 @@
         cell = [[ParameterTableViewCell alloc] init];
     }
     cell.keyLabel.text = self.parameters[indexPath.row];
+    cell.valueTextField.tag = indexPath.row;
+    cell.valueTextField.delegate = self;
 //    NSLog(@"INDEX = %ld",(long)indexPath.row);
 //    [cell.valueTextField addTarget:self action:@selector(checkTextFieldTapped:event:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
@@ -146,7 +148,7 @@
 //   aRect.size.height -= 114.0;
     aRect.size.height -= kbSize.height;
     NSLog(@"ПОЛЕ = %f",aRect.size.height);
-    NSLog(@"Расположение = %f", activeField.frame.origin.y);
+    NSLog(@"Расположение = %ld",(long)activeField.tag);
     
     if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
         [self.scroll scrollRectToVisible:activeField.frame animated:YES];
@@ -154,6 +156,7 @@
  }
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     activeField = textField;
+    NSLog(@"Расположение2 = %ld",(long)activeField.tag);
 }
 // Вызывается при окончании редактирования текстового поля, метод делегата
 -(void)textFieldDidEndEditing:(UITextField *)textField {

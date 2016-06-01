@@ -55,45 +55,45 @@
     self.view1.layer.cornerRadius = 15.f;
     [self.view1.layer setMasksToBounds:YES];
     [self.view1.layer setBorderColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0].CGColor];
-    [self.view1.layer setBorderWidth: .5f];
+    [self.view1.layer setBorderWidth: 1.5f];
     
     self.view2.layer.cornerRadius = 15.f;
     [self.view2.layer setMasksToBounds:YES];
     [self.view2.layer setBorderColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0].CGColor];
-    [self.view2.layer setBorderWidth: .5f];
+    [self.view2.layer setBorderWidth: 1.5f];
     
     self.view3.layer.cornerRadius = 15.f;
     [self.view3.layer setMasksToBounds:YES];
     [self.view3.layer setBorderColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0].CGColor];
-    [self.view3.layer setBorderWidth: .5f];
+    [self.view3.layer setBorderWidth: 1.5f];
     
     self.view4.layer.cornerRadius = 15.f;
     [self.view4.layer setMasksToBounds:YES];
     [self.view4.layer setBorderColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0].CGColor];
-    [self.view4.layer setBorderWidth: .5f];
+    [self.view4.layer setBorderWidth: 1.5f];
     
     [self.aloneRoom.layer setBorderColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0].CGColor];
-    [self.aloneRoom.layer setBorderWidth: .5f];
+    [self.aloneRoom.layer setBorderWidth: 1.5f];
     [self.aloneRoom.layer setCornerRadius:7.f];
     
     [self.room1.layer setBorderColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0].CGColor];
-    [self.room1.layer setBorderWidth: .5f];
+    [self.room1.layer setBorderWidth: 1.5f];
     [self.room1.layer setCornerRadius:7.f];
     
     [self.room2.layer setBorderColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0].CGColor];
-    [self.room2.layer setBorderWidth: .5f];
+    [self.room2.layer setBorderWidth: 1.5f];
     [self.room2.layer setCornerRadius:7.f];
     
     [self.room3.layer setBorderColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0].CGColor];
-    [self.room3.layer setBorderWidth: .5f];
+    [self.room3.layer setBorderWidth: 1.5f];
     [self.room3.layer setCornerRadius:7.f];
     
     [self.room4.layer setBorderColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0].CGColor];
-    [self.room4.layer setBorderWidth: .5f];
+    [self.room4.layer setBorderWidth: 1.5f];
     [self.room4.layer setCornerRadius:7.f];
     
     [self.room.layer setBorderColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0].CGColor];
-    [self.room.layer setBorderWidth: .5f];
+    [self.room.layer setBorderWidth: 1.5f];
     [self.room.layer setCornerRadius:7.f];
     
 //    self.revealViewController.rightViewRevealWidth = self.view.frame.size.width - 70.0;

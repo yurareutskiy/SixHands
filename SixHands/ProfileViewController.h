@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ModelViewController.h"
+#import "SettingsViewController.h"
 
-@interface ProfileViewController : ModelViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ProfileViewController : ModelViewController <UITableViewDataSource, UITableViewDelegate, ProfilePhotoChangedDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *userPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *userNameTitle;
 @property (weak, nonatomic) IBOutlet UILabel *userLocationTitle;

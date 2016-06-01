@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ASValueTrackingSlider.h"
 
-@interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 {
       UITextField* activeField; // указывает на активный элемент ввода
 }

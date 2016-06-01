@@ -14,7 +14,7 @@
 @end
 
 @implementation SettingsViewController{
-    ProfileViewController *ProfileVC;
+    ProfileViewController *profileVC;
 }
 
 - (void)viewDidLoad {
@@ -48,20 +48,20 @@
     UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
     pickerController.delegate = self;
     [self presentViewController:pickerController animated:YES completion:nil];
+    [self.delegate closeSettings:profileVC];
 // [self.photographyHelper showOnPickerViewControllerSourceType:UIImagePickerControllerSourceTypeCamera onViewController:self compled:PickerMediaBlock];
+    
 }
 
 #pragma mark -
 #pragma mark UIImagePickerControllerDelegate
 
-//- (void) imagePickerController:(UIImagePickerController *)picker
-//         didFinishPickingImage:(UIImage *)image
-//                   editingInfo:(NSDictionary *)editingInfo
-- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [self dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    ProfileVC.userPhoto.image = image;
+    [[NSUserDefaults standardUserDefaults] setObject:UIImageJPEGRepresentation(image, 1.0) forKey:@"avatar"];
+    [self.delegate changingPhoto:image];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];
