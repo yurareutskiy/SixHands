@@ -79,6 +79,9 @@
 -(void)viewWillAppear:(BOOL)animated {
 //    incomingBubbleImage = [[JSQMessagesBubbleImageFactory alloc] incomingMessagesBubbleImageWithColor:[UIColor blueColor]];
 //    outcomingBubbleImage = [[JSQMessagesBubbleImageFactory alloc] incomingMessagesBubbleImageWithColor:[UIColor lightGrayColor]];
+    [super viewWillAppear:animated];
+//    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:[messages count]-1 inSection:0] atScrollPosition: UICollectionViewScrollPositionBottom animated:NO];
+    self.collectionView.contentOffset = CGPointMake(0.0, [messages count]);
 }
 
 

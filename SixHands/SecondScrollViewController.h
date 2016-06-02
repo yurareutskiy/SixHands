@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "ASValueTrackingSlider.h"
 
-@interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+{
+      UITextField* activeField; // указывает на активный элемент ввода
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *roomAmountButtons;
 - (IBAction)roomNumberAction:(id)sender;

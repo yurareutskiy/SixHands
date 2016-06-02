@@ -10,10 +10,12 @@
 #import "VKSdk.h"
 
 @interface SettingsViewController ()
-
+@property (nonatomic,strong) XHPhotographyHelper *photographyHelper;
 @end
 
-@implementation SettingsViewController
+@implementation SettingsViewController{
+    ProfileViewController *profileVC;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,6 +48,19 @@
     [self presentViewController:toLogin animated:YES completion:nil];
 }
 
+#pragma mark -
+#pragma mark UIImagePickerControllerDelegate
+
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [[NSUserDefaults standardUserDefaults] setObject:UIImageJPEGRepresentation(image, 1.0) forKey:@"avatar"];
+    [self.delegate changingPhoto:image];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 /*
 #pragma mark - Navigation
 

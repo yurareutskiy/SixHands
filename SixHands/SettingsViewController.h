@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
+@protocol  ProfilePhotoChangedDelegate <NSObject>
+
+-(void)changingPhoto:(UIImage*)image;
+-(void)closeSettings:(UIViewController*)close;
+
+@end
+
+@interface SettingsViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (weak,nonatomic) id <ProfilePhotoChangedDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIButton *exitButton;
+@property (weak, nonatomic) IBOutlet UIButton *ChangePhoto;
 
 @property (weak, nonatomic) IBOutlet UIButton *applyButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *bottomConst;

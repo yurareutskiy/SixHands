@@ -21,7 +21,7 @@
     self.view.frame = CGRectMake(0.0,0.0, self.view.frame.size.width, self.view.frame.size.height-50);
     CGRect rect = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64);
     self.scroll.frame = rect;
-    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width, 986.f);
+    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width, 986.0);
     self.scroll.contentInset = UIEdgeInsetsMake(0.0, 0.0, 452.0, 0.0);
     self.table.scrollEnabled = NO;
 
@@ -30,6 +30,9 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.view addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableTapped:event:)];
+//    tapRecognizer.numberOfTouchesRequired = 1;
+//    [self.table addGestureRecognizer:tapRecognizer];
 //    self.slider.popUpViewColor = [UIColor clearColor];
 //    self.slider.textColor = [UIColor blackColor];
 //    self.slider.font = [UIFont fontWithName:@"Lato-Regular" size:12];
@@ -39,7 +42,11 @@
     self.sliderLabel.text = @"0 м";
 //    self.slider.
     // Do any additional setup after loading the view.
-
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+ 
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -67,6 +74,7 @@
 
 - (void)hideKeyboard {
     [self.view endEditing:YES];
+//    self.scroll.contentOffset = CGPointMake(0.0, 432.0);
 }
 
 /*
@@ -108,25 +116,63 @@
         cell = [[ParameterTableViewCell alloc] init];
     }
     cell.keyLabel.text = self.parameters[indexPath.row];
-    
+    cell.valueTextField.tag = indexPath.row;
+    cell.valueTextField.delegate = self;
+//    NSLog(@"INDEX = %ld",(long)indexPath.row);
+//    [cell.valueTextField addTarget:self action:@selector(checkTextFieldTapped:event:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
     
 }
 
-// - (void)keyboardWasShown:(NSNotification*)aNotification // Обработка сообщения о отображении клавиатуры
-//{
-//    NSDictionary* info = [aNotification userInfo];
-//    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size; // получаем размер клавиатуры
+//- (void) tableTapped:(id) sender event:(id) event{
+//    UITapGestureRecognizer *rec = (UITapGestureRecognizer*)sender;
+//    CGPoint tapPoint = [rec locationInView:self.table];
+//    NSIndexPath *path = [self.table indexPathForRowAtPoint:tapPoint];
+//    NSLog(@"index = %@",path);
+//}
 
+
+ - (void)keyboardWasShown:(NSNotification*)aNotification // Обработка сообщения о отображении клавиатуры
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size; // получаем размер клавиатуры
+    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width,986.0+kbSize.height);
 //    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
 //    self.scroll.contentInset = contentInsets;
 //    self.scroll.scrollIndicatorInsets = contentInsets;
+    NSLog(@"КЛАВА = %f",kbSize.height);
+    kbSize.height -=50;
+    NSLog(@"КЛАВА без = %f",kbSize.height);
+//     Если активное поле ввода спрятано клавиатурой, скроллируем, чтобы показать его
+    CGRect aRect = self.scroll.frame;
+//   aRect.size.height -= 114.0;
+    aRect.size.height -= kbSize.height;
+    NSLog(@"ПОЛЕ = %f",aRect.size.height);
+    NSLog(@"Расположение = %ld",(long)activeField.tag);
+    
+    if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
+        [self.scroll scrollRectToVisible:activeField.frame animated:YES];
+    }
+ }
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    activeField = textField;
+    NSLog(@"Расположение2 = %ld",(long)activeField.tag);
+}
+// Вызывается при окончании редактирования текстового поля, метод делегата
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    activeField = nil;
+}
 
-    // Если активное поле ввода спрятано клавиатурой, скроллируем, чтобы показать его
-//    CGRect aRect = self.view.frame;
-//    aRect.size.height -= kbSize.height;
-//    if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
-//        [self.scroll scrollRectToVisible:activeField.frame animated:YES];
-//    }
-// }
+// Вызывается при нажатии Enter на клавиатуре
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+// При освобождении из памяти, снимаем контроллер вида с центра уведомлений
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
 @end

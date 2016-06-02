@@ -94,6 +94,8 @@
 }
 
 - (void)nextPage {
+
+    if ([firstVC.searchField.text length] >0){
     if (currentController == 2) {
         [self postFlat];
          [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -118,6 +120,14 @@
             ((UIView*)self.circles[currentController]).layer.borderColor = [UIColor colorWithRed:79.f/255.f green:238.f/255.f blue:197.f/255.f alpha:1.f].CGColor;
         }
     }];
+    } else {
+        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                           message:@"Введите адрес."
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+        [theAlert show];
+    }
 }
 
 
