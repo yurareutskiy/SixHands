@@ -21,7 +21,7 @@
     self.view.frame = CGRectMake(0.0,0.0, self.view.frame.size.width, self.view.frame.size.height-50);
     CGRect rect = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64);
     self.scroll.frame = rect;
-    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width, 986.f);
+    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width, 986.0);
     self.scroll.contentInset = UIEdgeInsetsMake(0.0, 0.0, 452.0, 0.0);
     self.table.scrollEnabled = NO;
 
@@ -36,7 +36,11 @@
     self.sliderLabel.text = @"0 м";
 //    self.slider.
     // Do any additional setup after loading the view.
-
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+ 
 }
 
 -(void) saveParams
@@ -69,6 +73,7 @@
 
 - (void)hideKeyboard {
     [self.view endEditing:YES];
+//    self.scroll.contentOffset = CGPointMake(0.0, 432.0);
 }
 
 /*
@@ -111,7 +116,10 @@
     }
     
     cell.keyLabel.text = self.parameters[indexPath.row];
-    
+    cell.valueTextField.tag = indexPath.row;
+    cell.valueTextField.delegate = self;
+//    NSLog(@"INDEX = %ld",(long)indexPath.row);
+//    [cell.valueTextField addTarget:self action:@selector(checkTextFieldTapped:event:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
     
 }

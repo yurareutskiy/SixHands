@@ -7,13 +7,18 @@
 //
 
 #import "SettingsViewController.h"
+#import "ProfileViewController.h"
+#import "MessageDisplayKit/XHPhotographyHelper.h"
 #import "VKSdk.h"
 
-@interface SettingsViewController ()
 
+@interface SettingsViewController ()
+@property (nonatomic,strong) XHPhotographyHelper *photographyHelper;
 @end
 
-@implementation SettingsViewController
+@implementation SettingsViewController{
+    ProfileViewController *profileVC;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +45,15 @@
     
     self.bottomConst.constant = 50.0;
 }
+#pragma mark -
+#pragma mark IBActions
+- (IBAction)ChangePhoto:(UIButton *)sender {
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+    pickerController.delegate = self;
+    [self presentViewController:pickerController animated:YES completion:nil];
+    [self.delegate closeSettings:profileVC];
+// [self.photographyHelper showOnPickerViewControllerSourceType:UIImagePickerControllerSourceTypeCamera onViewController:self compled:PickerMediaBlock];
+}
 - (IBAction)logoutClick:(id)sender {
      NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud setObject:@NO forKey:@"isLogined"];
@@ -50,6 +64,19 @@
     [self presentViewController:toLogin animated:YES completion:nil];
 }
 
+#pragma mark -
+#pragma mark UIImagePickerControllerDelegate
+
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [[NSUserDefaults standardUserDefaults] setObject:UIImageJPEGRepresentation(image, 1.0) forKey:@"avatar"];
+    [self.delegate changingPhoto:image];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 /*
 #pragma mark - Navigation
 

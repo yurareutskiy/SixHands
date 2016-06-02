@@ -586,8 +586,8 @@
 			children = (
 				DB745A281C7C55F300082134 /* Constants.h */,
 				DB745A291C7C55F300082134 /* Constants.m */,
-				3A93F33B1C6557A600E6B900 /* Fonts */,
 				DB4951FE1C5FBB4700745228 /* main.m */,
+				3A93F33B1C6557A600E6B900 /* Fonts */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
