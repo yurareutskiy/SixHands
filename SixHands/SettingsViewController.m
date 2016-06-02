@@ -7,7 +7,10 @@
 //
 
 #import "SettingsViewController.h"
+#import "ProfileViewController.h"
+#import "MessageDisplayKit/XHPhotographyHelper.h"
 #import "VKSdk.h"
+
 
 @interface SettingsViewController ()
 @property (nonatomic,strong) XHPhotographyHelper *photographyHelper;
@@ -41,6 +44,15 @@
     self.exitButton.frame = rect;
     
     self.bottomConst.constant = 50.0;
+}
+#pragma mark -
+#pragma mark IBActions
+- (IBAction)ChangePhoto:(UIButton *)sender {
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+    pickerController.delegate = self;
+    [self presentViewController:pickerController animated:YES completion:nil];
+    [self.delegate closeSettings:profileVC];
+// [self.photographyHelper showOnPickerViewControllerSourceType:UIImagePickerControllerSourceTypeCamera onViewController:self compled:PickerMediaBlock];
 }
 - (IBAction)logoutClick:(id)sender {
     [VKSdk forceLogout];

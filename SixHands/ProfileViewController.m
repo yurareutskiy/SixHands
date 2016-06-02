@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "ListTableViewCell.h"
 #import "SettingsViewController.h"
+#import "User.h"
 #import "VKsdk.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -109,7 +110,6 @@
         UIImage *avatar = [UIImage imageWithData:imageData];
         [self.userPhoto setImage:avatar];
     }
-    
     [self customNavBar];
     
     // Do any additional setup after loading the view.
