@@ -18,5 +18,6 @@ pod 'ASValueTrackingSlider'
 pod 'AVOSCloud', '3.1.4'
 pod 'AVOSCloudIM', '3.1.4'
 pod 'SDWebImage', '~>3.7'
+pod 'Realm'
 
 end 

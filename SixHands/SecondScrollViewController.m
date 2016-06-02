@@ -30,10 +30,7 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.view addGestureRecognizer:tap];
-//    self.slider.popUpViewColor = [UIColor clearColor];
-//    self.slider.textColor = [UIColor blackColor];
-//    self.slider.font = [UIFont fontWithName:@"Lato-Regular" size:12];
-//    self.slider.popUpViewArrowLength = 2;
+    self.
     self.slider.minimumValue = 0;
     self.slider.maximumValue = 300;
     self.sliderLabel.text = @"0 м";
@@ -41,11 +38,14 @@
     // Do any additional setup after loading the view.
 
 }
+
 -(void) saveParams
 {
+    _flatToFill.square =[[NSString alloc] initWithFormat:@"%f",_slider.value];
     NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:@"flatToPost"];
-    [ud setObject: [[NSString alloc] initWithFormat:@"%f",_slider.value]forKey:@"square"];
+    [ud setObject:[[NSString alloc] initWithFormat:@"%f",_slider.value] forKey:@"square"];
 }
+
 -(void)viewWillAppear:(BOOL)animated {
 
 }
@@ -53,11 +53,9 @@
 - (void)viewDidAppear:(BOOL)animated {
 
     CGRect tableRect = CGRectMake(0, 194, self.view.frame.size.width, 792.0);
-    NSLog(@"Rect %@", NSStringFromCGRect(tableRect));
     
     self.table.frame = tableRect;
 
-    NSLog(@"Table rect %@", NSStringFromCGRect(self.table.frame));
     NSArray *views = self.view.subviews;
     for (UIView *view in views) {
         NSLog(@"%@", view);
@@ -111,26 +109,15 @@
     if (!cell) {
         cell = [[ParameterTableViewCell alloc] init];
     }
+    
     cell.keyLabel.text = self.parameters[indexPath.row];
     
     return cell;
     
 }
 
-// - (void)keyboardWasShown:(NSNotification*)aNotification // Обработка сообщения о отображении клавиатуры
-//{
-//    NSDictionary* info = [aNotification userInfo];
-//    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size; // получаем размер клавиатуры
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    NSLog(@"ENDED");
+}
 
-//    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-//    self.scroll.contentInset = contentInsets;
-//    self.scroll.scrollIndicatorInsets = contentInsets;
-
-    // Если активное поле ввода спрятано клавиатурой, скроллируем, чтобы показать его
-//    CGRect aRect = self.view.frame;
-//    aRect.size.height -= kbSize.height;
-//    if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
-//        [self.scroll scrollRectToVisible:activeField.frame animated:YES];
-//    }
-// }
 @end

@@ -8,19 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "ModelViewController.h"
-#import "Flats.h"
+#import "Flat.h"
 #import "FirstScrollViewController.h"
 
 
-@interface ContainerScrollViewController : UIViewController
+@interface ContainerScrollViewController : UIViewController <FirstScrollViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *starusBarView;
 @property (weak, nonatomic) IBOutlet UINavigationBar *bar;
 @property (weak, nonatomic) IBOutlet UILabel *counterLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
-//@property (weak, nonatomic) IBOutlet UIButton *backButton;
-@property (strong,nonatomic) Flats* flatToPost;
-//@property (weak, nonatomic) IBOutlet UIView *line1_2;
+@property  Flat* flatToPost;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 - (IBAction)backButtonAction:(id)sender;

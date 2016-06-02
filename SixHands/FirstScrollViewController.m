@@ -14,7 +14,6 @@
 @end
 
 @implementation FirstScrollViewController {
-    
     BOOL isStart;
 }
 - (void)viewDidLoad {
@@ -24,6 +23,10 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self.searchField action:@selector(resignFirstResponder)];
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,9 +69,13 @@ didAutocompleteWithPlace:(GMSPlace *)place {
     [ud setObject:[[NSString alloc] initWithFormat:@"%f",place.coordinate.latitude ]forKey:@"latitude"];
     [ud setObject:place.placeID forKey:@"placeID"];
     [ud setObject:place.name forKey:@"address"];
-    [ud setObject:[[NSString alloc] initWithFormat:@"%f",place.coordinate.longitude ]forKey:@"longitude"];
+    self.flatToFill = [[Flat alloc] init];
+    self.flatToFill.address = place.name;
+       [ud setObject:[[NSString alloc] initWithFormat:@"%f",place.coordinate.longitude ]forKey:@"longitude"];
     self.searchField.text = place.formattedAddress;
     [self dismissViewControllerAnimated:YES completion:nil];
+
+    [self.delegate addAddress:self.flatToFill];
 }
 
 /**
@@ -86,6 +93,7 @@ didAutocompleteWithPlace:(GMSPlace *)place {
  * @param viewController The |GMSAutocompleteViewController| that generated the event.
  * @param error The |NSError| that was returned.
  */
+
 - (void)viewController:(GMSAutocompleteViewController *)viewController
 didFailAutocompleteWithError:(NSError *)error {
     NSLog(@"Error: %@", [error debugDescription]);

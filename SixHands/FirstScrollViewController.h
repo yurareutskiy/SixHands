@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Flats.h"
+#import "Flat.h"
 
+@class FirstScrollViewController;
+
+@protocol FirstScrollViewControllerDelegate <NSObject>
+
+- (void)addAddress:(Flat *)item;
+
+@end
 
 @interface FirstScrollViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
@@ -17,10 +24,8 @@
 @property (weak, nonatomic) NSNumber* longitude;
 @property (weak, nonatomic) NSNumber* latitude;
 @property (weak, nonatomic) NSString* address;
+@property (nonatomic, weak) id <FirstScrollViewControllerDelegate> delegate;
 
-@property (strong, nonatomic) Flats* flatToFill;
+@property Flat* flatToFill;
 
 @end
-
-
-

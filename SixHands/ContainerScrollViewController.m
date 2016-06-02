@@ -19,6 +19,7 @@
 @end
 
 @implementation ContainerScrollViewController {
+    
     FirstScrollViewController *firstVC;
     SecondScrollViewController *secondVC;
     ThirdScrollViewController *thirdVC;
@@ -28,11 +29,17 @@
     UIButton *bottomButton;
 }
 
+-(void)addAddress:(Flat *)item {
+   
+    self.flatToPost = [Flat alloc];
+    self.flatToPost.address = item.address;
+     NSLog(@"YEAH %@ %@ ",self.flatToPost.address,item.address);
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addButton];
-    currentController = 0;
+     currentController = 0;
     self.starusBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
     self.bar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
     [self.bar setBackgroundImage:[UIImage new]
@@ -77,7 +84,9 @@
     self.scroll.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
     firstVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FirstVC"];
+    firstVC.delegate = self;
     secondVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SecondVC"];
+    secondVC.delegate = self;
     thirdVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ThirdVC"];
     self.scroll.contentSize = CGSizeMake(3 * self.view.frame.size.width, self.view.frame.size.height);
     self.scroll.contentOffset = CGPointZero;
@@ -101,15 +110,13 @@
          [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         return;
     } else if (currentController == 0) {
-        self.flatToPost.address = [firstVC address];
-        self.flatToPost.longitude = [[NSString alloc]initWithFormat:@"%@",([firstVC longitude])];
-        self.flatToPost.latitude = [[NSString alloc]initWithFormat:@"%@",([firstVC latitude])];;
-        NSLog(@"ADR %@,LON %@,LAT %@",self.flatToPost.address,self.flatToPost.longitude,self.flatToPost.latitude);
+
     } else if (currentController == 1) {
         [secondVC saveParams];
+
         [bottomButton setTitle:@"Закончить" forState:UIControlStateNormal];
     }
-    
+
     CGRect rect = ((UIView*)self.lines[currentController]).frame;
     rect.size.width = 25;
     currentController++;
@@ -170,9 +177,49 @@
     NSDictionary *parameters = [[NSDictionary alloc] init];
     NSLog(@"ADR %@,LON %@,LAT %@",self.flatToPost.address,self.flatToPost.longitude,self.flatToPost.latitude);
     NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:@"flatToPost"];
-    NSUserDefaults *Sud = [NSUserDefaults standardUserDefaults];
+
+    NSMutableDictionary *paramsForm = [[NSMutableDictionary alloc] init];
+    paramsForm[@"29"] = [ud objectForKey:@"square"];
+    paramsForm[@"30"] = [ud objectForKey:@"price"];
+    NSDictionary *temp = [[NSDictionary alloc] init];
+    NSMutableArray *paramsArray = [NSMutableArray new];
+    NSMutableString *jsonString = [[NSMutableString alloc] init];
+    [jsonString appendString:@"["];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    // You only need to do this once (per thread)
+    Flat* testFlat =[[Flat alloc] init];
+    testFlat.address = [ud objectForKey:@"address"];
     
-    parameters = @{@"id_user":/*[Sud objectForKey:@"user_id"]*/@"1", @"id_city": @"1",@"address_string": [ud objectForKey:@"address"],@"id_underground":@"666",@"street":@"Нежинская",@"building":@"666",@"longitude": [ud objectForKey:@"longitude"],@"latitude":[ud objectForKey:@"longitude"],@"price":[ud objectForKey:@"price"],@"square":[ud objectForKey:@"square"],@"rooms":@"666"};
+    testFlat.longitude = [ud objectForKey:@"longitude"];
+    testFlat.latitude = [ud objectForKey:@"latitude"];
+    testFlat.price = @"666";
+    testFlat.square = @"444";
+    
+    // Add to Realm with transaction
+    
+    for(temp in paramsForm)
+    {
+        NSLog(@"CLASS - %@",temp);
+        NSString *oneParam= [[NSString alloc] initWithFormat:@"{\"id\":\"%@\",\"value\":\"%@\"}",temp,[paramsForm objectForKey:temp]];
+        NSLog(@"String- %@",oneParam);
+        [paramsArray addObject:oneParam];
+    }
+    if([paramsArray count]!= 0){
+        [jsonString appendString:[paramsArray firstObject]];
+        for (int index = 1; index < [paramsArray count]; index++) {
+            [jsonString appendString:@","];
+            [jsonString appendString:[paramsArray objectAtIndex:index]];
+        }
+    }
+    
+    [jsonString appendString:@"]"];
+      NSLog(@"JSON String- %@",jsonString);
+    testFlat.parameters = jsonString;
+    [testFlat print];
+    [realm beginWriteTransaction];
+    [realm addObject:testFlat];
+    [realm commitWriteTransaction];
+    parameters = @{@"id_user":/*[Sud objectForKey:@"user_id"]*/@"1", @"id_city": @"1",@"id_underground":@"1",@"street":[ud objectForKey:@"address"],@"building":@"666",@"longitude": [ud objectForKey:@"longitude"],@"latitude":[ud objectForKey:@"latitude"],@"parameters":jsonString,@"image_urls":@"[{}]"};
     ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"flat"];
     Server *server = [Server new];
     [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {

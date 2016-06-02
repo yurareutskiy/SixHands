@@ -9,8 +9,8 @@
 #import "ListViewController.h"
 #import "FlatViewController.h"
 #import "Server.h"
-#import "Flats+CoreDataProperties.h"
 #import "DataManager.h"
+#import "Flat.h"
 
 @interface ListViewController ()
 
@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad {
     
-    
+    NSLog(@"%@",[RLMRealmConfiguration defaultConfiguration].fileURL);
     [self test:1];
     
     self.tableView.delegate = self;
@@ -79,30 +79,19 @@
     [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
         NSDictionary *key;
             for (key in result) {
-            Flats *flatToFill= [Flats new];
+            Flat *flatToFill= [Flat new];
             flatToFill.address = [NSString stringWithFormat:@"%@ %@",key[@"street"],key[@"building"]];
-            flatToFill.ID = key[@"id"];
             flatToFill.latitude = key[@"latitude"];
             flatToFill.longitude = key[@"longitude"];
-                NSDictionary *params = key[@"parameters"];
-               NSLog(@"PARAM1 - %@",params);
-                NSDictionary *param;
-                
-            if(![param isEqual: @"<null>"])
+            NSDictionary *params = key[@"parameters"];
+            NSDictionary *param;
+            if(![[NSString stringWithFormat:@"%@",params] isEqual: @"<null>"])
             {
                 for(param in params)
                 {
                     flatToFill.price = param[@"30"];
-                
                 }
-                     NSLog(@"PARAM - %@",params);
             }
-            flatToFill.rooms = key[@"rooms"];
-            flatToFill.square = key[@"square"];
-            flatToFill.storey = key[@"storey"];
-            flatToFill.subway_line = key[@"subway_line"];
-            flatToFill.subway_name = key[@"subway_name"];
-            flatToFill.time_to_subway = key[@"time_to_subway"];
             [arrayToFill addObject:flatToFill];
           
         }
@@ -218,6 +207,8 @@
     if([[self.source objectAtIndex:indexPath.item] price] != nil)
     {
         cell.price.text = [[self.source objectAtIndex:indexPath.item] price];
+    }else{
+        cell.price.text = @"-";
     }
 //    if ([[self.source objectAtIndex:indexPath.item] subway_name]) {
 //        
@@ -228,14 +219,7 @@
     {
         cell.square.text = [[NSString alloc] initWithFormat:@"%@ кв. м.",[[self.source objectAtIndex:indexPath.item] square]];
     }
-    if([[self.source objectAtIndex:indexPath.item] rooms]!=nil)
-    {
-        cell.rooms.text =[[NSString alloc] initWithFormat:@"%@ комн.",[[self.source objectAtIndex:indexPath.item] rooms]] ;
-    }
-    if([[self.source objectAtIndex:indexPath.item] time_to_subway]!=nil)
-    {
-        cell.timeToSub.text = [[self.source objectAtIndex:indexPath.item] time_to_subway];
-    }
+    NSLog(@"TEST - %ld AND %@",(long)indexPath.item,[[self.source objectAtIndex:indexPath.item] price]);
     return cell;
 }
 

@@ -8,16 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "ASValueTrackingSlider.h"
-#import "Flats.h"
+#import "Flat.h"
 
-@interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@class SecondScrollViewController;
+
+@protocol SecondScrollViewControllerDelegate <NSObject>
+
+- (void)addParams:(Flat *)item;
+
+@end
+
+@interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *roomAmountButtons;
-- (IBAction)roomNumberAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *sliderLabel;
 @property (weak, nonatomic) IBOutlet UITableView *table;
+@property (nonatomic, weak) id <SecondScrollViewControllerDelegate> delegate;
+@property Flat* flatToFill;
 
+- (IBAction)roomNumberAction:(id)sender;
 -(void)saveParams;
 - (IBAction)sliderChangeValue:(UISlider *)sender;
 
