@@ -10,7 +10,10 @@
 #import "ParameterTableViewCell.h"
 
 @interface SecondScrollViewController ()
+
 @property (strong, nonatomic) NSArray *parameters;
+
+@property NSMutableDictionary *paramsDict;
 
 @end
 
@@ -25,7 +28,7 @@
     self.scroll.contentInset = UIEdgeInsetsMake(0.0, 0.0, 452.0, 0.0);
     self.table.scrollEnabled = NO;
 
-    
+    _paramsDict = [[NSMutableDictionary alloc] init];
     self.parameters = @[@"  Жилая площадь, м²", @"  Кухня, м²",@"  Высота потолков, м",@"  Этаж",@"  Этажей в доме",@"  Балконов",@"  Лоджий",@"  Раздельных санузлов",@"  Совмещенных санузлов",@"  Вид из окон",@"  Тип ремонта",@"  Тип дома",@"  Название жк",@"  Год постройки",@"  Пассажирских лифтов",@"  Грузовых лифтов",@"  Наличие мусоропровода",@"  Наличие телефона"];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
@@ -45,6 +48,7 @@
 
 -(void) saveParams
 {
+    [self.delegate addParams:_paramsDict];
     _flatToFill.square =[[NSString alloc] initWithFormat:@"%f",_slider.value];
     NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:@"flatToPost"];
     [ud setObject:[[NSString alloc] initWithFormat:@"%f",_slider.value] forKey:@"square"];
@@ -124,8 +128,49 @@
     
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    NSLog(@"ENDED");
+
+ - (void)keyboardWasShown:(NSNotification*)aNotification // Обработка сообщения о отображении клавиатуры
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size; // получаем размер клавиатуры
+    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width,986.0+kbSize.height);
+//    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+//    self.scroll.contentInset = contentInsets;
+//    self.scroll.scrollIndicatorInsets = contentInsets;
+    kbSize.height -=50;
+//     Если активное поле ввода спрятано клавиатурой, скроллируем, чтобы показать его
+    CGRect aRect = self.scroll.frame;
+//   aRect.size.height -= 114.0;
+    aRect.size.height -= kbSize.height;
+    NSLog(@"ПОЛЕ = %f",aRect.size.height);
+    NSLog(@"Расположение = %ld",(long)activeField.tag);
+    
+    if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
+        [self.scroll scrollRectToVisible:activeField.frame animated:YES];
+    }
+ }
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    activeField = textField;
+    NSLog(@"Расположение2 = %ld",(long)activeField.tag);
 }
+
+// Вызывается при окончании редактирования текстового поля, метод делегата
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    [_paramsDict setValue:activeField.text forKey: [[NSString alloc] initWithFormat:@"%ld",(long)activeField.tag]];
+    activeField = nil;
+}
+
+// Вызывается при нажатии Enter на клавиатуре
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+// При освобождении из памяти, снимаем контроллер вида с центра уведомлений
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 @end

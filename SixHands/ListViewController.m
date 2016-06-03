@@ -11,6 +11,7 @@
 #import "Server.h"
 #import "DataManager.h"
 #import "Flat.h"
+#import "Params.h"
 
 @interface ListViewController ()
 
@@ -46,6 +47,34 @@
     
     [self configureMenu];
     
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    // Add to Realm with transaction
+
+    
+    Server *server = [Server new];
+    ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypeGET With:nil
+                                                           To:@"parameters"];
+    [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
+        NSLog(@"PARAMS - %@",result);
+        NSDictionary *key = [[NSDictionary alloc] init];
+        for (key in result)
+        {
+            Params *oneParam = [[Params alloc] init];
+            oneParam.ID = key[@"id"];
+            oneParam.name = key[@"name"];
+            [realm beginWriteTransaction];
+            [realm addObject:oneParam];
+            [realm commitWriteTransaction];
+        }
+
+    }  OrFailure:^(NSError *error) {
+        
+    }];
+
+    // Open the Realm with the configuration
+    
+    NSLog(@"REALM - %@",[RLMRealmConfiguration defaultConfiguration].fileURL);
     UISwipeGestureRecognizer *filterSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(rightRevealToggle:)];
     filterSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:filterSwipe];
@@ -204,12 +233,14 @@
     {
         cell.address.text = [[self.source objectAtIndex:indexPath.item] address];
     }
+    
     if([[self.source objectAtIndex:indexPath.item] price] != nil)
     {
         cell.price.text = [[self.source objectAtIndex:indexPath.item] price];
     }else{
         cell.price.text = @"-";
     }
+    
 //    if ([[self.source objectAtIndex:indexPath.item] subway_name]) {
 //        
 //    }

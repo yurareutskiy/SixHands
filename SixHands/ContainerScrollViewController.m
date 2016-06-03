@@ -36,7 +36,13 @@
      NSLog(@"YEAH %@ %@ ",self.flatToPost.address,item.address);
 }
 
-- (void)viewDidLoad {
+-(void)addParams:(NSDictionary *)item {
+    
+    NSLog(@"PARAMS - %@",item);
+    
+}
+
+-(void)viewDidLoad {
     [super viewDidLoad];
     [self addButton];
      currentController = 0;

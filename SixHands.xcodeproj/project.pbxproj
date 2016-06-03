@@ -49,6 +49,7 @@
 		3AF845E11C65E48200F1707C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF845E01C65E48200F1707C /* ListViewController.m */; };
 		B1A8E0661C9704B5008F4701 /* LeanMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */; };
 		B1A8E0691C971376008F4701 /* NSUserDefaults+DemoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E0681C971376008F4701 /* NSUserDefaults+DemoSettings.m */; };
+		B20785FB1D00B85B00A14E89 /* Params.m in Sources */ = {isa = PBXBuildFile; fileRef = B20785FA1D00B85B00A14E89 /* Params.m */; };
 		B25361561CFF85FC007F8F68 /* Flat.m in Sources */ = {isa = PBXBuildFile; fileRef = B25361551CFF85FC007F8F68 /* Flat.m */; };
 		BBCD4F1372C1ACA706D2C7BF /* Pods_SixHands.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0747240C36934736B59ACC1D /* Pods_SixHands.framework */; };
 		DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */; };
@@ -191,6 +192,8 @@
 		B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeanMessageManager.m; sourceTree = "<group>"; };
 		B1A8E0671C971376008F4701 /* NSUserDefaults+DemoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+DemoSettings.h"; sourceTree = "<group>"; };
 		B1A8E0681C971376008F4701 /* NSUserDefaults+DemoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+DemoSettings.m"; sourceTree = "<group>"; };
+		B20785F91D00B85B00A14E89 /* Params.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Params.h; sourceTree = "<group>"; };
+		B20785FA1D00B85B00A14E89 /* Params.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Params.m; sourceTree = "<group>"; };
 		B25361541CFF85FC007F8F68 /* Flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flat.h; sourceTree = "<group>"; };
 		B25361551CFF85FC007F8F68 /* Flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flat.m; sourceTree = "<group>"; };
 		DB2179DB1C7532AA001BF4C1 /* ParameterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterTableViewCell.h; sourceTree = "<group>"; };
@@ -627,6 +630,8 @@
 				DB608E211C6F7EB8007D33CB /* FirstScrollViewController.m */,
 				DB608E231C6F7EC7007D33CB /* SecondScrollViewController.h */,
 				DB608E241C6F7EC7007D33CB /* SecondScrollViewController.m */,
+				B20785F91D00B85B00A14E89 /* Params.h */,
+				B20785FA1D00B85B00A14E89 /* Params.m */,
 				DB608E261C6F7ED4007D33CB /* ThirdScrollViewController.h */,
 				DB608E271C6F7ED4007D33CB /* ThirdScrollViewController.m */,
 			);
@@ -901,6 +906,7 @@
 				DB608E251C6F7EC7007D33CB /* SecondScrollViewController.m in Sources */,
 				DB3ED3CF1C68E7AA00576E62 /* ChatViewController.m in Sources */,
 				3A3F9F6C1C661FA500E5E8AC /* NonHierarchicalDistanceBasedAlgorithm.m in Sources */,
+				B20785FB1D00B85B00A14E89 /* Params.m in Sources */,
 				DB4951FF1C5FBB4700745228 /* main.m in Sources */,
 				DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */,
 				3A8A7EBB1C66A836005946C0 /* SHSPhoneTextField.m in Sources */,

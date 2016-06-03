@@ -14,12 +14,14 @@
 
 @protocol SecondScrollViewControllerDelegate <NSObject>
 
-- (void)addParams:(Flat *)item;
+- (void)addParams:(NSDictionary *)item;
 
 @end
 
-@interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
-
+@interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+{
+      UITextField* activeField; // указывает на активный элемент ввода
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *roomAmountButtons;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
