@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GeneralDescriptionTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @end

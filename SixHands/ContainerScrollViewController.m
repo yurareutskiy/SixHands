@@ -37,9 +37,7 @@
 }
 
 -(void)addParams:(NSDictionary *)item {
-    
     NSLog(@"PARAMS - %@",item);
-    
 }
 
 -(void)viewDidLoad {

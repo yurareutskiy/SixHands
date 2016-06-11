@@ -12,7 +12,7 @@
 #import "InfoTableViewCell.h"
 #import "DescriptionTableViewCell.h"
 #import "ChatViewController.h"
-
+#import "Params.h"
 @interface FlatViewController ()
 @property (strong, nonatomic) NSArray *parameters;
 @end
@@ -30,9 +30,41 @@
 
     self.table.delegate = self;
     self.table.dataSource = self;
+    NSString *jsonString = _flat.parameters;
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    NSMutableArray *mutableArray = [NSMutableArray new];
+    NSMutableArray *paramsNamesArray = [NSMutableArray new];
+    if(jsonString != nil)
+    {
+    dict = [NSPropertyListSerialization
+                          propertyListWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]
+                          options:kNilOptions
+                          format:NULL
+                          error:NULL];
 
-    
-    self.parameters = @[@"Жилая площадь, м²", @"Кухня, м²",@"Высота потолков, м",@"Этаж",@"Этажей в доме",@"Балконов",@"Лоджий",@"Раздельных санузлов",@"Совмещенных санузлов",@"Вид из окон",@"Тип ремонта",@"Тип дома",@"Название жк",@"Год постройки",@"Пассажирских лифтов",@"Грузовых лифтов",@"Наличие мусоропровода",@"Наличие телефона"];
+    NSLog(@"DICTIONARY %@",dict);
+       mutableArray  = [[NSMutableArray alloc]init];
+        
+        for (NSString *sub in dict)
+        {
+            NSLog(@"SUB = %@",sub);
+            [mutableArray addObject:sub];
+        }
+        for (NSString *key in mutableArray)
+        {
+            NSLog(@"KEY = %@",key);
+            NSPredicate *pred = [NSPredicate predicateWithFormat:@"ID = %@",
+                                 key];
+            RLMResults<Params *> *paramsWithKey = [Params objectsWithPredicate:pred];
+            for (Params *param in paramsWithKey)
+            {
+                [paramsNamesArray addObject:[param RULocale]];
+            }
+        }
+        NSLog(@"Array is: %@",paramsNamesArray);
+    }
+    NSString  *key = [NSString new];
+    self.parameters = paramsNamesArray;
     descriptionRow = ([self.parameters count]+2);
 }
 
@@ -109,18 +141,44 @@
         }
         float width = self.view.frame.size.width;
         [(ScrollFlatTableViewCell*)cell setScrollViewWithWidth:width];
+        if(_flat.price)
+        ((ScrollFlatTableViewCell*)cell).priceLabel.text =[[NSString alloc] initWithFormat:@"%@ ₽/мес",_flat.price];
+        else
+           ((ScrollFlatTableViewCell*)cell).priceLabel.text = @"Цена не установлена";
     } else if (indexPath.row == 1) {
         NSString *CellIdentifier = @"GeneralDescriptionCell";
         cell = (GeneralDescriptionTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];        if (cell==nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        }
+            cell = [[GeneralDescriptionTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+               }
+        ((GeneralDescriptionTableViewCell*)cell).addressLabel.text = _flat.address;
+
     }else if ((indexPath.row >1)&&(indexPath.row < descriptionRow)){
         NSString *CellIdentifier = @"InfoCell";
         cell = (InfoTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         if (cell==nil) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
+        
         ((InfoTableViewCell*)cell).nameLabel.text = self.parameters[indexPath.row-2];
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"RULocale = %@",
+                             self.parameters[indexPath.row-2]];
+        RLMResults<Params *> *paramsWithKey = [Params objectsWithPredicate:pred];
+        NSMutableString *str = [NSMutableString new];
+        for (Params *param in paramsWithKey)
+        {
+            [str appendString:param.ID];
+        }
+        NSDictionary *dict1 = [NSPropertyListSerialization
+                              propertyListWithData:[_flat.parameters dataUsingEncoding:NSUTF8StringEncoding]
+                              options:kNilOptions
+                              format:NULL
+                              error:NULL];
+        
+//        NSLog(@"PAR = %@",dict1);
+        ((InfoTableViewCell*)cell).valueLabel.text = [dict1 objectForKey:str];
+//        NSLog(@"IDSTR = %@",str);
+        
+        
     }else if (indexPath.row == descriptionRow) {
         NSString *CellIdentifier = @"DescriptionCell";
         cell = (DescriptionTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];

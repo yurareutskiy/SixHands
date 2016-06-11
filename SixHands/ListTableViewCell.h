@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SubwayView.h"
-
+#import "Flat.h"
 @interface ListTableViewCell : UITableViewCell
+
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UIButton *hands;
 @property (strong, nonatomic) IBOutlet UILabel *address;
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIImageView *favStarImage;
 @property (weak, nonatomic) IBOutlet UILabel *zeroFriends;
+@property Flat* flat;
 
 - (IBAction)favoritesAction:(UIButton *)sender;
 - (NSString*)formattedStringWithPrice:(NSString*)price;

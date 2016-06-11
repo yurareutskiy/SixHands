@@ -9,7 +9,9 @@
 #import "Flat.h"
 
 @implementation Flat
-
++ (NSString *)primaryKey {
+    return @"address";
+}
 // Specify default values for properties
 
 //+ (NSDictionary *)defaultPropertyValues

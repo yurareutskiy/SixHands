@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ASValueTrackingSlider.h"
 #import "Flat.h"
-
+#include "ParamsTextField.h"
 @class SecondScrollViewController;
 
 @protocol SecondScrollViewControllerDelegate <NSObject>
@@ -20,7 +20,7 @@
 
 @interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 {
-      UITextField* activeField; // указывает на активный элемент ввода
+      ParamsTextField* activeField; // указывает на активный элемент ввода
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *roomAmountButtons;

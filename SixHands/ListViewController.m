@@ -24,8 +24,7 @@
 @end
 
 @implementation ListViewController {
-
-    NSArray *newArray;
+    
     NSArray *popularArray;
     NSArray *favoritesArray;
     
@@ -49,22 +48,27 @@
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     
-    // Add to Realm with transaction
-
-    
     Server *server = [Server new];
     ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypeGET With:nil
                                                            To:@"parameters"];
     [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
-        NSLog(@"PARAMS - %@",result);
-        NSDictionary *key = [[NSDictionary alloc] init];
+//        NSLog(@"PARAMS - %@",result);
+       
+        NSString *key = [[NSString alloc] init];
+        
         for (key in result)
         {
+           
             Params *oneParam = [[Params alloc] init];
-            oneParam.ID = key[@"id"];
-            oneParam.name = key[@"name"];
+            oneParam.ID = key;
+            NSDictionary *tmp = [result objectForKey:key];
+            if([tmp objectForKey:@"translations"] != nil)
+            {
+                oneParam.RULocale = tmp[@"translations"][@"1"];
+                oneParam.name = tmp[@"translations"][@"2"];
+            }
             [realm beginWriteTransaction];
-            [realm addObject:oneParam];
+            [realm addOrUpdateObject:oneParam];
             [realm commitWriteTransaction];
         }
 
@@ -74,11 +78,12 @@
 
     // Open the Realm with the configuration
     
-    NSLog(@"REALM - %@",[RLMRealmConfiguration defaultConfiguration].fileURL);
+    NSLog(@"REALM LOCATION - %@",[RLMRealmConfiguration defaultConfiguration].fileURL);
+    
     UISwipeGestureRecognizer *filterSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(rightRevealToggle:)];
     filterSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:filterSwipe];
-    [super viewDidLoad];    // Do any additional setup after loading the view.
+    [super viewDidLoad];
 }
 
 
@@ -91,7 +96,6 @@
     switch (type) {
         case 1:
         {parameters = @{@"target": @"filter", @"sorting": @"last",@"offset":@"0",@"amount":@"100"};}
-            
             break;
         case 2:
         {parameters = @{@"target": @"filter", @"sorting": @"popular",@"offset":@"0",@"amount":@"100"};}
@@ -104,8 +108,8 @@
             break;
     }
 
-    ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypeGET With:parameters To:@"flat"];
-    [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
+    ServerRequest *requestToGet = [ServerRequest initRequest:ServerRequestTypeGET With:parameters To:@"flat"];
+    [server sentToServer:requestToGet OnSuccess:^(NSDictionary *result) {
         NSDictionary *key;
             for (key in result) {
             Flat *flatToFill= [Flat new];
@@ -114,15 +118,26 @@
             flatToFill.longitude = key[@"longitude"];
             NSDictionary *params = key[@"parameters"];
             NSDictionary *param;
+                NSMutableDictionary *serializedParams = [NSMutableDictionary new];
+         
             if(![[NSString stringWithFormat:@"%@",params] isEqual: @"<null>"])
             {
                 for(param in params)
                 {
+                    for(NSString *key in param)
+                    {
+                        NSLog(@"WE ARE HERE");
+                        [serializedParams setObject:[param objectForKey:key] forKey:key];
+                    }
+                
                     flatToFill.price = param[@"30"];
                 }
+            NSLog(@"SERP = %@",serializedParams);
+                
+             
+                flatToFill.parameters = [NSString stringWithFormat:@"%@",serializedParams];
             }
             [arrayToFill addObject:flatToFill];
-          
         }
         self.source = arrayToFill;
         [self.tableView reloadData];
@@ -222,6 +237,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     FlatViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FlatVC"];
     vc.hidesBottomBarWhenPushed = YES;
+    vc.flat = [[tableView cellForRowAtIndexPath:indexPath] flat];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -229,27 +245,51 @@
 - (ListTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
+    cell.flat = [self.source objectAtIndex:indexPath.item];
+    NSDictionary *param;
+    NSMutableDictionary *serializedParams = [NSMutableDictionary new];
+    
+//    if(cell.flat.parameters)
+//    {
+//        for(param in cell.flat.parameters)
+//        {
+//            for(NSString *key in param)
+//            {
+//                NSLog(@"WE ARE HERE");
+//                [serializedParams setObject:[param objectForKey:key] forKey:key];
+//            }
+//        }
+//    }
+        NSLog(@"SERP2 = %@",cell.flat.parameters);
+//    NSLog(@"SERP = %@",cell.);
+    NSDictionary *paramsDict = [NSDictionary new];
+    if(cell.flat.parameters)
+    {
+    paramsDict = [NSPropertyListSerialization
+                          propertyListWithData:[cell.flat.parameters dataUsingEncoding:NSUTF8StringEncoding]
+                          options:kNilOptions
+                          format:NULL
+                          error:NULL];
+    }
     if([[self.source objectAtIndex:indexPath.item] address] != nil)
     {
         cell.address.text = [[self.source objectAtIndex:indexPath.item] address];
     }
-    
     if([[self.source objectAtIndex:indexPath.item] price] != nil)
     {
         cell.price.text = [[self.source objectAtIndex:indexPath.item] price];
     }else{
         cell.price.text = @"-";
     }
-    
-//    if ([[self.source objectAtIndex:indexPath.item] subway_name]) {
-//        
-//    }
-//    cell.subway.subwayName = [[self.source objectAtIndex:indexPath.item] subway_name];
-//
-    if([[self.source objectAtIndex:indexPath.item] square] != nil)
+    if([paramsDict objectForKey:@"29"])
     {
-        cell.square.text = [[NSString alloc] initWithFormat:@"%@ кв. м.",[[self.source objectAtIndex:indexPath.item] square]];
+        cell.square.text = [[NSString alloc] initWithFormat:@"%@ кв. м.",paramsDict[@"29"]];
     }
+    if([paramsDict objectForKey:@"4"])
+    {
+        cell.floor.text = [[NSString alloc] initWithFormat:@"%@ этаж",paramsDict[@"4"]];
+    }
+
     NSLog(@"TEST - %ld AND %@",(long)indexPath.item,[[self.source objectAtIndex:indexPath.item] price]);
     return cell;
 }
@@ -258,6 +298,12 @@
     return [self.source count];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+        FlatViewController* userViewController = [segue destinationViewController];
+        userViewController.flat = [sender flat];
+    
+}
 
 
 @end

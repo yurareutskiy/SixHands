@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParamsTextField.h"
+#import "Params.h"
 
 @interface ParameterTableViewCell : UITableViewCell
 
+@property NSString* ID;
 @property (weak, nonatomic) IBOutlet UILabel *keyLabel;
-@property (weak, nonatomic) IBOutlet UITextField *valueTextField;
+@property  IBOutlet ParamsTextField *valueTextField;
 
 @end

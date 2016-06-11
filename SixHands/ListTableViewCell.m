@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    
+    NSLog(@"SELFPAR = %@",_flat.parameters);
     self.moreFriendsLabel.layer.cornerRadius = 10.5f;
     self.moreFriendsLabel.layer.borderColor = [UIColor colorWithRed:79.f/255.f green:238.f/255.f blue:197.f/255.f alpha:1.f].CGColor;
     self.moreFriendsLabel.layer.borderWidth = 1.f;

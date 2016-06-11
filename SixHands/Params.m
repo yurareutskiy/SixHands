@@ -10,6 +10,9 @@
 
 @implementation Params
 
++ (NSString *)primaryKey {
+    return @"ID";
+}
 // Specify default values for properties
 
 //+ (NSDictionary *)defaultPropertyValues

@@ -8,6 +8,7 @@
 
 #import "SecondScrollViewController.h"
 #import "ParameterTableViewCell.h"
+#import "Params.h"
 
 @interface SecondScrollViewController ()
 
@@ -30,7 +31,13 @@
 
     _paramsDict = [[NSMutableDictionary alloc] init];
     self.parameters = @[@"  Жилая площадь, м²", @"  Кухня, м²",@"  Высота потолков, м",@"  Этаж",@"  Этажей в доме",@"  Балконов",@"  Лоджий",@"  Раздельных санузлов",@"  Совмещенных санузлов",@"  Вид из окон",@"  Тип ремонта",@"  Тип дома",@"  Название жк",@"  Год постройки",@"  Пассажирских лифтов",@"  Грузовых лифтов",@"  Наличие мусоропровода",@"  Наличие телефона"];
-    
+    NSMutableArray *toFormParams = [NSMutableArray new];
+    RLMResults<Params *> *dogs = [Params allObjects];
+    for (NSInteger i = 0; i < [dogs count]; i++) {
+        Params *param =  dogs[i];
+        [toFormParams addObject:param.RULocale];
+        self.parameters = toFormParams;
+    }
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.view addGestureRecognizer:tap];
     self.
@@ -99,7 +106,6 @@
         sender.selected = YES;
     }
     
-    
 }
 - (IBAction)sliderChangeValue:(UISlider *)sender {
     self.sliderLabel.text = [NSString stringWithFormat:@"%d м", (int)sender.value];
@@ -118,10 +124,15 @@
     if (!cell) {
         cell = [[ParameterTableViewCell alloc] init];
     }
-    
     cell.keyLabel.text = self.parameters[indexPath.row];
     cell.valueTextField.tag = indexPath.row;
+    Params *tmpParam = [[Params objectsWhere: [[NSString alloc] initWithFormat:@"name = '%@'",self.parameters[indexPath.row]]] firstObject];
+//
+
+
     cell.valueTextField.delegate = self;
+    cell.valueTextField.ID = tmpParam.ID;
+    NSLog(@"TFID - %@",cell.valueTextField.ID);
 //    NSLog(@"INDEX = %ld",(long)indexPath.row);
 //    [cell.valueTextField addTarget:self action:@selector(checkTextFieldTapped:event:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
@@ -150,15 +161,16 @@
     }
  }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField {
+-(void)textFieldDidBeginEditing:(ParamsTextField *)textField {
     activeField = textField;
     NSLog(@"Расположение2 = %ld",(long)activeField.tag);
 }
 
 // Вызывается при окончании редактирования текстового поля, метод делегата
--(void)textFieldDidEndEditing:(UITextField *)textField {
-    [_paramsDict setValue:activeField.text forKey: [[NSString alloc] initWithFormat:@"%ld",(long)activeField.tag]];
+-(void)textFieldDidEndEditing:(ParamsTextField *)textField {
+    [_paramsDict setValue:activeField.text forKey: [[NSString alloc] initWithFormat:@"%@",textField.ID]];
     activeField = nil;
+    NSLog(@"DIC - %@",_paramsDict);
 }
 
 // Вызывается при нажатии Enter на клавиатуре

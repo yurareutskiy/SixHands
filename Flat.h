@@ -9,7 +9,7 @@
 #import <Realm/Realm.h>
 
 @interface Flat : RLMObject
-
++ (NSString *)primaryKey;
 @property NSString* address;
 @property NSString* latitude;
 @property NSString* longitude;
