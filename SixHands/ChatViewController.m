@@ -7,9 +7,9 @@
 //
 
 #import "ChatViewController.h"
-#import "MessageDisplayKit/XHPhotographyHelper.h"
+#import "XHPhotographyHelper.h"
 #import <MobileCoreServices/MobileCoreServices.h>
-#import "MessageDisplayKit/XHDisplayMediaViewController.h"
+#import "XHDisplayMediaViewController.h"
 
 @interface ChatViewController ()
 @property (nonatomic,strong) XHPhotographyHelper *photographyHelper;

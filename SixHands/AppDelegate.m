@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface AppDelegate ()
 

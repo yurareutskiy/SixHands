@@ -12,7 +12,7 @@
 #import "ThirdScrollViewController.h"
 #import "Server.h"
 #import "ServerResponse.h"
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking.h"
 
 @interface ContainerScrollViewController ()
 

@@ -8,7 +8,8 @@
 
 #import "SettingsViewController.h"
 #import "ProfileViewController.h"
-#import "MessageDisplayKit/XHPhotographyHelper.h"
+//#import "MessageDisplayKit/XHPhotographyHelper.h"
+#import "XHPhotographyHelper.h"
 #import "VKSdk.h"
 
 
