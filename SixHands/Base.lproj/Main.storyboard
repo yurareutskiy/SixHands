@@ -2736,7 +2736,7 @@
                                                         </label>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ввести значение" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUy-hK-lpK" customClass="ParamsTextField">
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
