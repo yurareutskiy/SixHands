@@ -52,7 +52,6 @@
 		B20785FB1D00B85B00A14E89 /* Params.m in Sources */ = {isa = PBXBuildFile; fileRef = B20785FA1D00B85B00A14E89 /* Params.m */; };
 		B25361561CFF85FC007F8F68 /* Flat.m in Sources */ = {isa = PBXBuildFile; fileRef = B25361551CFF85FC007F8F68 /* Flat.m */; };
 		B297BE101D08AE19007775B8 /* ParamsTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B297BE0F1D08AE19007775B8 /* ParamsTextField.m */; };
-		BBCD4F1372C1ACA706D2C7BF /* Pods_SixHands.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0747240C36934736B59ACC1D /* Pods_SixHands.framework */; };
 		DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */; };
 		DB2179E01C753790001BF4C1 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DF1C753790001BF4C1 /* PhotoCollectionViewCell.m */; };
 		DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */; };
@@ -110,11 +109,11 @@
 		DBBE4DAF1C74DC0A002BB273 /* PlaceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBE4DAA1C74DC0A002BB273 /* PlaceObject.m */; };
 		DBC8064A1C5FBC9A00E84FC2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DBC806491C5FBC9A00E84FC2 /* Podfile */; };
 		DBF2F71F1C7A88DE00A3F96B /* MapPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF2F71E1C7A88DE00A3F96B /* MapPinView.m */; };
+		ECFA4DC7951780E337F91348 /* Pods_SixHands.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363EFDA43A9C668F8D3BBB9D /* Pods_SixHands.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0747240C36934736B59ACC1D /* Pods_SixHands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SixHands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		29D53727ADBD09A596AC7823 /* Pods-SixHands.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SixHands.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SixHands/Pods-SixHands.debug.xcconfig"; sourceTree = "<group>"; };
+		363EFDA43A9C668F8D3BBB9D /* Pods_SixHands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SixHands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3F9F5F1C661FA500E5E8AC /* GClusterAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GClusterAlgorithm.h; sourceTree = "<group>"; };
 		3A3F9F601C661FA500E5E8AC /* GQuadItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQuadItem.h; sourceTree = "<group>"; };
 		3A3F9F611C661FA500E5E8AC /* GQuadItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQuadItem.m; sourceTree = "<group>"; };
@@ -188,7 +187,8 @@
 		3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = SixHands/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		3AF845DF1C65E48200F1707C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		3AF845E01C65E48200F1707C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		5952F655C28E0C314BEA4D7E /* Pods-SixHands.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SixHands.release.xcconfig"; path = "Pods/Target Support Files/Pods-SixHands/Pods-SixHands.release.xcconfig"; sourceTree = "<group>"; };
+		43D5ADCD10A2D032AA6B2E60 /* Pods-SixHands.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SixHands.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SixHands/Pods-SixHands.debug.xcconfig"; sourceTree = "<group>"; };
+		6142F7517EE53A4EA4AF72D6 /* Pods-SixHands.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SixHands.release.xcconfig"; path = "Pods/Target Support Files/Pods-SixHands/Pods-SixHands.release.xcconfig"; sourceTree = "<group>"; };
 		B1A8E0641C9704B5008F4701 /* LeanMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeanMessageManager.h; sourceTree = "<group>"; };
 		B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeanMessageManager.m; sourceTree = "<group>"; };
 		B1A8E0671C971376008F4701 /* NSUserDefaults+DemoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+DemoSettings.h"; sourceTree = "<group>"; };
@@ -309,18 +309,18 @@
 				3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */,
 				3ADF01671C61278D00890117 /* CoreLocation.framework in Frameworks */,
 				3ADF01651C61273100890117 /* MapKit.framework in Frameworks */,
-				BBCD4F1372C1ACA706D2C7BF /* Pods_SixHands.framework in Frameworks */,
+				ECFA4DC7951780E337F91348 /* Pods_SixHands.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1EF6F808A59671677D06E0CF /* Pods */ = {
+		048AE307BCA5CA9A7EDFFC53 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				29D53727ADBD09A596AC7823 /* Pods-SixHands.debug.xcconfig */,
-				5952F655C28E0C314BEA4D7E /* Pods-SixHands.release.xcconfig */,
+				43D5ADCD10A2D032AA6B2E60 /* Pods-SixHands.debug.xcconfig */,
+				6142F7517EE53A4EA4AF72D6 /* Pods-SixHands.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -455,7 +455,7 @@
 				3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */,
 				3ADF01661C61278D00890117 /* CoreLocation.framework */,
 				3ADF01641C61273100890117 /* MapKit.framework */,
-				0747240C36934736B59ACC1D /* Pods_SixHands.framework */,
+				363EFDA43A9C668F8D3BBB9D /* Pods_SixHands.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -552,8 +552,8 @@
 				B25361551CFF85FC007F8F68 /* Flat.m */,
 				DB4951FC1C5FBB4700745228 /* SixHands */,
 				DB4951FB1C5FBB4700745228 /* Products */,
-				1EF6F808A59671677D06E0CF /* Pods */,
 				6F1686D7F7928841B9689BC0 /* Frameworks */,
+				048AE307BCA5CA9A7EDFFC53 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -729,12 +729,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB4952141C5FBB4700745228 /* Build configuration list for PBXNativeTarget "SixHands" */;
 			buildPhases = (
-				880D56543FD552E4444A3D02 /* 📦 Check Pods Manifest.lock */,
+				C774C7AA46584A9818C6803F /* 📦 Check Pods Manifest.lock */,
 				DB4951F61C5FBB4700745228 /* Sources */,
 				DB4951F71C5FBB4700745228 /* Frameworks */,
 				DB4951F81C5FBB4700745228 /* Resources */,
-				1EF89E69CBE6CBE255104376 /* 📦 Embed Pods Frameworks */,
-				CB271259695ED3D9AFB4EF91 /* 📦 Copy Pods Resources */,
+				5048227895AFBEAC8C32C932 /* 📦 Embed Pods Frameworks */,
+				053935734A1642BD3E58643E /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -818,7 +818,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1EF89E69CBE6CBE255104376 /* 📦 Embed Pods Frameworks */ = {
+		053935734A1642BD3E58643E /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SixHands/Pods-SixHands-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5048227895AFBEAC8C32C932 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -833,7 +848,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SixHands/Pods-SixHands-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		880D56543FD552E4444A3D02 /* 📦 Check Pods Manifest.lock */ = {
+		C774C7AA46584A9818C6803F /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -846,21 +861,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CB271259695ED3D9AFB4EF91 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SixHands/Pods-SixHands-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1049,7 +1049,7 @@
 		};
 		DB4952151C5FBB4700745228 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29D53727ADBD09A596AC7823 /* Pods-SixHands.debug.xcconfig */;
+			baseConfigurationReference = 43D5ADCD10A2D032AA6B2E60 /* Pods-SixHands.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1074,7 +1074,7 @@
 		};
 		DB4952161C5FBB4700745228 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5952F655C28E0C314BEA4D7E /* Pods-SixHands.release.xcconfig */;
+			baseConfigurationReference = 6142F7517EE53A4EA4AF72D6 /* Pods-SixHands.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

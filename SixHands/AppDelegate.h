@@ -11,9 +11,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import "VKSdk.h"
 
-@import GoogleMaps;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
