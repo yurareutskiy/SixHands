@@ -51,6 +51,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
 
+   // self.scroll.contentInset = UIEdgeInsetsMake(0.0, 0.0, 452.0, 0.0);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -130,49 +131,57 @@
 //    NSIndexPath *path = [self.table indexPathForRowAtPoint:tapPoint];
 //    NSLog(@"index = %@",path);
 //}
-
-
- - (void)keyboardWasShown:(NSNotification*)aNotification // Обработка сообщения о отображении клавиатуры
-{
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size; // получаем размер клавиатуры
-    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width,986.0+kbSize.height);
-//    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-//    self.scroll.contentInset = contentInsets;
-//    self.scroll.scrollIndicatorInsets = contentInsets;
-    NSLog(@"КЛАВА = %f",kbSize.height);
-    kbSize.height -=50;
-    NSLog(@"КЛАВА без = %f",kbSize.height);
-//     Если активное поле ввода спрятано клавиатурой, скроллируем, чтобы показать его
-    CGRect aRect = self.scroll.frame;
-//   aRect.size.height -= 114.0;
-    aRect.size.height -= kbSize.height;
-    NSLog(@"ПОЛЕ = %f",aRect.size.height);
-    NSLog(@"Расположение = %ld",(long)activeField.tag);
-    
-    if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
-        [self.scroll scrollRectToVisible:activeField.frame animated:YES];
-    }
- }
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     activeField = textField;
     NSLog(@"Расположение2 = %ld",(long)activeField.tag);
 }
-// Вызывается при окончании редактирования текстового поля, метод делегата
--(void)textFieldDidEndEditing:(UITextField *)textField {
-    activeField = nil;
-}
 
-// Вызывается при нажатии Enter на клавиатуре
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+ - (void)keyboardWasShown:(NSNotification*)aNotification // Обработка сообщения о отображении клавиатуры
 {
-    [textField resignFirstResponder];
-    return YES;
-}
-// При освобождении из памяти, снимаем контроллер вида с центра уведомлений
-- (void) dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+//    NSDictionary* info = [aNotification userInfo];
+//    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size; // получаем размер клавиатуры
+    //self.scroll.contentSize = CGSizeMake(self.view.frame.size.width,986.0+kbSize.height);
+//    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+//    self.scroll.contentInset = contentInsets;
+//    self.scroll.scrollIndicatorInsets = contentInsets;
+//    NSLog(@"КЛАВА = %f",kbSize.height);
+//    kbSize.height -=50;
+//    NSLog(@"КЛАВА без = %f",kbSize.height);
+//     Если активное поле ввода спрятано клавиатурой, скроллируем, чтобы показать его
+//    CGRect aRect = self.scroll.frame;
+//   aRect.size.height -= 114.0;
+//    aRect.size.height -= kbSize.height;
+//    aRect.size.height -= 244;
+//    NSLog(@"ПОЛЕ = %f",aRect.size.height);
+//    NSLog(@"Расположение = %ld",(long)activeField.tag);
+    //CGRect rectfield = CGRectMake(0, 194.0, self.view.frame.size.width,88.0);
+    //CGRect rectfield = CGRectMake(0,activeField.tag, self.view.frame.size.width,0.0);
+//    CGRect rectfield = CGRectMake(0, 0, self.view.frame.size.width,0.0);
+//    [self.scroll scrollRectToVisible:rectfield animated:YES];
+//    CGPoint point = CGPointMake(0, 194+44*activeField.tag);
+//    [self.scroll setContentOffset:point animated:YES];
+ //  self.scroll.contentOffset = CGPointMake(0.0, 194.0+44.0*activeField.tag);
+//    self.scroll.contentOffset = CGPointMake(0.0, 194.0+50.0*activeField.tag);
+//    
+//    if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
+//        [self.scroll scrollRectToVisible:activeField.frame animated:YES];
+//    }
+ }
+//// Вызывается при окончании редактирования текстового поля, метод делегата
+//-(void)textFieldDidEndEditing:(UITextField *)textField {
+//    activeField = nil;
+//}
+//
+//// Вызывается при нажатии Enter на клавиатуре
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField
+//{
+//    [textField resignFirstResponder];
+//    return YES;
+//}
+//// При освобождении из памяти, снимаем контроллер вида с центра уведомлений
+//- (void) dealloc {
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
 
 
 @end
