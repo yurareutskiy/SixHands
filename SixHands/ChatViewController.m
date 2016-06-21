@@ -172,7 +172,6 @@
 }
 
 - (id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath {
-    JSQMessagesAvatarImage *avatar = [JSQMessagesAvatarImage avatarWithImage:[UIImage imageNamed:@"avatar3"]];
     return nil;        
 }
 

@@ -58,12 +58,12 @@
             RLMResults<Params *> *paramsWithKey = [Params objectsWithPredicate:pred];
             for (Params *param in paramsWithKey)
             {
+                if(![[param RULocale] isEqualToString:@"описание"])
                 [paramsNamesArray addObject:[param RULocale]];
             }
         }
         NSLog(@"Array is: %@",paramsNamesArray);
     }
-    NSString  *key = [NSString new];
     self.parameters = paramsNamesArray;
     descriptionRow = ([self.parameters count]+2);
 }
@@ -118,7 +118,7 @@
     } else if (indexPath.row == 1) {
         return 200;
     } else if (indexPath.row == descriptionRow) {
-        return [self labelHehghtForText:descriptionText];
+        return 70;
     }
     return 50;
 }
@@ -133,6 +133,11 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
+    NSDictionary *dict1 = [NSPropertyListSerialization
+                           propertyListWithData:[_flat.parameters dataUsingEncoding:NSUTF8StringEncoding]
+                           options:kNilOptions
+                           format:NULL
+                           error:NULL];
     if (indexPath.row == 0) {
         NSString *CellIdentifier = @"ScrollCell";
         cell = (ScrollFlatTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -141,8 +146,8 @@
         }
         float width = self.view.frame.size.width;
         [(ScrollFlatTableViewCell*)cell setScrollViewWithWidth:width];
-        if(_flat.price)
-        ((ScrollFlatTableViewCell*)cell).priceLabel.text =[[NSString alloc] initWithFormat:@"%@ ₽/мес",_flat.price];
+        if(dict1[@"30"])
+        ((ScrollFlatTableViewCell*)cell).priceLabel.text =[[NSString alloc] initWithFormat:@"%@ ₽/мес",dict1[@"30"]];
         else
            ((ScrollFlatTableViewCell*)cell).priceLabel.text = @"Цена не установлена";
     } else if (indexPath.row == 1) {
@@ -158,7 +163,6 @@
         if (cell==nil) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-        
         ((InfoTableViewCell*)cell).nameLabel.text = self.parameters[indexPath.row-2];
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"RULocale = %@",
                              self.parameters[indexPath.row-2]];
@@ -168,12 +172,11 @@
         {
             [str appendString:param.ID];
         }
-        NSDictionary *dict1 = [NSPropertyListSerialization
-                              propertyListWithData:[_flat.parameters dataUsingEncoding:NSUTF8StringEncoding]
-                              options:kNilOptions
-                              format:NULL
-                              error:NULL];
-        
+        if([str isEqualToString:@"27"])
+        {
+            return nil;
+        }
+
 //        NSLog(@"PAR = %@",dict1);
         ((InfoTableViewCell*)cell).valueLabel.text = [dict1 objectForKey:str];
 //        NSLog(@"IDSTR = %@",str);
@@ -186,10 +189,12 @@
         if (cell==nil) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-        
+
+        if(dict1[@"27"])
+        {
         ((DescriptionTableViewCell*)cell).descriptionLabel.text = @"Описание";
-        ((DescriptionTableViewCell*)cell).titleText.text = descriptionText;
-        
+        ((DescriptionTableViewCell*)cell).titleText.text = dict1[@"27"];
+        }
     }
     
     return cell;
@@ -201,6 +206,7 @@
 
 - (IBAction)makeChatAction:(UIButton *)sender {
     [self performSegueWithIdentifier:@"makeChat" sender:self];
+
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

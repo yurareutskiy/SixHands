@@ -45,6 +45,7 @@
     self.maximumNumberOfAutoCompleteRows= 5;
     self.autoCompleteShouldHideClosingKeyboard = YES;
     self.strApiKey = @"AIzaSyABBeQssUkuLNHrERtlqKPgwOrw3Cq5ULs";
+    [super awakeFromNib];
 }
 #pragma mark - Datasource Autocomplete
 //example of asynchronous fetch:

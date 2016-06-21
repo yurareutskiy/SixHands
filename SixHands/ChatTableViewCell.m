@@ -17,6 +17,7 @@
     
 //    self.flatImage.layer.cornerRadius = self.flatImage.frame.size.height / 2;
     self.flatImage.layer.masksToBounds = YES;
+    [super awakeFromNib];
 }
 
 

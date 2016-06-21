@@ -126,13 +126,13 @@
     }
     cell.keyLabel.text = self.parameters[indexPath.row];
     cell.valueTextField.tag = indexPath.row;
-    Params *tmpParam = [[Params objectsWhere: [[NSString alloc] initWithFormat:@"name = '%@'",self.parameters[indexPath.row]]] firstObject];
+    Params *tmpParam = [[Params objectsWhere: [[NSString alloc] initWithFormat:@"RULocale = '%@'",self.parameters[indexPath.row]]] firstObject];
 //
 
 
     cell.valueTextField.delegate = self;
     cell.valueTextField.ID = tmpParam.ID;
-    NSLog(@"TFID - %@",cell.valueTextField.ID);
+    NSLog(@"TFID - %@",self.parameters[indexPath.row]);
 //    NSLog(@"INDEX = %ld",(long)indexPath.row);
 //    [cell.valueTextField addTarget:self action:@selector(checkTextFieldTapped:event:) forControlEvents:UIControlEventTouchUpInside];
     return cell;

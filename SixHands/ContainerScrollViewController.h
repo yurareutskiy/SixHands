@@ -18,8 +18,8 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *bar;
 @property (weak, nonatomic) IBOutlet UILabel *counterLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property     NSDictionary *parameters;
 @property  Flat* flatToPost;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 - (IBAction)backButtonAction:(id)sender;
 -(void)postFlat;

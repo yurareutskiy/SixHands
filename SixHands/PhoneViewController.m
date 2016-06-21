@@ -149,7 +149,7 @@
         textField.text = string;
         NSMutableDictionary *codeTagDictionary = [[NSMutableDictionary alloc] init];
         for (UITextField *codeItem in self.codeLabels) {
-            [codeTagDictionary setObject:codeItem forKey:[NSString stringWithFormat:@"%d", codeItem.tag]];
+            [codeTagDictionary setObject:codeItem forKey:[NSString stringWithFormat:@"%ld", (long)codeItem.tag]];
         }
         if (textField.tag == 104) {
             codeText = [NSString stringWithFormat:@"%@%@%@%@", ((UITextField*)codeTagDictionary[@"101"]).text, ((UITextField*)codeTagDictionary[@"102"]).text, ((UITextField*)codeTagDictionary[@"103"]).text, string];

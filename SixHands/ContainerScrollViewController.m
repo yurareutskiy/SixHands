@@ -27,17 +27,18 @@
     CGFloat buttonHeight;
     NSInteger currentController;
     UIButton *bottomButton;
+
 }
 
 -(void)addAddress:(Flat *)item {
-   
     self.flatToPost = [Flat alloc];
     self.flatToPost.address = item.address;
-     NSLog(@"YEAH %@ %@ ",self.flatToPost.address,item.address);
 }
 
 -(void)addParams:(NSDictionary *)item {
-    NSLog(@"PARAMS - %@",item);
+    _parameters = [NSDictionary new];
+    _parameters = item;
+    NSLog(@"PARAMS - %@",_parameters);
 }
 
 -(void)viewDidLoad {
@@ -189,7 +190,6 @@
 
 -(void)postFlat{
     NSDictionary *parameters = [[NSDictionary alloc] init];
-    NSLog(@"ADR %@,LON %@,LAT %@",self.flatToPost.address,self.flatToPost.longitude,self.flatToPost.latitude);
     NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:@"flatToPost"];
 
     NSMutableDictionary *paramsForm = [[NSMutableDictionary alloc] init];
@@ -199,23 +199,10 @@
     NSMutableArray *paramsArray = [NSMutableArray new];
     NSMutableString *jsonString = [[NSMutableString alloc] init];
     [jsonString appendString:@"["];
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    // You only need to do this once (per thread)
-    Flat* testFlat =[[Flat alloc] init];
-    testFlat.address = [ud objectForKey:@"address"];
     
-    testFlat.longitude = [ud objectForKey:@"longitude"];
-    testFlat.latitude = [ud objectForKey:@"latitude"];
-    testFlat.price = @"666";
-    testFlat.square = @"444";
-    
-    // Add to Realm with transaction
-    
-    for(temp in paramsForm)
+    for(temp in _parameters)
     {
-        NSLog(@"CLASS - %@",temp);
-        NSString *oneParam= [[NSString alloc] initWithFormat:@"{\"id\":\"%@\",\"value\":\"%@\"}",temp,[paramsForm objectForKey:temp]];
-        NSLog(@"String- %@",oneParam);
+        NSString *oneParam= [[NSString alloc] initWithFormat:@"{\"id\":\"%@\",\"value\":\"%@\"}",temp,[_parameters objectForKey:temp]];
         [paramsArray addObject:oneParam];
     }
     if([paramsArray count]!= 0){
@@ -227,13 +214,8 @@
     }
     
     [jsonString appendString:@"]"];
-      NSLog(@"JSON String- %@",jsonString);
-    testFlat.parameters = jsonString;
-    [testFlat print];
-    [realm beginWriteTransaction];
-    [realm addObject:testFlat];
-    [realm commitWriteTransaction];
-    parameters = @{@"id_user":/*[Sud objectForKey:@"user_id"]*/@"1", @"id_city": @"1",@"id_underground":@"1",@"street":[ud objectForKey:@"address"],@"building":@"666",@"longitude": [ud objectForKey:@"longitude"],@"latitude":[ud objectForKey:@"latitude"],@"parameters":jsonString,@"image_urls":@"[{}]"};
+    NSLog(@"JSON String- %@",jsonString);
+    parameters = @{@"id_user":/*[Sud objectForKey:@"user_id"]*/@"1", @"id_city": @"1",@"id_underground":@"1",@"street":[ud objectForKey:@"address"],@"building":@"",@"longitude": [ud objectForKey:@"longitude"],@"latitude":[ud objectForKey:@"latitude"],@"parameters":jsonString,@"image_urls":@"[{\"url\":\"404\",\"description\":\"404\"}]"};
     ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"flat"];
     Server *server = [Server new];
     [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {

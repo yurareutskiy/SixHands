@@ -30,6 +30,7 @@
     
     [self.favButton setAlpha:0.5];
 //    [self.favStarImage setAlpha:1];
+    [super awakeFromNib];
 }
 
 

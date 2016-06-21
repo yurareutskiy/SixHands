@@ -126,11 +126,8 @@
                 {
                     for(NSString *key in param)
                     {
-                        NSLog(@"WE ARE HERE");
                         [serializedParams setObject:[param objectForKey:key] forKey:key];
                     }
-                
-                    flatToFill.price = param[@"30"];
                 }
             NSLog(@"SERP = %@",serializedParams);
                 
@@ -243,25 +240,8 @@
 
 
 - (ListTableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     ListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"listCell"];
     cell.flat = [self.source objectAtIndex:indexPath.item];
-    NSDictionary *param;
-    NSMutableDictionary *serializedParams = [NSMutableDictionary new];
-    
-//    if(cell.flat.parameters)
-//    {
-//        for(param in cell.flat.parameters)
-//        {
-//            for(NSString *key in param)
-//            {
-//                NSLog(@"WE ARE HERE");
-//                [serializedParams setObject:[param objectForKey:key] forKey:key];
-//            }
-//        }
-//    }
-        NSLog(@"SERP2 = %@",cell.flat.parameters);
-//    NSLog(@"SERP = %@",cell.);
     NSDictionary *paramsDict = [NSDictionary new];
     if(cell.flat.parameters)
     {
@@ -275,11 +255,12 @@
     {
         cell.address.text = [[self.source objectAtIndex:indexPath.item] address];
     }
-    if([[self.source objectAtIndex:indexPath.item] price] != nil)
+    if([paramsDict objectForKey:@"30"] != nil)
     {
-        cell.price.text = [[self.source objectAtIndex:indexPath.item] price];
+        cell.price.text = [[NSString alloc] initWithFormat:@"%@ ₽",paramsDict[@"30"]];
+//        [cell formattedStringWithPrice:[paramsDict objectForKey:@"30"]];
     }else{
-        cell.price.text = @"-";
+        cell.price.text = @"- ₽";
     }
     if([paramsDict objectForKey:@"29"])
     {
@@ -289,6 +270,16 @@
     {
         cell.floor.text = [[NSString alloc] initWithFormat:@"%@ этаж",paramsDict[@"4"]];
     }
+    if([paramsDict objectForKey:@"37"])
+    {
+        cell.timeToSub.text = [[NSString alloc] initWithFormat:@"%@ мин.",paramsDict[@"37"]];
+    }
+
+    if([paramsDict objectForKey:@"31"])
+    {
+        cell.rooms.text = [[NSString alloc] initWithFormat:@"%@ ком.",paramsDict[@"31"]];
+    }
+
 
     NSLog(@"TEST - %ld AND %@",(long)indexPath.item,[[self.source objectAtIndex:indexPath.item] price]);
     return cell;
