@@ -10,7 +10,7 @@
 #import "ModelViewController.h"
 #import "LeanMessageManager.h"
 #import "NSUserDefaults+DemoSettings.h"
-#import "JSQMessagesViewController.h"
+#import "JSQMessagesViewController.h" 
 #import "JSQMessages.h"
 @interface ChatViewController : JSQMessagesViewController <JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout, UIActionSheetDelegate>
 @property (nonatomic,strong) AVIMConversation *conversation;

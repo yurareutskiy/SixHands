@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cdb-xC-Fvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -310,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-252" y="336"/>
+            <point key="canvasLocation" x="-429" y="336"/>
         </scene>
         <!--Phone View Controller-->
         <scene sceneID="XsG-Cd-8dI">
@@ -2836,7 +2836,7 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ввести значение" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUy-hK-lpK">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ввести значение" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUy-hK-lpK" customClass="ParamsTextField">
                                                             <rect key="frame" x="97" y="7" width="487" height="30"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2972,33 +2972,33 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pUT-6v-umh">
                                 <rect key="frame" x="0.0" y="179" width="600" height="371"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uAt-OX-duN">
-                                    <size key="itemSize" width="90" height="90"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="uAt-OX-duN">
+                                    <size key="itemSize" width="95" height="105"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="5" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photo" id="B4s-E1-uhx" customClass="PhotoCollectionViewCell">
-                                        <rect key="frame" x="20" y="10" width="95" height="95"/>
+                                        <rect key="frame" x="10" y="5" width="95" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="95" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="kvartira" translatesAutoresizingMaskIntoConstraints="NO" id="KjB-FS-6G0">
-                                                    <rect key="frame" x="10" y="8" width="70" height="72"/>
+                                                    <rect key="frame" x="10" y="8" width="80" height="80"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="3sM-Q9-YvA"/>
-                                                        <constraint firstAttribute="width" constant="70" id="8tj-Od-nEO"/>
+                                                        <constraint firstAttribute="height" constant="80" id="3sM-Q9-YvA"/>
+                                                        <constraint firstAttribute="width" constant="80" id="8tj-Od-nEO"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cd-Je-6iD">
-                                                    <rect key="frame" x="70" y="3" width="15" height="15"/>
+                                                    <rect key="frame" x="72" y="8" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="15" id="4Q1-34-mse"/>
-                                                        <constraint firstAttribute="height" constant="15" id="DIT-Um-Aav"/>
+                                                        <constraint firstAttribute="width" constant="20" id="4Q1-34-mse"/>
+                                                        <constraint firstAttribute="height" constant="20" id="DIT-Um-Aav"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="close-button"/>
                                                     <connections>
@@ -3010,27 +3010,27 @@
                                         </view>
                                         <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="KjB-FS-6G0" secondAttribute="trailing" constant="15" id="07V-Ev-Ddf"/>
-                                            <constraint firstItem="KjB-FS-6G0" firstAttribute="top" secondItem="B4s-E1-uhx" secondAttribute="top" constant="10" id="4Qz-qW-GIm"/>
-                                            <constraint firstItem="8Cd-Je-6iD" firstAttribute="leading" secondItem="B4s-E1-uhx" secondAttribute="leading" constant="70" id="XDD-oF-RrT"/>
-                                            <constraint firstAttribute="bottom" secondItem="KjB-FS-6G0" secondAttribute="bottom" constant="15" id="eLX-Cu-Nc3"/>
-                                            <constraint firstItem="KjB-FS-6G0" firstAttribute="leading" secondItem="B4s-E1-uhx" secondAttribute="leading" constant="10" id="nxa-Qz-5hR"/>
-                                            <constraint firstItem="8Cd-Je-6iD" firstAttribute="top" secondItem="B4s-E1-uhx" secondAttribute="top" constant="3" id="pig-ae-ZtI"/>
+                                            <constraint firstAttribute="trailing" secondItem="KjB-FS-6G0" secondAttribute="trailing" constant="10" id="07V-Ev-Ddf"/>
+                                            <constraint firstItem="KjB-FS-6G0" firstAttribute="top" secondItem="B4s-E1-uhx" secondAttribute="top" constant="15" id="4Qz-qW-GIm"/>
+                                            <constraint firstItem="8Cd-Je-6iD" firstAttribute="leading" secondItem="B4s-E1-uhx" secondAttribute="leading" constant="72" id="XDD-oF-RrT"/>
+                                            <constraint firstAttribute="bottom" secondItem="KjB-FS-6G0" secondAttribute="bottom" constant="10" id="eLX-Cu-Nc3"/>
+                                            <constraint firstItem="KjB-FS-6G0" firstAttribute="leading" secondItem="B4s-E1-uhx" secondAttribute="leading" constant="5" id="nxa-Qz-5hR"/>
+                                            <constraint firstItem="8Cd-Je-6iD" firstAttribute="top" secondItem="B4s-E1-uhx" secondAttribute="top" constant="8" id="pig-ae-ZtI"/>
                                         </constraints>
-                                        <size key="customSize" width="95" height="95"/>
+                                        <size key="customSize" width="95" height="105"/>
                                         <connections>
                                             <outlet property="image" destination="KjB-FS-6G0" id="e9q-0C-qsy"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addPhoto" id="t4w-A2-SVk" customClass="AddPhotoCollectionViewCell">
-                                        <rect key="frame" x="136.5" y="10" width="95" height="95"/>
+                                        <rect key="frame" x="108" y="5" width="95" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="95" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVK-8h-W9k">
-                                                    <rect key="frame" x="10" y="10" width="70" height="70"/>
+                                                    <rect key="frame" x="5" y="15" width="80" height="80"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <state key="normal" backgroundImage="addButton"/>
                                                     <connections>
@@ -3041,7 +3041,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <size key="customSize" width="95" height="95"/>
+                                        <size key="customSize" width="95" height="105"/>
                                         <connections>
                                             <outlet property="button" destination="KVK-8h-W9k" id="wmW-dO-dAm"/>
                                         </connections>

@@ -156,7 +156,7 @@
             [self.view endEditing:YES];
             [self checkCode];
         } else {
-            int destinationTag = textField.tag + 1;
+            int destinationTag = (int)textField.tag + 1;
             UITextField *destinationField = codeTagDictionary[[NSString stringWithFormat:@"%d", destinationTag]];
             [destinationField becomeFirstResponder];
         }

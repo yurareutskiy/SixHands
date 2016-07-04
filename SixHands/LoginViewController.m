@@ -53,7 +53,7 @@ static NSArray *SCOPE = nil;
 }
 
 - (void)startWorking {
-    [self performSegueWithIdentifier:@"test" sender:self];
+    //[self performSegueWithIdentifier:@"test" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {

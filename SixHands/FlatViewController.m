@@ -163,7 +163,7 @@
         if (cell==nil) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-        ((InfoTableViewCell*)cell).nameLabel.text = self.parameters[indexPath.row-2];
+        ((InfoTableViewCell*)cell).nameLabel.text = [self.parameters[indexPath.row-2] capitalizedString];
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"RULocale = %@",
                              self.parameters[indexPath.row-2]];
         RLMResults<Params *> *paramsWithKey = [Params objectsWithPredicate:pred];

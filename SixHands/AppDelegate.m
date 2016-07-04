@@ -19,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0]];
+    
     [GMSServices provideAPIKey:@"AIzaSyAI_v_cGpJyhH_h8Qrxi9VzFZpNN_nNn-c"];
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
@@ -35,11 +38,6 @@
         [self.window makeKeyAndVisible];
         return YES;
     }
-    
-    
-    
-    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:79.0/238.0 green:197.0/255.0 blue:183.0/255.0 alpha:1.0]];
     
     
     
