@@ -149,7 +149,7 @@
 //    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
 //    self.scroll.contentInset = contentInsets;
 //    self.scroll.scrollIndicatorInsets = contentInsets;
-    kbSize.height -=50;
+//    kbSize.height -=50;
 //     Если активное поле ввода спрятано клавиатурой, скроллируем, чтобы показать его
 //    CGRect aRect = self.scroll.frame;
 //   aRect.size.height -= 114.0;

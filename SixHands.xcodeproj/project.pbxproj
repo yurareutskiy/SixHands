@@ -52,6 +52,7 @@
 		B20785FB1D00B85B00A14E89 /* Params.m in Sources */ = {isa = PBXBuildFile; fileRef = B20785FA1D00B85B00A14E89 /* Params.m */; };
 		B25361561CFF85FC007F8F68 /* Flat.m in Sources */ = {isa = PBXBuildFile; fileRef = B25361551CFF85FC007F8F68 /* Flat.m */; };
 		B297BE101D08AE19007775B8 /* ParamsTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B297BE0F1D08AE19007775B8 /* ParamsTextField.m */; };
+		B2AE41791D2C2A8500CEDAF8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AE41781D2C2A8500CEDAF8 /* User.m */; };
 		BBCD4F1372C1ACA706D2C7BF /* Pods_SixHands.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0747240C36934736B59ACC1D /* Pods_SixHands.framework */; };
 		DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */; };
 		DB2179E01C753790001BF4C1 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DF1C753790001BF4C1 /* PhotoCollectionViewCell.m */; };
@@ -199,6 +200,8 @@
 		B25361551CFF85FC007F8F68 /* Flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flat.m; sourceTree = "<group>"; };
 		B297BE0E1D08AE19007775B8 /* ParamsTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamsTextField.h; sourceTree = "<group>"; };
 		B297BE0F1D08AE19007775B8 /* ParamsTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParamsTextField.m; sourceTree = "<group>"; };
+		B2AE41771D2C2A8500CEDAF8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B2AE41781D2C2A8500CEDAF8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		DB2179DB1C7532AA001BF4C1 /* ParameterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterTableViewCell.h; sourceTree = "<group>"; };
 		DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterTableViewCell.m; sourceTree = "<group>"; };
 		DB2179DE1C753790001BF4C1 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -548,6 +551,8 @@
 		DB4951F11C5FBB4700745228 = {
 			isa = PBXGroup;
 			children = (
+				B2AE41771D2C2A8500CEDAF8 /* User.h */,
+				B2AE41781D2C2A8500CEDAF8 /* User.m */,
 				B25361541CFF85FC007F8F68 /* Flat.h */,
 				B25361551CFF85FC007F8F68 /* Flat.m */,
 				DB4951FC1C5FBB4700745228 /* SixHands */,
@@ -729,12 +734,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB4952141C5FBB4700745228 /* Build configuration list for PBXNativeTarget "SixHands" */;
 			buildPhases = (
-				880D56543FD552E4444A3D02 /* 📦 Check Pods Manifest.lock */,
+				880D56543FD552E4444A3D02 /* [CP] Check Pods Manifest.lock */,
 				DB4951F61C5FBB4700745228 /* Sources */,
 				DB4951F71C5FBB4700745228 /* Frameworks */,
 				DB4951F81C5FBB4700745228 /* Resources */,
-				1EF89E69CBE6CBE255104376 /* 📦 Embed Pods Frameworks */,
-				CB271259695ED3D9AFB4EF91 /* 📦 Copy Pods Resources */,
+				1EF89E69CBE6CBE255104376 /* [CP] Embed Pods Frameworks */,
+				CB271259695ED3D9AFB4EF91 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -756,7 +761,7 @@
 				TargetAttributes = {
 					DB4951F91C5FBB4700745228 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 9W968RZS7A;
+						DevelopmentTeam = 4RWLL37A47;
 					};
 				};
 			};
@@ -818,14 +823,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1EF89E69CBE6CBE255104376 /* 📦 Embed Pods Frameworks */ = {
+		1EF89E69CBE6CBE255104376 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -833,14 +838,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SixHands/Pods-SixHands-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		880D56543FD552E4444A3D02 /* 📦 Check Pods Manifest.lock */ = {
+		880D56543FD552E4444A3D02 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -848,14 +853,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		CB271259695ED3D9AFB4EF91 /* 📦 Copy Pods Resources */ = {
+		CB271259695ED3D9AFB4EF91 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -905,6 +910,7 @@
 				3AF845E11C65E48200F1707C /* ListViewController.m in Sources */,
 				DB745A251C7C55D500082134 /* ServerError.m in Sources */,
 				3A3F9F801C6621E300E5E8AC /* Spot.m in Sources */,
+				B2AE41791D2C2A8500CEDAF8 /* User.m in Sources */,
 				DBF2F71F1C7A88DE00A3F96B /* MapPinView.m in Sources */,
 				DBBE4DAC1C74DC0A002BB273 /* NSString+Levenshtein.m in Sources */,
 				DB608E281C6F7ED4007D33CB /* ThirdScrollViewController.m in Sources */,

@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad {
     
-    NSLog(@"%@",[RLMRealmConfiguration defaultConfiguration].fileURL);
+    NSLog(@"REALM - %@",[RLMRealmConfiguration defaultConfiguration].fileURL);
     [self test:1];
     
     self.tableView.delegate = self;
@@ -52,7 +52,6 @@
     ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypeGET With:nil
                                                            To:@"parameters"];
     [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
-//        NSLog(@"PARAMS - %@",result);
        
         NSString *key = [[NSString alloc] init];
         
@@ -78,7 +77,6 @@
 
     // Open the Realm with the configuration
     
-    NSLog(@"REALM LOCATION - %@",[RLMRealmConfiguration defaultConfiguration].fileURL);
     
     UISwipeGestureRecognizer *filterSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(rightRevealToggle:)];
     filterSwipe.direction = UISwipeGestureRecognizerDirectionLeft;

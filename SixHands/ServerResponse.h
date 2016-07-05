@@ -6,9 +6,14 @@
 //  Copyright © 2016 Styleru. All rights reserved.
 //
 
+
+//TODO: мб стоит убрать все типы и оставить success and error
+
 typedef enum {
     ServerResponseTypeSuccess,
-    ServerResponseTypeError
+    ServerResponseTypeError,
+    ServerResponseTypeLogin,
+    ServerResponseTypeRegistry
 } ServerResponseType;
 
 #import <Foundation/Foundation.h>

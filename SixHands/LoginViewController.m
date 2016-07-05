@@ -88,10 +88,10 @@ static NSArray *SCOPE = nil;
                           NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
                           [ud setObject: mutableWords[0] forKey:@"first_name"];
                           [ud setObject: result[@"location"][@"name"] forKey:@"location"];
-                          [ud setObject:mutableWords[2] forKey:@"last_name"];
-                          [ud setObject:@YES forKey:@"isLogined"];
-                          [ud setObject:@YES forKey:@"isFB"];
-                          [ud setObject:   result[@"picture"][@"data"][@"url"] forKey:@"photo_url"];
+                          [ud setObject: mutableWords[2] forKey:@"last_name"];
+                          [ud setObject: @YES forKey:@"isLogined"];
+                          [ud setObject: @YES forKey:@"isFB"];
+                          [ud setObject: result[@"picture"][@"data"][@"url"] forKey:@"photo_url"];
                       }
                   }];
              }
@@ -120,20 +120,21 @@ static NSArray *SCOPE = nil;
 }
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
     if (result.token) {
-                NSDictionary *parameters = [[NSDictionary alloc] init];
+        NSDictionary *parameters = [[NSDictionary alloc] init];
         parameters = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId]};
         ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"user"];
         Server *server = [Server new];
         [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
             [self startWorking];
         }  OrFailure:^(NSError *error) {
+        
             NSDictionary *parametersToSign = [[NSDictionary alloc] init];
-            parametersToSign = @{@"sn_id": [[VKSdk accessToken] userId]};
+            parametersToSign = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId]};
             
             ServerRequest *requestToSign = [ServerRequest initRequest:ServerRequestTypeGET With:parametersToSign To:@"user"];
             Server *server = [Server new];
             [server sentToServer:requestToSign OnSuccess:^(NSDictionary *result) {
-                NSLog(@"NICE SIGN");
+                     [self startWorking];
             }  OrFailure:^(NSError *error) {
                 NSLog(@"Bad sign");
             }];
