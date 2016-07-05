@@ -126,6 +126,7 @@
         cell = [[ParameterTableViewCell alloc] init];
     }
     cell.keyLabel.text = self.parameters[indexPath.row];
+    cell.keyLabel.text = [cell.keyLabel.text stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[cell.keyLabel.text substringToIndex:1] uppercaseString]];
     cell.valueTextField.tag = indexPath.row;
     Params *tmpParam = [[Params objectsWhere: [[NSString alloc] initWithFormat:@"RULocale = '%@'",self.parameters[indexPath.row]]] firstObject];
 //
