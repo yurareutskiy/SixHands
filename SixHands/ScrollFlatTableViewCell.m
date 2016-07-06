@@ -48,7 +48,7 @@
     }
     pageViews = mutablePageViews;
     
-    self.scroll.contentSize = CGSizeMake(pageWidth * pageCount, 250);
+    self.scroll.contentSize = CGSizeMake(pageWidth * pageCount, 240);
     
     [self loadVisiblePages];
 }
