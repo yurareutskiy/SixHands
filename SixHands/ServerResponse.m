@@ -13,8 +13,11 @@
 + (instancetype)parseResponse:(NSDictionary*)response {
 
     ServerResponse *object = [[ServerResponse alloc] init];
-//    NSLog(@"RESPONSE %@",response);
-    object.type = [(NSString*)response[@"response"] isEqualToString:@"Success"] ? ServerResponseTypeSuccess : ServerResponseTypeError;
+    
+    if([(NSString*)response[@"response"] isEqualToString:@"Success"] || [(NSString*)response[@"response"] isEqualToString:@"Login"] || [(NSString*)response[@"response"] isEqualToString:@"Registry"])
+    {
+        object.type = ServerResponseTypeSuccess;
+    }
     if (object.type == ServerResponseTypeSuccess) {
         object.body = response[@"body"];
     } else if (object.type == ServerResponseTypeError) {

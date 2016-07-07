@@ -199,6 +199,8 @@
 		B25361551CFF85FC007F8F68 /* Flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flat.m; sourceTree = "<group>"; };
 		B297BE0E1D08AE19007775B8 /* ParamsTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamsTextField.h; sourceTree = "<group>"; };
 		B297BE0F1D08AE19007775B8 /* ParamsTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParamsTextField.m; sourceTree = "<group>"; };
+		B2AE41771D2C2A8500CEDAF8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B2AE41781D2C2A8500CEDAF8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		DB2179DB1C7532AA001BF4C1 /* ParameterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterTableViewCell.h; sourceTree = "<group>"; };
 		DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterTableViewCell.m; sourceTree = "<group>"; };
 		DB2179DE1C753790001BF4C1 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -548,6 +550,8 @@
 		DB4951F11C5FBB4700745228 = {
 			isa = PBXGroup;
 			children = (
+				B2AE41771D2C2A8500CEDAF8 /* User.h */,
+				B2AE41781D2C2A8500CEDAF8 /* User.m */,
 				B25361541CFF85FC007F8F68 /* Flat.h */,
 				B25361551CFF85FC007F8F68 /* Flat.m */,
 				DB4951FC1C5FBB4700745228 /* SixHands */,
@@ -756,7 +760,7 @@
 				TargetAttributes = {
 					DB4951F91C5FBB4700745228 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 9W968RZS7A;
+						DevelopmentTeam = 4RWLL37A47;
 					};
 				};
 			};
@@ -905,6 +909,7 @@
 				3AF845E11C65E48200F1707C /* ListViewController.m in Sources */,
 				DB745A251C7C55D500082134 /* ServerError.m in Sources */,
 				3A3F9F801C6621E300E5E8AC /* Spot.m in Sources */,
+				B2AE41791D2C2A8500CEDAF8 /* User.m in Sources */,
 				DBF2F71F1C7A88DE00A3F96B /* MapPinView.m in Sources */,
 				DBBE4DAC1C74DC0A002BB273 /* NSString+Levenshtein.m in Sources */,
 				DB608E281C6F7ED4007D33CB /* ThirdScrollViewController.m in Sources */,
