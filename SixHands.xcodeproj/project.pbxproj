@@ -52,6 +52,8 @@
 		B20785FB1D00B85B00A14E89 /* Params.m in Sources */ = {isa = PBXBuildFile; fileRef = B20785FA1D00B85B00A14E89 /* Params.m */; };
 		B25361561CFF85FC007F8F68 /* Flat.m in Sources */ = {isa = PBXBuildFile; fileRef = B25361551CFF85FC007F8F68 /* Flat.m */; };
 		B297BE101D08AE19007775B8 /* ParamsTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B297BE0F1D08AE19007775B8 /* ParamsTextField.m */; };
+		B2AE41791D2C2A8500CEDAF8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AE41781D2C2A8500CEDAF8 /* User.m */; };
+		BBCD4F1372C1ACA706D2C7BF /* Pods_SixHands.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0747240C36934736B59ACC1D /* Pods_SixHands.framework */; };
 		DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */; };
 		DB2179E01C753790001BF4C1 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DF1C753790001BF4C1 /* PhotoCollectionViewCell.m */; };
 		DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */; };
