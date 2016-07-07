@@ -5,14 +5,13 @@
 //  Created by Anton Scherbakov on 07/02/16.
 //  Copyright © 2016 Styleru. All rights reserved.
 //
-
+#import "Server.h"
 #import "ListTableViewCell.h"
 
 @implementation ListTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
-    NSLog(@"SELFPAR = %@",_flat.parameters);
     self.moreFriendsLabel.layer.cornerRadius = 10.5f;
     self.moreFriendsLabel.layer.borderColor = [UIColor colorWithRed:79.f/255.f green:238.f/255.f blue:197.f/255.f alpha:1.f].CGColor;
     self.moreFriendsLabel.layer.borderWidth = 1.f;
@@ -43,7 +42,8 @@
 
 - (IBAction)favoritesAction:(UIButton *)sender {
     if (sender.isSelected == 0) {
-//        [self.favButton setImage:[UIImage imageNamed:@"fav_enable"] forState:UIControlStateNormal];
+//      [self.favButton setImage:[UIImage imageNamed:@"fav_enable"] forState:UIControlStateNormal];
+        
         [self.favStarImage setImage:[UIImage imageNamed:@"star_green_fill"]];
         self.favStarImage.alpha = 1;
         sender.selected = 1;
@@ -55,6 +55,18 @@
         sender.selected = 0;
         sender.alpha = 0.5;
     }
+    NSDictionary *parameters = [[NSDictionary alloc] init];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    parameters = @{@"id_flat": self.flat_ID, @"id_user": [ud objectForKey:@"user_id"]};
+    
+    ServerRequest *request = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"user/favourite_flat"];
+    Server *server = [Server new];
+    [server sentToServer:request OnSuccess:^(NSDictionary *result) {
+        NSLog(@"FLAT - %@ HAS BEEN ADDED",self.flat_ID);
+    }  OrFailure:^(NSError *error) {
+        NSLog(@"Bad sign");
+    }];
+    
 }
 
 - (NSString*)formattedStringWithPrice:(NSString*)price {

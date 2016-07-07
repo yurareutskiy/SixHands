@@ -31,7 +31,8 @@
 }
 
 - (void)viewDidLoad {
-    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSLog(@"USER_ID = %@",[ud objectForKey:@"user_id"]);
     NSLog(@"REALM - %@",[RLMRealmConfiguration defaultConfiguration].fileURL);
     [self test:1];
     
@@ -87,7 +88,7 @@
 
 
 - (void)test:(NSInteger)type {
-    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSMutableArray *arrayToFill = [[NSMutableArray alloc] init];
     NSDictionary *parameters = [[NSDictionary alloc] init];
     Server *server = [Server new];
@@ -99,10 +100,10 @@
         {parameters = @{@"target": @"filter", @"sorting": @"popular",@"offset":@"0",@"amount":@"100"};}
             break;
         case 3:
-        {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":@"3"};}
+        {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":[ud objectForKey:@"user_id"]};}
             break;
         default:
-        {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":@"3"};}
+        {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":[ud objectForKey:@"user_id"]};}
             break;
     }
 
@@ -114,6 +115,7 @@
             flatToFill.address = [NSString stringWithFormat:@"%@ %@",key[@"street"],key[@"building"]];
             flatToFill.latitude = key[@"latitude"];
             flatToFill.longitude = key[@"longitude"];
+            flatToFill.ID = key[@"id"];
             NSDictionary *params = key[@"parameters"];
             NSDictionary *param;
                 NSMutableDictionary *serializedParams = [NSMutableDictionary new];
@@ -252,6 +254,11 @@
     if([[self.source objectAtIndex:indexPath.item] address] != nil)
     {
         cell.address.text = [[self.source objectAtIndex:indexPath.item] address];
+    }
+    if([[self.source objectAtIndex:indexPath.item] ID] != nil)
+    {
+
+        cell.flat_ID = [[self.source objectAtIndex:indexPath.item] ID];
     }
     if([paramsDict objectForKey:@"30"] != nil)
     {

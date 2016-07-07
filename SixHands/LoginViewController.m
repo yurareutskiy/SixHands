@@ -119,6 +119,7 @@ static NSArray *SCOPE = nil;
     NSLog(@"%@",newToken);
 }
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     if (result.token) {
         NSDictionary *parameters = [[NSDictionary alloc] init];
         parameters = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId]};
@@ -126,6 +127,7 @@ static NSArray *SCOPE = nil;
         Server *server = [Server new];
         [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
             [self startWorking];
+                    [ud setObject:[[NSString alloc] initWithFormat:@"%@",result[@"id"]] forKey:@"user_id"];
         }  OrFailure:^(NSError *error) {
         
             NSDictionary *parametersToSign = [[NSDictionary alloc] init];
@@ -134,14 +136,14 @@ static NSArray *SCOPE = nil;
             ServerRequest *requestToSign = [ServerRequest initRequest:ServerRequestTypeGET With:parametersToSign To:@"user"];
             Server *server = [Server new];
             [server sentToServer:requestToSign OnSuccess:^(NSDictionary *result) {
+                    [ud setObject:[[NSString alloc] initWithFormat:@"%@",[[[VKSdk accessToken] localUser] id]] forKey:@"user_id"];
                      [self startWorking];
             }  OrFailure:^(NSError *error) {
                 NSLog(@"Bad sign");
             }];
            
         }];
-        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-        VKRequest * audioReq = [[VKApi users] get:@{@"fields":@"country,city"}];
+               VKRequest * audioReq = [[VKApi users] get:@{@"fields":@"country,city"}];
         [audioReq executeWithResultBlock:^(VKResponse * response) {
             [ud setObject:response.json[0][@"country"][@"title"] forKey:@"countryName"];
             [ud setObject:response.json[0][@"city"][@"title"] forKey:@"cityName"];
@@ -151,7 +153,7 @@ static NSArray *SCOPE = nil;
             NSLog(@"VK error: %@", error);
             
         }];
-        [ud setObject:[[NSString alloc] initWithFormat:@"%@",[[[VKSdk accessToken] localUser] id]] forKey:@"user_id"];
+
         [ud setObject:   [[[VKSdk accessToken] localUser] photo_200] forKey:@"photo_url"];
         [ud setObject:@YES forKey:@"isVK"];
         [ud setObject:@YES forKey:@"isLogined"];

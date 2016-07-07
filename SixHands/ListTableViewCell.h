@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *hands;
 @property (strong, nonatomic) IBOutlet UILabel *address;
 
+@property NSString *flat_ID;
 @property (strong, nonatomic) IBOutlet UIImageView *avatar1;
 @property (strong, nonatomic) IBOutlet UIImageView *avatar2;
 @property (weak, nonatomic) IBOutlet UILabel *square;

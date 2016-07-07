@@ -10,6 +10,7 @@
 
 @interface Flat : RLMObject
 + (NSString *)primaryKey;
+@property NSString* ID;
 @property NSString* address;
 @property NSString* latitude;
 @property NSString* longitude;
