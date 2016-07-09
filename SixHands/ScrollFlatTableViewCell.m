@@ -54,12 +54,15 @@
 }
 
 - (void)loadVisiblePages {
+    NSLog(@"Content = %f",self.scroll.contentOffset.x);
     int page = floor((self.scroll.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0));
+    NSLog(@"PAGE = %d",page);
     self.pageController.currentPage = page;
     
     int previousPage = page - 1;
     int nextPage = page + 1;
-    
+    NSLog(@"previousPage = %d",previousPage);
+    NSLog(@"nextPage = %d",nextPage);
     for (int i = 0; i < previousPage; ++i) {
         [self purgePage:i];
     }

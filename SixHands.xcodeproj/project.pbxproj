@@ -47,6 +47,8 @@
 		3ADF01801C61392A00890117 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017D1C61392A00890117 /* FBSDKLoginKit.framework */; };
 		3ADF01811C61392A00890117 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADF017E1C61392A00890117 /* FBSDKShareKit.framework */; };
 		3AF845E11C65E48200F1707C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF845E01C65E48200F1707C /* ListViewController.m */; };
+		55A9ADFB1D302456003F71B2 /* OnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A9ADFA1D302456003F71B2 /* OnboardingViewController.m */; };
+		55A9ADFE1D3034A4003F71B2 /* OnboardingScrollItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A9ADFD1D3034A4003F71B2 /* OnboardingScrollItem.m */; };
 		B1A8E0661C9704B5008F4701 /* LeanMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */; };
 		B1A8E0691C971376008F4701 /* NSUserDefaults+DemoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E0681C971376008F4701 /* NSUserDefaults+DemoSettings.m */; };
 		B20785FB1D00B85B00A14E89 /* Params.m in Sources */ = {isa = PBXBuildFile; fileRef = B20785FA1D00B85B00A14E89 /* Params.m */; };
@@ -190,6 +192,10 @@
 		3AF845DF1C65E48200F1707C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		3AF845E01C65E48200F1707C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		43D5ADCD10A2D032AA6B2E60 /* Pods-SixHands.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SixHands.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SixHands/Pods-SixHands.debug.xcconfig"; sourceTree = "<group>"; };
+		55A9ADF91D3023F9003F71B2 /* OnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnboardingViewController.h; sourceTree = "<group>"; };
+		55A9ADFA1D302456003F71B2 /* OnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnboardingViewController.m; sourceTree = "<group>"; };
+		55A9ADFC1D303482003F71B2 /* OnboardingScrollItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnboardingScrollItem.h; sourceTree = "<group>"; };
+		55A9ADFD1D3034A4003F71B2 /* OnboardingScrollItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnboardingScrollItem.m; sourceTree = "<group>"; };
 		6142F7517EE53A4EA4AF72D6 /* Pods-SixHands.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SixHands.release.xcconfig"; path = "Pods/Target Support Files/Pods-SixHands/Pods-SixHands.release.xcconfig"; sourceTree = "<group>"; };
 		B1A8E0641C9704B5008F4701 /* LeanMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeanMessageManager.h; sourceTree = "<group>"; };
 		B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeanMessageManager.m; sourceTree = "<group>"; };
@@ -451,6 +457,17 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		55A9ADF81D3023AF003F71B2 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				55A9ADF91D3023F9003F71B2 /* OnboardingViewController.h */,
+				55A9ADFA1D302456003F71B2 /* OnboardingViewController.m */,
+				55A9ADFC1D303482003F71B2 /* OnboardingScrollItem.h */,
+				55A9ADFD1D3034A4003F71B2 /* OnboardingScrollItem.m */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
 		6F1686D7F7928841B9689BC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +509,7 @@
 		DB3ED3C81C68E35700576E62 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				55A9ADF81D3023AF003F71B2 /* Onboarding */,
 				DBF2F71B1C7A13AC00A3F96B /* List */,
 				DBF2F71A1C7A139E00A3F96B /* Map */,
 				3ADF016E1C6129D100890117 /* Menu */,
@@ -922,6 +940,7 @@
 				DB4951FF1C5FBB4700745228 /* main.m in Sources */,
 				DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */,
 				3A8A7EBB1C66A836005946C0 /* SHSPhoneTextField.m in Sources */,
+				55A9ADFB1D302456003F71B2 /* OnboardingViewController.m in Sources */,
 				DB6DED621C675FD000A263B5 /* SWRevealViewController.m in Sources */,
 				DB4E28031C68B83600303437 /* ChatTableViewCell.m in Sources */,
 				DB608E1F1C6F7D4C007D33CB /* ContainerScrollViewController.m in Sources */,
@@ -932,6 +951,7 @@
 				3ACF4BEC1C624DF70045D992 /* FlatViewController.m in Sources */,
 				3A4BD5BC1C68CBDD00936862 /* DataManager.m in Sources */,
 				3ADF01571C6125F300890117 /* LoginViewController.m in Sources */,
+				55A9ADFE1D3034A4003F71B2 /* OnboardingScrollItem.m in Sources */,
 				DB745A271C7C55D500082134 /* ServerResponse.m in Sources */,
 				DB95483D1C6957F1007F79D2 /* SubwayView.m in Sources */,
 				B297BE101D08AE19007775B8 /* ParamsTextField.m in Sources */,

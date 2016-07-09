@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< Updated upstream
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qGd-Bt-xcL">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mDc-gS-BuX">
+>>>>>>> Stashed changes
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -149,6 +153,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4s7-dS-XM3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1096" y="-1081"/>
+        </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="giF-Z7-Rxl">
+            <objects>
+                <viewController id="mDc-gS-BuX" customClass="OnboardingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mcm-Ej-n9c"/>
+                        <viewControllerLayoutGuide type="bottom" id="P6q-ap-0TC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h5d-nr-oXg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMB-KU-kn5">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IY-xD-Kcq">
+                                <rect key="frame" x="20" y="446" width="560" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Далее">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonAction:" destination="mDc-gS-BuX" eventType="touchUpInside" id="HbT-xd-XkD"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="uMG-5D-Wd2">
+                                <rect key="frame" x="0.0" y="543" width="600" height="37"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ido-RV-son">
+                                <rect key="frame" x="435" y="35" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1sl-Ic-qIb"/>
+                                    <constraint firstAttribute="width" constant="150" id="Wpn-O4-zt7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Закончить">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonAction:" destination="mDc-gS-BuX" eventType="touchUpInside" id="tvL-kz-K0c"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="P6q-ap-0TC" firstAttribute="top" secondItem="0IY-xD-Kcq" secondAttribute="bottom" constant="104" id="59d-kd-pcW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ido-RV-son" secondAttribute="trailing" constant="-5" id="6bh-Nc-v8N"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BMB-KU-kn5" secondAttribute="trailing" constant="-20" id="7kx-DV-tJp"/>
+                            <constraint firstItem="BMB-KU-kn5" firstAttribute="leading" secondItem="h5d-nr-oXg" secondAttribute="leadingMargin" constant="-20" id="N8J-Me-Ppr"/>
+                            <constraint firstItem="ido-RV-son" firstAttribute="top" secondItem="Mcm-Ej-n9c" secondAttribute="bottom" constant="15" id="QEa-cS-Mzq"/>
+                            <constraint firstItem="uMG-5D-Wd2" firstAttribute="leading" secondItem="h5d-nr-oXg" secondAttribute="leadingMargin" constant="-20" id="QZV-G7-sUW"/>
+                            <constraint firstItem="BMB-KU-kn5" firstAttribute="top" secondItem="Mcm-Ej-n9c" secondAttribute="bottom" constant="-20" id="UhJ-no-rhB"/>
+                            <constraint firstItem="P6q-ap-0TC" firstAttribute="top" secondItem="BMB-KU-kn5" secondAttribute="bottom" id="UqK-vQ-QK8"/>
+                            <constraint firstItem="0IY-xD-Kcq" firstAttribute="trailing" secondItem="h5d-nr-oXg" secondAttribute="trailingMargin" id="nYk-PU-2ii"/>
+                            <constraint firstItem="P6q-ap-0TC" firstAttribute="top" secondItem="uMG-5D-Wd2" secondAttribute="bottom" constant="20" id="qjE-3R-33I"/>
+                            <constraint firstItem="0IY-xD-Kcq" firstAttribute="leading" secondItem="h5d-nr-oXg" secondAttribute="leadingMargin" id="rBh-hA-JH0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uMG-5D-Wd2" secondAttribute="trailing" constant="-20" id="wti-aG-Bky"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="BrN-15-vu0" appends="YES" id="u4I-fS-jWp"/>
+                            <outletCollection property="gestureRecognizers" destination="QM6-cE-YxK" appends="YES" id="Dbx-aR-Iby"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="backSwipe" destination="QM6-cE-YxK" id="5Pl-1b-GFO"/>
+                        <outlet property="doneButton" destination="ido-RV-son" id="RKe-A3-zYZ"/>
+                        <outlet property="nextButton" destination="0IY-xD-Kcq" id="uzb-fR-GLZ"/>
+                        <outlet property="pageControl" destination="uMG-5D-Wd2" id="tNB-0j-Swb"/>
+                        <outlet property="scroll" destination="BMB-KU-kn5" id="Dap-Oj-C7n"/>
+                        <outlet property="swipe" destination="BrN-15-vu0" id="e7B-zD-0uH"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="firststart" id="NEK-BA-92H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kcc-oh-mJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="BrN-15-vu0"/>
+                <swipeGestureRecognizer direction="right" id="QM6-cE-YxK"/>
+            </objects>
+            <point key="canvasLocation" x="-1163" y="344"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
