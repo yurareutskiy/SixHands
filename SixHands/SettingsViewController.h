@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @protocol  ProfilePhotoChangedDelegate <NSObject>
 
 -(void)changingPhoto:(UIImage*)image;

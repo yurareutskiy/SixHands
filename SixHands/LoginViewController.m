@@ -7,13 +7,12 @@
 //
 
 #import "LoginViewController.h"
-#import "VKSdk.h"
 #import "ServerRequest.h"
 #import "Server.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-
+#import "FavouriteFlats.h"
 
 static NSArray *SCOPE = nil;
 
@@ -46,16 +45,41 @@ static NSArray *SCOPE = nil;
         }
     }];
 //
-    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:@NO forKey:@"isVK"];
+    [ud setObject:@NO forKey:@"isFB"];
     CGRect rect = self.view.frame;
     self.backView.frame = rect;
 
 }
 
 - (void)startWorking {
-    [self performSegueWithIdentifier:@"test" sender:self];
-}
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDictionary *parameters = [[NSDictionary alloc] init];
+    NSString *url =  url = @"flats/favourites";
+    Server *server = [Server new];
+    
+        {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":[ud objectForKey:@"user_id"]};}
+    
+    ServerRequest *requestToGet = [ServerRequest initRequest:ServerRequestTypeGET With:parameters To:url];
+    [server sentToServer:requestToGet OnSuccess:^(NSDictionary *result) {
+        NSDictionary *key;
+        for (key in result) {
+            FavouriteFlats *favoutiteFlat = [FavouriteFlats new];
+            favoutiteFlat.ID = key[@"id"];
+            RLMRealm *realm = [RLMRealm defaultRealm];
 
+            [realm beginWriteTransaction];
+            [realm addObject:favoutiteFlat];
+            [realm commitWriteTransaction];
+        }
+        NSLog(@"NICE FAV FETCH");
+        [self performSegueWithIdentifier:@"test" sender:self];
+    }  OrFailure:^(NSError *error) {
+         NSLog(@"BAD FAV FETCH");
+    }];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

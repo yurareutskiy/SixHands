@@ -12,7 +12,7 @@
 #import "DataManager.h"
 #import "Flat.h"
 #import "Params.h"
-
+#import "FavouriteFlats.h"
 @interface ListViewController ()
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -91,23 +91,26 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSMutableArray *arrayToFill = [[NSMutableArray alloc] init];
     NSDictionary *parameters = [[NSDictionary alloc] init];
+    NSString *url = @"flats/filter";
     Server *server = [Server new];
     switch (type) {
         case 1:
-        {parameters = @{@"target": @"filter", @"sorting": @"last",@"offset":@"0",@"amount":@"100"};}
+        {parameters = @{@"sorting": @"last",@"offset":@"0",@"amount":@"100"};}
             break;
         case 2:
-        {parameters = @{@"target": @"filter", @"sorting": @"popular",@"offset":@"0",@"amount":@"100"};}
+        {parameters = @{@"sorting": @"popular",@"offset":@"0",@"amount":@"100"};}
             break;
         case 3:
-        {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":[ud objectForKey:@"user_id"]};}
+           url = @"flats/favourites";
+        {parameters = @{@"offset":@"0",@"amount":@"100",@"id_user":[ud objectForKey:@"user_id"]};}
             break;
         default:
+        url = @"flats/favourites";
         {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":[ud objectForKey:@"user_id"]};}
             break;
     }
 
-    ServerRequest *requestToGet = [ServerRequest initRequest:ServerRequestTypeGET With:parameters To:@"flat"];
+    ServerRequest *requestToGet = [ServerRequest initRequest:ServerRequestTypeGET With:parameters To:url];
     [server sentToServer:requestToGet OnSuccess:^(NSDictionary *result) {
         NSDictionary *key;
             for (key in result) {
@@ -130,7 +133,6 @@
                     }
                 }
             NSLog(@"SERP = %@",serializedParams);
-                
              
                 flatToFill.parameters = [NSString stringWithFormat:@"%@",serializedParams];
             }
@@ -251,14 +253,38 @@
                           format:NULL
                           error:NULL];
     }
+
     if([[self.source objectAtIndex:indexPath.item] address] != nil)
     {
         cell.address.text = [[self.source objectAtIndex:indexPath.item] address];
     }
     if([[self.source objectAtIndex:indexPath.item] ID] != nil)
     {
-
+        //КОСТЫЛЬ,ПЕРЕДЕЛАТЬ( спать хотел :с )
         cell.flat_ID = [[self.source objectAtIndex:indexPath.item] ID];
+        NSLog(@"FLATID = %@",cell.flat_ID);
+        
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"ID = %@",
+                             cell.flat_ID];
+        RLMResults<FavouriteFlats*> *flats = [FavouriteFlats objectsWithPredicate:pred];
+        if(flats.firstObject != nil)
+        {
+//            NSLog(@"fav count -  %lu",(unsigned long)favouriteFlat.firstObject);
+            if([flats.firstObject.ID isEqualToString:cell.flat_ID])
+            {
+                NSLog(@"EQUAL");
+                [cell.favStarImage setImage:[UIImage imageNamed:@"star_green_fill"]];
+                cell.favStarImage.alpha = 1;
+                cell.favButton.selected = 1;
+                cell.favButton.alpha = 1;
+            }
+        }
+        else{
+            [cell.favStarImage setImage:[UIImage imageNamed:@"star_white_out"]];
+            cell.favStarImage.alpha = 0.5;
+            cell.favButton.selected = 0;
+            cell.favButton.alpha = 0.5;
+        }
     }
     if([paramsDict objectForKey:@"30"] != nil)
     {

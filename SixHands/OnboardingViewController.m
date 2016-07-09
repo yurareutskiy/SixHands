@@ -92,6 +92,13 @@
 
 -(IBAction)nextButtonAction:(id)sender {
     [self swipeOnBack:NO];
+    NSLog(@"page - %ld",(long)self.pageControl.currentPage);
+    NSLog(@"total - %ld",(long)self.viewsArray.count);
+    if(self.pageControl.currentPage == [self.viewsArray count] - 1)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self performSegueWithIdentifier:@"firststart" sender:self];
+    }
 }
 
 - (void)swipeOnBack:(BOOL)isBackSwipe {
@@ -106,11 +113,13 @@
         return;
     }
     if (self.pageControl.currentPage == [self.viewsArray count] - 1) {
-        [self.nextButton setHidden:YES];
-        [self.doneButton setHidden:NO];
+        [self.doneButton setHidden:YES];
     } else if (self.pageControl.currentPage == [self.viewsArray count] - 2) {
         [self.nextButton setHidden:NO];
-        [self.doneButton setHidden:YES];
+        [self.doneButton setHidden:NO];
+    } else if(self.pageControl.currentPage == [self.viewsArray count])
+    {
+        
     }
     
     [UIView animateWithDuration:0.2 animations:^{

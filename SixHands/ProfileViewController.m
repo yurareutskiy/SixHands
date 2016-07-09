@@ -12,6 +12,10 @@
 #import "User.h"
 #import "VKsdk.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
+static NSArray *SCOPE = nil;
 
 @interface UIImage (ImageBlur)
 - (UIImage *)imageWithGaussianBlur;
@@ -50,7 +54,7 @@
 
 @end
 
-@interface ProfileViewController ()
+@interface ProfileViewController () < VKSdkUIDelegate,VKSdkDelegate>
 
 @property (strong, nonatomic) SettingsViewController *vc;
 @property (strong, nonatomic) UIView *blackoutView;
@@ -62,8 +66,11 @@
 #pragma mark - init custom
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSLog(@"IS VK - %@",[ud objectForKey:@"isVK"]);
+    NSLog(@"IS FB - %@",[ud objectForKey:@"isFB"]);
     self.table.delegate = self;
     self.table.dataSource = self;
     self.table.userInteractionEnabled = NO;
@@ -74,22 +81,30 @@
     self.userNameTitle.text = [NSString stringWithFormat:@"%@ %@",firstName,lastName];
     self.navigationItem.title = @"Профиль";
     self.userLocationTitle.text = [NSString stringWithFormat:@"%@,%@",countryName,cityName];
-  
+   SCOPE = @[VK_PER_FRIENDS, VK_PER_PHOTOS, VK_PER_NOHTTPS, VK_PER_EMAIL,VK_PER_STATS,VK_PER_STATUS];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:70.0/255.0 blue:76.0/255.0 alpha:1.0]];
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    if([ud objectForKey:@"isVK"])
+    if([[ud objectForKey:@"isVK"]  isEqual: @YES] )
     {
-        self.vkButton.userInteractionEnabled = @NO;
-        self.vkButton.selected = @YES;
-        self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
+        self.vkButton.selected = YES;
+        self.vkButton.backgroundColor = [UIColor colorWithRed:69.0/255.0 green:104.0/255.0 blue:142.0/255.0 alpha:1.0];
+    }
+    else
+    {
+       self.vkButton.selected = NO;
+       self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"light_gray"]];
     }
     _userLocationTitle.text = [ud objectForKey:@"location"];
-    if([ud objectForKey:@"isFB"])
+    if([[ud objectForKey:@"isFB"]  isEqual: @YES])
     {
-        self.facebookButton.userInteractionEnabled = @NO;
-        self.facebookButton.selected = @YES;
-        self.facebookButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
+        self.facebookButton.selected = YES;
+        self.facebookButton.backgroundColor = [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1.0];
+    }
+    else{
+        
+        self.facebookButton.selected = NO;
+        self.facebookButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"light_gray"]];
     }
     
     NSString *PhotoURL = [ud objectForKey:@"photo_url"];
@@ -112,7 +127,7 @@
      [imageCache queryDiskCacheForKey:@"profilePhoto" done:^(UIImage *image, SDImageCacheType cacheType){
          [[self userPhoto] setImage:image];
     }];
-
+    
     
 
     self.userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width / 2;
@@ -125,8 +140,88 @@
         [self.userPhoto setImage:avatar];
     }
     [self customNavBar];
-    
+    [[VKSdk initializeWithAppId:@"5446345"] registerDelegate:self ];
+    [[VKSdk instance] setUiDelegate:self];
+    [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) {
+        if (state == VKAuthorizationAuthorized) {
+            
+            NSLog(@"%@",[[[VKSdk accessToken] localUser] photo_200]);
+        } else if (error) {
+            //            [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        }
+    }];
+
     // Do any additional setup after loading the view.
+}
+
+- (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError {
+    VKCaptchaViewController *vc = [VKCaptchaViewController captchaControllerWithError:captchaError];
+    [vc presentIn:self.navigationController.topViewController];
+}
+
+- (void)vkSdkTokenHasExpired:(VKAccessToken *)expiredToken {
+    [self authorize:nil];
+}
+
+-(void) vkSdkDidReceiveNewToken:(VKAccessToken*) newToken{
+    NSLog(@"%@",newToken);
+}
+- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    if (result.token) {
+        NSDictionary *parameters = [[NSDictionary alloc] init];
+        parameters = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId]};
+//        ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"user"];
+//        Server *server = [Server new];
+//        [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
+//            [self startWorking];
+//            [ud setObject:[[NSString alloc] initWithFormat:@"%@",result[@"id"]] forKey:@"user_id"];
+//        }  OrFailure:^(NSError *error) {
+//            
+//            NSDictionary *parametersToSign = [[NSDictionary alloc] init];
+//            parametersToSign = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId]};
+//            
+//            ServerRequest *requestToSign = [ServerRequest initRequest:ServerRequestTypeGET With:parametersToSign To:@"user"];
+//            Server *server = [Server new];
+//            [server sentToServer:requestToSign OnSuccess:^(NSDictionary *result) {
+//                [ud setObject:[[NSString alloc] initWithFormat:@"%@",[[[VKSdk accessToken] localUser] id]] forKey:@"user_id"];
+//                [self startWorking];
+//            }  OrFailure:^(NSError *error) {
+//                NSLog(@"Bad sign");
+//            }];
+//            
+//        }];
+//        VKRequest * audioReq = [[VKApi users] get:@{@"fields":@"country,city"}];
+//        [audioReq executeWithResultBlock:^(VKResponse * response) {
+//            [ud setObject:response.json[0][@"country"][@"title"] forKey:@"countryName"];
+//            [ud setObject:response.json[0][@"city"][@"title"] forKey:@"cityName"];
+//            
+//        } errorBlock:^(NSError *error) {
+//            
+//            NSLog(@"VK error: %@", error);
+//            
+//        }];
+        
+        [ud setObject:   [[[VKSdk accessToken] localUser] photo_200] forKey:@"photo_url"];
+        [ud setObject:@YES forKey:@"isVK"];
+        [ud setObject:[[[VKSdk accessToken] localUser] first_name] forKey:@"first_name"];
+        [ud setObject:[[[VKSdk accessToken] localUser] last_name] forKey:@"last_name"];
+    } else if (result.error) {
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Что-то пошло не так,повторите попытку\n;(" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
+}
+
+- (IBAction)authorize:(id)sender {
+    [VKSdk authorize:SCOPE];
+}
+
+- (void)vkSdkUserAuthorizationFailed {
+    [[[UIAlertView alloc] initWithTitle:nil message:@"Что-то пошло не так,повторите попытку\n;(" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)customNavBar {
@@ -185,6 +280,41 @@
 
 }
 
+- (void) FBLogin
+{
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile",@"email",@"user_about_me",@"user_location"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             if ([FBSDKAccessToken currentAccessToken]) {
+                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields":@"picture,name,location"}]
+                  startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                      if (!error) {
+                          NSLog(@"result %@",result);
+                          NSMutableArray *mutableWords = [[result[@"name"]  componentsSeparatedByString: @" "] mutableCopy];
+                          NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+                          [ud setObject: mutableWords[0] forKey:@"first_name"];
+                          [ud setObject: result[@"location"][@"name"] forKey:@"location"];
+                          [ud setObject: mutableWords[2] forKey:@"last_name"];
+                          [ud setObject: @YES forKey:@"isLogined"];
+                          [ud setObject: @YES forKey:@"isFB"];
+                          [ud setObject: result[@"picture"][@"data"][@"url"] forKey:@"photo_url"];
+                      }
+                  }];
+             }
+             //login method
+         }
+     }];
+    
+}
+
+
 - (void)hideSettings:(id)sender {
 //    UIView *vc = [self.tabBarController.view.subviews lastObject];
     self.view.userInteractionEnabled = YES;
@@ -217,7 +347,10 @@
     if (self.vkButton.isSelected) {
 //        self.vkButton.selected = NO;
 //        self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"light_gray"]];
+        NSLog(@"YAY");
     } else {
+        NSLog(@"SCOPE - %@",SCOPE);
+        [VKSdk authorize:SCOPE];
         self.vkButton.selected = YES;
 //        self.vkButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
         self.vkButton.backgroundColor = [UIColor colorWithRed:69.0/255.0 green:104.0/255.0 blue:142.0/255.0 alpha:1.0];
@@ -229,11 +362,14 @@
 //        self.facebookButton.selected = NO;
 //        self.facebookButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"light_gray"]];
     } else {
+        [self FBLogin];
         self.facebookButton.selected = YES;
 //        self.facebookButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dark_gray"]];
         self.facebookButton.backgroundColor = [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1.0];
     }
 }
+
+
 
 - (IBAction)rentButtonAction:(UIButton *)sender {
     [self performSegueWithIdentifier:@"Post" sender:self];

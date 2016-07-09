@@ -59,12 +59,12 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     parameters = @{@"id_flat": self.flat_ID, @"id_user": [ud objectForKey:@"user_id"]};
     
-    ServerRequest *request = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"user/favourite_flat"];
+    ServerRequest *request = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"flats/favourites"];
     Server *server = [Server new];
     [server sentToServer:request OnSuccess:^(NSDictionary *result) {
-        NSLog(@"FLAT - %@ HAS BEEN ADDED",self.flat_ID);
+        NSLog(@"FLAT - %@ STASUS HAS BEEN CHANGED",self.flat_ID);
     }  OrFailure:^(NSError *error) {
-        NSLog(@"Bad sign");
+        NSLog(@"Error favourite request");
     }];
     
 }

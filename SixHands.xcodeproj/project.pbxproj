@@ -55,7 +55,7 @@
 		B25361561CFF85FC007F8F68 /* Flat.m in Sources */ = {isa = PBXBuildFile; fileRef = B25361551CFF85FC007F8F68 /* Flat.m */; };
 		B297BE101D08AE19007775B8 /* ParamsTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B297BE0F1D08AE19007775B8 /* ParamsTextField.m */; };
 		B2AE41791D2C2A8500CEDAF8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AE41781D2C2A8500CEDAF8 /* User.m */; };
-		BBCD4F1372C1ACA706D2C7BF /* Pods_SixHands.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0747240C36934736B59ACC1D /* Pods_SixHands.framework */; };
+		B2F079171D31859E00F05C12 /* FavouriteFlats.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F079161D31859E00F05C12 /* FavouriteFlats.m */; };
 		DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */; };
 		DB2179E01C753790001BF4C1 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DF1C753790001BF4C1 /* PhotoCollectionViewCell.m */; };
 		DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */; };
@@ -203,12 +203,14 @@
 		B1A8E0681C971376008F4701 /* NSUserDefaults+DemoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+DemoSettings.m"; sourceTree = "<group>"; };
 		B20785F91D00B85B00A14E89 /* Params.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Params.h; sourceTree = "<group>"; };
 		B20785FA1D00B85B00A14E89 /* Params.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Params.m; sourceTree = "<group>"; };
-		B25361541CFF85FC007F8F68 /* Flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flat.h; sourceTree = "<group>"; };
-		B25361551CFF85FC007F8F68 /* Flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flat.m; sourceTree = "<group>"; };
+		B25361541CFF85FC007F8F68 /* Flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flat.h; path = ../Flat.h; sourceTree = "<group>"; };
+		B25361551CFF85FC007F8F68 /* Flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Flat.m; path = ../Flat.m; sourceTree = "<group>"; };
 		B297BE0E1D08AE19007775B8 /* ParamsTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamsTextField.h; sourceTree = "<group>"; };
 		B297BE0F1D08AE19007775B8 /* ParamsTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParamsTextField.m; sourceTree = "<group>"; };
-		B2AE41771D2C2A8500CEDAF8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		B2AE41781D2C2A8500CEDAF8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		B2AE41771D2C2A8500CEDAF8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
+		B2AE41781D2C2A8500CEDAF8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
+		B2F079151D31859E00F05C12 /* FavouriteFlats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteFlats.h; sourceTree = "<group>"; };
+		B2F079161D31859E00F05C12 /* FavouriteFlats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteFlats.m; sourceTree = "<group>"; };
 		DB2179DB1C7532AA001BF4C1 /* ParameterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterTableViewCell.h; sourceTree = "<group>"; };
 		DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterTableViewCell.m; sourceTree = "<group>"; };
 		DB2179DE1C753790001BF4C1 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -481,6 +483,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B2F079141D31858400F05C12 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				B2AE41771D2C2A8500CEDAF8 /* User.h */,
+				B2AE41781D2C2A8500CEDAF8 /* User.m */,
+				B25361541CFF85FC007F8F68 /* Flat.h */,
+				B25361551CFF85FC007F8F68 /* Flat.m */,
+				B2F079151D31859E00F05C12 /* FavouriteFlats.h */,
+				B2F079161D31859E00F05C12 /* FavouriteFlats.m */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
 		DB3ED3C41C68E33900576E62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,10 +585,6 @@
 		DB4951F11C5FBB4700745228 = {
 			isa = PBXGroup;
 			children = (
-				B2AE41771D2C2A8500CEDAF8 /* User.h */,
-				B2AE41781D2C2A8500CEDAF8 /* User.m */,
-				B25361541CFF85FC007F8F68 /* Flat.h */,
-				B25361551CFF85FC007F8F68 /* Flat.m */,
 				DB4951FC1C5FBB4700745228 /* SixHands */,
 				DB4951FB1C5FBB4700745228 /* Products */,
 				6F1686D7F7928841B9689BC0 /* Frameworks */,
@@ -592,6 +603,7 @@
 		DB4951FC1C5FBB4700745228 /* SixHands */ = {
 			isa = PBXGroup;
 			children = (
+				B2F079141D31858400F05C12 /* Realm */,
 				DB3ED3C81C68E35700576E62 /* Controllers */,
 				DB3ED3C61C68E34C00576E62 /* Views */,
 				DB3ED3C41C68E33900576E62 /* Models */,
@@ -960,6 +972,7 @@
 				3A3F9F7D1C661FC700E5E8AC /* GQTPointQuadTreeChild.m in Sources */,
 				3ADF01601C61261F00890117 /* MessViewController.m in Sources */,
 				DB9FE4A61C6F616B00DD27F5 /* TempViewController.m in Sources */,
+				B2F079171D31859E00F05C12 /* FavouriteFlats.m in Sources */,
 				DB745A261C7C55D500082134 /* ServerRequest.m in Sources */,
 				3A3F9F861C66A69700E5E8AC /* PhoneViewController.m in Sources */,
 				3ADF016D1C6128E000890117 /* FilterViewController.m in Sources */,
