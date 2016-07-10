@@ -69,7 +69,7 @@
             break;
         case ServerRequestTypePUT: {
             [manager PUT:url parameters:request.parameters success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
-//                NSLog(@"JSON: %@", responseObject);
+                NSLog(@"JSON: %@", responseObject);
                 ServerResponse *response = [ServerResponse parseResponse:responseObject];
                 if (response.type == ServerResponseTypeSuccess) {
                     if (success) {

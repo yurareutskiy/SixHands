@@ -7,6 +7,7 @@
 //
 #import "Server.h"
 #import "ListTableViewCell.h"
+#import "FavouriteFlats.h"
 
 @implementation ListTableViewCell
 
@@ -59,10 +60,31 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     parameters = @{@"id_flat": self.flat_ID, @"id_user": [ud objectForKey:@"user_id"]};
     
-    ServerRequest *request = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"flats/favourites"];
+    ServerRequest *request = [ServerRequest initRequest:ServerRequestTypePUT With:parameters To:@"flats/favourites"];
     Server *server = [Server new];
     [server sentToServer:request OnSuccess:^(NSDictionary *result) {
-        NSLog(@"FLAT - %@ STASUS HAS BEEN CHANGED",self.flat_ID);
+    
+        NSLog(@"FLAT - %@ STASUS HAS BEEN CHANGED: %@",self.flat_ID,result);
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"ID = %@",
+                             self.flat_ID];
+        
+        RLMResults<FavouriteFlats*> *flats = [FavouriteFlats objectsWithPredicate:pred];
+        if([flats.firstObject.ID isEqualToString:self.flat_ID])
+        {
+            [realm beginWriteTransaction];
+            [realm deleteObject:flats.firstObject];
+            [realm commitWriteTransaction];
+        }
+        else
+        {
+            FavouriteFlats *favoutiteFlat = [FavouriteFlats new];
+            favoutiteFlat.ID = self.flat_ID;
+            [realm beginWriteTransaction];
+            [realm addObject:favoutiteFlat];
+            [realm commitWriteTransaction];
+        }
+        
     }  OrFailure:^(NSError *error) {
         NSLog(@"Error favourite request");
     }];

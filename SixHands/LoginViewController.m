@@ -54,20 +54,27 @@ static NSArray *SCOPE = nil;
 }
 
 - (void)startWorking {
+    
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary *parameters = [[NSDictionary alloc] init];
     NSString *url =  url = @"flats/favourites";
     Server *server = [Server new];
-    
+    RLMRealm *realm = [RLMRealm defaultRealm];
         {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":[ud objectForKey:@"user_id"]};}
-    
+    [realm beginWriteTransaction];
+    RLMResults<FavouriteFlats*> *flats = [FavouriteFlats allObjects];
+    [realm deleteObjects:flats];
+    [realm commitWriteTransaction];
+
     ServerRequest *requestToGet = [ServerRequest initRequest:ServerRequestTypeGET With:parameters To:url];
     [server sentToServer:requestToGet OnSuccess:^(NSDictionary *result) {
+
         NSDictionary *key;
         for (key in result) {
+                    NSLog(@"result = %@",result);
             FavouriteFlats *favoutiteFlat = [FavouriteFlats new];
             favoutiteFlat.ID = key[@"id"];
-            RLMRealm *realm = [RLMRealm defaultRealm];
+      
 
             [realm beginWriteTransaction];
             [realm addObject:favoutiteFlat];
@@ -150,8 +157,8 @@ static NSArray *SCOPE = nil;
         ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"user"];
         Server *server = [Server new];
         [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
+            [ud setObject:[[NSString alloc] initWithFormat:@"%@",result[@"id"]] forKey:@"user_id"];
             [self startWorking];
-                    [ud setObject:[[NSString alloc] initWithFormat:@"%@",result[@"id"]] forKey:@"user_id"];
         }  OrFailure:^(NSError *error) {
         
             NSDictionary *parametersToSign = [[NSDictionary alloc] init];
