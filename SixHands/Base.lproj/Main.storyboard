@@ -1452,12 +1452,6 @@
                                                         <constraint firstAttribute="height" constant="21" id="rQ3-IX-MOI"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Город Москва, улица Ибрагимова, 2" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7s0-SM-cMP">
-                                                    <rect key="frame" x="115" y="2" width="472" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar2" translatesAutoresizingMaskIntoConstraints="NO" id="Q3v-ZH-TL7">
                                                     <rect key="frame" x="143" y="85" width="21" height="21"/>
                                                     <constraints>
@@ -1559,6 +1553,12 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Город Москва, улица Ибрагимова, 2" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7s0-SM-cMP">
+                                                    <rect key="frame" x="115" y="0.0" width="472" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="VS9-9E-FWN" firstAttribute="leading" secondItem="Oe6-zy-YNW" secondAttribute="trailing" constant="17" id="0oz-Nj-2UG"/>
@@ -1621,9 +1621,14 @@
                                             <outlet property="avatar3" destination="Uer-9S-86o" id="Ryf-av-6xL"/>
                                             <outlet property="favButton" destination="osD-i4-XyY" id="XWg-QU-eRa"/>
                                             <outlet property="favStarImage" destination="IGj-Uj-aAC" id="Rw5-UI-Z9b"/>
+                                            <outlet property="flatFirstImage" destination="hEx-o0-xAb" id="T8r-jW-fPc"/>
+                                            <outlet property="floor" destination="pc6-L6-dfk" id="ek3-Z9-rXj"/>
                                             <outlet property="moreFriendsLabel" destination="3Wd-lr-q1t" id="u42-9b-Vjt"/>
                                             <outlet property="price" destination="Hom-Rg-nWf" id="Bxh-RJ-3dP"/>
+                                            <outlet property="rooms" destination="6sn-qA-RXh" id="6Lu-YZ-XGC"/>
+                                            <outlet property="square" destination="6Nr-J7-6v5" id="6NY-O0-FHW"/>
                                             <outlet property="subway" destination="Oe6-zy-YNW" id="3Kh-xc-l0d"/>
+                                            <outlet property="timeToSub" destination="jmT-hJ-GKg" id="sOL-5D-5RH"/>
                                             <outlet property="zeroFriends" destination="CSb-bs-oPD" id="q2c-XG-chw"/>
                                         </connections>
                                     </tableViewCell>

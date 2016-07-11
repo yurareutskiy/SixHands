@@ -31,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *zeroFriends;
 @property Flat* flat;
 
+@property (weak, nonatomic) IBOutlet UIImageView *flatFirstImage;
+
 - (IBAction)favoritesAction:(UIButton *)sender;
 - (NSString*)formattedStringWithPrice:(NSString*)price;
 

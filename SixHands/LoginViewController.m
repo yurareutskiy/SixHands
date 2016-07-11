@@ -13,6 +13,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "FavouriteFlats.h"
+#import "UndergroundList.h"
 
 static NSArray *SCOPE = nil;
 
@@ -60,7 +61,7 @@ static NSArray *SCOPE = nil;
     NSString *url =  url = @"flats/favourites";
     Server *server = [Server new];
     RLMRealm *realm = [RLMRealm defaultRealm];
-        {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":[ud objectForKey:@"user_id"]};}
+    {parameters = @{@"target": @"favourites",@"offset":@"0",@"amount":@"100",@"id_user":@"10"};}
     [realm beginWriteTransaction];
     RLMResults<FavouriteFlats*> *flats = [FavouriteFlats allObjects];
     [realm deleteObjects:flats];
@@ -85,7 +86,35 @@ static NSArray *SCOPE = nil;
     }  OrFailure:^(NSError *error) {
          NSLog(@"BAD FAV FETCH");
     }];
-    
+    parameters = @{@"id_city": @"1"};
+
+    ServerRequest *requestToGetUndergroundList = [ServerRequest initRequest:ServerRequestTypeGET With:parameters To:@"underground"];
+    [server sentToServer:requestToGetUndergroundList OnSuccess:^(NSDictionary *result) {
+        
+        [realm beginWriteTransaction];
+        RLMResults<UndergroundList*> *flats = [UndergroundList allObjects];
+        [realm deleteObjects:flats];
+        [realm commitWriteTransaction];
+
+        NSDictionary *key;
+        for (key in result) {
+            NSLog(@"result = %@",key);
+
+            UndergroundList *listItem = [UndergroundList new];
+            listItem.ID = [NSString stringWithFormat:@"%@",key];
+            listItem.name = result[key][@"name"];
+            listItem.colorName = result[key][@"color"];
+
+            
+            [realm beginWriteTransaction];
+            [realm addObject:listItem];
+            [realm commitWriteTransaction];
+        }
+        NSLog(@"NICE UNDERGROUND FETCH");
+    }  OrFailure:^(NSError *error) {
+        NSLog(@"BAD UNDERGROUND FETCH");
+    }];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -123,6 +152,30 @@ static NSArray *SCOPE = nil;
                           [ud setObject: @YES forKey:@"isLogined"];
                           [ud setObject: @YES forKey:@"isFB"];
                           [ud setObject: result[@"picture"][@"data"][@"url"] forKey:@"photo_url"];
+                          
+                          
+                          NSDictionary *parameters = [[NSDictionary alloc] init];
+                          parameters = @{@"type": @"fb", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId]};
+                          ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"user"];
+                          Server *server = [Server new];
+                          [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
+                              [ud setObject:[[NSString alloc] initWithFormat:@"%@",result[@"id"]] forKey:@"user_id"];
+                              [self startWorking];
+                          }  OrFailure:^(NSError *error) {
+                              
+                              NSDictionary *parametersToSign = [[NSDictionary alloc] init];
+                              parametersToSign = @{@"type": @"vk", @"email": [[VKSdk accessToken] email],@"sn_id": [[VKSdk accessToken] userId]};
+                              
+                              ServerRequest *requestToSign = [ServerRequest initRequest:ServerRequestTypeGET With:parametersToSign To:@"user"];
+                              Server *server = [Server new];
+                              [server sentToServer:requestToSign OnSuccess:^(NSDictionary *result) {
+                                  [ud setObject:[[NSString alloc] initWithFormat:@"%@",[[[VKSdk accessToken] localUser] id]] forKey:@"user_id"];
+                                  [self startWorking];
+                              }  OrFailure:^(NSError *error) {
+                                  NSLog(@"Bad sign");
+                              }];
+                              
+                          }];
                       }
                   }];
              }

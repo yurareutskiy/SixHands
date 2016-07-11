@@ -9,7 +9,6 @@
 #import "OnboardingViewController.h"
 #import "OnboardingScrollItem.h"
 
-
 @interface OnboardingViewController ()
 
 @property (strong, nonatomic) NSArray *viewsArray;
@@ -128,3 +127,4 @@
 }
 
 @end
+

@@ -262,7 +262,6 @@
     {
         //КОСТЫЛЬ,ПЕРЕДЕЛАТЬ( спать хотел :с )
         cell.flat_ID = [[self.source objectAtIndex:indexPath.item] ID];
-        NSLog(@"FLATID = %@",cell.flat_ID);
         
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"ID = %@",
                              cell.flat_ID];
@@ -286,6 +285,7 @@
             cell.favButton.alpha = 0.5;
         }
     }
+    NSLog(@"PARAMDIC - %@",paramsDict);
     if([paramsDict objectForKey:@"30"] != nil)
     {
         cell.price.text = [[NSString alloc] initWithFormat:@"%@ ₽",paramsDict[@"30"]];
@@ -295,6 +295,7 @@
     }
     if([paramsDict objectForKey:@"29"])
     {
+        NSLog(@"МЕТРЫ");
         cell.square.text = [[NSString alloc] initWithFormat:@"%@ кв. м.",paramsDict[@"29"]];
     }
     if([paramsDict objectForKey:@"4"])
@@ -305,12 +306,10 @@
     {
         cell.timeToSub.text = [[NSString alloc] initWithFormat:@"%@ мин.",paramsDict[@"37"]];
     }
-
     if([paramsDict objectForKey:@"31"])
     {
         cell.rooms.text = [[NSString alloc] initWithFormat:@"%@ ком.",paramsDict[@"31"]];
     }
-
 
     NSLog(@"TEST - %ld AND %@",(long)indexPath.item,[[self.source objectAtIndex:indexPath.item] price]);
     return cell;

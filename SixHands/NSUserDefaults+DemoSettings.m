@@ -22,7 +22,6 @@ static NSString * const kSettingSpringiness = @"kSettingSpringiness";
 static NSString * const kSettingIncomingAvatar = @"kSettingIncomingAvatar";
 static NSString * const kSettingOutgoingAvatar = @"kSettingOutgoingAvatar";
 
-
 @implementation NSUserDefaults (DemoSettings)
 
 + (void)saveSpringinessSetting:(BOOL)value

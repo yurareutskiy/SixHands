@@ -56,20 +56,21 @@
         sender.selected = 0;
         sender.alpha = 0.5;
     }
+    
     NSDictionary *parameters = [[NSDictionary alloc] init];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     parameters = @{@"id_flat": self.flat_ID, @"id_user": [ud objectForKey:@"user_id"]};
     
-    ServerRequest *request = [ServerRequest initRequest:ServerRequestTypePUT With:parameters To:@"flats/favourites"];
+    ServerRequest *request = [ServerRequest initRequest:ServerRequestTypePOST With:parameters To:@"flats/favourites"];
     Server *server = [Server new];
     [server sentToServer:request OnSuccess:^(NSDictionary *result) {
-    
-        NSLog(@"FLAT - %@ STASUS HAS BEEN CHANGED: %@",self.flat_ID,result);
+        
         RLMRealm *realm = [RLMRealm defaultRealm];
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"ID = %@",
                              self.flat_ID];
         
         RLMResults<FavouriteFlats*> *flats = [FavouriteFlats objectsWithPredicate:pred];
+        
         if([flats.firstObject.ID isEqualToString:self.flat_ID])
         {
             [realm beginWriteTransaction];
@@ -88,7 +89,6 @@
     }  OrFailure:^(NSError *error) {
         NSLog(@"Error favourite request");
     }];
-    
 }
 
 - (NSString*)formattedStringWithPrice:(NSString*)price {
@@ -110,4 +110,5 @@
     [resultString appendString:@" ₽"];
     return resultString;
 }
+
 @end
