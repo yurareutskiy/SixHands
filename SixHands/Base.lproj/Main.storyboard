@@ -51,6 +51,7 @@
         </mutableArray>
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
         </mutableArray>
         <mutableArray key="Lato-Bold.ttf">
             <string>Lato-Bold</string>
@@ -159,7 +160,7 @@
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IY-xD-Kcq">
                                 <rect key="frame" x="20" y="446" width="560" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="Далее">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -213,7 +214,7 @@
                         <outlet property="pageControl" destination="uMG-5D-Wd2" id="tNB-0j-Swb"/>
                         <outlet property="scroll" destination="BMB-KU-kn5" id="Dap-Oj-C7n"/>
                         <outlet property="swipe" destination="BrN-15-vu0" id="e7B-zD-0uH"/>
-                        <segue destination="qGd-Bt-xcL" kind="show" identifier="firststart" id="Ls3-fb-fWO"/>
+                        <segue destination="qGd-Bt-xcL" kind="show" identifier="firststart" id="Ls3-fb-fW0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcc-oh-mJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2978,16 +2979,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LqV-QS-JRt">
                                 <rect key="frame" x="0.0" y="0.0" width="288" height="900"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PdV-RJ-ICU">
-                                        <rect key="frame" x="152" y="142" width="125" height="29"/>
-                                        <fontDescription key="fontDescription" name="GothamPro-Light" family="Gotham Pro" pointSize="15"/>
-                                        <state key="normal" title="Комната">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="aloneRoom:" destination="osh-xp-nOX" eventType="touchUpInside" id="0cX-3S-yq3"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcB-4J-FUJ" customClass="TTRangeSlider">
                                         <rect key="frame" x="14" y="207" width="260" height="65"/>
                                         <color key="tintColor" red="0.30980392159999998" green="0.93333333330000001" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
@@ -3183,6 +3174,16 @@
                                         </state>
                                         <connections>
                                             <action selector="room3:" destination="osh-xp-nOX" eventType="touchUpInside" id="Ikd-x4-5OK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PdV-RJ-ICU">
+                                        <rect key="frame" x="152" y="142" width="125" height="29"/>
+                                        <fontDescription key="fontDescription" name="GothamPro-Light" family="Gotham Pro" pointSize="15"/>
+                                        <state key="normal" title="Комната">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="aloneRoom:" destination="osh-xp-nOX" eventType="touchUpInside" id="0cX-3S-yq3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3570,7 +3571,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IsK-fM-GmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1898" y="324"/>
+            <point key="canvasLocation" x="1582" y="270"/>
         </scene>
         <!--Карта-->
         <scene sceneID="gPl-lP-efg">
@@ -3666,7 +3667,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSU-DG-QJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="1217"/>
+            <point key="canvasLocation" x="2059" y="1027"/>
         </scene>
         <!--Список-->
         <scene sceneID="yZV-CM-d9H">

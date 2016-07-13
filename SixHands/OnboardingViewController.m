@@ -13,17 +13,18 @@
 
 @property (strong, nonatomic) NSArray *viewsArray;
 
-
 @end
 
-@implementation OnboardingViewController
+@implementation OnboardingViewController{
+    BOOL last;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewsArray = [self createViewsArray];
     [self setLayout];
 
-    
+    last = false;
     [self.swipe addTarget:self action:@selector(swipeAction:)];
     [self.backSwipe addTarget:self action:@selector(swipeAction:)];
     
@@ -93,10 +94,13 @@
     [self swipeOnBack:NO];
     NSLog(@"page - %ld",(long)self.pageControl.currentPage);
     NSLog(@"total - %ld",(long)self.viewsArray.count);
-    if(self.pageControl.currentPage == [self.viewsArray count] - 1)
-    {
+    if(last){
         [self dismissViewControllerAnimated:YES completion:nil];
         [self performSegueWithIdentifier:@"firststart" sender:self];
+    }
+    if(self.pageControl.currentPage == [self.viewsArray count] - 1)
+    {
+        last = true;
     }
 }
 
@@ -105,6 +109,9 @@
     if (isBackSwipe && pointOffset.x > 0) {
         pointOffset.x -= self.view.frame.size.width;
         [self.pageControl setCurrentPage:self.pageControl.currentPage - 1];
+        if(last){
+           [self.doneButton setHidden:YES];
+        }
     } else if (isBackSwipe == NO && pointOffset.x < self.view.frame.size.width * ([self.viewsArray count] - 1)) {
         pointOffset.x += self.view.frame.size.width;
         [self.pageControl setCurrentPage:self.pageControl.currentPage + 1];
@@ -113,13 +120,15 @@
     }
     if (self.pageControl.currentPage == [self.viewsArray count] - 1) {
         [self.doneButton setHidden:YES];
-    } else if (self.pageControl.currentPage == [self.viewsArray count] - 2) {
         [self.nextButton setHidden:NO];
-        [self.doneButton setHidden:NO];
-    } else if(self.pageControl.currentPage == [self.viewsArray count])
-    {
-        
-    }
+        [self.nextButton setTitle:@"Приступить!" forState:0];
+       
+    } else if (self.pageControl.currentPage == [self.viewsArray count] - 2) {
+        if(last == false){
+            [self.doneButton setHidden:NO];
+        }
+        [self.nextButton setHidden:NO];
+    } 
     
     [UIView animateWithDuration:0.2 animations:^{
         [self.scroll setContentOffset:pointOffset];
