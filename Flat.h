@@ -7,6 +7,7 @@
 //
 
 #import <Realm/Realm.h>
+#import "FlatPhoto.h"
 
 @interface Flat : RLMObject
 + (NSString *)primaryKey;
@@ -17,7 +18,9 @@
 @property NSString* price;
 @property NSString* square;
 @property NSString* parameters;
-
+@property RLMArray<FlatPhoto> *photos;
+@property NSString* undegroundName;
+@property NSString* undergroundColor;
 -(void)print;
 @end
 

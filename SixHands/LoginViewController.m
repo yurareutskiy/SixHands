@@ -14,6 +14,8 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "FavouriteFlats.h"
 #import "UndergroundList.h"
+#import "Flat.h"
+#import "Params.h"
 
 static NSArray *SCOPE = nil;
 
@@ -82,8 +84,7 @@ static NSArray *SCOPE = nil;
             [realm commitWriteTransaction];
         }
         NSLog(@"NICE FAV FETCH");
-        [self performSegueWithIdentifier:@"test" sender:self];
-    }  OrFailure:^(NSError *error) {
+            }  OrFailure:^(NSError *error) {
          NSLog(@"BAD FAV FETCH");
     }];
     parameters = @{@"id_city": @"1"};
@@ -113,6 +114,33 @@ static NSArray *SCOPE = nil;
         NSLog(@"NICE UNDERGROUND FETCH");
     }  OrFailure:^(NSError *error) {
         NSLog(@"BAD UNDERGROUND FETCH");
+    }];
+    
+    ServerRequest *requestToPost = [ServerRequest initRequest:ServerRequestTypeGET With:nil
+                                                           To:@"parameters"];
+    [server sentToServer:requestToPost OnSuccess:^(NSDictionary *result) {
+        
+        NSString *key = [[NSString alloc] init];
+        
+        for (key in result)
+        {
+            
+            Params *oneParam = [[Params alloc] init];
+            oneParam.ID = key;
+            NSDictionary *tmp = [result objectForKey:key];
+            if([tmp objectForKey:@"translations"] != nil)
+            {
+                oneParam.RULocale = tmp[@"translations"][@"1"];
+                oneParam.name = tmp[@"translations"][@"2"];
+            }
+            [realm beginWriteTransaction];
+            [realm addOrUpdateObject:oneParam];
+            [realm commitWriteTransaction];
+        }
+        [self performSegueWithIdentifier:@"test" sender:self];
+
+    }  OrFailure:^(NSError *error) {
+        
     }];
 
 }

@@ -24,21 +24,21 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-            <array>
-                <string>vk5446345</string>
-                <string>fb269516973394643</string>
-            </array>
+			<array>
+				<string>vk5446345</string>
+				<string>fb269516973394643</string>
+			</array>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>vk5446345</string>
-                <string>fb269516973394643</string>
+				<string>fb269516973394643</string>
 			</array>
 		</dict>
 	</array>
-    <key>FacebookAppID</key>
-    <string>269516973394643</string>
-    <key>FacebookDisplayName</key>
-    <string>SixHands</string>
+	<key>FacebookAppID</key>
+	<string>269516973394643</string>
+	<key>FacebookDisplayName</key>
+	<string>SixHands</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -55,6 +55,8 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>6hands.styleru.net</key>

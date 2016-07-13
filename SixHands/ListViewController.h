@@ -23,7 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIView *viewFav;
 
 
-
+- (UIColor*) checkColor:(NSString*) ID;
 - (IBAction)buttonNew:(UIButton *)sender;
 - (IBAction)popularButton:(UIButton *)sender;
 - (IBAction)favButton:(UIButton *)sender;

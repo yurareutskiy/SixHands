@@ -53,10 +53,13 @@
 		B1A8E0691C971376008F4701 /* NSUserDefaults+DemoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E0681C971376008F4701 /* NSUserDefaults+DemoSettings.m */; };
 		B20785FB1D00B85B00A14E89 /* Params.m in Sources */ = {isa = PBXBuildFile; fileRef = B20785FA1D00B85B00A14E89 /* Params.m */; };
 		B25361561CFF85FC007F8F68 /* Flat.m in Sources */ = {isa = PBXBuildFile; fileRef = B25361551CFF85FC007F8F68 /* Flat.m */; };
+		B266D97F1D36676B00244C8D /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = B266D97E1D36676B00244C8D /* loading.gif */; };
 		B297BE101D08AE19007775B8 /* ParamsTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B297BE0F1D08AE19007775B8 /* ParamsTextField.m */; };
 		B2AE41791D2C2A8500CEDAF8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AE41781D2C2A8500CEDAF8 /* User.m */; };
 		B2F079171D31859E00F05C12 /* FavouriteFlats.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F079161D31859E00F05C12 /* FavouriteFlats.m */; };
 		B2F0E2F21D341C900030C621 /* UndergroundList.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F0E2F11D341C900030C621 /* UndergroundList.m */; };
+		B2F0E2F51D3657910030C621 /* FlatPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F0E2F41D3657910030C621 /* FlatPhoto.m */; };
+		B2F0E2F71D3660F10030C621 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = B2F0E2F61D3660F10030C621 /* giphy.gif */; };
 		DB2179DD1C7532AA001BF4C1 /* ParameterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */; };
 		DB2179E01C753790001BF4C1 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2179DF1C753790001BF4C1 /* PhotoCollectionViewCell.m */; };
 		DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2D455D1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m */; };
@@ -206,6 +209,7 @@
 		B20785FA1D00B85B00A14E89 /* Params.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Params.m; sourceTree = "<group>"; };
 		B25361541CFF85FC007F8F68 /* Flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flat.h; path = ../Flat.h; sourceTree = "<group>"; };
 		B25361551CFF85FC007F8F68 /* Flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Flat.m; path = ../Flat.m; sourceTree = "<group>"; };
+		B266D97E1D36676B00244C8D /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		B297BE0E1D08AE19007775B8 /* ParamsTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamsTextField.h; sourceTree = "<group>"; };
 		B297BE0F1D08AE19007775B8 /* ParamsTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParamsTextField.m; sourceTree = "<group>"; };
 		B2AE41771D2C2A8500CEDAF8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
@@ -214,6 +218,9 @@
 		B2F079161D31859E00F05C12 /* FavouriteFlats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteFlats.m; sourceTree = "<group>"; };
 		B2F0E2F01D341C900030C621 /* UndergroundList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UndergroundList.h; sourceTree = "<group>"; };
 		B2F0E2F11D341C900030C621 /* UndergroundList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UndergroundList.m; sourceTree = "<group>"; };
+		B2F0E2F31D3657910030C621 /* FlatPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatPhoto.h; sourceTree = "<group>"; };
+		B2F0E2F41D3657910030C621 /* FlatPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatPhoto.m; sourceTree = "<group>"; };
+		B2F0E2F61D3660F10030C621 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy.gif; sourceTree = "<group>"; };
 		DB2179DB1C7532AA001BF4C1 /* ParameterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterTableViewCell.h; sourceTree = "<group>"; };
 		DB2179DC1C7532AA001BF4C1 /* ParameterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterTableViewCell.m; sourceTree = "<group>"; };
 		DB2179DE1C753790001BF4C1 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -422,6 +429,7 @@
 		3A93F33B1C6557A600E6B900 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				B2F0E2F61D3660F10030C621 /* giphy.gif */,
 				3A93F33C1C6557B400E6B900 /* GothamProBlack.ttf */,
 				DB4E28041C68CF7300303437 /* Lato-Black.ttf */,
 				DB4E28051C68CF7300303437 /* Lato-BlackItalic.ttf */,
@@ -497,6 +505,8 @@
 				B2F079161D31859E00F05C12 /* FavouriteFlats.m */,
 				B2F0E2F01D341C900030C621 /* UndergroundList.h */,
 				B2F0E2F11D341C900030C621 /* UndergroundList.m */,
+				B2F0E2F31D3657910030C621 /* FlatPhoto.h */,
+				B2F0E2F41D3657910030C621 /* FlatPhoto.m */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -608,6 +618,7 @@
 		DB4951FC1C5FBB4700745228 /* SixHands */ = {
 			isa = PBXGroup;
 			children = (
+				B266D97E1D36676B00244C8D /* loading.gif */,
 				B2F079141D31858400F05C12 /* Realm */,
 				DB3ED3C81C68E35700576E62 /* Controllers */,
 				DB3ED3C61C68E34C00576E62 /* Views */,
@@ -770,12 +781,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB4952141C5FBB4700745228 /* Build configuration list for PBXNativeTarget "SixHands" */;
 			buildPhases = (
-				C774C7AA46584A9818C6803F /* 📦 Check Pods Manifest.lock */,
+				C774C7AA46584A9818C6803F /* [CP] Check Pods Manifest.lock */,
 				DB4951F61C5FBB4700745228 /* Sources */,
 				DB4951F71C5FBB4700745228 /* Frameworks */,
 				DB4951F81C5FBB4700745228 /* Resources */,
-				5048227895AFBEAC8C32C932 /* 📦 Embed Pods Frameworks */,
-				053935734A1642BD3E58643E /* 📦 Copy Pods Resources */,
+				5048227895AFBEAC8C32C932 /* [CP] Embed Pods Frameworks */,
+				053935734A1642BD3E58643E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -834,11 +845,13 @@
 				DB4E281B1C68CF7300303437 /* Lato-Italic.ttf in Resources */,
 				DB4E28161C68CF7300303437 /* Lato-BoldItalic.ttf in Resources */,
 				DB4E28211C68CF7300303437 /* Lato-Semibold.ttf in Resources */,
+				B2F0E2F71D3660F10030C621 /* giphy.gif in Resources */,
 				3A93F3481C655A9200E6B900 /* GothamProBold.ttf in Resources */,
 				3A93F3491C655A9200E6B900 /* GothamProBoldItalic.ttf in Resources */,
 				DB4E28201C68CF7300303437 /* Lato-Regular.ttf in Resources */,
 				3A93F34A1C655A9200E6B900 /* GothamProItalic.ttf in Resources */,
 				3A93F34B1C655A9200E6B900 /* GothamProLight.ttf in Resources */,
+				B266D97F1D36676B00244C8D /* loading.gif in Resources */,
 				3A93F34C1C655A9200E6B900 /* GothamProLightItalic.ttf in Resources */,
 				3A93F34D1C655A9200E6B900 /* GothamProMedium.ttf in Resources */,
 				3A93F34E1C655A9200E6B900 /* GothamProMediumItalic.ttf in Resources */,
@@ -859,14 +872,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		053935734A1642BD3E58643E /* 📦 Copy Pods Resources */ = {
+		053935734A1642BD3E58643E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -874,14 +887,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SixHands/Pods-SixHands-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5048227895AFBEAC8C32C932 /* 📦 Embed Pods Frameworks */ = {
+		5048227895AFBEAC8C32C932 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -889,14 +902,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SixHands/Pods-SixHands-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C774C7AA46584A9818C6803F /* 📦 Check Pods Manifest.lock */ = {
+		C774C7AA46584A9818C6803F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -936,6 +949,7 @@
 				3A8A7EB81C66A836005946C0 /* SHSPhoneLogic.m in Sources */,
 				3A3F9F6A1C661FA500E5E8AC /* GQuadItem.m in Sources */,
 				DB9FE4A31C6C1ACF00DD27F5 /* SettingsViewController.m in Sources */,
+				B2F0E2F51D3657910030C621 /* FlatPhoto.m in Sources */,
 				3A3F9F6B1C661FA500E5E8AC /* GStaticCluster.m in Sources */,
 				DB745A2A1C7C55F300082134 /* Constants.m in Sources */,
 				B2F0E2F21D341C900030C621 /* UndergroundList.m in Sources */,

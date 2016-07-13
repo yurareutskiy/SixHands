@@ -13,6 +13,10 @@
 #import "Flat.h"
 #import "Params.h"
 #import "FavouriteFlats.h"
+#import "FlatPhoto.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UndergroundList.h"
+
 @interface ListViewController ()
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -82,6 +86,7 @@
     UISwipeGestureRecognizer *filterSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(rightRevealToggle:)];
     filterSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:filterSwipe];
+    
     [super viewDidLoad];
 }
 
@@ -112,30 +117,33 @@
 
     ServerRequest *requestToGet = [ServerRequest initRequest:ServerRequestTypeGET With:parameters To:url];
     [server sentToServer:requestToGet OnSuccess:^(NSDictionary *result) {
-        NSDictionary *key;
-            for (key in result) {
+        NSDictionary *keyinresult;
+            for (keyinresult in result) {
             Flat *flatToFill= [Flat new];
-            flatToFill.address = [NSString stringWithFormat:@"%@ %@",key[@"street"],key[@"building"]];
-            flatToFill.latitude = key[@"latitude"];
-            flatToFill.longitude = key[@"longitude"];
-            flatToFill.ID = key[@"id"];
-            NSDictionary *params = key[@"parameters"];
-            NSDictionary *param;
+            flatToFill.address = [NSString stringWithFormat:@"%@ %@",keyinresult[@"street"],keyinresult[@"building"]];
+            flatToFill.latitude = keyinresult[@"latitude"];
+            flatToFill.longitude = keyinresult[@"longitude"];
+            flatToFill.ID = keyinresult[@"id"];
+            NSDictionary *params = keyinresult[@"parameters"];
+            NSDictionary *key;
                 NSMutableDictionary *serializedParams = [NSMutableDictionary new];
          
             if(![[NSString stringWithFormat:@"%@",params] isEqual: @"<null>"])
             {
-                for(param in params)
-                {
-                    for(NSString *key in param)
-                    {
-                        [serializedParams setObject:[param objectForKey:key] forKey:key];
-                    }
-                }
-            NSLog(@"SERP = %@",serializedParams);
-             
+                serializedParams = params;
                 flatToFill.parameters = [NSString stringWithFormat:@"%@",serializedParams];
             }
+            for(key in keyinresult[@"photos"])
+            {
+                FlatPhoto *onePhoto = [FlatPhoto new];
+                onePhoto.url = key[@"url"];
+                onePhoto.selfdescription = key[@"description"];
+                [flatToFill.photos addObject:onePhoto];
+            }
+            flatToFill.undegroundName = keyinresult[@"name_underground"];
+            NSPredicate *pred = [NSPredicate predicateWithFormat:@"name = %@",keyinresult[@"name_underground_line"]];
+             RLMResults<UndergroundList*> *toColor = [UndergroundList objectsWithPredicate:pred];
+            flatToFill.undergroundColor = toColor.firstObject.colorName;
             [arrayToFill addObject:flatToFill];
         }
         self.source = arrayToFill;
@@ -145,6 +153,21 @@
     }];
 
 
+}
+
+-(UIColor*) checkColor:(NSString*) ID
+{
+    NSLog(@"COLOR - %@",ID);
+    
+    UIColor *color = [UIColor whiteColor];
+    if([ID isEqualToString:@"Синий"])
+    {
+        color = [UIColor blueColor];
+    }else if([ID isEqualToString:@"Серый"])
+    {
+        color = [UIColor grayColor];
+    }
+    return color;
 }
 
 
@@ -253,7 +276,22 @@
                           format:NULL
                           error:NULL];
     }
-
+    if([[self.source objectAtIndex:indexPath.item] undergroundColor])
+    {
+        NSLog(@"COLOR?");
+        cell.subway.lineColor = [self checkColor:[[self.source objectAtIndex:indexPath.item] undergroundColor]];
+    }
+    if([[self.source objectAtIndex:indexPath.item] undegroundName])
+    {
+        cell.subway.subwayName = [[self.source objectAtIndex:indexPath.item] undegroundName];
+    }
+    if([[[self.source objectAtIndex:indexPath.item] photos] firstObject])
+    {
+    NSLog(@"Downloading image with url = %@",[[[[self.source objectAtIndex:indexPath.item] photos] firstObject] url]);
+        [cell.flatFirstImage sd_setImageWithURL:[NSURL URLWithString:[[[[self.source objectAtIndex:indexPath.item] photos] firstObject] url]]
+                          placeholderImage:[UIImage imageNamed:@"loading.gif"]];
+        
+    }
     if([[self.source objectAtIndex:indexPath.item] address] != nil)
     {
         cell.address.text = [[self.source objectAtIndex:indexPath.item] address];
@@ -267,11 +305,8 @@
                              cell.flat_ID];
         RLMResults<FavouriteFlats*> *flats = [FavouriteFlats objectsWithPredicate:pred];
         if(flats.firstObject != nil)
-        {
-//            NSLog(@"fav count -  %lu",(unsigned long)favouriteFlat.firstObject);
-            if([flats.firstObject.ID isEqualToString:cell.flat_ID])
+        {            if([flats.firstObject.ID isEqualToString:cell.flat_ID])
             {
-                NSLog(@"EQUAL");
                 [cell.favStarImage setImage:[UIImage imageNamed:@"star_green_fill"]];
                 cell.favStarImage.alpha = 1;
                 cell.favButton.selected = 1;
