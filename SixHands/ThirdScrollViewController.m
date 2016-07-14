@@ -11,15 +11,17 @@
 #import "AddPhotoCollectionViewCell.h"
 
 @interface ThirdScrollViewController ()
-
+@property (strong, nonatomic) PhotoCollectionViewCell *pcvc;
 @end
 
 @implementation ThirdScrollViewController {
     NSInteger numberOfRows;
+    NSMutableArray* photoArray;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    photoArray = [[NSMutableArray alloc]init];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
@@ -27,7 +29,6 @@
     [self.view addGestureRecognizer:tap];
     
     self.collectionView.frame = CGRectMake(0.0, 240.0, self.view.frame.size.width, self.view.frame.size.height-290);
-    numberOfRows = 30;
     // Do any additional setup after loading the view.
 }
 
@@ -49,8 +50,9 @@
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return numberOfRows;
+    return [photoArray count]+1;
 }
+
 -(void) savePrice
 {
     NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:@"flatToPost"];
@@ -58,24 +60,45 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger last = numberOfRows - 1;
+    NSInteger last = [photoArray count];
     if (indexPath.row == last) {
         AddPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"addPhoto" forIndexPath:indexPath];
-        if (!cell) {
-            cell = [[AddPhotoCollectionViewCell alloc] init];
-        }
+//        if (!cell) {
+//            cell = [[AddPhotoCollectionViewCell alloc] init];
+//        }
         return cell;
         
     } else {
         PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"photo" forIndexPath:indexPath];
-        if (!cell) {
-            cell = [[PhotoCollectionViewCell alloc] init];
-        }
+//        if (!cell) {
+//            cell = [[PhotoCollectionViewCell alloc] init];
+//        }
         cell.image.layer.cornerRadius = 10.f;
         cell.image.layer.masksToBounds = YES;
+        [cell.image setImage:photoArray[indexPath.row]];
+        cell.deleteButton.tag = indexPath.row;
         return cell;
     }
 }
 
 
+- (IBAction)deletePhoto:(UIButton*)sender {
+    [photoArray removeObjectAtIndex:sender.tag];
+    [self.collectionView reloadData];
+}
+
+- (IBAction)addPhoto:(UIButton*)sender {
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+    pickerController.delegate = self;
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [photoArray addObject:image];
+    [self.collectionView reloadData];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

@@ -2884,7 +2884,7 @@
                                                     </constraints>
                                                     <state key="normal" backgroundImage="close-button"/>
                                                     <connections>
-                                                        <action selector="closeAction:" destination="B4s-E1-uhx" eventType="touchUpInside" id="fQF-H9-ADW"/>
+                                                        <action selector="deletePhoto:" destination="gE7-Bc-egs" eventType="touchUpInside" id="HAi-Hm-P7N"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2901,6 +2901,7 @@
                                         </constraints>
                                         <size key="customSize" width="95" height="105"/>
                                         <connections>
+                                            <outlet property="deleteButton" destination="8Cd-Je-6iD" id="pvt-0D-FSk"/>
                                             <outlet property="image" destination="KjB-FS-6G0" id="e9q-0C-qsy"/>
                                         </connections>
                                     </collectionViewCell>
@@ -2916,7 +2917,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <state key="normal" backgroundImage="addButton"/>
                                                     <connections>
-                                                        <action selector="buttonAction:" destination="t4w-A2-SVk" eventType="touchUpInside" id="fRF-Np-1cw"/>
+                                                        <action selector="addPhoto:" destination="gE7-Bc-egs" eventType="touchUpInside" id="cAb-aU-W0K"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2925,7 +2926,7 @@
                                         <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="customSize" width="95" height="105"/>
                                         <connections>
-                                            <outlet property="button" destination="KVK-8h-W9k" id="wmW-dO-dAm"/>
+                                            <outlet property="button" destination="KVK-8h-W9k" id="HHU-3W-8eW"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

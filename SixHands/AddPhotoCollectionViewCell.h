@@ -10,6 +10,6 @@
 
 @interface AddPhotoCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIButton *button;
-- (IBAction)buttonAction:(UIButton *)sender;
+//- (IBAction)buttonAction:(UIButton *)sender;
 
 @end

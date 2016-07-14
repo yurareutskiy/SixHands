@@ -11,6 +11,7 @@
 @implementation AddPhotoCollectionViewCell
 
 
-- (IBAction)buttonAction:(UIButton *)sender {
-}
+//- (IBAction)buttonAction:(UIButton *)sender {
+//    
+//}
 @end

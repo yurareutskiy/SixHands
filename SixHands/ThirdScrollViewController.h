@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "Flat.h"
-
-@interface ThirdScrollViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate,UITextFieldDelegate>
-
+#import "PhotoCollectionViewCell.h"
+//@protocol  WorkWithCollectionViewCellDelegate <NSObject>
+//
+//-(void)deletePhotoCollectionViewCell:(UIButton*)sender;
+//-(void)addNewPhotoCollectionViewCell;
+//@end
+@interface ThirdScrollViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+//@property (weak,nonatomic) id <WorkWithCollectionViewCellDelegate> delegatecell;
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) Flat* flatToFill;
-
+- (IBAction)deletePhoto:(UIButton*)sender;
+//@property (weak, nonatomic) IBOutlet UIButton *closeAction;
+- (IBAction)addPhoto:(UIButton*)sender;
 -(void)savePrice;
 @end

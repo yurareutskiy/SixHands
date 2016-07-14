@@ -7,13 +7,14 @@
 //
 
 #import "PhotoCollectionViewCell.h"
-
+#import "ThirdScrollViewController.h"
 @implementation PhotoCollectionViewCell
 
 - (instancetype)init {
     PhotoCollectionViewCell *cell = [super init];
     cell.image.layer.cornerRadius = 15.f;
     cell.image.layer.masksToBounds = YES;
+//    [cell.image setImage:[UIImage imageNamed:@"kvartira2"]];
     return cell;
 }
 
@@ -21,6 +22,4 @@
 
 }
 
-- (IBAction)closeAction:(UIButton *)sender {
-}
 @end
