@@ -13,6 +13,7 @@
 @property NSString* name;
 @property NSString* ID;
 @property NSString* RULocale;
+@property NSString* type;
 @end
 
 // This protocol enables typed collections. i.e.:

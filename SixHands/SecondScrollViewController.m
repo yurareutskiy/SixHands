@@ -13,6 +13,7 @@
 @interface SecondScrollViewController ()
 
 @property (strong, nonatomic) NSArray *parameters;
+@property (strong, nonatomic) NSArray *parameters_type;
 
 @property NSMutableDictionary *paramsDict;
 
@@ -25,25 +26,35 @@
     self.view.frame = CGRectMake(0.0,0.0, self.view.frame.size.width, self.view.frame.size.height-50);
     CGRect rect = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64);
     self.scroll.frame = rect;
-    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width, 986.0);
-    self.scroll.contentInset = UIEdgeInsetsMake(0.0, 0.0, 452.0, 0.0);
+//    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width, 1206.0);
+//    self.scroll.contentInset = UIEdgeInsetsMake(0.0, 0.0, 672.0, 0.0);
     self.table.scrollEnabled = NO;
 
     _paramsDict = [[NSMutableDictionary alloc] init];
+    self.parameters_type = [[NSArray alloc]init];
     self.parameters = @[@"  Жилая площадь, м²", @"  Кухня, м²",@"  Высота потолков, м",@"  Этаж",@"  Этажей в доме",@"  Балконов",@"  Лоджий",@"  Раздельных санузлов",@"  Совмещенных санузлов",@"  Вид из окон",@"  Тип ремонта",@"  Тип дома",@"  Название жк",@"  Год постройки",@"  Пассажирских лифтов",@"  Грузовых лифтов",@"  Наличие мусоропровода",@"  Наличие телефона"];
     NSMutableArray *toFormParams = [NSMutableArray new];
+    NSMutableArray *toFormParamstype = [NSMutableArray new];
     RLMResults<Params *> *dogs = [Params allObjects];
     for (NSInteger i = 0; i < [dogs count]; i++) {
         Params *param =  dogs[i];
-        [toFormParams addObject:param.RULocale];
-        self.parameters = toFormParams;
+        if (param.RULocale) {
+            [toFormParams addObject:param.RULocale];
+        }
+        if (param.type) {
+        [toFormParamstype addObject:param.type];
+        }
     }
+    self.parameters = toFormParams;
+    self.parameters_type = toFormParamstype;
+    self.scroll.contentSize = CGSizeMake(self.view.frame.size.width, 194+44.0*[self.parameters count]);
+    self.scroll.contentInset = UIEdgeInsetsMake(0.0, 0.0, 12.0+44.0*([self.parameters count]-8), 0.0);
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.view addGestureRecognizer:tap];
-    self.
+//    self.
     self.slider.minimumValue = 0;
     self.slider.maximumValue = 300;
-    self.sliderLabel.text = @"0 м";
+    self.sliderLabel.text = @"0 м²";
 //    self.slider.
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -68,7 +79,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
 
-    CGRect tableRect = CGRectMake(0, 194, self.view.frame.size.width, 792.0);
+    CGRect tableRect = CGRectMake(0, 194, self.view.frame.size.width, 44.0*[self.parameters count]);
     
     self.table.frame = tableRect;
 
@@ -109,7 +120,7 @@
     
 }
 - (IBAction)sliderChangeValue:(UISlider *)sender {
-    self.sliderLabel.text = [NSString stringWithFormat:@"%d м", (int)sender.value];
+    self.sliderLabel.text = [NSString stringWithFormat:@"%d м²", (int)sender.value];
 }
 
 #pragma mark - UITableViewDelegate
@@ -119,12 +130,14 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ParameterTableViewCell *cell;
+    NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!%@",self.parameters_type[indexPath.row]);
+    if ([self.parameters_type[indexPath.row]  isEqual: @"varchar"]){
+    ParameterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"string_parameter"];
 
-    ParameterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"parameter"];
-
-    if (!cell) {
-        cell = [[ParameterTableViewCell alloc] init];
-    }
+//    if (!cell) {
+//        cell = [[ParameterTableViewCell alloc] init];
+//    }
     cell.keyLabel.text = self.parameters[indexPath.row];
     cell.keyLabel.text = [cell.keyLabel.text stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[cell.keyLabel.text substringToIndex:1] uppercaseString]];
     cell.valueTextField.tag = indexPath.row;
@@ -134,11 +147,77 @@
 
     cell.valueTextField.delegate = self;
     cell.valueTextField.ID = tmpParam.ID;
+    NSLog(@"PARAM_ID===== %@",tmpParam.ID);
     NSLog(@"TFID - %@",self.parameters[indexPath.row]);
 //    NSLog(@"INDEX = %ld",(long)indexPath.row);
 //    [cell.valueTextField addTarget:self action:@selector(checkTextFieldTapped:event:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
+    }
+    if ([self.parameters_type[indexPath.row]  isEqual: @"numeric"]){
+        ParameterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"int_parameter"];
+        
+        //    if (!cell) {
+        //        cell = [[ParameterTableViewCell alloc] init];
+        //    }
+        cell.keyLabel.text = self.parameters[indexPath.row];
+        cell.keyLabel.text = [cell.keyLabel.text stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[cell.keyLabel.text substringToIndex:1] uppercaseString]];
+        cell.valueTextField.tag = indexPath.row;
+        Params *tmpParam = [[Params objectsWhere: [[NSString alloc] initWithFormat:@"RULocale = '%@'",self.parameters[indexPath.row]]] firstObject];
+        //
+        
+        
+        cell.valueTextField.delegate = self;
+        cell.valueTextField.ID = tmpParam.ID;
+        NSLog(@"PARAM_ID===== %@",tmpParam.ID);
+        NSLog(@"TFID - %@",self.parameters[indexPath.row]);
+        //    NSLog(@"INDEX = %ld",(long)indexPath.row);
+        //    [cell.valueTextField addTarget:self action:@selector(checkTextFieldTapped:event:) forControlEvents:UIControlEventTouchUpInside];
+        return cell;
+    }
+    if ([self.parameters_type[indexPath.row]  isEqual: @"bool"]){
+        ParameterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bool_parameter"];
+        
+        //    if (!cell) {
+        //        cell = [[ParameterTableViewCell alloc] init];
+        //    }
+        cell.keyLabel.text = self.parameters[indexPath.row];
+        cell.keyLabel.text = [cell.keyLabel.text stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[cell.keyLabel.text substringToIndex:1] uppercaseString]];
+//        cell.valueTextField.tag = indexPath.row;
+//        Params *tmpParam = [[Params objectsWhere: [[NSString alloc] initWithFormat:@"RULocale = '%@'",self.parameters[indexPath.row]]] firstObject];
+//        //
+//        
+//        
+//        cell.valueTextField.delegate = self;
+//        cell.valueTextField.ID = tmpParam.ID;
+//        NSLog(@"PARAM_ID===== %@",tmpParam.ID);
+//        NSLog(@"TFID - %@",self.parameters[indexPath.row]);
+        //    NSLog(@"INDEX = %ld",(long)indexPath.row);
+        //    [cell.valueTextField addTarget:self action:@selector(checkTextFieldTapped:event:) forControlEvents:UIControlEventTouchUpInside];
+        return cell;
+    }
+    if ([self.parameters_type[indexPath.row]  isEqual: @"optional"]){
+        ParameterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"options_parameter"];
+        
+        //    if (!cell) {
+        //        cell = [[ParameterTableViewCell alloc] init];
+        //    }
+        cell.keyLabel.text = self.parameters[indexPath.row];
+        cell.keyLabel.text = [cell.keyLabel.text stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[cell.keyLabel.text substringToIndex:1] uppercaseString]];
+        //        cell.valueTextField.tag = indexPath.row;
+        //        Params *tmpParam = [[Params objectsWhere: [[NSString alloc] initWithFormat:@"RULocale = '%@'",self.parameters[indexPath.row]]] firstObject];
+        //        //
+        //
+        //
+        //        cell.valueTextField.delegate = self;
+        //        cell.valueTextField.ID = tmpParam.ID;
+        //        NSLog(@"PARAM_ID===== %@",tmpParam.ID);
+        //        NSLog(@"TFID - %@",self.parameters[indexPath.row]);
+        //    NSLog(@"INDEX = %ld",(long)indexPath.row);
+        //    [cell.valueTextField addTarget:self action:@selector(checkTextFieldTapped:event:) forControlEvents:UIControlEventTouchUpInside];
+        return cell;
+    }
     
+    return cell;
 }
 
 
