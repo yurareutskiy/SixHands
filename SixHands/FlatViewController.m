@@ -58,7 +58,7 @@
             RLMResults<Params *> *paramsWithKey = [Params objectsWithPredicate:pred];
             for (Params *param in paramsWithKey)
             {
-                if(![[param RULocale] isEqualToString:@"описание"])
+                if(![[param RULocale] isEqualToString:@"описание"] && ![[param RULocale] isEqualToString:@"цена"])
                 [paramsNamesArray addObject:[param RULocale]];
             }
         }
@@ -133,11 +133,13 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
+    
     NSDictionary *dict1 = [NSPropertyListSerialization
                            propertyListWithData:[_flat.parameters dataUsingEncoding:NSUTF8StringEncoding]
                            options:kNilOptions
                            format:NULL
                            error:NULL];
+
     if (indexPath.row == 0) {
         NSString *CellIdentifier = @"ScrollCell";
         cell = (ScrollFlatTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -147,24 +149,21 @@
         float width = self.view.frame.size.width;
         [(ScrollFlatTableViewCell*)cell setScrollViewWithWidth:width];
         if(dict1[@"30"])
-        ((ScrollFlatTableViewCell*)cell).priceLabel.text =[[NSString alloc] initWithFormat:@"%@ ₽/мес",dict1[@"30"]];
+            ((ScrollFlatTableViewCell*)cell).priceLabel.text = [((ScrollFlatTableViewCell*)cell) formattedStringWithPrice:dict1[@"30"]];
         else
-           ((ScrollFlatTableViewCell*)cell).priceLabel.text = @"Цена не установлена";
+           ((ScrollFlatTableViewCell*)cell).priceLabel.text = @"No price";
     } else if (indexPath.row == 1) {
         NSString *CellIdentifier = @"GeneralDescriptionCell";
         cell = (GeneralDescriptionTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];        if (cell==nil) {
             cell = [[GeneralDescriptionTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                }
         ((GeneralDescriptionTableViewCell*)cell).addressLabel.text = _flat.address;
-
+        NSString *date = self.flat.createDate;
+        NSArray* parsed = [date componentsSeparatedByString:@" "];
+        ((GeneralDescriptionTableViewCell*)cell).postDate.text = parsed[0];
+        ((GeneralDescriptionTableViewCell*)cell).postTime.text = parsed[1];
+        NSLog(@"TIME - %@",parsed[1]);
     }else if ((indexPath.row >1)&&(indexPath.row < descriptionRow)){
-        NSString *CellIdentifier = @"InfoCell";
-        cell = (InfoTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        if (cell==nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        }
-        ((InfoTableViewCell*)cell).nameLabel.text = self.parameters[indexPath.row-2];
-        ((InfoTableViewCell*)cell).nameLabel.text =[((InfoTableViewCell*)cell).nameLabel.text stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[((InfoTableViewCell*)cell).nameLabel.text substringToIndex:1] uppercaseString]];
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"RULocale = %@",
                              self.parameters[indexPath.row-2]];
         RLMResults<Params *> *paramsWithKey = [Params objectsWithPredicate:pred];
@@ -173,11 +172,15 @@
         {
             [str appendString:param.ID];
         }
-        if([str isEqualToString:@"27"])
-        {
-            return nil;
+        NSString *CellIdentifier = @"InfoCell";
+        cell = (InfoTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        if (cell==nil) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-
+        
+        ((InfoTableViewCell*)cell).nameLabel.text = self.parameters[indexPath.row-2];
+        ((InfoTableViewCell*)cell).nameLabel.text =[((InfoTableViewCell*)cell).nameLabel.text stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[((InfoTableViewCell*)cell).nameLabel.text substringToIndex:1] uppercaseString]];
+                NSLog(@"STR - %@",str);
 //        NSLog(@"PAR = %@",dict1);
         ((InfoTableViewCell*)cell).valueLabel.text = [dict1 objectForKey:str];
 //        NSLog(@"IDSTR = %@",str);

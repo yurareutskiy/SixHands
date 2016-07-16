@@ -15,5 +15,5 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageController;
 
 - (void)setScrollViewWithWidth:(float)width;
-
+- (NSString*)formattedStringWithPrice:(NSString*)price;
 @end

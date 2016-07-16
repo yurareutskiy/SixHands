@@ -10,5 +10,8 @@
 
 @interface GeneralDescriptionTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *postDate;
+@property (weak, nonatomic) IBOutlet UILabel *postTime;
+@property (weak, nonatomic) IBOutlet UILabel *timeToSub;
 
 @end

@@ -74,7 +74,7 @@ static NSArray *SCOPE = nil;
 
         NSDictionary *key;
         for (key in result) {
-                    NSLog(@"result = %@",result);
+                    NSLog(@"result fav = %@",result);
             FavouriteFlats *favoutiteFlat = [FavouriteFlats new];
             favoutiteFlat.ID = key[@"id"];
       

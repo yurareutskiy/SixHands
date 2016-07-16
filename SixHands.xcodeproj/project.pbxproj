@@ -808,7 +808,7 @@
 				TargetAttributes = {
 					DB4951F91C5FBB4700745228 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 4RWLL37A47;
+						DevelopmentTeam = FKNLQ46HWC;
 					};
 				};
 			};
@@ -1124,7 +1124,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rgradestd.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
@@ -1149,7 +1149,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rgradestd.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;

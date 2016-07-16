@@ -21,6 +21,8 @@
 @property RLMArray<FlatPhoto> *photos;
 @property NSString* undegroundName;
 @property NSString* undergroundColor;
+@property NSString* createDate;
+@property NSString* updateDate;
 -(void)print;
 @end
 

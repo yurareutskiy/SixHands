@@ -123,6 +123,8 @@
             flatToFill.address = [NSString stringWithFormat:@"%@ %@",keyinresult[@"street"],keyinresult[@"building"]];
             flatToFill.latitude = keyinresult[@"latitude"];
             flatToFill.longitude = keyinresult[@"longitude"];
+                flatToFill.createDate = keyinresult[@"create_date"];
+                flatToFill.updateDate = keyinresult[@"update_date"];
             flatToFill.ID = keyinresult[@"id"];
             NSDictionary *params = keyinresult[@"parameters"];
             NSDictionary *key;
@@ -323,8 +325,7 @@
     NSLog(@"PARAMDIC - %@",paramsDict);
     if([paramsDict objectForKey:@"30"] != nil)
     {
-        cell.price.text = [[NSString alloc] initWithFormat:@"%@ ₽",paramsDict[@"30"]];
-//        [cell formattedStringWithPrice:[paramsDict objectForKey:@"30"]];
+        cell.price.text = [cell formattedStringWithPrice:[paramsDict objectForKey:@"30"]];
     }else{
         cell.price.text = @"- ₽";
     }
@@ -340,6 +341,10 @@
     if([paramsDict objectForKey:@"37"])
     {
         cell.timeToSub.text = [[NSString alloc] initWithFormat:@"%@ мин.",paramsDict[@"37"]];
+    }
+    else
+    {
+        cell.timeToSub.text = @"-";
     }
     if([paramsDict objectForKey:@"31"])
     {

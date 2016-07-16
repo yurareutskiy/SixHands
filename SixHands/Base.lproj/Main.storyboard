@@ -1344,7 +1344,7 @@
                         <viewControllerLayoutGuide type="bottom" id="pag-9G-i1N"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7bL-D1-Kwg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1788,7 +1788,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmm-VX-OMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2717" y="1906"/>
+            <point key="canvasLocation" x="2669" y="2166"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="rE7-fX-M7c">
@@ -1963,6 +1963,11 @@
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="wwb-iA-KBN"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Москва, Краснохолмская набережная, 13" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dQc-iW-0Ly">
                                                     <rect key="frame" x="21" y="17" width="490" height="15"/>
@@ -2135,6 +2140,12 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addressLabel" destination="dQc-iW-0Ly" id="3dn-gO-6ba"/>
+                                            <outlet property="postDate" destination="oHf-gw-rnP" id="P7n-gk-afg"/>
+                                            <outlet property="postTime" destination="lo0-hf-V9Y" id="8JX-nk-PYb"/>
+                                            <outlet property="timeToSub" destination="Plg-ff-bbh" id="Q73-eE-713"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoCell" rowHeight="50" id="vBb-0Z-ePC" customClass="InfoTableViewCell">
                                         <rect key="frame" x="0.0" y="478" width="600" height="50"/>
@@ -2203,7 +2214,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rou-YK-sCn">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rou-YK-sCn">
                                                     <rect key="frame" x="20" y="30" width="560" height="120"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -3754,7 +3765,7 @@
         <image name="wifi" width="65" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oGM-WZ-rkg"/>
         <segue reference="mcH-Nn-Vmw"/>
+        <segue reference="FTi-pA-wKs"/>
     </inferredMetricsTieBreakers>
 </document>
