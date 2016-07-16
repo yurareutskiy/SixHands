@@ -115,6 +115,10 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
         <mutableArray key="Lato-Semibold.ttf">
             <string>Lato-Semibold</string>
@@ -2705,7 +2709,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="50"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="parameter" id="ZSo-qQ-cQF" customClass="ParameterTableViewCell">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="string_parameter" id="ZSo-qQ-cQF" customClass="ParameterTableViewCell">
                                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZSo-qQ-cQF" id="nNM-jh-uX3">
@@ -2727,7 +2731,7 @@
                                                     <constraints>
                                                         <constraint firstItem="aiD-Oh-fMy" firstAttribute="centerY" secondItem="nNM-jh-uX3" secondAttribute="centerY" id="aEJ-WP-AQb"/>
                                                         <constraint firstAttribute="trailing" secondItem="YUy-hK-lpK" secondAttribute="trailing" constant="16" id="hjr-mN-2HI"/>
-                                                        <constraint firstItem="aiD-Oh-fMy" firstAttribute="leading" secondItem="nNM-jh-uX3" secondAttribute="leadingMargin" id="mrd-K9-A2p"/>
+                                                        <constraint firstItem="aiD-Oh-fMy" firstAttribute="leading" secondItem="nNM-jh-uX3" secondAttribute="leadingMargin" constant="7" id="mrd-K9-A2p"/>
                                                         <constraint firstItem="YUy-hK-lpK" firstAttribute="centerY" secondItem="aiD-Oh-fMy" secondAttribute="centerY" id="xGk-Yh-QAm"/>
                                                         <constraint firstItem="YUy-hK-lpK" firstAttribute="leading" secondItem="aiD-Oh-fMy" secondAttribute="trailing" constant="8" id="xgB-Fq-iI6"/>
                                                     </constraints>
@@ -2735,6 +2739,94 @@
                                                 <connections>
                                                     <outlet property="keyLabel" destination="aiD-Oh-fMy" id="ciw-Y2-wwR"/>
                                                     <outlet property="valueTextField" destination="YUy-hK-lpK" id="suG-bD-wDV"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bool_parameter" id="l7c-4K-Mye" customClass="ParameterTableViewCell">
+                                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l7c-4K-Mye" id="rcc-XV-iAn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Параметр" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdh-AK-Ua8">
+                                                            <rect key="frame" x="8" y="11" width="81" height="21"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5QB-o2-y4R">
+                                                            <rect key="frame" x="535" y="6" width="51" height="31"/>
+                                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </switch>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="5QB-o2-y4R" secondAttribute="bottom" constant="-1.5" id="StU-hH-1hO"/>
+                                                        <constraint firstItem="fdh-AK-Ua8" firstAttribute="leading" secondItem="rcc-XV-iAn" secondAttribute="leadingMargin" constant="7" id="dH1-zy-B3q"/>
+                                                        <constraint firstItem="fdh-AK-Ua8" firstAttribute="centerY" secondItem="rcc-XV-iAn" secondAttribute="centerY" id="rIf-SR-tSw"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="5QB-o2-y4R" secondAttribute="trailing" constant="8" id="tPj-SF-F9N"/>
+                                                        <constraint firstItem="5QB-o2-y4R" firstAttribute="top" secondItem="rcc-XV-iAn" secondAttribute="topMargin" constant="-2" id="y2w-qy-1Eg"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="keyLabel" destination="fdh-AK-Ua8" id="M1B-F2-iWb"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="options_parameter" id="ag9-Lo-Oe4" customClass="ParameterTableViewCell">
+                                                <rect key="frame" x="0.0" y="116" width="600" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ag9-Lo-Oe4" id="OjF-RS-Nfu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Параметр" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmf-OT-bzG">
+                                                            <rect key="frame" x="8" y="11" width="81" height="21"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1AI-dK-4ri">
+                                                            <rect key="frame" x="452" y="-86" width="148" height="216"/>
+                                                        </pickerView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="lmf-OT-bzG" firstAttribute="centerY" secondItem="OjF-RS-Nfu" secondAttribute="centerY" id="ETb-8g-4AL"/>
+                                                        <constraint firstItem="lmf-OT-bzG" firstAttribute="leading" secondItem="OjF-RS-Nfu" secondAttribute="leadingMargin" constant="7" id="Ry0-Ic-zVg"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="keyLabel" destination="lmf-OT-bzG" id="7CK-e5-zPN"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="int_parameter" id="m2b-9y-umU" customClass="ParameterTableViewCell">
+                                                <rect key="frame" x="0.0" y="160" width="600" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m2b-9y-umU" id="3kl-f3-58m">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Параметр" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89L-G9-Sy0">
+                                                            <rect key="frame" x="8" y="11" width="81" height="21"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ввести значение" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vvd-NJ-aEe" customClass="ParamsTextField">
+                                                            <rect key="frame" x="97" y="7" width="487" height="30"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="89L-G9-Sy0" firstAttribute="centerY" secondItem="3kl-f3-58m" secondAttribute="centerY" id="HCg-jn-2MT"/>
+                                                        <constraint firstItem="89L-G9-Sy0" firstAttribute="leading" secondItem="3kl-f3-58m" secondAttribute="leadingMargin" constant="7" id="N1q-ig-l11"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Vvd-NJ-aEe" secondAttribute="trailing" constant="16" id="fhy-x3-xDO"/>
+                                                        <constraint firstItem="Vvd-NJ-aEe" firstAttribute="leading" secondItem="89L-G9-Sy0" secondAttribute="trailing" constant="8" id="nA3-2P-A48"/>
+                                                        <constraint firstItem="Vvd-NJ-aEe" firstAttribute="centerY" secondItem="89L-G9-Sy0" secondAttribute="centerY" id="teP-Lr-GzF"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="keyLabel" destination="89L-G9-Sy0" id="JcM-cJ-tH8"/>
+                                                    <outlet property="valueTextField" destination="Vvd-NJ-aEe" id="gM5-xf-pNq"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

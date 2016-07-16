@@ -71,6 +71,10 @@
                 oneParam.RULocale = tmp[@"translations"][@"1"];
                 oneParam.name = tmp[@"translations"][@"2"];
             }
+            if([tmp objectForKey:@"type"] != nil)
+            {
+                oneParam.type = tmp[@"type"];
+            }
             [realm beginWriteTransaction];
             [realm addOrUpdateObject:oneParam];
             [realm commitWriteTransaction];
