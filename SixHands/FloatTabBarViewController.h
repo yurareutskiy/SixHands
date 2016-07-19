@@ -14,4 +14,5 @@
 @property (strong, nonatomic) UIColor *tintItemColor;
 @property (assign, nonatomic) float railLineHeight;
 
+-(void)trigerTwo:(NSDictionary*) dict;
 @end

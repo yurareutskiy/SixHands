@@ -7,9 +7,11 @@
 //
 
 #import "ScrollFlatTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "FlatPhoto.h"
 
 @implementation ScrollFlatTableViewCell {
-    NSArray *pageImages;
+    NSMutableArray *pageImages;
     NSArray *pageViews;
     float pageWidth;
 }
@@ -32,11 +34,15 @@
     pageWidth = width;
     self.scroll.delegate = self;
     self.scroll.bounces = NO;
-    
-    pageImages = @[[UIImage imageNamed:@"kvartira"], [UIImage imageNamed:@"kvartira2"], [UIImage imageNamed:@"kvartira3"]];
-    
+    FlatPhoto* onePhoto = [FlatPhoto new];
+    pageImages = [[NSMutableArray alloc] init];
+    for (onePhoto in self.flat.photos)
+    {
+        NSLog(@"one url -%@",onePhoto.url);
+        [pageImages addObject:onePhoto.url];
+    }
     int pageCount = [pageImages count];
-    
+
 //    self.pageController.pageIndicatorTintColor = [UIColor whiteColor];
 //    self.pageController.currentPageIndicatorTintColor =
     self.pageController.currentPage = 0;
@@ -51,6 +57,7 @@
     self.scroll.contentSize = CGSizeMake(pageWidth * pageCount, 240);
     
     [self loadVisiblePages];
+    
 }
 
 - (void)loadVisiblePages {
@@ -90,9 +97,11 @@
         frame.size.height = pageWidth * 0.75;
         frame = CGRectInset(frame, 0.0, 0.0);
         
-        UIImageView *newPageView = [[UIImageView alloc] initWithImage:pageImages[page]];
+        UIImageView *newPageView = [[UIImageView alloc] init];
         newPageView.contentMode = UIViewContentModeScaleAspectFill;
         newPageView.frame = frame;
+        [newPageView sd_setImageWithURL:[NSURL URLWithString:[pageImages objectAtIndex:page]]
+                               placeholderImage:[UIImage imageNamed:@"loading.gif"]];
         [self.scroll addSubview:newPageView];
         NSMutableArray *muatbleViews = [NSMutableArray arrayWithArray:pageViews];
         muatbleViews[page] = newPageView;
@@ -114,7 +123,10 @@
     }
 
 }
-
+-(void)updatePages
+{
+    
+}
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self loadVisiblePages];
 }

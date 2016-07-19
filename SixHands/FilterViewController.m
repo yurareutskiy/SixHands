@@ -142,11 +142,14 @@
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(revealToggle:)];
     swipe.direction = UISwipeGestureRecognizerDirectionRight;
     [self.revealViewController.frontViewController.view addGestureRecognizer:swipe];
+    [self paramsToSend];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
+
+
 
 /*
 #pragma mark - Navigation
@@ -313,7 +316,52 @@
         [self.room setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
 }
+-(void)paramsToSend
+{
+    NSMutableDictionary* params = [[NSMutableDictionary alloc]init];
+    if(view1b)
+    {
+        [params setObject:@"YES" forKey:@"viewOne"];
+    }
+    if(view2b)
+    {
+        [params setObject:@"YES" forKey:@"viewTwo"];
+    }
+    if(view3b)
+    {
+          [params setObject:@"YES" forKey:@"viewThree"];
+    }
+    if(view4b)
+    {
+          [params setObject:@"YES" forKey:@"viewFour"];
+    }
+    if(aloneRoomb)
+    {
+          [params setObject:@"YES" forKey:@"aloneRoom"];
+    }
+    if(room1b)
+    {
+          [params setObject:@"YES" forKey:@"oneRoom"];
+    }
+    if(room2b)
+    {
+          [params setObject:@"YES" forKey:@"twoRoom"];
+    }
+    if(room3b)
+    {
+          [params setObject:@"YES" forKey:@"threeRoom"];
+    }
+    if(room4b)
+    {
+          [params setObject:@"YES" forKey:@"fourRoom"];
+    }
+    [params setObject:[[NSString alloc]initWithFormat:@"%f",[[self priceSlider] selectedMinimum]] forKey:@"priceMin"];
+    [params setObject:[[NSString alloc]initWithFormat:@"%f",[[self priceSlider] selectedMaximum]] forKey:@"priceMax"];
+    [params setObject:[[NSString alloc]initWithFormat:@"%f",[[self squareSlider] selectedMinimum]] forKey:@"squareMin"];
+    [params setObject:[[NSString alloc]initWithFormat:@"%f",[[self squareSlider] selectedMaximum]] forKey:@"squareMax"];
 
+    [[self revealViewController] triger:params];
+}
 - (IBAction)type:(UIButton *)sender {
 }
 

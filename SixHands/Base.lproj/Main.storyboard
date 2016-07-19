@@ -3300,12 +3300,14 @@
                     <size key="freeformSize" width="288" height="900"/>
                     <connections>
                         <outlet property="aloneRoom" destination="PdV-RJ-ICU" id="zs4-cI-uIP"/>
+                        <outlet property="priceSlider" destination="JTG-qc-kUL" id="ssD-aC-Df6"/>
                         <outlet property="room" destination="vTw-Fp-9iI" id="EGN-I8-Veb"/>
                         <outlet property="room1" destination="4lE-x4-ssd" id="M7v-xt-nxW"/>
                         <outlet property="room2" destination="Zdc-Xa-Ow0" id="4bR-CT-72i"/>
                         <outlet property="room3" destination="Xhe-D8-hgh" id="Kga-aa-2Qi"/>
                         <outlet property="room4" destination="8Oa-Mi-sdd" id="1xJ-Dn-7UH"/>
                         <outlet property="scrollView" destination="LqV-QS-JRt" id="U49-SJ-mGc"/>
+                        <outlet property="squareSlider" destination="xcB-4J-FUJ" id="3mU-41-wll"/>
                         <outlet property="view1" destination="BlG-zI-2ue" id="a81-BL-Xr1"/>
                         <outlet property="view2" destination="Xeg-8o-axx" id="mkd-ql-OFU"/>
                         <outlet property="view3" destination="s8J-mC-Wbp" id="iuw-d3-Tq5"/>

@@ -16,6 +16,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *view3;
 @property (strong, nonatomic) IBOutlet UIButton *view4;
 
+
+@property (weak, nonatomic) IBOutlet TTRangeSlider *squareSlider;
+@property (weak, nonatomic) IBOutlet TTRangeSlider *priceSlider;
+
 @property (strong, nonatomic) IBOutlet UIButton *aloneRoom;
 @property (strong, nonatomic) IBOutlet UIButton *room1;
 @property (strong, nonatomic) IBOutlet UIButton *room2;

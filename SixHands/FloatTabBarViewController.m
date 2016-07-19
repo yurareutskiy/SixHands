@@ -7,7 +7,7 @@
 //
 
 #import "FloatTabBarViewController.h"
-
+#import "ListViewController.h"
 @interface FloatTabBarViewController ()
 
 @property (strong, nonatomic) UIView *itemLine;
@@ -90,6 +90,14 @@
     } completion:nil];
 }
 
+-(void)trigerTwo:(NSDictionary*) dict
+{
+    NSLog(@"trigerTwo - %@",dict);
+    UINavigationController* vc = (UINavigationController*) [self.viewControllers objectAtIndex:0];
+    [(ListViewController*)[[vc childViewControllers] firstObject] trigerThree:dict];
+
+//    [(ListViewController*)[self.viewControllers objectAtIndex:3] trigerThree:dict];
+}
 
 /*
 #pragma mark - Navigation

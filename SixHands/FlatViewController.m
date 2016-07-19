@@ -142,16 +142,20 @@
 
     if (indexPath.row == 0) {
         NSString *CellIdentifier = @"ScrollCell";
-        cell = (ScrollFlatTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        ScrollFlatTableViewCell* cell = (ScrollFlatTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         if (cell==nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell = [[ScrollFlatTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         float width = self.view.frame.size.width;
+        cell.flat = self.flat;
         [(ScrollFlatTableViewCell*)cell setScrollViewWithWidth:width];
+       
+        NSLog(@"VLAD - %@",cell.flat.address);
         if(dict1[@"30"])
             ((ScrollFlatTableViewCell*)cell).priceLabel.text = [((ScrollFlatTableViewCell*)cell) formattedStringWithPrice:dict1[@"30"]];
         else
            ((ScrollFlatTableViewCell*)cell).priceLabel.text = @"No price";
+        return cell;
     } else if (indexPath.row == 1) {
         NSString *CellIdentifier = @"GeneralDescriptionCell";
         cell = (GeneralDescriptionTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];        if (cell==nil) {

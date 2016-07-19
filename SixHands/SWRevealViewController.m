@@ -27,7 +27,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "SWRevealViewController.h"
-
+#import "FloatTabBarViewController.h"
 
 #pragma mark - StatusBar Helper Function
 
@@ -944,15 +944,21 @@ const int FrontViewPositionNone = 0xff;
 
 
 #pragma mark - Provided acction methods
-
+-(void)triger:(NSDictionary*) dict
+{
+    NSLog(@"trigerOne - %@",dict);
+    [(FloatTabBarViewController*)self.frontViewController trigerTwo:dict];
+    
+}
 - (IBAction)revealToggle:(id)sender
-{    
+{
+    
     [self revealToggleAnimated:YES];
 }
 
 
 - (IBAction)rightRevealToggle:(id)sender
-{    
+{
     [self rightRevealToggleAnimated:YES];
 }
 
@@ -1191,6 +1197,7 @@ const int FrontViewPositionNone = 0xff;
 
 - (void)_handleTapGesture:(UITapGestureRecognizer *)recognizer
 {
+    NSLog(@"tap");
     NSTimeInterval duration = _toggleAnimationDuration;
     [self _setFrontViewPosition:FrontViewPositionLeft withDuration:duration];
 }
@@ -1214,6 +1221,7 @@ const int FrontViewPositionNone = 0xff;
             
         case UIGestureRecognizerStateCancelled:
         //case UIGestureRecognizerStateFailed:
+            
             [self _handleRevealGestureStateCancelledWithRecognizer:recognizer];
             break;
             
@@ -1274,7 +1282,7 @@ const int FrontViewPositionNone = 0xff;
     CGFloat xLocation = frontView.frame.origin.x;
     CGFloat velocity = [recognizer velocityInView:_contentView].x;
     
-    NSLog(@"%f", xLocation);
+    NSLog(@"translated - %f", xLocation);
     
     //NSLog( @"Velocity:%1.4f", velocity);
     
@@ -1851,6 +1859,7 @@ NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)perform
 {
+    NSLog(@"SEGUE?");
     SWRevealControllerOperation operation = SWRevealControllerOperationNone;
     
     NSString *identifier = self.identifier;
@@ -1879,6 +1888,7 @@ NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)perform
 {
+    NSLog(@"returned?");
     SWRevealViewController *rvc = [self.sourceViewController revealViewController];
     UIViewController *dvc = self.destinationViewController;
     [rvc pushFrontViewController:dvc animated:YES];

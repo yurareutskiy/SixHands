@@ -22,7 +22,8 @@
 @property (strong, nonatomic) IBOutlet UIView *viewPopular;
 @property (strong, nonatomic) IBOutlet UIView *viewFav;
 
-
+-(void)triger;
+-(void)trigerThree:(NSDictionary*) dict;
 - (UIColor*) checkColor:(NSString*) ID;
 - (IBAction)buttonNew:(UIButton *)sender;
 - (IBAction)popularButton:(UIButton *)sender;

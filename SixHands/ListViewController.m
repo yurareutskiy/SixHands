@@ -175,7 +175,10 @@
     }
     return color;
 }
-
+-(void)trigerThree:(NSDictionary*) dict
+{
+    NSLog(@"and here we are - %@",dict);
+}
 
 - (void)configureMenu {
     
@@ -199,7 +202,7 @@
     
 }
 - (void) viewDidAppear:(BOOL)animated{
-    NSLog(@"Appeard");
+    NSLog(@"Appeard with params");
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -210,7 +213,10 @@
     return UIStatusBarStyleLightContent;
 }
 
-
+-(void)triger
+{
+    
+}
 
 #pragma mark - Actions 
 
@@ -259,7 +265,6 @@
 
 #pragma mark - UITableViewDelegate
 
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -284,7 +289,6 @@
     }
     if([[self.source objectAtIndex:indexPath.item] undergroundColor])
     {
-        NSLog(@"COLOR?");
         cell.subway.lineColor = [self checkColor:[[self.source objectAtIndex:indexPath.item] undergroundColor]];
     }
     if([[self.source objectAtIndex:indexPath.item] undegroundName])
@@ -293,10 +297,8 @@
     }
     if([[[self.source objectAtIndex:indexPath.item] photos] firstObject])
     {
-    NSLog(@"Downloading image with url = %@",[[[[self.source objectAtIndex:indexPath.item] photos] firstObject] url]);
         [cell.flatFirstImage sd_setImageWithURL:[NSURL URLWithString:[[[[self.source objectAtIndex:indexPath.item] photos] firstObject] url]]
                           placeholderImage:[UIImage imageNamed:@"loading.gif"]];
-        
     }
     if([[self.source objectAtIndex:indexPath.item] address] != nil)
     {
@@ -326,7 +328,6 @@
             cell.favButton.alpha = 0.5;
         }
     }
-    NSLog(@"PARAMDIC - %@",paramsDict);
     if([paramsDict objectForKey:@"30"] != nil)
     {
         cell.price.text = [cell formattedStringWithPrice:[paramsDict objectForKey:@"30"]];
