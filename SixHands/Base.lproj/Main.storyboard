@@ -2629,7 +2629,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="5">
+                                                <state key="normal" title="5+">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="dark_gray">
@@ -2768,6 +2768,9 @@
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5QB-o2-y4R">
                                                             <rect key="frame" x="535" y="6" width="51" height="31"/>
                                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <connections>
+                                                                <action selector="switchaction:" destination="hgW-ZB-02P" eventType="valueChanged" id="g69-A1-B4T"/>
+                                                            </connections>
                                                         </switch>
                                                     </subviews>
                                                     <constraints>
@@ -2779,37 +2782,12 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="cellswitch" destination="5QB-o2-y4R" id="tyB-WJ-wrJ"/>
                                                     <outlet property="keyLabel" destination="fdh-AK-Ua8" id="M1B-F2-iWb"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="options_parameter" id="ag9-Lo-Oe4" customClass="ParameterTableViewCell">
-                                                <rect key="frame" x="0.0" y="116" width="600" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ag9-Lo-Oe4" id="OjF-RS-Nfu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Параметр" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmf-OT-bzG">
-                                                            <rect key="frame" x="8" y="11" width="81" height="21"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1AI-dK-4ri">
-                                                            <rect key="frame" x="452" y="-86" width="148" height="216"/>
-                                                        </pickerView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="lmf-OT-bzG" firstAttribute="centerY" secondItem="OjF-RS-Nfu" secondAttribute="centerY" id="ETb-8g-4AL"/>
-                                                        <constraint firstItem="lmf-OT-bzG" firstAttribute="leading" secondItem="OjF-RS-Nfu" secondAttribute="leadingMargin" constant="7" id="Ry0-Ic-zVg"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="keyLabel" destination="lmf-OT-bzG" id="7CK-e5-zPN"/>
-                                                </connections>
-                                            </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="int_parameter" id="m2b-9y-umU" customClass="ParameterTableViewCell">
-                                                <rect key="frame" x="0.0" y="160" width="600" height="44"/>
+                                                <rect key="frame" x="0.0" y="116" width="600" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m2b-9y-umU" id="3kl-f3-58m">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -2837,7 +2815,39 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="keyLabel" destination="89L-G9-Sy0" id="JcM-cJ-tH8"/>
-                                                    <outlet property="valueTextField" destination="Vvd-NJ-aEe" id="gM5-xf-pNq"/>
+                                                    <outlet property="valueTextField" destination="Vvd-NJ-aEe" id="CpF-1E-LZ7"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="options_parameter" id="xZ9-Gc-dsR" customClass="ParameterTableViewCell">
+                                                <rect key="frame" x="0.0" y="160" width="600" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xZ9-Gc-dsR" id="FRz-Bg-yqD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Параметр" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQ5-Ls-215">
+                                                            <rect key="frame" x="8" y="11" width="81" height="21"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ввести значение" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uxe-9L-lrn" customClass="ParamsTextField">
+                                                            <rect key="frame" x="97" y="7" width="487" height="30"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="uxe-9L-lrn" secondAttribute="trailing" constant="16" id="2Ax-3p-x4x"/>
+                                                        <constraint firstItem="NQ5-Ls-215" firstAttribute="leading" secondItem="FRz-Bg-yqD" secondAttribute="leadingMargin" constant="7" id="CLi-mX-AVe"/>
+                                                        <constraint firstItem="NQ5-Ls-215" firstAttribute="centerY" secondItem="FRz-Bg-yqD" secondAttribute="centerY" id="V2K-CR-cX8"/>
+                                                        <constraint firstItem="uxe-9L-lrn" firstAttribute="centerY" secondItem="NQ5-Ls-215" secondAttribute="centerY" id="V4C-N9-KMp"/>
+                                                        <constraint firstItem="uxe-9L-lrn" firstAttribute="leading" secondItem="NQ5-Ls-215" secondAttribute="trailing" constant="8" id="uQA-yW-55r"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="keyLabel" destination="NQ5-Ls-215" id="gKS-oB-Df4"/>
+                                                    <outlet property="optionsTextField" destination="uxe-9L-lrn" id="OOE-zX-Tox"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -2935,13 +2945,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-tM-u8C">
-                                <rect key="frame" x="196" y="90" width="208" height="20"/>
-                                <string key="text">155 000 руб./мес., без комиссии, без залога, агентам не звонить, 4-комнатная, на длительный срок, 150 м2, кухня 17 м2, жилая 85 м2, 4 этаж из 6, есть лоджия</string>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ввести цену" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yd6-QU-FlF">
                                 <rect key="frame" x="232" y="135" width="134" height="30"/>
                                 <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="19"/>
@@ -3038,30 +3041,37 @@
                                     <outlet property="delegate" destination="gE7-Bc-egs" id="878-oB-9xV"/>
                                 </connections>
                             </collectionView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Дополнительная информация" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9NV-55-Iuc">
+                                <rect key="frame" x="20" y="7" width="560" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="OLw-qW-g9g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pUT-6v-umh" firstAttribute="top" secondItem="e9e-tM-u8C" secondAttribute="bottom" constant="69" id="AnD-MQ-9vc"/>
-                            <constraint firstItem="e9e-tM-u8C" firstAttribute="centerX" secondItem="N3I-Rk-oCO" secondAttribute="centerX" id="DdW-3X-SMh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="e9e-tM-u8C" secondAttribute="trailing" constant="20" id="NFK-gM-Og6"/>
-                            <constraint firstItem="yd6-QU-FlF" firstAttribute="top" secondItem="e9e-tM-u8C" secondAttribute="bottom" constant="25" id="YTU-XV-2SK"/>
+                            <constraint firstItem="9NV-55-Iuc" firstAttribute="leading" secondItem="N3I-Rk-oCO" secondAttribute="leadingMargin" id="51s-Uo-Hea"/>
+                            <constraint firstItem="9NV-55-Iuc" firstAttribute="trailing" secondItem="N3I-Rk-oCO" secondAttribute="trailingMargin" id="FBM-qu-Ibi"/>
+                            <constraint firstItem="yd6-QU-FlF" firstAttribute="top" secondItem="9NV-55-Iuc" secondAttribute="bottom" constant="17" id="VtT-Jf-Bdw"/>
+                            <constraint firstItem="9NV-55-Iuc" firstAttribute="top" secondItem="otE-EY-kPf" secondAttribute="bottom" constant="50" id="X0U-ns-Ft0"/>
                             <constraint firstItem="ODk-b8-ooD" firstAttribute="top" secondItem="yd6-QU-FlF" secondAttribute="bottom" constant="2" id="aDD-m3-r06"/>
-                            <constraint firstItem="e9e-tM-u8C" firstAttribute="leading" secondItem="N3I-Rk-oCO" secondAttribute="leadingMargin" constant="20" id="jgY-dI-LUl"/>
                             <constraint firstItem="yd6-QU-FlF" firstAttribute="centerX" secondItem="N3I-Rk-oCO" secondAttribute="centerX" constant="-1" id="lQC-T8-4VJ"/>
-                            <constraint firstItem="e9e-tM-u8C" firstAttribute="top" secondItem="otE-EY-kPf" secondAttribute="bottom" constant="70" id="tVU-I7-HAl"/>
                             <constraint firstItem="ODk-b8-ooD" firstAttribute="width" secondItem="yd6-QU-FlF" secondAttribute="width" constant="20" id="vrp-uJ-cwk"/>
                             <constraint firstItem="ODk-b8-ooD" firstAttribute="centerX" secondItem="yd6-QU-FlF" secondAttribute="centerX" id="y0L-95-IRK"/>
                             <constraint firstItem="7ts-7Q-dXC" firstAttribute="top" secondItem="pUT-6v-umh" secondAttribute="bottom" id="zoD-ax-Xw1"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="AnD-MQ-9vc"/>
                                 <exclude reference="zoD-ax-Xw1"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="pUT-6v-umh" id="ydH-5U-DKu"/>
+                        <outlet property="dopInfoTextField" destination="9NV-55-Iuc" id="I2U-2F-zn5"/>
+                        <outlet property="priceTextField" destination="yd6-QU-FlF" id="AEa-WB-hjV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfQ-hR-WMP" userLabel="First Responder" sceneMemberID="firstResponder"/>

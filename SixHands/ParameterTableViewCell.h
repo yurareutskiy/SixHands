@@ -15,5 +15,6 @@
 @property NSString* ID;
 @property (weak, nonatomic) IBOutlet UILabel *keyLabel;
 @property  IBOutlet ParamsTextField *valueTextField;
-
+@property (weak, nonatomic) IBOutlet UISwitch *cellswitch;
+@property  IBOutlet ParamsTextField *optionsTextField;
 @end

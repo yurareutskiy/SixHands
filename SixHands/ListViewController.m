@@ -16,6 +16,7 @@
 #import "FlatPhoto.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UndergroundList.h"
+#import "Option.h"
 
 @interface ListViewController ()
 
@@ -24,6 +25,7 @@
 @property (strong, nonatomic) UIBarButtonItem *menuButton;
 @property (strong, nonatomic) SWRevealViewController *reveal;
 @property (strong, nonatomic) NSArray *source;
+@property (strong, nonatomic) NSMutableArray *array_with_options;
 
 @end
 
@@ -60,20 +62,29 @@
        
         NSString *key = [[NSString alloc] init];
         
-        for (key in result)
-        {
+        for (key in result) {
            
             Params *oneParam = [[Params alloc] init];
             oneParam.ID = key;
             NSDictionary *tmp = [result objectForKey:key];
-            if([tmp objectForKey:@"translations"] != nil)
-            {
+            if([tmp objectForKey:@"translations"] != nil) {
                 oneParam.RULocale = tmp[@"translations"][@"1"];
                 oneParam.name = tmp[@"translations"][@"2"];
             }
-            if([tmp objectForKey:@"type"] != nil)
-            {
+            if([tmp objectForKey:@"type"] != nil) {
                 oneParam.type = tmp[@"type"];
+            }
+            NSMutableArray *optionsRuArray = [[NSMutableArray alloc] init];
+            NSMutableArray *optionsEnArray = [[NSMutableArray alloc] init];
+            if ([tmp objectForKey:@"options"]) {
+                for (NSString *optionKey in [tmp objectForKey:@"options"]) {
+                    NSDictionary *namesDictionary = [[[tmp objectForKey:@"options"] objectForKey:optionKey] objectForKey:@"translations"];
+                    [optionsRuArray addObject:[namesDictionary objectForKey:@"1"]];
+                    [optionsEnArray addObject:[namesDictionary objectForKey:@"2"]];
+                }
+            
+            oneParam.ruOptions = [optionsRuArray componentsJoinedByString:@"||"];
+            oneParam.enOptions = [optionsEnArray componentsJoinedByString:@"||"];
             }
             [realm beginWriteTransaction];
             [realm addOrUpdateObject:oneParam];
@@ -85,8 +96,7 @@
     }];
 
     // Open the Realm with the configuration
-    
-    
+
     UISwipeGestureRecognizer *filterSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(rightRevealToggle:)];
     filterSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:filterSwipe];

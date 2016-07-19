@@ -18,7 +18,7 @@
 
 @end
 
-@interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface SecondScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 {
       ParamsTextField* activeField; // указывает на активный элемент ввода
 }
@@ -29,7 +29,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic, weak) id <SecondScrollViewControllerDelegate> delegate;
 @property Flat* flatToFill;
-
 - (IBAction)roomNumberAction:(id)sender;
 -(void)saveParams;
 - (IBAction)sliderChangeValue:(UISlider *)sender;
