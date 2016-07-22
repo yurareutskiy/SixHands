@@ -13,6 +13,7 @@
 #import "DescriptionTableViewCell.h"
 #import "ChatViewController.h"
 #import "Params.h"
+
 @interface FlatViewController ()
 @property (strong, nonatomic) NSArray *parameters;
 @end
@@ -42,12 +43,10 @@
                           format:NULL
                           error:NULL];
 
-    NSLog(@"DICTIONARY %@",dict);
        mutableArray  = [[NSMutableArray alloc]init];
         
         for (NSString *sub in dict)
         {
-            NSLog(@"SUB = %@",sub);
             [mutableArray addObject:sub];
         }
         for (NSString *key in mutableArray)
@@ -150,7 +149,6 @@
         cell.flat = self.flat;
         [(ScrollFlatTableViewCell*)cell setScrollViewWithWidth:width];
        
-        NSLog(@"VLAD - %@",cell.flat.address);
         if(dict1[@"30"])
             ((ScrollFlatTableViewCell*)cell).priceLabel.text = [((ScrollFlatTableViewCell*)cell) formattedStringWithPrice:dict1[@"30"]];
         else

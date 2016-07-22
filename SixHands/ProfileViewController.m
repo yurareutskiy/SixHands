@@ -10,10 +10,14 @@
 #import "ListTableViewCell.h"
 #import "SettingsViewController.h"
 #import "User.h"
+#import "Server.h"
+#import "Flat.h"
 #import "VKsdk.h"
+#import "Params.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "UndergroundList.h"
 
 static NSArray *SCOPE = nil;
 
@@ -58,7 +62,7 @@ static NSArray *SCOPE = nil;
 
 @property (strong, nonatomic) SettingsViewController *vc;
 @property (strong, nonatomic) UIView *blackoutView;
-
+@property (strong, nonatomic) NSArray *source;
 @end
 
 @implementation ProfileViewController
@@ -71,6 +75,7 @@ static NSArray *SCOPE = nil;
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSLog(@"IS VK - %@",[ud objectForKey:@"isVK"]);
     NSLog(@"IS FB - %@",[ud objectForKey:@"isFB"]);
+    [self test:1];
     self.table.delegate = self;
     self.table.dataSource = self;
     self.table.userInteractionEnabled = NO;
@@ -396,6 +401,59 @@ static NSArray *SCOPE = nil;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)test:(NSInteger)type {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *arrayToFill = [[NSMutableArray alloc] init];
+    NSDictionary *parameters = [[NSDictionary alloc] init];
+    NSString *url = @"flats/filter";
+    Server *server = [Server new];
+    parameters = @{@"sorting":@"last",@"offset":@"0",@"amount":@"100",@"parameters":@"[{\"key\":\"id_user\",\"value\":\"20\", \"criterion\":\"single\"}]"};
+    
+    ServerRequest *requestToGet = [ServerRequest initRequest:ServerRequestTypeGET With:parameters To:url];
+    [server sentToServer:requestToGet OnSuccess:^(NSDictionary *result) {
+        NSDictionary *keyinresult;
+        for (keyinresult in result) {
+            Flat *flatToFill= [Flat new];
+            flatToFill.address = [NSString stringWithFormat:@"%@ %@",keyinresult[@"street"],keyinresult[@"building"]];
+            flatToFill.latitude = keyinresult[@"latitude"];
+            flatToFill.longitude = keyinresult[@"longitude"];
+            flatToFill.createDate = keyinresult[@"create_date"];
+            flatToFill.updateDate = keyinresult[@"update_date"];
+            flatToFill.ID = keyinresult[@"id"];
+            NSDictionary *params = keyinresult[@"parameters"];
+            NSDictionary *key;
+            NSMutableDictionary *serializedParams = [NSMutableDictionary new];
+            
+            if(![[NSString stringWithFormat:@"%@",params] isEqual: @"<null>"])
+            {
+                serializedParams = params;
+                flatToFill.parameters = [NSString stringWithFormat:@"%@",serializedParams];
+            }
+            if(![[NSString stringWithFormat:@"%@",keyinresult[@"photos"]] isEqual: @"<null>"])
+            {
+                NSLog(@"pisya - %@",keyinresult[@"photos"]);
+                for(key in keyinresult[@"photos"])
+                {
+                    FlatPhoto *onePhoto = [FlatPhoto new];
+                    onePhoto.url = key[@"url"];
+                    onePhoto.selfdescription = key[@"description"];
+                    [flatToFill.photos addObject:onePhoto];
+                }
+            }
+            flatToFill.undegroundName = keyinresult[@"name_underground"];
+            NSPredicate *pred = [NSPredicate predicateWithFormat:@"name = %@",keyinresult[@"name_underground_line"]];
+            RLMResults<UndergroundList*> *toColor = [UndergroundList objectsWithPredicate:pred];
+            flatToFill.undergroundColor = toColor.firstObject.colorName;
+            [arrayToFill addObject:flatToFill];
+        }
+        self.source = arrayToFill;
+        [self.table reloadData];
+    }  OrFailure:^(NSError *error) {
+        
+    }];
+    
+    
+}
 
 @end
 

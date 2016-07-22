@@ -25,6 +25,7 @@
     switch (request.type) {
         case ServerRequestTypeGET: {
             [manager GET:url parameters:request.parameters progress:nil success:^(NSURLSessionTask *task, NSDictionary *responseObject) {
+                
                 NSLog(@"Code - %ld", (long)((NSHTTPURLResponse*)task.response).statusCode);
                 NSLog(@"JSON: %@", responseObject);
                 

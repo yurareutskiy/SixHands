@@ -149,13 +149,17 @@
                 serializedParams = params;
                 flatToFill.parameters = [NSString stringWithFormat:@"%@",serializedParams];
             }
-            for(key in keyinresult[@"photos"])
-            {
-                FlatPhoto *onePhoto = [FlatPhoto new];
-                onePhoto.url = key[@"url"];
-                onePhoto.selfdescription = key[@"description"];
-                [flatToFill.photos addObject:onePhoto];
-            }
+             if(![[NSString stringWithFormat:@"%@",keyinresult[@"photos"]] isEqual: @"<null>"])
+             {
+                 NSLog(@"pisya - %@",keyinresult[@"photos"]);
+                 for(key in keyinresult[@"photos"])
+                 {
+                     FlatPhoto *onePhoto = [FlatPhoto new];
+                     onePhoto.url = key[@"url"];
+                     onePhoto.selfdescription = key[@"description"];
+                     [flatToFill.photos addObject:onePhoto];
+                 }
+             }
             flatToFill.undegroundName = keyinresult[@"name_underground"];
             NSPredicate *pred = [NSPredicate predicateWithFormat:@"name = %@",keyinresult[@"name_underground_line"]];
              RLMResults<UndergroundList*> *toColor = [UndergroundList objectsWithPredicate:pred];

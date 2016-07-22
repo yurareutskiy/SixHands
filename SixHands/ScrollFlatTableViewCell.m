@@ -36,12 +36,20 @@
     self.scroll.bounces = NO;
     FlatPhoto* onePhoto = [FlatPhoto new];
     pageImages = [[NSMutableArray alloc] init];
-    for (onePhoto in self.flat.photos)
+    if(self.flat.photos.count == nil)
     {
-        NSLog(@"one url -%@",onePhoto.url);
-        [pageImages addObject:onePhoto.url];
+        [pageImages addObject:@"404"];
     }
-    int pageCount = [pageImages count];
+    else
+    {
+        for (onePhoto in self.flat.photos)
+        {
+            NSLog(@"one url -%@",onePhoto.url);
+            [pageImages addObject:onePhoto.url];
+        }
+
+    }
+        int pageCount = [pageImages count];
 
 //    self.pageController.pageIndicatorTintColor = [UIColor whiteColor];
 //    self.pageController.currentPageIndicatorTintColor =
@@ -87,7 +95,7 @@
     if (page < 0 || page > [pageImages count]) {
         return;
     }
-    
+//    NSLog(@"cnt - %@",pageViews.count);
     if (((UIImageView*)pageViews[page]).image) {
         
     } else {
