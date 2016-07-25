@@ -304,4 +304,9 @@ static NSArray *SCOPE = nil;
     UIGraphicsEndImageContext();
     return newImage;
 }
+
+- (IBAction)skipButtonAction:(UIButton *)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"toCUTVERSION" sender:self];
+}
 @end

@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) Flat* flatToFill;
-@property (weak, nonatomic) IBOutlet UITextField *dopInfoTextField;
+@property (weak, nonatomic) IBOutlet UITextView *dopInfoTextView;
 - (IBAction)deletePhoto:(UIButton*)sender;
 //@property (weak, nonatomic) IBOutlet UIButton *closeAction;
 - (IBAction)addPhoto:(UIButton*)sender;

@@ -29,16 +29,16 @@
                              didFinishLaunchingWithOptions:launchOptions];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSLog(@"USER DEF%@",[ud objectForKey:@"isLogined"]);
-    if([ud objectForKey:@"isLogined"])
-    {
-        NSLog(@"HERE");
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        LoginViewController *viewController = (LoginViewController *) [storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
-//        UIViewController *vc = [[UINavigationController alloc]initWithRootViewController:[[UIViewController alloc] initWithNibName:@"SWRevealViewController" bundle:nil]];
-        self.window.rootViewController = viewController;
-        [self.window makeKeyAndVisible];
-        return YES;
-    }
+//    if([ud objectForKey:@"isLogined"])
+//    {
+//        NSLog(@"HERE");
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        LoginViewController *viewController = (LoginViewController *) [storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
+////        UIViewController *vc = [[UINavigationController alloc]initWithRootViewController:[[UIViewController alloc] initWithNibName:@"SWRevealViewController" bundle:nil]];
+//        self.window.rootViewController = viewController;
+//        [self.window makeKeyAndVisible];
+//        return YES;
+//    }
     
     
     

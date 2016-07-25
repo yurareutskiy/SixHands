@@ -49,6 +49,11 @@
 		3AF845E11C65E48200F1707C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF845E01C65E48200F1707C /* ListViewController.m */; };
 		55A9ADFB1D302456003F71B2 /* OnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A9ADFA1D302456003F71B2 /* OnboardingViewController.m */; };
 		55A9ADFE1D3034A4003F71B2 /* OnboardingScrollItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A9ADFD1D3034A4003F71B2 /* OnboardingScrollItem.m */; };
+		55FA2DC01D461C9600B5405A /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FA2DBF1D461C9600B5405A /* InitialViewController.m */; };
+		55FA2DC61D466E3E00B5405A /* CUTVERSION_FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FA2DC51D466E3E00B5405A /* CUTVERSION_FilterViewController.m */; };
+		55FA2DC91D466F4800B5405A /* CUTVERSION_SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FA2DC81D466F4800B5405A /* CUTVERSION_SWRevealViewController.m */; };
+		55FA2DCC1D4681FE00B5405A /* CUTVERSION_FloatTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FA2DCB1D4681FE00B5405A /* CUTVERSION_FloatTabBarViewController.m */; };
+		55FA2DD11D46840F00B5405A /* CUTVERSION_ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FA2DD01D46840F00B5405A /* CUTVERSION_ListViewController.m */; };
 		B1A8E0661C9704B5008F4701 /* LeanMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */; };
 		B1A8E0691C971376008F4701 /* NSUserDefaults+DemoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E0681C971376008F4701 /* NSUserDefaults+DemoSettings.m */; };
 		B20785FB1D00B85B00A14E89 /* Params.m in Sources */ = {isa = PBXBuildFile; fileRef = B20785FA1D00B85B00A14E89 /* Params.m */; };
@@ -200,6 +205,16 @@
 		55A9ADFA1D302456003F71B2 /* OnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnboardingViewController.m; sourceTree = "<group>"; };
 		55A9ADFC1D303482003F71B2 /* OnboardingScrollItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnboardingScrollItem.h; sourceTree = "<group>"; };
 		55A9ADFD1D3034A4003F71B2 /* OnboardingScrollItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnboardingScrollItem.m; sourceTree = "<group>"; };
+		55FA2DBF1D461C9600B5405A /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		55FA2DC11D461EF600B5405A /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		55FA2DC41D466E1900B5405A /* CUTVERSION_FilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUTVERSION_FilterViewController.h; sourceTree = "<group>"; };
+		55FA2DC51D466E3E00B5405A /* CUTVERSION_FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUTVERSION_FilterViewController.m; sourceTree = "<group>"; };
+		55FA2DC71D466F2A00B5405A /* CUTVERSION_SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUTVERSION_SWRevealViewController.h; sourceTree = "<group>"; };
+		55FA2DC81D466F4800B5405A /* CUTVERSION_SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUTVERSION_SWRevealViewController.m; sourceTree = "<group>"; };
+		55FA2DCB1D4681FE00B5405A /* CUTVERSION_FloatTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUTVERSION_FloatTabBarViewController.m; sourceTree = "<group>"; };
+		55FA2DCD1D46823400B5405A /* CUTVERSION_FloatTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUTVERSION_FloatTabBarViewController.h; sourceTree = "<group>"; };
+		55FA2DCF1D4683CC00B5405A /* CUTVERSION_ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUTVERSION_ListViewController.h; sourceTree = "<group>"; };
+		55FA2DD01D46840F00B5405A /* CUTVERSION_ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUTVERSION_ListViewController.m; sourceTree = "<group>"; };
 		6142F7517EE53A4EA4AF72D6 /* Pods-SixHands.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SixHands.release.xcconfig"; path = "Pods/Target Support Files/Pods-SixHands/Pods-SixHands.release.xcconfig"; sourceTree = "<group>"; };
 		B1A8E0641C9704B5008F4701 /* LeanMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeanMessageManager.h; sourceTree = "<group>"; };
 		B1A8E0651C9704B5008F4701 /* LeanMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeanMessageManager.m; sourceTree = "<group>"; };
@@ -481,6 +496,55 @@
 			name = Onboarding;
 			sourceTree = "<group>";
 		};
+		55FA2DBD1D461C2D00B5405A /* Initial */ = {
+			isa = PBXGroup;
+			children = (
+				55FA2DC11D461EF600B5405A /* InitialViewController.h */,
+				55FA2DBF1D461C9600B5405A /* InitialViewController.m */,
+			);
+			name = Initial;
+			sourceTree = "<group>";
+		};
+		55FA2DC21D466D9200B5405A /* CUTVERSION */ = {
+			isa = PBXGroup;
+			children = (
+				55FA2DCE1D46838D00B5405A /* List */,
+				55FA2DCA1D4681B200B5405A /* Navigation Controller */,
+				55FA2DC31D466DC900B5405A /* Menu */,
+				55FA2DBD1D461C2D00B5405A /* Initial */,
+			);
+			name = CUTVERSION;
+			sourceTree = "<group>";
+		};
+		55FA2DC31D466DC900B5405A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				55FA2DC41D466E1900B5405A /* CUTVERSION_FilterViewController.h */,
+				55FA2DC51D466E3E00B5405A /* CUTVERSION_FilterViewController.m */,
+				55FA2DC71D466F2A00B5405A /* CUTVERSION_SWRevealViewController.h */,
+				55FA2DC81D466F4800B5405A /* CUTVERSION_SWRevealViewController.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		55FA2DCA1D4681B200B5405A /* Navigation Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55FA2DCD1D46823400B5405A /* CUTVERSION_FloatTabBarViewController.h */,
+				55FA2DCB1D4681FE00B5405A /* CUTVERSION_FloatTabBarViewController.m */,
+			);
+			name = "Navigation Controller";
+			sourceTree = "<group>";
+		};
+		55FA2DCE1D46838D00B5405A /* List */ = {
+			isa = PBXGroup;
+			children = (
+				55FA2DCF1D4683CC00B5405A /* CUTVERSION_ListViewController.h */,
+				55FA2DD01D46840F00B5405A /* CUTVERSION_ListViewController.m */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
 		6F1686D7F7928841B9689BC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,6 +682,7 @@
 		DB4951FC1C5FBB4700745228 /* SixHands */ = {
 			isa = PBXGroup;
 			children = (
+				55FA2DC21D466D9200B5405A /* CUTVERSION */,
 				B266D97E1D36676B00244C8D /* loading.gif */,
 				B2F079141D31858400F05C12 /* Realm */,
 				DB3ED3C81C68E35700576E62 /* Controllers */,
@@ -926,9 +991,11 @@
 			files = (
 				DB2D45611C6B848000151B2F /* InfoTableViewCell.m in Sources */,
 				B1A8E0691C971376008F4701 /* NSUserDefaults+DemoSettings.m in Sources */,
+				55FA2DC61D466E3E00B5405A /* CUTVERSION_FilterViewController.m in Sources */,
 				DBBE4DAD1C74DC0A002BB273 /* MVPlaceSearchTextField.m in Sources */,
 				3A8A7EB71C66A836005946C0 /* SHSFlagAccessoryView.m in Sources */,
 				DB608E221C6F7EB8007D33CB /* FirstScrollViewController.m in Sources */,
+				55FA2DD11D46840F00B5405A /* CUTVERSION_ListViewController.m in Sources */,
 				DB745A3F1C7C5B6B00082134 /* Users+CoreDataProperties.m in Sources */,
 				DB2179E01C753790001BF4C1 /* PhotoCollectionViewCell.m in Sources */,
 				B25361561CFF85FC007F8F68 /* Flat.m in Sources */,
@@ -939,8 +1006,10 @@
 				DB2D455E1C6B679F00151B2F /* GeneralDescriptionTableViewCell.m in Sources */,
 				3A8A7EBE1C6747AF005946C0 /* ListTableViewCell.m in Sources */,
 				DB745A3C1C7C5B6B00082134 /* Messages.m in Sources */,
+				55FA2DC01D461C9600B5405A /* InitialViewController.m in Sources */,
 				3A8A7EBA1C66A836005946C0 /* SHSPhoneNumberFormatter+UserConfig.m in Sources */,
 				3A3F9F711C661FB200E5E8AC /* GDefaultClusterRenderer.m in Sources */,
+				55FA2DCC1D4681FE00B5405A /* CUTVERSION_FloatTabBarViewController.m in Sources */,
 				DB745A421C7C5B6B00082134 /* Filter.m in Sources */,
 				DBBE4DAB1C74DC0A002BB273 /* MLPAutoCompleteTextField.m in Sources */,
 				DBBE4DAF1C74DC0A002BB273 /* PlaceObject.m in Sources */,
@@ -991,6 +1060,7 @@
 				DB745A411C7C5B6B00082134 /* Filter+CoreDataProperties.m in Sources */,
 				3A3F9F7D1C661FC700E5E8AC /* GQTPointQuadTreeChild.m in Sources */,
 				3ADF01601C61261F00890117 /* MessViewController.m in Sources */,
+				55FA2DC91D466F4800B5405A /* CUTVERSION_SWRevealViewController.m in Sources */,
 				DB9FE4A61C6F616B00DD27F5 /* TempViewController.m in Sources */,
 				B2F079171D31859E00F05C12 /* FavouriteFlats.m in Sources */,
 				DB745A261C7C55D500082134 /* ServerRequest.m in Sources */,
@@ -1124,7 +1194,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rgradestd.SixHands;
+				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
@@ -1149,7 +1219,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rgradestd.SixHands;
+				PRODUCT_BUNDLE_IDENTIFIER = com.reutskiy.SixHands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;

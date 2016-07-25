@@ -24,7 +24,9 @@
     photoArray = [[NSMutableArray alloc]init];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    
+    self.dopInfoTextView.layer.borderWidth = 1.0f;
+    self.dopInfoTextView.layer.cornerRadius = 8;
+    self.dopInfoTextView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.view addGestureRecognizer:tap];
     
